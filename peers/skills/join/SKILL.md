@@ -97,6 +97,8 @@ Read your model afresh from your harness's record of your own replies each time 
 Read facts about yourself by any robust means; never state a fact no check gave you.
 
 Use the peers plugin's `peers-facts` script as one such means: given a directory, the current one by default, it prints the stamp, host, harness, model, session id, login, checkout, branch, project, project name, declared manifesto stack, and root for it; never run it on a directory other than your working checkout when you fill your card.
+
+Use the peers plugin's `peers-card` script as one means to refresh your card: given your harness-ref and card path, it rewrites the card's existing `harness`, `address`, `machine`, `login`, `model`, `checkout`, `branch`, and `updated` lines from `peers-facts` and leaves every other line as you wrote it; never count a line it leaves as checked.
 </stand-on-checked-facts>
 
 <map-the-seams-to-claude-code>
@@ -105,6 +107,8 @@ Run presence on Claude Code as ListAgents, which lists every live session on thi
 Write a Claude Code address as `claude-code://<host>/<ref>`, with the host from `scutil --get LocalHostName` on macOS, from `hostname -s` elsewhere, and the ref from ListAgents; never write it in another form.
 
 Run delivery on Claude Code as SendMessage to the session's name, read from ListAgents in the sending turn, appending ` [<ref>]` where two sessions share the name; never send to a bare ref, which SendMessage rejects.
+
+Use the peers plugin's PreToolUse hook on SendMessage as one means to stamp: it stamps a tagged message carrying no `sent` stamp from the clock at send time, appending ` · sent <stamp>` to a second line opening `reply:`, else inserting `sent <stamp>` after the first line; never write a `sent` stamp yourself without a clock read in that turn.
 
 Read the plugin's SessionStart hook line on Claude Code as the harness's join prompt at startup, resume, clear, fork, and compaction, printed while `<root>` exists; never read its absence as proof that no society exists.
 
