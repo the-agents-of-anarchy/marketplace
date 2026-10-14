@@ -1,0 +1,137 @@
+#!/usr/bin/env bash
+set -u
+
+readonly EXIT_BAD_INPUT=2
+readonly DIFF_FOUND=1
+readonly REF_PATTERN='^[0123456789abcdef]{6}$'
+readonly FACT_KEYS=(harness address login model checkout branch updated)
+DRY_RUN=0
+NAME=""
+readonly FACTS_SCRIPT="$(cd "$(dirname "$0")" && pwd)/peers-facts"
+
+fail() {
+  echo "error: $1" >&2
+  exit $EXIT_BAD_INPUT
+}
+
+require_card_file() {
+  [ -f "$1" ] || fail "$1 is not a card file"
+}
+
+require_ref() {
+  [ -n "${REF+set}" ] || fail "--ref <6hex> is required"
+  [[ $REF =~ $REF_PATTERN ]] || fail "ref '$REF' is not six lowercase hex characters"
+}
+
+fact_of() {
+  printf '%s\n' "$2" | sed -n "s/^$1: //p" | head -1
+}
+
+echo_if_present() {
+  [ -n "$2" ] && echo "$1: $2"
+}
+
+fact_updates() {
+  local facts=$1 ref=$2 name=$3 key host harness
+  host=$(fact_of host "$facts")
+  harness=$(fact_of harness "$facts")
+  echo_if_present name "$name"
+  for key in harness login model checkout branch; do
+    echo_if_present "$key" "$(fact_of "$key" "$facts")"
+  done
+  [ "$harness" = claude-code ] && echo_if_present address "${host:+claude-code://$host/$ref}"
+  echo_if_present updated "$(fact_of stamp "$facts")"
+}
+
+report_unrefreshed() {
+  local updates=$1 key
+  for key in "${FACT_KEYS[@]}"; do
+    printf '%s\n' "$updates" | grep -q "^$key: " || echo "warning: $key not refreshed: no checked fact" >&2
+  done
+}
+
+report_unplaced() {
+  local updates=$1 card=$2 key
+  for key in "${FACT_KEYS[@]}" name; do
+    printf '%s\n' "$updates" | grep -q "^$key: " || continue
+    grep -q "^$key:" "$card" || echo "note: card has no $key line; not added" >&2
+  done
+}
+
+apply_updates() {
+  local updates=$1 card=$2 final_newline=1
+  [ -n "$(tail -c1 "$card")" ] && final_newline=0
+  UPDATES="$updates" FINAL_NEWLINE=$final_newline awk '
+    BEGIN {
+      count = split(ENVIRON["UPDATES"], pairs, "\n")
+      for (i = 1; i <= count; i++) {
+        key = pairs[i]
+        sub(/: .*/, "", key)
+        replacement[key] = pairs[i]
+      }
+    }
+    {
+      key = ""
+      if (match($0, /^[A-Za-z_][A-Za-z0-9_]*:/)) key = substr($0, 1, RLENGTH - 1)
+      out = (key in replacement) ? replacement[key] : $0
+      if (NR > 1) printf "\n"
+      printf "%s", out
+    }
+    END {
+      if (NR > 0 && ENVIRON["FINAL_NEWLINE"] == 1) printf "\n"
+    }
+  ' "$card"
+}
+
+usage() {
+  echo "usage: peers-card [--dry-run] [--name <name>] --ref <6hex> <card-path>"
+}
+
+parse_arguments() {
+  while [ $# -gt 0 ]; do
+    case $1 in
+      -h|--help) usage; exit 0 ;;
+      --dry-run) DRY_RUN=1; shift ;;
+      --name|--ref)
+        [ $# -ge 2 ] || fail "$1 needs a value"
+        if [ "$1" = --name ]; then
+          [ -n "$2" ] || fail "--name needs a value"
+          NAME=$2
+        else
+          REF=$2
+        fi
+        shift 2 ;;
+      -*) fail "unknown option $1" ;;
+      *)
+        [ -z "${CARD_PATH+set}" ] || fail "more than one card path"
+        CARD_PATH=$1
+        shift ;;
+    esac
+  done
+  [ -n "${CARD_PATH+set}" ] || fail "card path is required"
+}
+
+print_changes() {
+  diff -u --label "$1" --label "$1 (refreshed)" "$1" "$2"
+}
+
+main() {
+  local card facts updates refreshed differs
+  parse_arguments "$@"
+  card=$CARD_PATH
+  require_card_file "$card"
+  require_ref
+  facts=$("$FACTS_SCRIPT")
+  updates=$(fact_updates "$facts" "$REF" "$NAME")
+  report_unrefreshed "$updates"
+  report_unplaced "$updates" "$card"
+  refreshed=$(mktemp)
+  apply_updates "$updates" "$card" > "$refreshed"
+  print_changes "$card" "$refreshed"
+  differs=$?
+  [ $differs = $DIFF_FOUND ] && [ $DRY_RUN = 0 ] && cat "$refreshed" > "$card"
+  rm -f "$refreshed"
+  exit 0
+}
+
+main "$@"
