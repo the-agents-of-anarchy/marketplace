@@ -118,7 +118,7 @@ Send one `[notice]` naming the old path and `<root>` to every live peer once you
 
 Send the scribe `[notice] protocol: two roots` when the old root and `<root>` are both real directories; never merge them yourself.
 
-Carry your own protocol-8 card `<root>/<ref>.md` into `<root>/members/<member>.md`, replacing `ref` and `prior_refs` with `member`, `role`, `harness`, and `address`; never carry another session's card.
+Carry your own protocol-8 card `<root>/<ref>.md` into `<root>/members/<member>.md`, replacing `ref` and `prior_refs` with `member`, `harness`, and `address`; never carry another session's card.
 
 Move that protocol-8 card into `<root>/departed/` once you carry it; never delete it.
 </move-from-the-old-root>
@@ -169,8 +169,6 @@ Keep your card true and current, as flat YAML with one `key: value` per line and
 Keep the card as session plumbing; never turn it into a project record.
 
 Carry `member`, your member id; never an address.
-
-Carry `role`, the role part of your member id; never a role your member id lacks.
 
 Carry `harness`, the harness running your body, such as `claude-code`; never a harness you do not run on.
 
