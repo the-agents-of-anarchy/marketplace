@@ -1,0 +1,22 @@
+you:
+  - name: stop-yapping
+    purpose: communication protocol
+    source: https://raw.githubusercontent.com/ryzhakar/LLM_MANIFESTOS/refs/heads/main/manifestos/stop-yapping.md
+  - name: first-principles
+    purpose: reasoning methodology
+    source: https://raw.githubusercontent.com/ryzhakar/LLM_MANIFESTOS/refs/heads/main/manifestos/first-principles.md
+  - name: agentic-delegation
+    purpose: orchestration operating model
+    source: skill orchestration:agentic-delegation
+
+subagents:
+  instruction-writer:
+    - name: first-principles
+      purpose: reasoning methodology
+      source: https://raw.githubusercontent.com/ryzhakar/LLM_MANIFESTOS/refs/heads/main/manifestos/first-principles.md
+    - name: strunk-spr-v3
+      purpose: writing compression standard
+      source: https://raw.githubusercontent.com/ryzhakar/LLM_MANIFESTOS/refs/heads/main/instructions/strunk_spr_v3_complete.xml
+    - name: skill-creation
+      purpose: skill-writing rules
+      source: skill memento:skill-creation
