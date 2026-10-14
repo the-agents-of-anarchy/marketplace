@@ -11,10 +11,13 @@ date '+stamp: %Y-%m-%dT%H:%M%z'
 date -u '+stamp_utc: %Y-%m-%dT%H:%MZ'
 if [ "$(uname -s 2>/dev/null)" = Darwin ]; then
   host=$(scutil --get LocalHostName 2>/dev/null)
+  machine=$(ioreg -rd1 -c IOPlatformExpertDevice 2>/dev/null | awk -F'"' '/"IOPlatformUUID"/ { print $4; exit }')
 else
   host=$(hostname -s 2>/dev/null)
+  machine=$(cat /etc/machine-id 2>/dev/null | head -1)
 fi
 [ -n "$host" ] && echo "host: $host"
+[ -n "$machine" ] && echo "machine: $machine"
 
 [ -n "${CLAUDECODE:-}" ] && echo "harness: claude-code"
 
