@@ -226,3 +226,8 @@ def test_project_name_is_main_repo_basename(home, tmp_path):
 
 def test_project_name_outside_git_is_cwd_basename(home, workdir):
     assert run(home, workdir)["project_name"] == workdir.name
+
+
+def test_host_is_short_hostname(home, workdir):
+    short = subprocess.run(["hostname", "-s"], capture_output=True, text=True).stdout.strip()
+    assert run(home, workdir)["host"] == short

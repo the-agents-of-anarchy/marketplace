@@ -56,9 +56,11 @@ Act as a member — a project's ongoing principal in one role, the same member a
 
 Name each member by its member id `<project_name>/<role>`, such as `claude-skills/scribe`, `<project_name>` being the base name of the member's `project` and `<role>` one to three lowercase hyphen-joined words naming its ongoing work there; never name a member by its address.
 
+Hold a member id unique within one society, the members sharing one root; never mint one another card in the root holds.
+
 Hold each concurrent session in one project as a separate member with its own role; never let two live sessions hold one member id.
 
-Reach a body at its address `<harness>:<harness-ref>`, the harness being the program that runs the session and the harness-ref the identifier that harness gives the session; never carry an address across a restart.
+Reach a body at its address `<harness>://<host>/<harness-ref>`, the harness being the program that runs the session, the host the machine it runs on, and the harness-ref the identifier that harness gives the session; never carry an address across a restart.
 
 Take presence — the harness function listing every live session it can see, each by address and name, in the state `busy` mid-turn, `idle` between turns, or `waiting` at a prompt for the owner — as the source of who is live; never take an address from memory.
 
@@ -86,13 +88,13 @@ Read your model afresh from your harness's record of your own replies each time 
 
 Read facts about yourself by any robust means; never state a fact no check gave you.
 
-Use the peers plugin's `peers-facts` script as one such means: given a directory, the current one by default, it prints the stamp, harness, model, session id, login, checkout, branch, project, project name, declared manifesto stack, and root for it; never run it on a directory other than your working checkout when you fill your card.
+Use the peers plugin's `peers-facts` script as one such means: given a directory, the current one by default, it prints the stamp, host, harness, model, session id, login, checkout, branch, project, project name, declared manifesto stack, and root for it; never run it on a directory other than your working checkout when you fill your card.
 </stand-on-checked-facts>
 
 <map-the-seams-to-claude-code>
 Run presence on Claude Code as ListAgents, which lists every live session on this machine across logins with its ref — six hex characters, kept across a rename and changed on restart — its name, and its state; never read presence another way.
 
-Write a Claude Code address as `claude-code:<ref>`, with the ref from ListAgents; never write it in another form.
+Write a Claude Code address as `claude-code://<host>/<ref>`, with the host from `hostname -s` and the ref from ListAgents; never write it in another form.
 
 Run delivery on Claude Code as SendMessage to the ref; never deliver another way.
 
@@ -466,7 +468,7 @@ Send a leave notice when the owner ends your session, to the peers it touches, n
 
 Move your own card into `<root>/departed/` as you leave; never delete it.
 
-Move another member's card into `<root>/departed/` once a leave notice named it, or once presence lacks its `address` and its `updated` is over 24 hours old, a protocol-8 card's address being `claude-code:<ref>`; never delete a card.
+Move another member's card into `<root>/departed/` once a leave notice named it, or once presence lacks its `address` and its `updated` is over 24 hours old, a protocol-8 card's address being `claude-code://<host>/<ref>` on this machine; never delete a card.
 
 Sweep a card whose `harness` your presence covers; never move a card your presence cannot see.
 

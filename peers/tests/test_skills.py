@@ -80,3 +80,15 @@ def test_old_root_named_only_in_the_join_skill():
         if path != JOIN:
             assert "claude-peers" not in path.read_text(), path
     assert "~/.local/share/claude-peers" in JOIN.read_text()
+
+
+def test_address_names_harness_host_and_ref():
+    text = JOIN.read_text()
+    assert "`<harness>://<host>/<harness-ref>`" in text
+    assert "`claude-code://<host>/<ref>`" in text
+    assert "`hostname -s`" in text
+    assert "claude-code:<ref>" not in text
+
+
+def test_member_id_unique_within_one_society():
+    assert "unique within one society" in JOIN.read_text()

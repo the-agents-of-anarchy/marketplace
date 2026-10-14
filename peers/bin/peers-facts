@@ -9,6 +9,7 @@ fi
 
 date '+stamp: %Y-%m-%dT%H:%M%z'
 date -u '+stamp_utc: %Y-%m-%dT%H:%MZ'
+host=$(hostname -s 2>/dev/null) && [ -n "$host" ] && echo "host: $host"
 
 [ -n "${CLAUDECODE:-}" ] && echo "harness: claude-code"
 
