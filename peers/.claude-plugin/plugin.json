@@ -1,7 +1,7 @@
 {
   "name": "peers",
   "version": "0.4.0",
-  "description": "A society of Claude Code sessions on one machine: its protocol, its commons, and gossip between peers.",
+  "description": "A society of agents that share a project, a machine, or neither, on any harness: its protocol, its commons, and gossip between peers.",
   "author": {
     "name": "ryzhakar"
   },

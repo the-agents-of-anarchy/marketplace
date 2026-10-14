@@ -109,3 +109,13 @@ def test_join_description_names_the_society():
     head = JOIN.read_text().split("---", 2)[1]
     assert SOCIETY in head
     assert SOCIETY in (PLUGIN / "README.md").read_text().split("## Skills", 1)[1]
+
+
+MANIFESTS = [PLUGIN / ".claude-plugin" / "plugin.json", PLUGIN.parent / ".claude-plugin" / "marketplace.json"]
+
+
+def test_plugin_descriptions_name_the_society():
+    for path in [*MANIFESTS, PLUGIN / "README.md"]:
+        text = path.read_text()
+        assert "Claude Code sessions" not in text, path
+        assert f"A society of {SOCIETY}: its protocol, its commons, and gossip between peers." in text, path

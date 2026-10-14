@@ -1,6 +1,6 @@
 # peers
 
-A society of Claude Code sessions on one machine: its protocol, its commons, and gossip between peers.
+A society of agents that share a project, a machine, or neither, on any harness: its protocol, its commons, and gossip between peers.
 
 `peers` `society` `gossip` `sessions` `knowledge-sharing` `network-effects` 
 
