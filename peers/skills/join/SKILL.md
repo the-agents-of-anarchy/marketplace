@@ -250,7 +250,9 @@ Send a session presence shows `waiting` nothing but `[hazard]` messages, holding
 
 Send a peer whose card reads `state: dormant` nothing but `[hazard]` messages, holding every other message until the card drops that state; never drop a held message.
 
-Append each message other than a `[hazard]` for a peer whose card carries `reads` to that peer's inbox `<root>/inbox/<member>.md` instead of delivering it; never deliver such a message.
+Append each message other than a `[hazard]` for a peer whose card carries `reads` to that peer's inbox `<root>/inbox/<member>.md` instead of delivering it, except as the next instructions require; never deliver such a message otherwise.
+
+Deliver an `[ask]` to such a peer when its `reply: by <time>` falls before the peer's next `reads` time; never append it to the inbox.
 
 Read your own inbox at each time your `reads` names, then empty it; never let a message in it pass that time unread.
 
