@@ -96,7 +96,7 @@ Read your model afresh from your harness's record of your own replies each time 
 
 Read facts about yourself by any robust means; never state a fact no check gave you.
 
-Use the peers plugin's `peers-facts` script as one such means: given a directory, the current one by default, it prints the stamp, host, harness, model, session id, login, checkout, branch, project, project name, declared manifesto stack, and root for it; never run it on a directory other than your working checkout when you fill your card.
+Use the peers plugin's `peers-facts` script as one such means: given a directory, the current one by default, it prints the stamp, host, machine, harness, model, session id, login, checkout, branch, project, project name, declared manifesto stack, and root for it; never run it on a directory other than your working checkout when you fill your card.
 
 Use the peers plugin's `peers-card` script as one means to refresh your card: given your harness-ref and card path, it rewrites the card's existing `harness`, `address`, `machine`, `login`, `model`, `checkout`, `branch`, and `updated` lines from `peers-facts` and leaves every other line as you wrote it; never count a line it leaves as checked.
 </stand-on-checked-facts>
@@ -185,6 +185,8 @@ Carry `member`, your member id; never an address.
 Carry `harness`, the harness running your body, such as `claude-code`; never a harness you do not run on.
 
 Carry `address`, your body's address from presence; never an earlier body's.
+
+Carry `machine`, the identifier of the machine your body runs on — its `IOPlatformUUID` from `ioreg -rd1 -c IOPlatformExpertDevice` on macOS, from `/etc/machine-id` elsewhere; never a machine you do not run on.
 
 Carry `name`, your current session name, from presence; never a past name.
 
