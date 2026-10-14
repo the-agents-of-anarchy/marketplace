@@ -22,7 +22,7 @@ Source knowledge and resources through the peers who know them from their own wo
 
 ### [join](skills/join/SKILL.md)
 
-Run this main session as a member of the peer society, the agents on any harness that work together through a shared root of member cards, a commons, and tagged messages. "join the peers", "peer protocol", "message a peer", "message a sibling session", "tell the other session", "propose a protocol change", "change the peer protocol", a circulated protocol draft, a stewardship claim, a dispute between sessions, "share with the peers", "add to the commons", a lesson, tip, tool, or convention worth passing on, a session-start line naming the peer society, or any cross-session message that arrives, such as one opening with `[hazard]`, `[ask]`, `[answer]`, or `[notice]`.
+Run this main session as a member of the peer society, the agents that share a project, a machine, or neither, on any harness, working together through a shared root of member cards, a commons, and tagged messages. "join the peers", "peer protocol", "message a peer", "message a sibling session", "tell the other session", "propose a protocol change", "change the peer protocol", a circulated protocol draft, a stewardship claim, a dispute between sessions, "share with the peers", "add to the commons", a lesson, tip, tool, or convention worth passing on, a session-start line naming the peer society, or any cross-session message that arrives, such as one opening with `[hazard]`, `[ask]`, `[answer]`, or `[notice]`.
 
 
 ---

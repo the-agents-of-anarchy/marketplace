@@ -100,3 +100,12 @@ def test_protocol_stewardship_is_named_protocol():
     text = JOIN.read_text()
     assert "peer-protocol" not in text
     assert "`stewards` lists `protocol`" in text
+
+
+SOCIETY = "agents that share a project, a machine, or neither, on any harness"
+
+
+def test_join_description_names_the_society():
+    head = JOIN.read_text().split("---", 2)[1]
+    assert SOCIETY in head
+    assert SOCIETY in (PLUGIN / "README.md").read_text().split("## Skills", 1)[1]
