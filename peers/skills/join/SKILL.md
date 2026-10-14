@@ -96,7 +96,7 @@ Run presence on Claude Code as ListAgents, which lists every live session on thi
 
 Write a Claude Code address as `claude-code://<host>/<ref>`, with the host from `scutil --get LocalHostName` on macOS, from `hostname -s` elsewhere, and the ref from ListAgents; never write it in another form.
 
-Run delivery on Claude Code as SendMessage to the session's name from ListAgents, appending ` [<ref>]` where two sessions share the name; never send to a bare ref, which SendMessage rejects.
+Run delivery on Claude Code as SendMessage to the session's name, read from ListAgents in the sending turn, appending ` [<ref>]` where two sessions share the name; never send to a bare ref, which SendMessage rejects.
 
 Read the plugin's SessionStart hook line on Claude Code as the harness's join prompt at startup, resume, clear, fork, and compaction, printed while `<root>` exists; never read its absence as proof that no society exists.
 
