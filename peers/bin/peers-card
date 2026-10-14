@@ -4,7 +4,7 @@ set -u
 readonly EXIT_BAD_INPUT=2
 readonly DIFF_FOUND=1
 readonly REF_PATTERN='^[0123456789abcdef]{6}$'
-readonly FACT_KEYS=(harness address login model checkout branch updated)
+readonly FACT_KEYS=(harness address machine login model checkout branch updated)
 DRY_RUN=0
 NAME=""
 readonly FACTS_SCRIPT="$(cd "$(dirname "$0")" && pwd)/peers-facts"
@@ -36,7 +36,7 @@ fact_updates() {
   host=$(fact_of host "$facts")
   harness=$(fact_of harness "$facts")
   echo_if_present name "$name"
-  for key in harness login model checkout branch; do
+  for key in harness machine login model checkout branch; do
     echo_if_present "$key" "$(fact_of "$key" "$facts")"
   done
   [ "$harness" = claude-code ] && echo_if_present address "${host:+claude-code://$host/$ref}"

@@ -10,11 +10,14 @@ REF = "abc123"
 HOST = "testhost"
 SESSION_ID = "11111111-2222-3333-4444-555555555555"
 MODEL = "claude-real-model"
+MACHINE = "146230E0-7EC6-5ACB-BAE9-C4F6A07683C9"
+IOREG_STUB = f"#!/bin/sh\necho '    \"IOPlatformUUID\" = \"{MACHINE}\"'\n"
 
 CARD = """\
 member: demo/tester
 harness: stale-harness
 address: claude-code://oldhost/aaaaaa
+machine: old-machine
 name: old-name
 project: /old/project
 checkout: /old/checkout
@@ -67,7 +70,7 @@ def run_card(home, repo, stub_path, fixed_clock, transcript):
     def run(*args, cwd=None, **env_extra):
         env = {
             "PATH": stub_path(date=fixed_clock.date_script, uname="#!/bin/sh\necho Darwin\n",
-                              scutil=f"#!/bin/sh\necho {HOST}\n"),
+                              scutil=f"#!/bin/sh\necho {HOST}\n", ioreg=IOREG_STUB),
             "HOME": str(home),
             "GIT_CONFIG_GLOBAL": "/dev/null",
             "GIT_CONFIG_SYSTEM": "/dev/null",
@@ -95,10 +98,11 @@ def test_address_names_the_host_and_the_ref(run_card, card):
     assert lines_of(card)["address"] == f"claude-code://{HOST}/{REF}"
 
 
-@pytest.mark.parametrize("key", ["harness", "login", "model", "checkout", "branch"])
+@pytest.mark.parametrize("key", ["harness", "machine", "login", "model", "checkout", "branch"])
 def test_checked_facts_replace_their_card_lines(run_card, card, home, repo, key):
     expected = {
         "harness": "claude-code",
+        "machine": MACHINE,
         "login": str(home / ".claude"),
         "model": MODEL,
         "checkout": str(repo.resolve()),
@@ -108,7 +112,7 @@ def test_checked_facts_replace_their_card_lines(run_card, card, home, repo, key)
     assert lines_of(card)[key] == expected[key]
 
 
-FACT_KEYS = ("harness", "address", "login", "model", "checkout", "branch", "updated")
+FACT_KEYS = ("harness", "address", "machine", "login", "model", "checkout", "branch", "updated")
 UNFINISHED_CARD = (
     CARD
     + "\n# note: not a fact\nknows:\n  - gossip\n  model: indented, so not the model line\nmodel_note: kept"
@@ -244,7 +248,7 @@ def test_fact_without_a_card_line_is_not_added_and_noted(run_card, tmp_path):
     result = run_card("--ref", REF, str(path))
     assert result.returncode == 0, result.stderr
     assert len(path.read_text().splitlines()) == 2
-    for key in ("harness", "address", "login", "model", "checkout", "branch"):
+    for key in ("harness", "address", "machine", "login", "model", "checkout", "branch"):
         assert f"note: card has no {key} line; not added" in result.stderr
     assert "note: card has no updated line" not in result.stderr
 
