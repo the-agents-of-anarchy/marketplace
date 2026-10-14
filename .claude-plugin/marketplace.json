@@ -8,7 +8,7 @@
       "name": "peers",
       "source": "./peers",
       "description": "A society of Claude Code sessions on one machine: its protocol, its commons, and gossip between peers.",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "author": {
         "name": "ryzhakar"
       },
