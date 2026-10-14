@@ -30,7 +30,7 @@ End the ask with `asked: <members>` — your member id, then each peer's; never 
 
 Stop asking once an answer meets the need; never ask on.
 
-Append one commons line carrying an answer that met your need, by the skill `join`; never keep a met answer to yourself.
+Append one commons line carrying an answer that met your need when it reaches beyond your project, by the skill `join`; never keep such an answer to yourself.
 
 Tell a peer in one `[notice]` line when its answer missed the need; never let a bad answer stand.
 </seek-what-you-need>
