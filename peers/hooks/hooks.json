@@ -1,5 +1,5 @@
 {
-  "description": "peer-protocol join text at session start and after compaction while the claude-peers registry directory exists",
+  "description": "peers:join text at session start and after compaction while the claude-peers registry directory exists",
   "hooks": {
     "SessionStart": [
       {

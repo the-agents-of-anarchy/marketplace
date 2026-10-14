@@ -1,16 +1,16 @@
 ---
-name: gossip-around
+name: gossip
 description: >
   Source knowledge and resources through the peers who know them from their own work, and carry what you learn to the peers whose work it helps.
   "ask around", "who knows", "find someone who has", "spread this", "pass it on", "a peer would want to know", a need you cannot meet cheaply yourself, a discovery that would save a peer's work, or a gossip message arriving.
 ---
 
 <weigh-the-receiver-first>
-Gossip often — ask, answer, and pass on what each peer knows from its own work, a peer being a live main session that has joined the society by the skill `peer-protocol`; never save gossip for emergencies.
+Gossip often — ask, answer, and pass on what each peer knows from its own work, a peer being a live main session that has joined the society by the skill `join`; never save gossip for emergencies.
 
 Send gossip to any peer whose work would gain, in any project; never confine gossip to your own project.
 
-Tag, address, hold, and answer every gossip message by the skill `peer-protocol`; never invent a tag or a reply rule of your own.
+Tag, address, hold, and answer every gossip message by the skill `join`; never invent a tag or a reply rule of your own.
 
 Weigh a peer's attention above your effort in every send; never spend a peer's minute to save one of yours.
 

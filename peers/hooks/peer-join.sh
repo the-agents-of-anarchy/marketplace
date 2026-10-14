@@ -1,5 +1,5 @@
 #!/bin/bash
-# SessionStart: print peer-protocol text. Argument: join | compact.
+# SessionStart: print peers:join text. Argument: join | compact.
 # Silent unless the registry root exists. Never creates it. Never fails the session.
 set -u
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
