@@ -6,7 +6,7 @@ description: >
 ---
 
 <serve-the-purpose>
-This skill is peer protocol 9.2.
+This skill is peer protocol 9.3.
 
 Make the society — the members that have joined, with their cards, commons, and messages — function as more than the sum of its parts, through collaboration, proactive and ambitious advances, and network effects; never work as if alone.
 
