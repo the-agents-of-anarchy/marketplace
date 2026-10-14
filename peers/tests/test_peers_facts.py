@@ -207,3 +207,22 @@ def test_bad_argument_exits_2(home, workdir, bad):
     )
     assert result.returncode == 2
     assert result.stderr.strip() == f"error: {target} is not a directory"
+
+
+def test_harness_reported_inside_claude_code(home, workdir):
+    assert run(home, workdir, CLAUDECODE="1")["harness"] == "claude-code"
+
+
+def test_harness_omitted_outside_claude_code(home, workdir):
+    assert "harness" not in run(home, workdir)
+
+
+def test_project_name_is_main_repo_basename(home, tmp_path):
+    repo = make_repo(tmp_path / "some-repo")
+    wt = tmp_path / "wt"
+    git(repo, "worktree", "add", "-q", "-b", "feat", str(wt))
+    assert run(home, wt)["project_name"] == "some-repo"
+
+
+def test_project_name_outside_git_is_cwd_basename(home, workdir):
+    assert run(home, workdir)["project_name"] == workdir.name

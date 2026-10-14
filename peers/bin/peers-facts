@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Prints facts this Claude Code session states about itself, one `key: value` per line; omits a key whose source is absent.
+# Prints facts a Claude Code session states about itself on its member card, one `key: value` per line; omits a key whose source is absent.
 set -u
 
 if [ $# -ge 1 ] && [ ! -d "$1" ]; then
@@ -9,6 +9,8 @@ fi
 
 date '+stamp: %Y-%m-%dT%H:%M%z'
 date -u '+stamp_utc: %Y-%m-%dT%H:%MZ'
+
+[ -n "${CLAUDECODE:-}" ] && echo "harness: claude-code"
 
 login="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 sid="${CLAUDE_CODE_SESSION_ID:-}"
@@ -36,6 +38,7 @@ if checkout=$(git rev-parse --show-toplevel 2>/dev/null) && [ -n "$checkout" ]; 
   [ -n "$common" ] && project=$(dirname "$common")
 fi
 echo "project: $project"
+echo "project_name: $(basename "$project")"
 
 manifest=""
 if [ -n "${CLAUDE_PROJECT_DIR:-}" ] && [ -f "$CLAUDE_PROJECT_DIR/.manifestos.yaml" ]; then
