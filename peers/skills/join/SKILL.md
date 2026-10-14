@@ -378,9 +378,11 @@ Read the board before claiming an exclusive resource; never claim one a board li
 
 Test the resource itself before claiming it, such as a port on macOS by `lsof -nP -iTCP:<port> -sTCP:LISTEN`; never claim one the test shows in use.
 
-Leave a board line standing until its holder removes it; never remove one for its holder's absence.
+Leave a board line standing until its holder removes it, except as the next instruction allows; never remove one for its holder's absence alone.
 
-Keep your own board lines true, removing one as you release its resource; never write another holder's line.
+Remove a board line whose holder's card sits in `<root>/departed/` and whose resource tests free, as any member, citing the departed card; never remove a line whose resource still tests held.
+
+Keep your own board lines true, removing one as you release its resource; never write a line for another holder.
 
 Let the claim with the earlier `sent` stamp hold an exclusive resource while its mediation runs; never seize it meanwhile.
 
