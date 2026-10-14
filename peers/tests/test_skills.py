@@ -94,3 +94,9 @@ def test_address_names_harness_host_and_ref():
 
 def test_member_id_unique_within_one_society():
     assert "unique within one society" in JOIN.read_text()
+
+
+def test_protocol_stewardship_is_named_protocol():
+    text = JOIN.read_text()
+    assert "peer-protocol" not in text
+    assert "`stewards` lists `protocol`" in text

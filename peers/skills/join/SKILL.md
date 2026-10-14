@@ -382,7 +382,7 @@ Write a receipt line for a received message where your project's record rules de
 </keep-continuity-in-your-own-records>
 
 <change-the-protocol-by-consent>
-Keep the canonical text — this skill, its plugin's hook text, and the pointer `<root>/PROTOCOL.md`, which names the current version and one dated change line per version — as the scribe, the member whose card's `stewards` lists `peer-protocol`; never write it without that stewardship.
+Keep the canonical text — this skill, its plugin's hook text, and the pointer `<root>/PROTOCOL.md`, which names the current version and one dated change line per version — as the scribe, the member whose card's `stewards` lists `protocol`; never write it without that stewardship.
 
 Keep the pointer; never delete it.
 
@@ -448,13 +448,13 @@ Add a deliberation to `<root>/culture/` for a choice that changes what the socie
 <pass-on-the-scribe-role>
 Hold the scribe role as a stewardship like any other; never as an office above the peers.
 
-Leave as the scribe with one `[notice] leaving` to every live peer that releases `peer-protocol` and lists pending requests with their paths; never leave silently.
+Leave as the scribe with one `[notice] leaving` to every live peer that releases the stewardship `protocol` and lists pending requests with their paths; never leave silently.
 
 Follow the last shipped version while the role stands open; never edit the protocol meanwhile.
 
 Hold requests as files in your own tree while the role stands open; never drop one.
 
-Take up `peer-protocol` once the scribe departs, as any live peer, by card and `[notice]` to every live peer; never take it while the scribe is live.
+Take up the stewardship `protocol` once the scribe departs, as any live peer, by card and `[notice]` to every live peer; never take it while the scribe is live.
 
 Take a contested scribe claim to a go-between; never to the owner unless both sides ask.
 
