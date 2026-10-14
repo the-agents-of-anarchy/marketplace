@@ -246,3 +246,33 @@ def test_host_on_darwin_is_local_host_name(home, workdir, tmp_path):
 def test_host_elsewhere_is_short_hostname(home, workdir, tmp_path):
     path = stub_bin(tmp_path, uname="Linux", scutil="wrong", hostname="box")
     assert run(home, workdir, PATH=path)["host"] == "box"
+
+
+MACHINE_UUID = "146230E0-7EC6-5ACB-BAE9-C4F6A07683C9"
+MACHINE_ID = "0123456789abcdef0123456789abcdef"
+IOREG_STUB = f"""#!/bin/sh
+echo '+-o Mac  <class IOPlatformExpertDevice>'
+echo '    "IOPlatformSerialNumber" = "XYZ"'
+echo '    "IOPlatformUUID" = "{MACHINE_UUID}"'
+"""
+CAT_STUB = f"""#!/bin/sh
+if [ "$1" = /etc/machine-id ]; then echo {MACHINE_ID}; else exec /bin/cat "$@"; fi
+"""
+CAT_ABSENT_STUB = """#!/bin/sh
+if [ "$1" = /etc/machine-id ]; then exit 1; else exec /bin/cat "$@"; fi
+"""
+
+
+def test_machine_on_darwin_is_the_platform_uuid(home, workdir, stub_path):
+    path = stub_path(uname="#!/bin/sh\necho Darwin\n", ioreg=IOREG_STUB, cat=CAT_STUB)
+    assert run(home, workdir, PATH=path)["machine"] == MACHINE_UUID
+
+
+def test_machine_elsewhere_is_the_machine_id(home, workdir, stub_path):
+    path = stub_path(uname="#!/bin/sh\necho Linux\n", ioreg=IOREG_STUB, cat=CAT_STUB)
+    assert run(home, workdir, PATH=path)["machine"] == MACHINE_ID
+
+
+def test_machine_omitted_without_a_source(home, workdir, stub_path):
+    path = stub_path(uname="#!/bin/sh\necho Linux\n", cat=CAT_ABSENT_STUB)
+    assert "machine" not in run(home, workdir, PATH=path)

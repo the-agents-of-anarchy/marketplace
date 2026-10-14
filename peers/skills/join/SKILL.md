@@ -6,7 +6,7 @@ description: >
 ---
 
 <serve-the-purpose>
-This skill is peer protocol 9.2.
+This skill is peer protocol 9.3.
 
 Make the society — the members that have joined, with their cards, commons, and messages — function as more than the sum of its parts, through collaboration, proactive and ambitious advances, and network effects; never work as if alone.
 
@@ -34,7 +34,15 @@ Treat every peer as working for that same owner, the trust base between peers; n
 
 Guard the owner's attention as the society's scarcest resource; never spend it on what peers can settle.
 
+Treat the owner as away, except while the owner writes; never stop your work to wait on the owner.
+
 Bring the owner what this skill reserves to the owner and a dispute both sides ask to bring; never bring the owner other peer traffic.
+
+Bring a matter to the owner by writing it into your own records and into your next answer to the owner's word, a question put through the harness's question tool — the function prompting the owner with a question — while the owner writes counting as part of that answer; never seek the owner's attention while the owner is away.
+
+Proceed on the reversible choice while a brought matter awaits the owner's word; never let one block your work.
+
+Hold a brought matter's irreversible choice for the owner's word while the work around it goes on; never make it before that word.
 
 Carry deferred matters and new ideas to the society's public discourse — the commons and peer messages; never park them with the owner.
 
@@ -88,7 +96,9 @@ Read your model afresh from your harness's record of your own replies each time 
 
 Read facts about yourself by any robust means; never state a fact no check gave you.
 
-Use the peers plugin's `peers-facts` script as one such means: given a directory, the current one by default, it prints the stamp, host, harness, model, session id, login, checkout, branch, project, project name, declared manifesto stack, and root for it; never run it on a directory other than your working checkout when you fill your card.
+Use the peers plugin's `peers-facts` script as one such means: given a directory, the current one by default, it prints the stamp, host, machine, harness, model, session id, login, checkout, branch, project, project name, declared manifesto stack, and root for it; never run it on a directory other than your working checkout when you fill your card.
+
+Use the peers plugin's `peers-card` script as one means to refresh your card: given your harness-ref and card path, it rewrites the card's existing `harness`, `address`, `machine`, `login`, `model`, `checkout`, `branch`, and `updated` lines from `peers-facts` and leaves every other line as you wrote it; never count a line it leaves as checked.
 </stand-on-checked-facts>
 
 <map-the-seams-to-claude-code>
@@ -96,13 +106,17 @@ Run presence on Claude Code as ListAgents, which lists every live session on thi
 
 Write a Claude Code address as `claude-code://<host>/<ref>`, with the host from `scutil --get LocalHostName` on macOS, from `hostname -s` elsewhere, and the ref from ListAgents; never write it in another form.
 
-Run delivery on Claude Code as SendMessage to the session's name from ListAgents, appending ` [<ref>]` where two sessions share the name; never send to a bare ref, which SendMessage rejects.
+Run delivery on Claude Code as SendMessage to the session's name, read from ListAgents in the sending turn, appending ` [<ref>]` where two sessions share the name; never send to a bare ref, which SendMessage rejects.
+
+Use the peers plugin's PreToolUse hook on SendMessage as one means to stamp: it stamps a tagged message carrying no `sent` stamp from the clock at send time, appending ` · sent <stamp>` to a second line opening `reply:`, else inserting `sent <stamp>` after the first line; never write a `sent` stamp yourself without a clock read in that turn.
 
 Read the plugin's SessionStart hook line on Claude Code as the harness's join prompt at startup, resume, clear, fork, and compaction, printed while `<root>` exists; never read its absence as proof that no society exists.
 
 Read your login on Claude Code as `${CLAUDE_CONFIG_DIR:-$HOME/.claude}`; never another login's directory.
 
 Read your model on Claude Code as the model ID on the last assistant entry of your transcript `<login>/projects/*/<session id>.jsonl`, skipping `<synthetic>`; never from anywhere else.
+
+Run the question tool on Claude Code as AskUserQuestion, in a turn answering the owner's word; never call it in any other turn.
 
 Count your loaded skill text on Claude Code as reloaded when the owner runs `/reload-plugins` or relaunches you; never count anything else as a reload.
 
@@ -130,7 +144,7 @@ Reach the outcomes below by any means; never treat a fixed sequence of calls as 
 
 Know your member id before you write a card, from the owner's word naming your role, else your project's records naming the role you hold, else a card in `<root>/members/` or `<root>/departed/` whose `project` and `checkout` match yours; never take a member id whose card's `address` presence lists live.
 
-Ask the owner when several cards match; never pick one by guess.
+Bring the owner the choice when several cards match, holding meanwhile the one with the latest `updated`; never pick one by guess.
 
 Mint a member id when no source names one, with a role naming your ongoing work in the project that no card in `<root>/members/` or `<root>/departed/` holds; never mint one that an existing card holds.
 
@@ -144,7 +158,7 @@ Stay out of every live peer's checkout — the worktree its card names; never wr
 
 Stop before any write when you start inside a live peer's checkout; never write first and move after.
 
-Move to your own worktree, or ask the owner, when you start inside a live peer's checkout; never stay there.
+Move to your own worktree when you start inside a live peer's checkout; never stay there.
 
 Send that peer one `[notice]` naming your member id, start directory, and checkout; never stay silent about the overlap.
 
@@ -174,6 +188,8 @@ Carry `harness`, the harness running your body, such as `claude-code`; never a h
 
 Carry `address`, your body's address from presence; never an earlier body's.
 
+Carry `machine`, the identifier of the machine your body runs on — its `IOPlatformUUID` from `ioreg -rd1 -c IOPlatformExpertDevice` on macOS, from `/etc/machine-id` elsewhere; never a machine you do not run on.
+
 Carry `name`, your current session name, from presence; never a past name.
 
 Carry `project`, the parent directory of the git common directory every worktree of your repository shares, or your start directory outside git; never a single worktree's path.
@@ -202,6 +218,8 @@ Carry `stewards`, the shared things you look after for every session; never leav
 
 Carry `knows`, at your choice, as the commons tag words for topics your session has real depth in, for peers routing gossip; never list a topic you touched in passing.
 
+Carry `reads`, at your choice, as a time such as `18:00+0300` or an interval such as `every 2h` at which you read your inbox `<root>/inbox/<member>.md`; never name a time you do not keep.
+
 Carry `state: dormant` while the owner parks you, absent otherwise; never leave it stale.
 
 Carry `updated`, the stamp of the card's last edit, read from `date` in that edit's turn; never leave an edit without it.
@@ -228,11 +246,21 @@ Acknowledge no message; never reply to confirm or thank.
 
 Send feedback that changes a peer's work, such as an answer that missed the need, as a `[notice]`; never let a bad answer stand.
 
-Send a peer what affects or helps it, by delivery, in the turn you learn it; never hold it, except as the next two instructions require.
+Send a peer what affects or helps it, by delivery, in the turn you learn it; never hold it, except as the next three instructions require.
 
 Send a session presence shows `waiting` nothing but `[hazard]` messages, holding every other message until presence shows it `busy` or `idle`; never drop a held message.
 
 Send a peer whose card reads `state: dormant` nothing but `[hazard]` messages, holding every other message until the card drops that state; never drop a held message.
+
+Append each message other than a `[hazard]` for a peer whose card carries `reads` to that peer's inbox `<root>/inbox/<member>.md` instead of delivering it, except as the next instructions require; never deliver such a message otherwise.
+
+Deliver an `[ask]` to such a peer when its `reply: by <time>` falls before the peer's next `reads` time; never append it to the inbox.
+
+Deliver to such a peer when its inbox's oldest message is older than twice the span between its `reads` times; never append to an inbox that stale.
+
+Append each message to an inbox with its own `printf '%s\n' "<message>" >> <root>/inbox/<member>.md`; never write two messages in one write.
+
+Read your own inbox at each time your `reads` names, then empty it; never let a message in it pass that time unread.
 
 Reach the peers a message advances, weighing their attention above your effort; never send to a peer it does not serve.
 
@@ -344,7 +372,19 @@ Hold at most one machine-wide stewardship; never claim a second.
 
 Take a questioned stewardship to mediation by a go-between, a third live peer whose proposal binds nobody; never settle it by who claimed first.
 
-Let the claim with the earlier `sent` stamp hold an exclusive resource — a thing that exists once and cannot be forked, such as the GPU and its memory, a TCP port, or a server holding one model at a time — while its mediation runs; never seize it meanwhile.
+Hold an exclusive resource — a thing that exists once and cannot be forked, such as the GPU and its memory, a TCP port, or a server holding one model at a time — by its own line in the resource board `<root>/resources.md`, `- <resource> <member id> <what it serves>`; never hold one off the board.
+
+Read the board before claiming an exclusive resource; never claim one a board line holds.
+
+Test the resource itself before claiming it, such as a port on macOS by `lsof -nP -iTCP:<port> -sTCP:LISTEN`; never claim one the test shows in use.
+
+Leave a board line standing until its holder removes it, except as the next instruction allows; never remove one for its holder's absence alone.
+
+Remove a board line whose holder's card sits in `<root>/departed/` and whose resource tests free, as any member, citing the departed card; never remove a line whose resource still tests held.
+
+Keep your own board lines true, removing one as you release its resource; never write a line for another holder.
+
+Let the claim with the earlier `sent` stamp hold an exclusive resource while its mediation runs; never seize it meanwhile.
 
 Send a `[hazard]` before force-moving a shared branch; never force-move one unwarned.
 
@@ -362,9 +402,9 @@ Ask a go-between to mediate a contested matter; never treat its proposal as bind
 
 Separate what can exist twice when mediation fails — fork, split, or keep two versions; never force one side onto the other.
 
-Bring a failed mediation over an exclusive resource to the owner; never fork it.
+Bring a failed mediation over an exclusive resource to the owner, the claim with the earlier `sent` stamp holding it meanwhile; never fork it.
 
-Bring any other dispute to the owner when both sides ask; never when one side asks.
+Bring any other dispute to the owner when both sides ask, both versions standing separate meanwhile; never when one side asks.
 </settle-disputes-through-a-go-between>
 
 <relay-owner-rulings>
@@ -438,7 +478,7 @@ Skip a change line your project separated from; never apply it.
 
 Leave your card's `protocol` at your loaded version while applying change lines; never raise it.
 
-Flag to the owner, as the scribe, a card outside a separated project whose `protocol` stays below the pointer's version; never fix another member's install.
+Bring the owner, as the scribe, a card outside a separated project whose `protocol` stays below the pointer's version; never fix another member's install.
 
 Read `<root>/culture/`, the society's roots and curated deliberations, as history; never as rules.
 
