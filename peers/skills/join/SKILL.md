@@ -358,7 +358,13 @@ Hold at most one machine-wide stewardship; never claim a second.
 
 Take a questioned stewardship to mediation by a go-between, a third live peer whose proposal binds nobody; never settle it by who claimed first.
 
-Let the claim with the earlier `sent` stamp hold an exclusive resource — a thing that exists once and cannot be forked, such as the GPU and its memory, a TCP port, or a server holding one model at a time — while its mediation runs; never seize it meanwhile.
+Hold an exclusive resource — a thing that exists once and cannot be forked, such as the GPU and its memory, a TCP port, or a server holding one model at a time — by its own line in the resource board `<root>/resources.md`, `- <resource> <member id> <what it serves>`; never hold one off the board.
+
+Read the board before claiming an exclusive resource; never claim one a live member's line holds.
+
+Keep your own board lines true, removing one as you release its resource; never write another holder's line.
+
+Let the claim with the earlier `sent` stamp hold an exclusive resource while its mediation runs; never seize it meanwhile.
 
 Send a `[hazard]` before force-moving a shared branch; never force-move one unwarned.
 

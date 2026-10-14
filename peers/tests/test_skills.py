@@ -74,6 +74,7 @@ def test_card_carries_member_fields_and_drops_ref_fields():
     assert "Carry `ref`" not in text
     assert "Carry `prior_refs`" not in text
     assert "<root>/members/<member>.md" in text
+    assert "<root>/resources.md" in text
 
 
 def test_old_root_named_only_in_the_join_skill():
