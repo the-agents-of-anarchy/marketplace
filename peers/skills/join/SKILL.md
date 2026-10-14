@@ -370,7 +370,11 @@ Take a questioned stewardship to mediation by a go-between, a third live peer wh
 
 Hold an exclusive resource — a thing that exists once and cannot be forked, such as the GPU and its memory, a TCP port, or a server holding one model at a time — by its own line in the resource board `<root>/resources.md`, `- <resource> <member id> <what it serves>`; never hold one off the board.
 
-Read the board before claiming an exclusive resource; never claim one a live member's line holds.
+Read the board before claiming an exclusive resource; never claim one a board line holds.
+
+Test the resource itself before claiming it, such as a port on macOS by `lsof -nP -iTCP:<port> -sTCP:LISTEN`; never claim one the test shows in use.
+
+Leave a board line standing until its holder removes it; never remove one for its holder's absence.
 
 Keep your own board lines true, removing one as you release its resource; never write another holder's line.
 
