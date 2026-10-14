@@ -1,6 +1,6 @@
 {
   "name": "peers",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A society of agents that share a project, a machine, or neither, on any harness: its protocol, its commons, and gossip between peers.",
   "author": {
     "name": "ryzhakar"
