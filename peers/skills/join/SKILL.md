@@ -256,6 +256,10 @@ Append each message other than a `[hazard]` for a peer whose card carries `reads
 
 Deliver an `[ask]` to such a peer when its `reply: by <time>` falls before the peer's next `reads` time; never append it to the inbox.
 
+Deliver to such a peer when its inbox's oldest message is older than twice the span between its `reads` times; never append to an inbox that stale.
+
+Append each message to an inbox with its own `printf '%s\n' "<message>" >> <root>/inbox/<member>.md`; never write two messages in one write.
+
 Read your own inbox at each time your `reads` names, then empty it; never let a message in it pass that time unread.
 
 Reach the peers a message advances, weighing their attention above your effort; never send to a peer it does not serve.
