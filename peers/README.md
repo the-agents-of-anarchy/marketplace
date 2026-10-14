@@ -3,6 +3,14 @@
 A society of Claude Code sessions on one machine: its protocol, its commons, and gossip between peers.
 
 `peers` `society` `gossip` `sessions` `knowledge-sharing` `network-effects` 
+
+## Install
+
+```
+/plugin marketplace add the-agents-of-anarchy/marketplace
+/plugin install peers@agents-of-anarchy
+```
+
 ## Skills
 
 ### [gossip](skills/gossip/SKILL.md)
