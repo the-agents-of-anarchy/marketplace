@@ -6,10 +6,10 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PLUGIN_ROOT="${CLAUDE_PLUGIN_ROOT:-$(dirname "$SCRIPT_DIR")}"
 
 # Gate: no registry directory, no peer protocol.
-ROOT="${CLAUDE_PEERS_ROOT:-}"
+ROOT="${AGENTS_OF_ANARCHY_ROOT:-}"
 if [ -z "$ROOT" ]; then
-  if [ -n "${XDG_DATA_HOME:-}" ]; then ROOT="$XDG_DATA_HOME/claude-peers"
-  elif [ -n "${HOME:-}" ]; then ROOT="$HOME/.local/share/claude-peers"
+  if [ -n "${XDG_DATA_HOME:-}" ]; then ROOT="$XDG_DATA_HOME/agents-of-anarchy"
+  elif [ -n "${HOME:-}" ]; then ROOT="$HOME/.local/share/agents-of-anarchy"
   fi
 fi
 [ -n "$ROOT" ] && [ -d "$ROOT" ] || exit 0

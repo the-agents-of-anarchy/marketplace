@@ -68,7 +68,7 @@ Treat a login — one config directory with its OAuth account — as bounding us
 
 Share across projects this machine's memory, CPU, GPU, disk, and swap, the owner's tooling, the logins, and owner rulings with machine-wide reach; never carry a project's branches, records, or data outside it.
 
-Find the society's root at `${CLAUDE_PEERS_ROOT:-${XDG_DATA_HOME:-$HOME/.local/share}/claude-peers}`, written `<root>` below, holding the cards, the commons, `culture/`, the pointer `PROTOCOL.md`, and `departed/`; never keep society files elsewhere.
+Find the society's root at `${AGENTS_OF_ANARCHY_ROOT:-${XDG_DATA_HOME:-$HOME/.local/share}/agents-of-anarchy}`, written `<root>` below, holding the cards, the commons, `culture/`, the pointer `PROTOCOL.md`, and `departed/`; never keep society files elsewhere.
 
 Read every stamp — a minute in the form `2026-10-14T09:30+0300` — from the clock in the turn you write it; never estimate one.
 

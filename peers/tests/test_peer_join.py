@@ -66,7 +66,7 @@ def session_start(home, plugin_root):
 
 
 def open_gate(home):
-    (home / ".local" / "share" / "claude-peers").mkdir(parents=True)
+    (home / ".local" / "share" / "agents-of-anarchy").mkdir(parents=True)
 
 
 def test_absent_gate_prints_nothing_for_every_source(home, plugin_root, session_start):
@@ -79,7 +79,7 @@ def test_absent_gate_leaves_the_peers_directory_uncreated(home, plugin_root, ses
     write_templates(plugin_root)
     session_start("startup")
     session_start("compact")
-    assert not (home / ".local" / "share" / "claude-peers").exists()
+    assert not (home / ".local" / "share" / "agents-of-anarchy").exists()
 
 
 def test_startup_prints_the_join_text(home, plugin_root, session_start):
@@ -137,7 +137,7 @@ def run_script(home, plugin_root, **extra):
 def test_xdg_data_home_opens_the_gate(home, plugin_root, tmp_path):
     write_templates(plugin_root)
     xdg = tmp_path / "xdg"
-    (xdg / "claude-peers").mkdir(parents=True)
+    (xdg / "agents-of-anarchy").mkdir(parents=True)
     assert run_script(home, plugin_root, XDG_DATA_HOME=str(xdg)).stdout == JOIN_TEXT
 
 
@@ -145,7 +145,20 @@ def test_peers_root_override_opens_the_gate(home, plugin_root, tmp_path):
     write_templates(plugin_root)
     root = tmp_path / "custom-root"
     root.mkdir()
-    assert run_script(home, plugin_root, CLAUDE_PEERS_ROOT=str(root)).stdout == JOIN_TEXT
+    assert run_script(home, plugin_root, AGENTS_OF_ANARCHY_ROOT=str(root)).stdout == JOIN_TEXT
+
+
+def test_old_root_alone_does_not_open_the_gate(home, plugin_root):
+    write_templates(plugin_root)
+    (home / ".local" / "share" / "claude-peers").mkdir(parents=True)
+    assert run_script(home, plugin_root).stdout == ""
+
+
+def test_old_root_variable_is_ignored(home, plugin_root, tmp_path):
+    write_templates(plugin_root)
+    root = tmp_path / "old-custom"
+    root.mkdir()
+    assert run_script(home, plugin_root, CLAUDE_PEERS_ROOT=str(root)).stdout == ""
 
 
 def test_home_dot_claude_peers_alone_does_not_open_the_gate(home, plugin_root):
@@ -180,7 +193,7 @@ def test_unknown_argument_prints_nothing_and_exits_zero(home, plugin_root):
 def test_root_placeholder_prints_the_default_root(home, plugin_root, session_start):
     write_templates(plugin_root, join="root=<root> again=<root>\n")
     open_gate(home)
-    expected = f"{home}/.local/share/claude-peers"
+    expected = f"{home}/.local/share/agents-of-anarchy"
     assert session_start("startup") == f"root={expected} again={expected}\n"
 
 
@@ -188,4 +201,4 @@ def test_root_placeholder_prints_the_override_root(home, plugin_root, tmp_path):
     root = tmp_path / "custom&root"
     root.mkdir()
     write_templates(plugin_root, join="root=<root>\n")
-    assert run_script(home, plugin_root, CLAUDE_PEERS_ROOT=str(root)).stdout == f"root={root}\n"
+    assert run_script(home, plugin_root, AGENTS_OF_ANARCHY_ROOT=str(root)).stdout == f"root={root}\n"

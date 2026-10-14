@@ -168,10 +168,11 @@ def test_no_manifestos_file_omits_key(home, workdir):
 
 
 def test_root_default_and_override(home, workdir, tmp_path):
-    assert run(home, workdir)["root"] == str(home / ".local/share/claude-peers")
+    assert run(home, workdir)["root"] == str(home / ".local/share/agents-of-anarchy")
     xdg = tmp_path / "xdg"
-    assert run(home, workdir, XDG_DATA_HOME=str(xdg))["root"] == str(xdg / "claude-peers")
-    assert run(home, workdir, CLAUDE_PEERS_ROOT="/custom/root")["root"] == "/custom/root"
+    assert run(home, workdir, XDG_DATA_HOME=str(xdg))["root"] == str(xdg / "agents-of-anarchy")
+    assert run(home, workdir, AGENTS_OF_ANARCHY_ROOT="/custom/root")["root"] == "/custom/root"
+    assert run(home, workdir, CLAUDE_PEERS_ROOT="/old/root")["root"] == str(home / ".local/share/agents-of-anarchy")
 
 
 def test_stamps_present(home, workdir):

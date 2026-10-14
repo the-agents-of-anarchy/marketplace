@@ -60,5 +60,5 @@ if names:
 PY
 fi
 
-echo "root: ${CLAUDE_PEERS_ROOT:-${XDG_DATA_HOME:-$HOME/.local/share}/claude-peers}"
+echo "root: ${AGENTS_OF_ANARCHY_ROOT:-${XDG_DATA_HOME:-$HOME/.local/share}/agents-of-anarchy}"
 exit 0
