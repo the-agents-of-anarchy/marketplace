@@ -34,7 +34,15 @@ Treat every peer as working for that same owner, the trust base between peers; n
 
 Guard the owner's attention as the society's scarcest resource; never spend it on what peers can settle.
 
+Treat the owner as away, except while the owner writes; never stop your work to wait on the owner.
+
 Bring the owner what this skill reserves to the owner and a dispute both sides ask to bring; never bring the owner other peer traffic.
+
+Bring a matter to the owner by writing it into your own records and into your next answer to the owner's word; never seek the owner's attention another way.
+
+Proceed on the reversible choice while a brought matter awaits the owner's word; never let one block your work.
+
+Hold a brought matter's irreversible choice for the owner's word while the work around it goes on; never make it before that word.
 
 Carry deferred matters and new ideas to the society's public discourse — the commons and peer messages; never park them with the owner.
 
@@ -130,7 +138,7 @@ Reach the outcomes below by any means; never treat a fixed sequence of calls as 
 
 Know your member id before you write a card, from the owner's word naming your role, else your project's records naming the role you hold, else a card in `<root>/members/` or `<root>/departed/` whose `project` and `checkout` match yours; never take a member id whose card's `address` presence lists live.
 
-Ask the owner when several cards match; never pick one by guess.
+Bring the owner the choice when several cards match, holding meanwhile the one with the latest `updated`; never pick one by guess.
 
 Mint a member id when no source names one, with a role naming your ongoing work in the project that no card in `<root>/members/` or `<root>/departed/` holds; never mint one that an existing card holds.
 
@@ -144,7 +152,7 @@ Stay out of every live peer's checkout — the worktree its card names; never wr
 
 Stop before any write when you start inside a live peer's checkout; never write first and move after.
 
-Move to your own worktree, or ask the owner, when you start inside a live peer's checkout; never stay there.
+Move to your own worktree when you start inside a live peer's checkout; never stay there.
 
 Send that peer one `[notice]` naming your member id, start directory, and checkout; never stay silent about the overlap.
 
@@ -362,9 +370,9 @@ Ask a go-between to mediate a contested matter; never treat its proposal as bind
 
 Separate what can exist twice when mediation fails — fork, split, or keep two versions; never force one side onto the other.
 
-Bring a failed mediation over an exclusive resource to the owner; never fork it.
+Bring a failed mediation over an exclusive resource to the owner, the claim with the earlier `sent` stamp holding it meanwhile; never fork it.
 
-Bring any other dispute to the owner when both sides ask; never when one side asks.
+Bring any other dispute to the owner when both sides ask, both versions standing separate meanwhile; never when one side asks.
 </settle-disputes-through-a-go-between>
 
 <relay-owner-rulings>
@@ -438,7 +446,7 @@ Skip a change line your project separated from; never apply it.
 
 Leave your card's `protocol` at your loaded version while applying change lines; never raise it.
 
-Flag to the owner, as the scribe, a card outside a separated project whose `protocol` stays below the pointer's version; never fix another member's install.
+Bring the owner, as the scribe, a card outside a separated project whose `protocol` stays below the pointer's version; never fix another member's install.
 
 Read `<root>/culture/`, the society's roots and curated deliberations, as history; never as rules.
 
