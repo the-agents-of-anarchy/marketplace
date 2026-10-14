@@ -216,6 +216,8 @@ Carry `stewards`, the shared things you look after for every session; never leav
 
 Carry `knows`, at your choice, as the commons tag words for topics your session has real depth in, for peers routing gossip; never list a topic you touched in passing.
 
+Carry `reads`, at your choice, as a time such as `18:00+0300` or an interval such as `every 2h` at which you read your inbox `<root>/inbox/<member>.md`; never name a time you do not keep.
+
 Carry `state: dormant` while the owner parks you, absent otherwise; never leave it stale.
 
 Carry `updated`, the stamp of the card's last edit, read from `date` in that edit's turn; never leave an edit without it.
@@ -242,11 +244,15 @@ Acknowledge no message; never reply to confirm or thank.
 
 Send feedback that changes a peer's work, such as an answer that missed the need, as a `[notice]`; never let a bad answer stand.
 
-Send a peer what affects or helps it, by delivery, in the turn you learn it; never hold it, except as the next two instructions require.
+Send a peer what affects or helps it, by delivery, in the turn you learn it; never hold it, except as the next three instructions require.
 
 Send a session presence shows `waiting` nothing but `[hazard]` messages, holding every other message until presence shows it `busy` or `idle`; never drop a held message.
 
 Send a peer whose card reads `state: dormant` nothing but `[hazard]` messages, holding every other message until the card drops that state; never drop a held message.
+
+Append each message other than a `[hazard]` for a peer whose card carries `reads` to that peer's inbox `<root>/inbox/<member>.md` instead of delivering it; never deliver such a message.
+
+Read your own inbox at each time your `reads` names, then empty it; never let a message in it pass that time unread.
 
 Reach the peers a message advances, weighing their attention above your effort; never send to a peer it does not serve.
 

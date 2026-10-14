@@ -68,12 +68,13 @@ def test_claude_code_terms_live_only_in_the_one_mapping_tag():
 
 def test_card_carries_member_fields_and_drops_ref_fields():
     text = JOIN.read_text()
-    for field in ("member", "harness", "address", "machine"):
+    for field in ("member", "harness", "address", "machine", "reads"):
         assert f"Carry `{field}`" in text, field
     assert "`role`" not in text
     assert "Carry `ref`" not in text
     assert "Carry `prior_refs`" not in text
     assert "<root>/members/<member>.md" in text
+    assert "<root>/inbox/<member>.md" in text
     assert "<root>/resources.md" in text
 
 
