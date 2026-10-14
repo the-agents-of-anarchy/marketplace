@@ -228,6 +228,21 @@ def test_project_name_outside_git_is_cwd_basename(home, workdir):
     assert run(home, workdir)["project_name"] == workdir.name
 
 
-def test_host_is_short_hostname(home, workdir):
-    short = subprocess.run(["hostname", "-s"], capture_output=True, text=True).stdout.strip()
-    assert run(home, workdir)["host"] == short
+def stub_bin(tmp_path, **scripts):
+    d = tmp_path / "stubs"
+    d.mkdir(exist_ok=True)
+    for name, out in scripts.items():
+        f = d / name
+        f.write_text(f"#!/bin/sh\necho '{out}'\n")
+        f.chmod(0o755)
+    return f"{d}:{os.environ['PATH']}"
+
+
+def test_host_on_darwin_is_local_host_name(home, workdir, tmp_path):
+    path = stub_bin(tmp_path, uname="Darwin", scutil="macmax", hostname="macmax.routerlogin.net")
+    assert run(home, workdir, PATH=path)["host"] == "macmax"
+
+
+def test_host_elsewhere_is_short_hostname(home, workdir, tmp_path):
+    path = stub_bin(tmp_path, uname="Linux", scutil="wrong", hostname="box")
+    assert run(home, workdir, PATH=path)["host"] == "box"

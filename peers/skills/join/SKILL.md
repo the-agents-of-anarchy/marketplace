@@ -94,7 +94,7 @@ Use the peers plugin's `peers-facts` script as one such means: given a directory
 <map-the-seams-to-claude-code>
 Run presence on Claude Code as ListAgents, which lists every live session on this machine across logins with its ref — six hex characters, kept across a rename and changed on restart — its name, and its state; never read presence another way.
 
-Write a Claude Code address as `claude-code://<host>/<ref>`, with the host from `hostname -s` and the ref from ListAgents; never write it in another form.
+Write a Claude Code address as `claude-code://<host>/<ref>`, with the host from `scutil --get LocalHostName` on macOS, from `hostname -s` elsewhere, and the ref from ListAgents; never write it in another form.
 
 Run delivery on Claude Code as SendMessage to the ref; never deliver another way.
 

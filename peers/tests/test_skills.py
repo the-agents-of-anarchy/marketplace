@@ -87,6 +87,7 @@ def test_address_names_harness_host_and_ref():
     text = JOIN.read_text()
     assert "`<harness>://<host>/<harness-ref>`" in text
     assert "`claude-code://<host>/<ref>`" in text
+    assert "`scutil --get LocalHostName`" in text
     assert "`hostname -s`" in text
     assert "claude-code:<ref>" not in text
 
