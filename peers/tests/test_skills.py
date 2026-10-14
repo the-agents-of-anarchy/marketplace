@@ -38,3 +38,45 @@ def test_every_plugin_skill_reference_resolves():
     for path in TEXTS:
         for ref in re.findall(r"peers:([a-z][a-z-]*)", path.read_text()):
             assert ref in names, (path, ref)
+
+
+JOIN = SKILLS / "join" / "SKILL.md"
+GOSSIP = SKILLS / "gossip" / "SKILL.md"
+MAP_TAG = "map-the-seams-to-claude-code"
+CLAUDE_CODE_TERMS = ["ListAgents", "SendMessage", "SessionStart", "CLAUDE_CONFIG_DIR", "/reload-plugins", ".jsonl"]
+
+
+def body(path):
+    return path.read_text().split("---", 2)[2]
+
+
+def test_join_states_protocol_9():
+    assert "This skill is peer protocol 9." in JOIN.read_text()
+
+
+def test_claude_code_terms_live_only_in_the_one_mapping_tag():
+    text = body(JOIN)
+    assert text.count(f"<{MAP_TAG}>") == 1
+    inside = text.split(f"<{MAP_TAG}>")[1].split(f"</{MAP_TAG}>")[0]
+    outside = text.replace(inside, "")
+    for term in CLAUDE_CODE_TERMS:
+        assert term in inside, term
+        assert term not in outside, term
+    for term in CLAUDE_CODE_TERMS:
+        assert term not in body(GOSSIP), term
+
+
+def test_card_carries_member_fields_and_drops_ref_fields():
+    text = JOIN.read_text()
+    for field in ("member", "role", "harness", "address"):
+        assert f"Carry `{field}`" in text, field
+    assert "Carry `ref`" not in text
+    assert "Carry `prior_refs`" not in text
+    assert "<root>/members/<member>.md" in text
+
+
+def test_old_root_named_only_in_the_join_skill():
+    for path in TEXTS:
+        if path != JOIN:
+            assert "claude-peers" not in path.read_text(), path
+    assert "~/.local/share/claude-peers" in JOIN.read_text()

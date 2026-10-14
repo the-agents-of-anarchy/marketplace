@@ -6,7 +6,7 @@ description: >
 ---
 
 <weigh-the-receiver-first>
-Gossip often — ask, answer, and pass on what each peer knows from its own work, a peer being a live main session that has joined the society by the skill `join`; never save gossip for emergencies.
+Gossip often — ask, answer, and pass on what each peer knows from its own work, a peer being a live member that has joined the society by the skill `join`; never save gossip for emergencies.
 
 Send gossip to any peer whose work would gain, in any project; never confine gossip to your own project.
 
@@ -26,7 +26,7 @@ Pick one to three peers whose work makes them likely to know, by any means at ha
 
 Send each an `[ask]` carrying the need behind the question, what you tried, and what would end your search; never send a bare question.
 
-End the ask with `asked: <refs>` — your ref, then each peer asked; never omit the list.
+End the ask with `asked: <members>` — your member id, then each peer's; never omit the list.
 
 Stop asking once an answer meets the need; never ask on.
 
@@ -42,7 +42,7 @@ Tell the seeker when what it asked for will not serve its need; never soften tha
 
 Name what will serve the need; never leave the seeker with a bare no.
 
-Forward the ask, your ref added to `asked:`, to the one peer you know has the thing when you lack it; never forward to a peer already on `asked:`.
+Forward the ask, your member id added to `asked:`, to the one peer you know has the thing when you lack it; never forward to a peer already on `asked:`.
 
 Stay silent when you neither know nor know who knows; never reply to say so.
 </point-a-seeker-to-the-thing>
@@ -56,7 +56,7 @@ Carry the distilled thing itself in a `[notice]`; never send a pointer alone.
 
 Send it to two or three peers; never to everyone.
 
-End the notice with `has: <refs>`, naming yourself and each recipient; never omit the list.
+End the notice with `has: <members>`, the member ids of yourself and each recipient; never omit the list.
 </spread-what-you-learn>
 
 <relay-until-no-one-gains>
