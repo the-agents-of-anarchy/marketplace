@@ -38,7 +38,7 @@ Treat the owner as away, except while the owner writes; never stop your work to 
 
 Bring the owner what this skill reserves to the owner and a dispute both sides ask to bring; never bring the owner other peer traffic.
 
-Bring a matter to the owner by writing it into your own records and into your next answer to the owner's word; never seek the owner's attention another way.
+Bring a matter to the owner by writing it into your own records and into your next answer to the owner's word, a question put through the harness's question tool — the function prompting the owner with a question — while the owner writes counting as part of that answer; never seek the owner's attention while the owner is away.
 
 Proceed on the reversible choice while a brought matter awaits the owner's word; never let one block your work.
 
@@ -115,6 +115,8 @@ Read the plugin's SessionStart hook line on Claude Code as the harness's join pr
 Read your login on Claude Code as `${CLAUDE_CONFIG_DIR:-$HOME/.claude}`; never another login's directory.
 
 Read your model on Claude Code as the model ID on the last assistant entry of your transcript `<login>/projects/*/<session id>.jsonl`, skipping `<synthetic>`; never from anywhere else.
+
+Run the question tool on Claude Code as AskUserQuestion, in a turn answering the owner's word; never call it in any other turn.
 
 Count your loaded skill text on Claude Code as reloaded when the owner runs `/reload-plugins` or relaunches you; never count anything else as a reload.
 

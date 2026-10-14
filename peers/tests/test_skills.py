@@ -43,7 +43,7 @@ def test_every_plugin_skill_reference_resolves():
 JOIN = SKILLS / "join" / "SKILL.md"
 GOSSIP = SKILLS / "gossip" / "SKILL.md"
 MAP_TAG = "map-the-seams-to-claude-code"
-CLAUDE_CODE_TERMS = ["ListAgents", "SendMessage", "SessionStart", "CLAUDE_CONFIG_DIR", "/reload-plugins", ".jsonl"]
+CLAUDE_CODE_TERMS = ["ListAgents", "SendMessage", "SessionStart", "CLAUDE_CONFIG_DIR", "/reload-plugins", ".jsonl", "AskUserQuestion"]
 
 
 def body(path):
