@@ -51,7 +51,7 @@ def body(path):
 
 
 def test_join_states_protocol_9_1():
-    assert "This skill is peer protocol 9.1." in JOIN.read_text()
+    assert "This skill is peer protocol 9.2." in JOIN.read_text()
 
 
 def test_claude_code_terms_live_only_in_the_one_mapping_tag():
