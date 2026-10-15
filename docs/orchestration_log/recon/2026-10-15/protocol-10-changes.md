@@ -1,6 +1,6 @@
 # Protocol 10 draft — participation, owner always away, and the join split
 
-Branch `draft/9.4-participation` (the branch name is kept; worktree `/Users/ryzhakar/pp/aoa-participation`), base `main` 2197af4, head 199a599. The branch is pushed to origin with `--force-with-lease`, because commit messages were rewritten from 9.4 to 10 on the scribe's order. Peers 0.5.0 → 0.6.0; a major bump is under Open. `just test`: 137 passed. Nothing is circulated, and main is untouched.
+Branch `draft/9.4-participation` (the branch name is kept; worktree `/Users/ryzhakar/pp/aoa-participation`), base `main` 2197af4, head ddc1802. The branch is pushed to origin with `--force-with-lease`, because commit messages were rewritten from 9.4 to 10 on the scribe's order. Peers 0.5.0 → 0.7.0. Owner ruling (~14:00+0300): "before 1.0.0 we're in alpha, and the convention is to allow breaking changes left and right, rapid pace." Breaking changes therefore ride a minor version, and I-06 (rare releases, batching rule changes) is dropped as contradicted by that ruling. `just test`: 137 passed. Nothing is circulated, and main is untouched.
 
 Scope: owner ruling 2026-10-15, "if not separate - we ship 10 only"; `recon/2026-10-15/protocol-10-scope.md` finds the A–H draft and the backlog not separable. Changes A–H were drafted as 9.4 and are now protocol 10's first part. Changes I-15, I-16, and I-10, and the per-event hook line, come from the backlog tally (Ev:76) and `recon/2026-10-14/idea-backlog.md`.
 
@@ -18,7 +18,7 @@ Line counts:
 | join | 520 | 548 | 428 |
 | gossip | 72 | 86 | 92 |
 | amend | — | — | 90 |
-| tend-commons | — | — | 52 |
+| tend | — | — | 52 |
 | total | 592 | 634 | 662 |
 
 Keys: J and G = `peers/skills/join/SKILL.md` and `gossip/SKILL.md` at 9.3 line numbers on main. M = participation-model.md. An = participation-workshop-analysis.md. Ev = `history/2026-10-14/events.md`. Owner rulings are quoted from Ev.
@@ -162,7 +162,7 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
   - The triggers "propose a protocol change", "change the peer protocol", and "a circulated protocol draft" move from join's description to amend's. The README skill list is regenerated from the frontmatter.
 - **Settles.** I-15.
 
-## I-16. Commons writing and tending move into `peers:tend-commons`; the core stays in join (contested)
+## I-16. Commons writing and tending move into `peers:tend`; the core stays in join (contested)
 
 - **Problem.** I-16 (fdb18d, E13:218; scribe TR-M 2026-10-13T21:54:44Z). Supported by memento-manager, product-catalog-maintainer, matchtuner-maintainer, and instruction-eval. Objected to by machine-setup-manager ("keep a short commons core in join") and manifesto-discovery (Ev:69, Ev:70, Ev:76). Drafted to meet machine-setup-manager's objection: the core stays.
 - **Wording.**
@@ -177,15 +177,15 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
     - lessons that can corrupt or kill work go out as a `[hazard]`;
     - read a received `[notice] commons:`;
     - adopt or ignore it.
-    One pointer line closes the tag: "Write, tend, and carry commons lines to peers by the skill `tend-commons`; never write to the commons another way."
-  - New skill `peers/skills/tend-commons/SKILL.md`, built from 17 of the old tag's sentences, byte-identical and regrouped under four tags:
+    One pointer line closes the tag: "Write, tend, and carry commons lines to peers by the skill `tend`; never write to the commons another way."
+  - New skill `peers/skills/tend/SKILL.md`, built from 17 of the old tag's sentences, byte-identical and regrouped under four tags:
     - `<hold-the-commons-in-common>`: care counts equally; areas and the split between collective and personal wisdom are the society's to settle.
     - `<write-a-line>`: the intake form, `#<n>`, append in the turn, grep before appending, one `printf` per line, tools in files, conventions offered with evidence.
     - `<tend-the-lines>`: edit in place, keep numbers, correct a failed item.
     - `<carry-lines-to-peers>`: `[notice] commons:`, batching, append without a message, the piggyback count.
-  - The triggers "add to the commons" and "a lesson, tip, tool, or convention worth passing on" move to tend-commons.
-  - G:33 "by the skill `join`" becomes "by the skill `tend-commons`", a cross-reference only.
-  - The name `tend-commons` is the backlog's candidate and fits skill-creation's two-to-three-part rule.
+  - The triggers "add to the commons" and "a lesson, tip, tool, or convention worth passing on" move to tend.
+  - G:33 "by the skill `join`" becomes "by the skill `tend`", a cross-reference only.
+  - Drafted as `tend-commons`, the backlog's candidate; the society renamed it `tend` (see Names).
 - **Settles.** I-16 as a draft. The objection stands open for the round.
 
 ## I-10. Trim rules ahead of cases (only where a case is on record)
@@ -207,9 +207,35 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
 
 - **Problem.** instruction-eval (Ev:73) supports I-15 and I-16 "with a hook line naming the skill per event". With four skills, the startup line named only `peers:join`.
 - **Wording.**
-  - `hooks/templates/peer-join.txt` (startup, resume, clear, fork): "load the skill peers:join and join it; load peers:gossip to spread a need or finding you cannot target, or on a message carrying `relay:`, peers:tend-commons to write or tend a commons line, and peers:amend for a protocol draft, defect, or the scribe role."
-  - `peer-compact.txt`: "re-read the skill peers:join and your card …; re-read peers:amend if a protocol round you take part in is open, and peers:tend-commons before your next commons write."
+  - `hooks/templates/peer-join.txt` (startup, resume, clear, fork): "load the skill peers:join and join it; load peers:gossip to spread a need or finding you cannot target, or on a message carrying `relay:`, peers:tend to write or tend a commons line, and peers:amend for a protocol draft, defect, or the scribe role."
+  - `peer-compact.txt`: "re-read the skill peers:join and your card …; re-read peers:amend if a protocol round you take part in is open, and peers:tend before your next commons write."
   - The `hooks.json` description is updated to match. The tests for script behavior use fixture templates and are unchanged; `test_every_plugin_skill_reference_resolves` checks the new `peers:` references.
+
+## Names
+
+- **Rulings.** Owner (~14:05+0300): "join and gossip are fine, the new ones had no deliberation on naming at all, it seems." The society deliberated; all 6 of 6 answered.
+- **Outcome.**
+  - Skill 1 is `amend`: amend 4, consent 1 (instruction-eval), convene 1 (manifesto-discovery). The name is unchanged.
+  - Skill 2 is `tend`: tend 4, commons 2 (manifesto-discovery, matchtuner-maintainer). It is renamed from `tend-commons`.
+  - The set stays four verbs: join, gossip, amend, tend. Descriptions carry the trigger phrases, not names.
+- **Dissenting reasons.**
+  - manifesto-discovery: `convene` and `commons`.
+  - matchtuner-maintainer: `commons`, and a risk that `amend` reads as `git commit --amend`.
+  - instruction-eval: `consent`. memento reserves "amend" for owner-only acts on the goal and the schema; memento schema-resolution, checked, reads "Amend the schema on the owner's word; never amend it otherwise". A model could therefore load `amend` for a memento schema change.
+- **Mitigation drafted.**
+  - The `amend` description opens "Amend the peer protocol:" and names the protocol first.
+  - The `tend` description opens "Tend the commons:", because `tend` alone fits other senses.
+- **Applied** (commit ddc1802):
+  - `git mv peers/skills/tend-commons peers/skills/tend`;
+  - `name: tend`;
+  - `peers:tend` in both hook lines;
+  - "by the skill `tend`" in join (:339) and gossip (:31);
+  - the test name and skill set in `test_skills.py:20–21`;
+  - README regenerated from the frontmatter.
+- **Name sites for any later rename.**
+  - `amend`: `peers/skills/amend/` (directory), `amend/SKILL.md:2`, `join/SKILL.md:404, 407, 408`, `hooks/templates/peer-join.txt:1` and `peer-compact.txt:1`, `tests/test_skills.py:20–21`, `README.md:16` (generated).
+  - `tend`: `peers/skills/tend/` (directory), `tend/SKILL.md:2`, `join/SKILL.md:339`, `gossip/SKILL.md:31`, both hook templates `:1`, `tests/test_skills.py:20–21`, `README.md:37` (generated).
+  - `test_every_plugin_skill_reference_resolves` fails on any stale `peers:<name>`.
 
 ## Open
 
@@ -225,12 +251,11 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
 10. **Ten-line limit vs envelope.** The envelope takes four of the ten body lines (J:275), and `has:` grows with each hop. The originator may move content to a file named by path, but a long `has:` has no outlet yet.
 11. **Duplicates.** `has:` stops a relayer from sending to a listed member. Two branches of one spread can still reach the same member, whose own `has:` entry then stops a third copy.
 12. **Busy peers.** Delivery mechanics only: J holds non-hazard messages for `busy`, `dnd`, and `dormant` peers, and gossip waits the same way.
-13. **Plugin major bump.** Protocol 10 splits one skill into three and changes the contact, commons, and adoption rules. By J:467 that is more than a minor bump, and a major bump (1.0.0) needs the owner's approval. The plugin is left at 0.6.0.
-14. **Skill names vs skill-creation.** skill-creation wants two or three hyphen-joined parts. `amend`, `join`, and `gossip` have one part, while `tend-commons` complies. `amend` is kept as the scribe named it. Renaming join or gossip would break every install and reference.
-15. **I-16 objection.** machine-setup-manager and manifesto-discovery object. The core-in-join form meets machine-setup-manager's stated objection; manifesto-discovery's reason is not on file in Ev:70.
-16. **Join still defines terms the split skills use.** amend and tend-commons each open by acting under `join`. A model that loads one without join lacks the terms. The hook names join first at every event.
-17. **Pointer.** `<root>/PROTOCOL.md` is unchanged (out of scope). Shipping 10 needs a change line naming the split, the trims, and A–H.
-18. **I-10 remainder.** Dispute, mediation, late-separation, and lease-adjacent rules sit ahead of cases with no case either way. Trimming them needs a different ruling than "only where a case is on record".
+13. **`amend` clashes with memento.** memento reserves "amend" for owner-only acts on the goal and the schema ("Amend the schema on the owner's word"), so a model could load `peers:amend` for a memento schema change. The mitigation is a description that names the peer protocol first. The alternative is `consent` (instruction-eval).
+14. **I-16 objection.** machine-setup-manager and manifesto-discovery object. The core-in-join form meets machine-setup-manager's stated objection; manifesto-discovery's reason is not on file in Ev:70.
+15. **Join still defines terms the split skills use.** amend and tend each open by acting under `join`. A model that loads one without join lacks the terms. The hook names join first at every event.
+16. **Pointer.** `<root>/PROTOCOL.md` is unchanged (out of scope). Shipping 10 needs a change line naming the split, the trims, and A–H.
+17. **I-10 remainder.** Dispute, mediation, late-separation, and lease-adjacent rules sit ahead of cases with no case either way. Trimming them needs a different ruling than "only where a case is on record".
 
 ## Questions for the society
 
@@ -244,6 +269,5 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
 8. Does the thank-you go to the line's author, to the peer that carried the line, or to both when they differ?
 9. Gossip marking: a tag `[gossip]` (memento-manager's pick) or the envelope without a tag (chosen; it needs no new tag, and the `relay:` line carries the instruction)?
 10. Is `has:` as a seen list itself an unwanted assumption, given the owner's "we must not bake in any assumptions"? Without it, nothing stops a gossip from being relayed back to a member that already holds it.
-11. Should `amend` be renamed to fit skill-creation (for example `amend-protocol`), and should join and gossip follow at the next major version?
+11. Does the description opening "Amend the peer protocol:" keep `peers:amend` apart from memento's owner-only "amend" of the goal and schema, or should the skill be `consent`?
 12. Does the commons core in join satisfy the I-16 objections, or should the whole commons move back into join?
-13. Is protocol 10 a major plugin release (1.0.0) to bring to the owner, or a minor one (0.6.0)?
