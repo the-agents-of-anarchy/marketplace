@@ -43,3 +43,32 @@ Message types: [hazard], [ask], [answer], [notice] plus exactly one new type, [q
 | 3 | board | commons lines, resource lines | not sent; read in place | not applicable | at its own wake | none |
 
 A sender may mark a message one level above its type's, stating the reason; a receiver may refuse and report the misuse. Adding a type or level is a protocol change (propose and consent).
+
+## Reference graph (owner ruling 15:00: connected, not fully connected; skills reference eagerly, load on demand; only obvious hooks)
+Hooks: SessionStart → join. PreToolUse send-stamp → tell. Heartbeat wake prompt → heartbeat. Nothing else.
+Each skill names, by skill name at the step where it applies, only these (edges are references, not loads):
+- ontology: leaf. Every other skill names ontology for its terms.
+- join → card, receive, heartbeat.
+- card → tell (announce changes).
+- tell → receive (the other end's duty).
+- receive → adopt, vouch, tell (answer), gossip (a relay line arrives), quote (an owner ruling arrives), consent (a draft asks for consent).
+- gossip → ask-around, spread-around (its two uses), tell.
+- ask-around → gossip, tell.
+- spread-around → gossip, vouch, tell.
+- quote → gossip.
+- aid → tell.
+- volunteer → ask-around, spread-around, adopt, tend, aid, heartbeat.
+- heartbeat → volunteer.
+- adopt → vouch, tell (thank the origin).
+- tend → vouch, spread-around (carry a line to a peer it helps).
+- vouch: leaf beyond ontology.
+- steward → reserve, settle, scribe (steward of protocol).
+- reserve → tell.
+- settle → tell, steward.
+- leave → card (state), steward (release), scribe (hand on), sweep (the departed's card).
+- sweep → card.
+- scribe → propose (circulates a draft), protocol-change.
+- propose → protocol-change.
+- consent → protocol-change.
+- protocol-change: leaf; names neither propose nor consent (a party loads its own part plus this).
+Open: whether an edge is needed from every skill to ontology in text or only where a term needs defining; the rewrite agents decide per sentence by skill-creation ("define every term in the sentence that first uses it" vs "name another skill").
