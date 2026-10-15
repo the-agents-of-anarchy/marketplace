@@ -61,46 +61,46 @@ Source: `feedback-matrix.md` (rows F1-F62, dispositions A/AC/OO/R) and `skill-ro
 
 ## consent
 
-27a. Add a by-name reference from consent to vouch, on demand, and keep consent's load at its own part plus protocol-change (F9, J186).
+28. Add a by-name reference from consent to vouch, on demand, and keep consent's load at its own part plus protocol-change (F9, J186).
 
 ## steward and scribe
 
-28. Name steward's one act in one sentence (F36).
-29. Keep scribe its own skill; apply the one-sentence test and move hand-on to the steward and leave edges (F24, D6).
+29. Name steward's one act in one sentence (F36).
+30. Keep scribe its own skill; apply the one-sentence test and move hand-on to the steward and leave edges (F24, D6).
 
 ## heartbeat
 
-30. Keep heartbeat to setting and restoring the wake, and put the tick checklist in the cron prompt, which wakes load no skill (F32, D5).
-31. Add references from heartbeat to receive and adopt in the wake checklist, with no load, and keep the volunteer path (F5, F6, F60, D5).
-32. Add a skip line to the wake checklist so a wake with nothing changed costs near nothing (F56, D5).
-33. State heartbeat's practice (wake is session-only, expires after 7 days, own minute per wake, never delete another's wake, re-lay after restart) as the Claude Code case, with other harnesses named as differing (F44).
+31. Keep heartbeat to setting and restoring the wake, and put the tick checklist in the cron prompt, which wakes load no skill (F32, D5).
+32. Add references from heartbeat to receive and adopt in the wake checklist, with no load, and keep the volunteer path (F5, F6, F60, D5).
+33. Add a skip line to the wake checklist so a wake with nothing changed costs near nothing (F56, D5).
+34. State heartbeat's practice (wake is session-only, expires after 7 days, own minute per wake, never delete another's wake, re-lay after restart) as the Claude Code case, with other harnesses named as differing (F44).
 
 ## volunteer
 
-34. State volunteer's one act (check for work, pick one, do it), and do not fold it into heartbeat (F33).
+35. State volunteer's one act (check for work, pick one, do it), and do not fold it into heartbeat (F33).
 
 ## sweep
 
-35. Add a ping step to sweep before acting on a member whose login changed and looks gone (F19).
+36. Add a ping step to sweep before acting on a member whose login changed and looks gone (F19).
 
 ## resume (added by D3)
 
-36. Write `resume` for restart, clear, compaction and limit-stop: find the card, rejoin, restore stewardships and heartbeats; add backlog order and drain as steps only if the one-sentence test holds (F37, D3).
+37. Write `resume` for restart, clear, compaction and limit-stop: find the card, rejoin, restore stewardships and heartbeats; add backlog order and drain as steps only if the one-sentence test holds (F37, D3).
 
 ## All skills
 
-37. Measure description words across the 24 skills first, then shorten trigger lists while keeping skill-creation's one sentence plus trigger phrases (F59).
-38. Name only scripts (`peers-card`, `peers-facts`, send-stamp) that you have verified exist (F22).
+38. Measure description words across the 24 skills first, then shorten trigger lists while keeping skill-creation's one sentence plus trigger phrases (F59).
+39. Name only scripts (`peers-card`, `peers-facts`, send-stamp) that you have verified exist (F22).
 
 ## Hooks
 
-39. Write the send-stamp hook so it writes the stamp and does not remind (F47).
-40. Give the send-stamp hook a bypass for a relay made for a subagent (F48).
-41. Give each hook (SessionStart join, heartbeat wake, send-stamp) an off switch and clearable state (F41).
+40. Write the send-stamp hook so it writes the stamp and does not remind (F47).
+41. Give the send-stamp hook a bypass for a relay made for a subagent (F48).
+42. Give each hook (SessionStart join, heartbeat wake, send-stamp) an off switch and clearable state (F41).
 
 ## Tests
 
-42. Check every roster line cited in the rewrite against the current roster text, using the corrected lines in F62 (F62).
+43. Check every roster line cited in the rewrite against the current roster text, using the corrected lines in F62 (F62).
 
 ## Held for the owner
 
@@ -122,7 +122,7 @@ Source: `feedback-matrix.md` (rows F1-F62, dispositions A/AC/OO/R) and `skill-ro
 - F28 (receive is a router): R; routing by reference is the design (J193), and J186 names receive a skill.
 - F35 (aid holds three offers): R; the owner named one aid skill (J183), and the vouch need is F8.
 - F57 (Level 3 board as a second read surface): R; the owner ruled the board (J181, J55).
-- Rows dispositioned "not checkable": none; the unverifiable cites inside accepted rows (F22, F46) are handled in items 38 and 13.
+- Rows dispositioned "not checkable": none; the unverifiable cites inside accepted rows (F22, F46) are handled in items 13 and 39.
 
 ## Summary
 
