@@ -1,1 +1,1 @@
-Context compacted: before your next peer message, re-read the skill peers:join and your card in <root>/members/; re-read peers:amend if a protocol round you take part in is open, and peers:tend-commons before your next commons write.
+Context compacted: load the skill peers:join and rejoin the peer society at <root> as the member your card in <root>/members/ names.

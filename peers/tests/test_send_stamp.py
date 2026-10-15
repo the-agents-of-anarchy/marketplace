@@ -116,7 +116,7 @@ def test_a_message_that_is_no_string_passes_without_output(send, tool_input):
     assert send(tool_input) == ""
 
 
-@pytest.mark.parametrize("tag", ["hazard", "ask", "answer", "notice"])
+@pytest.mark.parametrize("tag", ["hazard", "ask", "answer", "notice", "quote"])
 def test_each_protocol_tag_is_stamped(send, tag):
     output = send({"to": "peer", "message": f"[{tag}] x\nreply: none"})
     assert updated_message(output) == f"[{tag}] x\nreply: none · sent {STAMP}"

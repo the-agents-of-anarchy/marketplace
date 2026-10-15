@@ -17,8 +17,15 @@ def frontmatter_name(path):
     return match.group(1) if match else None
 
 
-def test_skill_set_is_join_gossip_amend_and_tend_commons():
-    assert sorted(p.name for p in SKILLS.iterdir() if p.is_dir()) == ["amend", "gossip", "join", "tend-commons"]
+ROSTER = [
+    "adopt", "aid", "ask-around", "card", "consent", "gossip", "heartbeat", "join", "leave",
+    "ontology", "propose", "protocol-change", "quote", "receive", "reserve", "resume", "scribe",
+    "settle", "spread-around", "steward", "sweep", "tell", "tend", "volunteer", "vouch",
+]
+
+
+def test_skill_set_is_the_protocol_10_roster():
+    assert sorted(p.name for p in SKILLS.iterdir() if p.is_dir()) == ROSTER
 
 
 def test_frontmatter_name_matches_directory():
@@ -42,6 +49,9 @@ def test_every_plugin_skill_reference_resolves():
 
 JOIN = SKILLS / "join" / "SKILL.md"
 GOSSIP = SKILLS / "gossip" / "SKILL.md"
+ONTOLOGY = SKILLS / "ontology" / "SKILL.md"
+CARD = SKILLS / "card" / "SKILL.md"
+RESERVE = SKILLS / "reserve" / "SKILL.md"
 MAP_TAG = "map-the-seams-to-claude-code"
 CLAUDE_CODE_TERMS = ["ListAgents", "SendMessage", "SessionStart", "CLAUDE_CONFIG_DIR", "/reload-plugins", ".jsonl", "AskUserQuestion"]
 
@@ -50,32 +60,35 @@ def body(path):
     return path.read_text().split("---", 2)[2]
 
 
-def test_join_states_protocol_10():
-    assert "This skill is peer protocol 10." in JOIN.read_text()
+def test_card_states_protocol_10():
+    assert "Carry `protocol: 10`" in CARD.read_text()
 
 
 def test_claude_code_terms_live_only_in_the_one_mapping_tag():
-    text = body(JOIN)
+    text = body(ONTOLOGY)
     assert text.count(f"<{MAP_TAG}>") == 1
     inside = text.split(f"<{MAP_TAG}>")[1].split(f"</{MAP_TAG}>")[0]
     outside = text.replace(inside, "")
     for term in CLAUDE_CODE_TERMS:
         assert term in inside, term
         assert term not in outside, term
-    for term in CLAUDE_CODE_TERMS:
-        assert term not in body(GOSSIP), term
+    for skill in SKILLS.glob("*/SKILL.md"):
+        if skill == ONTOLOGY:
+            continue
+        for term in CLAUDE_CODE_TERMS:
+            assert term not in body(skill), (skill, term)
 
 
 def test_card_carries_member_fields_and_drops_ref_fields():
-    text = JOIN.read_text()
+    text = CARD.read_text()
     for field in ("member", "harness", "address", "machine", "reads"):
         assert f"Carry `{field}`" in text, field
     assert "`role`" not in text
     assert "Carry `ref`" not in text
     assert "Carry `prior_refs`" not in text
-    assert "<root>/members/<member>.md" in text
-    assert "<root>/inbox/<member>.md" in text
-    assert "<root>/resources.md" in text
+    assert "<root>/members/<member>.md" in ONTOLOGY.read_text()
+    assert "<root>/inbox/<member>.md" in ONTOLOGY.read_text()
+    assert "<root>/resources.md" in RESERVE.read_text()
 
 
 def test_no_text_names_the_old_root():
@@ -84,7 +97,7 @@ def test_no_text_names_the_old_root():
 
 
 def test_address_names_harness_host_and_ref():
-    text = JOIN.read_text()
+    text = ONTOLOGY.read_text()
     assert "`<harness>://<host>/<harness-ref>`" in text
     assert "`claude-code://<host>/<ref>`" in text
     assert "`scutil --get LocalHostName`" in text
@@ -93,11 +106,11 @@ def test_address_names_harness_host_and_ref():
 
 
 def test_member_id_unique_within_one_society():
-    assert "unique within one society" in JOIN.read_text()
+    assert "unique within one society" in ONTOLOGY.read_text()
 
 
 def test_protocol_stewardship_is_named_protocol():
-    text = JOIN.read_text()
+    text = ONTOLOGY.read_text()
     assert "peer-protocol" not in text
     assert "`stewards` lists `protocol`" in text
 

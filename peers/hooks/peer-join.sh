@@ -5,6 +5,10 @@ set -u
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PLUGIN_ROOT="${CLAUDE_PLUGIN_ROOT:-$(dirname "$SCRIPT_DIR")}"
 
+# Off switch: PEERS_HOOKS=off or PEERS_JOIN_HOOK=off prints nothing.
+[ "${PEERS_HOOKS:-on}" = "off" ] && exit 0
+[ "${PEERS_JOIN_HOOK:-on}" = "off" ] && exit 0
+
 # Gate: no registry directory, no peer protocol.
 ROOT="${AGENTS_OF_ANARCHY_ROOT:-}"
 if [ -z "$ROOT" ]; then

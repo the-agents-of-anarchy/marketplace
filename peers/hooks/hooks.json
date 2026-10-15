@@ -1,5 +1,5 @@
 {
-  "description": "a line naming the peers skill per event at session start and after compaction while the agents-of-anarchy root exists; sent stamps on tagged peer messages",
+  "description": "SessionStart: a line naming the skill peers:join at session start and after compaction while the agents-of-anarchy root exists; PreToolUse on SendMessage: the send stamp the skill peers:tell relies on, written on tagged peer messages; PEERS_HOOKS=off silences both",
   "hooks": {
     "SessionStart": [
       {
