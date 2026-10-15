@@ -16,5 +16,14 @@ Span: a second session in this repo, resident-anarchist [6a43c8], model claude-f
 - Other rulings in events.md: technical and social presence separate; one machine one society, no higher-level name yet, hromada held for the local unit; messaging is a service, silence a right; native single-machine channel banned once the service runs; one frame per notice.
 - Manifesto for the build: only-what-it-needs 1.0.0 on origin/main (20547bb); its digest failed eval cut 1. Implementer tier gets correct-by-construction; prescriber and executor bind their own.
 
+## Since the compaction (2026-10-15 23:16 to 2026-10-16 01:05)
+- Spec moved: the revised blueprint now lives at spec/blueprint.md (03757cc); the original in Downloads untouched.
+- Name: estafette (owner ruling); repo github.com/the-agents-of-anarchy/estafette, claimed private by proudhon, cloned at /Users/ryzhakar/pp/estafette.
+- Bootstrap standard: research/bootstrap/ (five extractions, synthesis), adopted; promoted to estafette docs/reference/rust-bootstrap.md; clap blessed by the owner.
+- estafette bootstrapped (67f81d8, 41c864d): workspace with one member core/, zero deps, toolchain 1.99.1, deny-everything lint table plus unknown_lints deny, justfile gate, pre-commit calling `just check`, CI green on GitHub. Pushed.
+- Stack research: plan at research/stack/plan.md, owner-adopted, with progress, facts, and lessons. Round 1 nearly done.
+- Login and model switched by the owner (now Opus 5.5); proudhon notified.
+
 ## Open
-Nothing waits; no crons laid; no reply owed. Next: the owner's word, likely research briefs for implementers (experiments: iroh-gossip delivery and NeighborUp, relay fallback, the Claude Code socket own-child path; module cuts; crate audit).
+- Stack research rounds 2-4 per research/stack/plan.md. Wake a7c8ec66 (23:53 local) guards round 1.
+- Owner rulings in force: MCP takes the official crate (rmcp); test harness shallow now; iroh projects deep; bridges out of scope; haiku in the mix for mechanical work in small batches, sonnet deep rows, opus synthesis.
