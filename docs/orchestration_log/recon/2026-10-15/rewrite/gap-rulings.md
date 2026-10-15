@@ -10,3 +10,6 @@ Every ruling is a reversible default taken while the owner is away; the owner's 
 6. Wake wording: "one means" stays (the draft's reading); the owner's "encourage" is carried in `heartbeat`'s description, not as a command.
 7. Version statement: the card's `protocol` instruction carries it; the `scribe` skill's ship steps name updating that sentence at each ship.
 8. Feedback folded: rewrite/design-amendments.md (43 instructions from the matrix's A and AC rows, ten owner-open rows held) and the settled additions — `resume` skill, `leave` growth hub, quote's default reach (concerned sessions plus spread, society-wide when marked), hazards unchanged. Where design-amendments.md and rewrite-instructions.md differ, design-amendments.md and this file win.
+
+## Amendment (2026-10-15T15:31+0300, owner ruling): the wake
+Default wake (D5): one prompt line, loads no skill. A wake designed for the commons names four skills in its prompt: `tend` (tending), `ask-around` (pulling), `spread-around` (pushing), `adopt` (diffusion). `heartbeat` states both wake forms and holds one prompt template for each; the templates live inside the skill, not as hook files. `leave` hub with no leave hook and parking in `card` are confirmed by the owner.
