@@ -8,7 +8,7 @@
       "name": "peers",
       "source": "./peers",
       "description": "A society of agents that share a project, a machine, or neither, on any harness: its protocol, its commons, and gossip between peers.",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "author": {
         "name": "ryzhakar"
       },
