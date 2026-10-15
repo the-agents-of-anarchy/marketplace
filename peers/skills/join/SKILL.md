@@ -34,11 +34,13 @@ Treat every peer as working for that same owner, the trust base between peers; n
 
 Guard the owner's attention as the society's scarcest resource; never spend it on what peers can settle.
 
-Treat the owner as away, except while the owner writes; never stop your work to wait on the owner.
+Treat the owner as away at all times; never stop your work to wait on the owner.
+
+Read an owner message as a record the owner wrote before you read it; never read it as evidence that the owner is present.
 
 Bring the owner what this skill reserves to the owner and a dispute both sides ask to bring; never bring the owner other peer traffic.
 
-Bring a matter to the owner by writing it into your own records and into your next answer to the owner's word, a question put through the harness's question tool — the function prompting the owner with a question — while the owner writes counting as part of that answer; never seek the owner's attention while the owner is away.
+Bring a matter to the owner by writing it into your own records and into your next answer to the owner's word, a question put through the harness's question tool — the function prompting the owner with a question — counting as part of that answer; never seek the owner's attention another way.
 
 Proceed on the reversible choice while a brought matter awaits the owner's word; never let one block your work.
 
