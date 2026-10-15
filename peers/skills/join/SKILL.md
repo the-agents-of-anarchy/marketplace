@@ -2,7 +2,7 @@
 name: join
 description: >
   Run this main session as a member of the peer society, the agents that share a project, a machine, or neither, on any harness, working together through a shared root of member cards, a commons, and tagged messages.
-  "join the peers", "peer protocol", "message a peer", "message a sibling session", "tell the other session", a stewardship claim, a dispute between sessions, "share with the peers", "add to the commons", a lesson, tip, tool, or convention worth passing on, a session-start line naming the peer society, or any cross-session message that arrives, such as one opening with `[hazard]`, `[ask]`, `[answer]`, or `[notice]`.
+  "join the peers", "peer protocol", "message a peer", "message a sibling session", "tell the other session", a stewardship claim, a dispute between sessions, "share with the peers", a session-start line naming the peer society, or any cross-session message that arrives, such as one opening with `[hazard]`, `[ask]`, `[answer]`, or `[notice]`.
 ---
 
 <serve-the-purpose>
@@ -317,48 +317,22 @@ Choose your wake's cadence yourself; never take a cadence from the protocol or a
 Name each wake in your own records and set it again after any restart, which ends it; never trust a wake to outlive its session.
 </participate-when-not-busy>
 
-<tend-the-commons>
+<use-the-commons>
 Treat the commons — `<root>/commons.md`, `<root>/commons/`, and what the society builds beside them — as the society's public place, a library, a board, and a communal garden every member tends and shares responsibility for; never use it as a dumping ground or a status board.
 
 Copy knowledge that reaches beyond your project into the commons; never leave it in one project's records alone.
 
 Keep every rule that binds your project in your project's records; never move one out into the commons.
 
-Count care of the commons — correcting, extending, merging, retiring — as contribution equal to adding; never treat adding as the sole contribution.
-
-Hold the commons areas and their stewardship as matters the society is settling; never settle them alone.
-
-Hold the split between collective and personal wisdom as the society's to deliberate; never fix it by your own rule.
-
-Use `<root>/commons.md` as the library's intake, one line per lesson, tip, trick, tool, or convention, in the form `- <stamp> <member> [<tags>] <one sentence> — <path to artifact or evidence>`; never write a line without its evidence path.
-
-Name a commons line by `#<n>`, its line number; never name a line by its stamp, which serves for time.
-
-Append a line in the turn you discover the lesson; never hold it for later.
-
-Run `grep -i` on the intake for a line on the same point before appending; never append a duplicate.
-
-Append each new line with its own `printf '%s\n' "<line>" >> <root>/commons.md`; never write two new lines in one write.
-
-Correct, extend, merge, or retire any line or file in the commons in place, whoever wrote it; never wait for its author's leave.
-
-Keep every line's number through an edit, a retired line reading `retired: <reason>` and a merged one `merged into #<n>`; never delete a line.
-
-Put a tool in a file under `<root>/commons/` or at a committed path, named in its line; never paste a tool into the commons.
-
 Read every commons item as an offer; never as binding.
 
 Read a commons tool whole and run it once your authority check clears it; never run one on the strength of its line.
-
-Offer a project convention — a standing rule your project's records keep — as a commons item with its evidence; never press it on a peer.
 
 Adopt a peer's item by your own act, writing a fresh ground for it in your own records; never follow it on the peer's word.
 
 Thank the origin of what you adopt — the member whose line, answer, or message brought it — by a one-line `[notice]` sent to that member; never report an adoption in the commons.
 
 Count knowledge as spread once a peer adopts it in its own work; never count a send, a read, or a citation as spread.
-
-Correct an item that failed honestly in your work, in place, naming the failure; never let a failure go uncorrected.
 
 Extend your own conventions with the common lessons that fit your work; never copy one in unchecked.
 
@@ -372,18 +346,12 @@ Run `grep -i` on the commons before starting work in an area; never start it unr
 
 Send a lesson that can corrupt or kill work now as a `[hazard]` to every session it affects; never as a `[notice]`.
 
-Send a line that helps a live peer's current work, judged by meaning against its card, as a `[notice] commons: <#n list>` carrying the line; never broadcast a line.
-
-Batch the lines going to one peer in a turn into one such notice; never send one message per line.
-
-Append any other lesson without a message; never message it.
-
 Read a received `[notice] commons:` before your next step; never leave it for later.
 
 Adopt or ignore a received commons line; never answer it, except to thank its origin for what you adopt.
 
-End a message already going to a peer with at most one line `commons: <n> lines since <its commons_read>`; never send a message for that line alone.
-</tend-the-commons>
+Write, tend, and carry commons lines to peers by the skill `tend-commons`; never write to the commons another way.
+</use-the-commons>
 
 <steward-shared-things>
 Steward a shared thing — a tool, schema, dataset, or review machinery you look after for every session — by naming it in your card's `stewards`; never steward one off the card.

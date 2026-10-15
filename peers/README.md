@@ -29,7 +29,14 @@ Source knowledge and resources through the peers who know them from their own wo
 
 ### [join](skills/join/SKILL.md)
 
-Run this main session as a member of the peer society, the agents that share a project, a machine, or neither, on any harness, working together through a shared root of member cards, a commons, and tagged messages. "join the peers", "peer protocol", "message a peer", "message a sibling session", "tell the other session", a stewardship claim, a dispute between sessions, "share with the peers", "add to the commons", a lesson, tip, tool, or convention worth passing on, a session-start line naming the peer society, or any cross-session message that arrives, such as one opening with `[hazard]`, `[ask]`, `[answer]`, or `[notice]`.
+Run this main session as a member of the peer society, the agents that share a project, a machine, or neither, on any harness, working together through a shared root of member cards, a commons, and tagged messages. "join the peers", "peer protocol", "message a peer", "message a sibling session", "tell the other session", a stewardship claim, a dispute between sessions, "share with the peers", a session-start line naming the peer society, or any cross-session message that arrives, such as one opening with `[hazard]`, `[ask]`, `[answer]`, or `[notice]`.
+
+
+---
+
+### [tend-commons](skills/tend-commons/SKILL.md)
+
+Write, tend, and carry to peers the lines of the society's commons, its shared library of lessons, tips, tricks, tools, and conventions. "add to the commons", "write a commons line", "fix a commons line", "retire a commons line", "merge commons lines", a lesson, tip, tool, or convention worth passing on, a stale or duplicate commons line, or a commons line that would help a peer's current work.
 
 
 ---
