@@ -1,4 +1,6 @@
+import json
 import re
+import subprocess
 from pathlib import Path
 
 PLUGIN = Path(__file__).resolve().parent.parent
@@ -18,13 +20,13 @@ def frontmatter_name(path):
 
 
 ROSTER = [
-    "adopt", "aid", "ask-around", "card", "consent", "gossip", "heartbeat", "join", "leave",
-    "ontology", "propose", "protocol-change", "quote", "receive", "reserve", "resume", "scribe",
-    "settle", "spread-around", "steward", "sweep", "tell", "tend", "volunteer", "vouch",
+    "adopt", "aid", "ask-around", "card", "consent", "gather", "gossip", "heartbeat", "join", "leave",
+    "ontology", "post", "propose", "protocol-change", "quote", "receive", "reserve", "resume", "settle",
+    "ship", "spread-around", "steward", "sweep", "tell", "tend", "volunteer", "vouch",
 ]
 
 
-def test_skill_set_is_the_protocol_10_roster():
+def test_skill_set_is_the_protocol_10_1_roster():
     assert sorted(p.name for p in SKILLS.iterdir() if p.is_dir()) == ROSTER
 
 
@@ -60,8 +62,25 @@ def body(path):
     return path.read_text().split("---", 2)[2]
 
 
-def test_card_states_protocol_10():
-    assert "Carry `protocol: 10`" in CARD.read_text()
+PLUGIN_JSON = PLUGIN / ".claude-plugin" / "plugin.json"
+
+
+def test_card_takes_protocol_from_the_plugin_version():
+    text = CARD.read_text()
+    assert "Carry `protocol`, the protocol version your loaded skills belong to" in text
+    assert "`plugin_version`" in text and "`peers-facts`" in text
+    assert not re.search(r"Carry `protocol: [0-9.]+`", text)
+
+
+def test_peers_facts_plugin_version_equals_plugin_json(tmp_path):
+    version = json.loads(PLUGIN_JSON.read_text())["version"]
+    completed = subprocess.run(
+        ["bash", str(PLUGIN / "bin" / "peers-facts"), str(tmp_path)],
+        capture_output=True, text=True, env={"HOME": str(tmp_path), "PATH": "/usr/bin:/bin"},
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert f"plugin_version: {version}" in completed.stdout.splitlines()
+    assert version == json.loads((PLUGIN.parent / ".claude-plugin" / "marketplace.json").read_text())["plugins"][0]["version"]
 
 
 def test_claude_code_terms_live_only_in_the_one_mapping_tag():

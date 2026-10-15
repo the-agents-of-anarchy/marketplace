@@ -42,7 +42,7 @@ Leave every other session's wake as it is; never delete another's wake.
 <spend-the-wake>
 Read each message that reached you since your last wake by the skill `receive`; never let a wake pass with one unread.
 
-Retry a held message at each wake by the skill `tell`; never let a wake pass with one unretried.
+Retry held messages at each wake by the skill `post`; never let a wake pass with one unretried.
 
 Read at a commons wake the commons lines past your `commons_read` by the skill `adopt`; never let a commons wake pass with them unread.
 

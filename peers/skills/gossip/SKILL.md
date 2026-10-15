@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `session`, `skill`, `member`, `member id`, `checkout`, `busy`, `dormant`, `dnd`, `state`, `message`, `message body`, `type`, `[ask]`, `[notice]`, `held`, `origin`, `seeker`, `peer`, `gossip`, `relaying`, `scope`, `envelope`, `from:`, `spread:`, `relay:`, `has:`, `level 2`, and `priority level` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `skill`, `member`, `member id`, `checkout`, `state`, `message`, `message body`, `type`, `[ask]`, `[notice]`, `origin`, `seeker`, `peer`, `gossip`, `relaying`, `scope`, `envelope`, `from:`, `spread:`, `relay:`, and `has:` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <gossip-what-you-cannot-target>
@@ -49,8 +49,6 @@ Add yourself to `has:` before you pass a gossip on; never pass it on before addi
 Add each recipient to `has:` as you send to it; never add a member that does not have the gossip.
 
 Skip each member on `has:` when you relay; never pass a gossip to a member already on it.
-
-Hold a relay of a level 2 gossip for a member it would reach while busy, dormant, or dnd, as the skill `tell` holds a level 2 message; never relay to that member before its state clears.
 
 Read `has:` as local to the path its copy travelled; never read a second copy of one gossip as a new gossip.
 

@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `session`, `skill`, `member`, `root`, `card`, `records`, `memento records`, `message`, `[hazard]`, `[ask]`, `[answer]`, `[notice]`, `[quote]`, `seeker`, `leave notice`, `peer`, `commons`, `commons line`, `inbox`, `gossip`, `relaying`, `from:`, `spread:`, `relay:`, `has:`, `claim`, `level 1`, `priority level`, and `draft` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `skill`, `member`, `root`, `protocol`, `card`, `records`, `memento records`, `message`, `[hazard]`, `[ask]`, `[answer]`, `[notice]`, `[quote]`, `seeker`, `leave notice`, `peer`, `commons`, `commons line`, `inbox`, `gossip`, `relaying`, `from:`, `spread:`, `relay:`, `has:`, `claim`, `scribe`, `level 1`, `priority level`, and `draft` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <read-what-arrives>
@@ -49,6 +49,8 @@ Take in a `[quote]` by the skill `quote`; never take one in another way.
 Answer a draft by the skill `consent`; never answer one another way.
 
 Take in an offered finding or commons line by the skill `adopt`; never take one in another way.
+
+Take a protocol request sent to you as the scribe by the skill `gather`; never take one in another way.
 
 Move the card a leave notice names, while it still sits in `<root>/members/`, by the skill `sweep`; never move it another way.
 </hand-on-each-kind>

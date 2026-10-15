@@ -100,7 +100,7 @@ Call a session `bg` or `shell` while presence shows that reading beside its name
 
 Call a member dormant while its card carries `state: dormant`; never call a member dormant without that line.
 
-Call a member dnd while its card carries `state: dnd`; never call a member dnd without that line.
+Call a member dnd while its card carries `state: dnd until <stamp>: <reason>` and that stamp is still ahead; never call a member dnd past that stamp.
 
 Call a member's state what presence shows of its session together with its card's `state` line; never call the work a member has in hand its state.
 </name-the-owner>
@@ -218,7 +218,11 @@ Call a message's priority level the level, of the three above, that its type set
 </rank-the-messages>
 
 <name-the-protocol-change>
-Call the pointer `<root>/PROTOCOL.md`, a protocol location naming the current protocol version and one change line per version; never call the pointer a skill.
+Call the protocol version the version of the peers plugin a member's loaded skills belong to, the one number the protocol carries; never call another number the protocol version.
+
+Count a card that reads a pre-plugin protocol number, such as 9.3 or 10, as below every plugin version; never compare the two kinds of number by value.
+
+Call the pointer `<root>/PROTOCOL.md`, a protocol location naming the protocol version in force and one change line per version; never call the pointer a skill.
 
 Call a change line the pointer's dated line stating what one version changed; never call a line elsewhere a change line.
 

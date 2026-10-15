@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `harness`, `session`, `host`, `address`, `turn`, `skill`, `plugin`, `login`, `stamp`, `wake`, `member`, `body`, `society`, `protocol`, `member id`, `card`, `worktree`, `checkout`, `owner`, `records`, `journal`, `presence`, `dormant`, `dnd`, `state`, `[notice]`, `peer`, `commons`, `commons line`, `commons_read`, `inbox`, `stewardship`, `steward`, and `change line` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `host`, `address`, `turn`, `skill`, `plugin`, `login`, `stamp`, `wake`, `member`, `body`, `society`, `protocol`, `member id`, `card`, `worktree`, `checkout`, `owner`, `records`, `journal`, `presence`, `dormant`, `dnd`, `state`, `[notice]`, `peer`, `commons`, `commons line`, `commons_read`, `inbox`, `stewardship`, `steward`, `protocol version`, and `change line` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <write-your-own-card>
@@ -52,7 +52,7 @@ Carry `model`, the model ID your harness logs for your latest reply; never an ea
 
 Carry `journal`, the absolute path of your journal, absent when you keep none; never another member's journal.
 
-Carry `protocol: 10`, the protocol version of the skills you loaded; never raise it by applying change lines.
+Carry `protocol`, the protocol version your loaded skills belong to, read from the `plugin_version` line the `peers-facts` script prints; never raise it by applying change lines.
 
 Carry `commons_read`; never a count past what you read.
 
@@ -68,7 +68,7 @@ Carry `reads` when you read your inbox at set times, as a time such as `18:00+03
 
 Carry `wake` while you keep a wake, as its job ids, cadence, and expiry, and a project wake's prompt file path; never a wake that no longer fires.
 
-Carry `state` while you are parked, as the parking steps below set it; never once they clear it.
+Carry `state` while you are parked, as the parking steps below set it, a dnd line reading `state: dnd until <stamp>: <reason>`; never once they clear it.
 
 Carry `updated`, the stamp of the card's last edit, read from `date` in that edit's turn; never an edit without it.
 
@@ -84,9 +84,9 @@ Set `state: dormant` when the owner parks you, pausing your work; never stay unm
 
 Remove `state: dormant` on your return; never leave it set after.
 
-Set `state: dnd` when the owner orders you left undisturbed; never set it on your own judgment.
+Set `state: dnd` for yourself with a reason and an `until` stamp; never set it without both.
 
-Remove `state: dnd` when the owner lifts that order; never remove it on your own judgment.
+Remove `state: dnd` at its `until` stamp or on your return, whichever comes first; never leave it past either.
 </mark-your-parking>
 
 <end-the-card>

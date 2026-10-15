@@ -12,7 +12,7 @@ Take `session`, `wake`, `member`, `root`, `society`, `protocol`, `card`, `depart
 <release-what-you-keep>
 Release each stewardship you keep by the skill `steward`; never leave with one still kept.
 
-Hand on the stewardship `protocol` by the skill `scribe` when you keep it; never leave with it.
+Name each pending protocol request with its path in your leave notice when you leave keeping the stewardship `protocol`; never leave with one unnamed.
 
 End your wake by the skill `heartbeat`; never leave with it firing.
 </release-what-you-keep>
