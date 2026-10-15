@@ -17,6 +17,7 @@ TERMS = [
     ("turn", r"\bturns?\b"),
     ("tool round", r"tool round"),
     ("act", r"\bact(s|ing)?\b"),
+    ("skill", r"\bskills?\b"),
     ("hook", r"\bhooks?\b"),
     ("plugin", r"\bplugins?\b"),
     ("compaction", r"\bcompaction\b"),
@@ -81,6 +82,7 @@ TERMS = [
     ("inbox", r"\binbox(es)?\b"),
     ("gossip", r"\bgossip"),
     ("relaying", r"\brelay(s|ing|ed|er|ers)?\b(?!:)"),
+    ("scope", r"\bscopes?\b"),
     ("envelope", r"\benvelope\b"),
     ("from:", r"\bfrom:"),
     ("spread:", r"\bspread:"),
@@ -90,7 +92,7 @@ TERMS = [
     ("pull", r"\bpull"),
     ("adoption", r"\badopt(ion|s|ed|ing)?\b"),
     ("diffusion", r"\bdiffusion\b"),
-    ("claim", r"\ba claim\b|\bas a claim\b|\bevery claim\b|\bclaimant"),
+    ("claim", r"\bclaims?\b|\bclaimant"),
     ("stewardship", r"\bstewardships?\b"),
     ("steward", r"\bsteward('s)?\b|\bstewards\b"),
     ("open stewardship", r"open stewardship"),
@@ -106,7 +108,7 @@ TERMS = [
     ("change line", r"change lines?"),
     ("protocol change", r"protocol change"),
     ("draft", r"\bdrafts?('s)?\b"),
-    ("round", r"\brounds?('s)?\b"),
+    ("round", r"(?<!tool )\brounds?('s)?\b"),
     ("enacted", r"\benact(ed|s)?\b"),
     ("separating", r"\bseparat\w*"),
     ("bound", r"\bbound\b"),
@@ -162,3 +164,42 @@ def test_terms_sentence_names_every_ontology_term_the_body_uses(skill):
     listed = set(listed_terms(skill))
     missing = [term for term in used_terms(skill) if term.strip("`") not in listed]
     assert not missing, (skill.parent.name, missing)
+
+
+# Ordinary-verb and other-sense uses of ontology terms, banned in every skill (ruling, round 5).
+# Each entry: (term, phrases where the word carries the ontology sense, pattern of the other sense).
+OTHER_SENSES = [
+    ("held", ["Hold a level 2 message", "Hold a relay of a level 2 gossip", "holds a level 2 message",
+              "never hold one.", "never hold it past that turn", "call for a hold", "a held message",
+              "message held", "<deliver-or-hold>", "</deliver-or-hold>", "deliver it, hold it, or append"],
+     r"\b[Hh]old(s|ing)?\b|\bheld\b"),
+    ("act", ["act now", "acted on", "acting on a level 1 message", "acting on it", "an act", "each act it calls"],
+     r"\b[Aa]cts?\b(?= (on|from|as|upon)\b)|\bacting\b|\bacted\b"),
+    ("relaying", [], r"relay\w* (an owner ruling|what my subagent|a ruling|the owner)|relayed ruling|a relay's"),
+    ("claim", [], r"\bClaim (a|an|the)\b|\b(to|never|you|they) claim\b|\bclaim (with|arrives|on)\b|\bits claim\b|\bclaimed\b|\bclaiming\b"),
+    ("records", [], r"\bRecord\b|\brecorded\b|\brecording\b|\b(harness|it|you) records\b|\ba record\b|\bproject record\b"),
+    ("turn", [], r"\b[Tt]urn(s|ed)? (it|them|every|time|free)\b|\b(to|never|you) turn\b|\bTurn\b|\bturning\b"),
+    ("state", [], r"\bState\b|\b(to|never|you|peers) state\b|\bstates (its|the|a)\b|\bstated\b"),
+    ("delivery", [], r"\b[Dd]eliver(s|ed|ing)? (help|it as|a fix|an artifact)\b"),
+    ("wake", [], r"\bwakes (an|the)\b|\bwaking\b"),
+    ("live", [], r"\blives\b"),
+    ("bound", [], r"\bbounds\b"),
+    ("address", [], r"\baddressees?\b"),
+    ("[notice]", [], r"unnotic"),
+    ("type", [], r"\btyped\b"),
+    ("resource board", [], r"\ba board\b(?! line)"),
+]
+
+ALL_SKILLS = sorted(SKILLS.glob("*/SKILL.md"))
+
+
+@pytest.mark.parametrize("skill", ALL_SKILLS, ids=lambda p: p.parent.name)
+def test_no_ontology_term_is_used_in_another_sense(skill):
+    text = re.sub(r"`[^`]*`", "", description(skill) + body(skill))
+    hits = []
+    for term, allowed, pattern in OTHER_SENSES:
+        scanned = text
+        for phrase in allowed:
+            scanned = scanned.replace(phrase, "")
+        hits += [(term, m.group(0)) for m in re.finditer(pattern, scanned)]
+    assert not hits, (skill.parent.name, hits)

@@ -1,7 +1,7 @@
 ---
 name: heartbeat
 description: >
-  Keep a recurring wake set across restarts, the means the society encourages for turning free time into society work: choose it, set it with one of two prompts, record it on your card, restore it, spend it, and end it.
+  Keep a recurring wake set across restarts, the means the society encourages for spending free time on society work: choose it, set it with one of two prompts, record it on your card, restore it, spend it, and end it.
   "set a heartbeat", "set a wake", "restore my wake", "my wake expired", "re-lay the cron", a restart that ended your wake, or a commons wake to set.
 ---
 
@@ -22,13 +22,13 @@ Set a default wake with the prompt `peers wake: end this turn with no output unl
 
 Set a commons wake with the prompt `peers commons wake: work on the commons by the skills tend, ask-around, spread-around, and adopt.`; never set a commons wake with another prompt.
 
-Record each wake's job ids, cadence, and expiry in your card's `wake` field; never leave a set wake off the card.
+Write each wake's job ids, cadence, and expiry into your card's `wake` field; never leave a set wake off the card.
 </set-the-wake>
 
 <restore-the-wake>
 Set your wake again after any restart on a harness that keeps a wake in the session alone, as Claude Code does; never trust a wake to outlive its session.
 
-Set your wake again before it expires on a harness that ends a wake after a fixed span, as Claude Code does; never let it lapse unnoticed.
+Set your wake again before it expires on a harness that ends a wake after a fixed span, as Claude Code does; never let it lapse.
 
 Set a wake again on another harness by that harness's own means, from your card's `wake` field; never assume that harness keeps wakes as Claude Code does.
 

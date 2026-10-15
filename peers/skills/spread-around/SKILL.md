@@ -14,7 +14,7 @@ Check a finding by the skill `vouch` before you spread it; never spread one unch
 </check-what-you-offer>
 
 <send-to-the-peers-you-can-name>
-Send a finding by the skill `tell` to each peer whose current work needs it, judged by its card's `focus`, the work it has in hand, and `knows`, the topics it has depth in, or by what you saw of its work, in the turn you learn it; never hold it.
+Send a finding by the skill `tell` to each peer whose current work needs it, judged by its card's `focus`, the work it has in hand, and `knows`, the topics it has depth in, or by what you saw of its work, in the turn you learn it; never keep it back.
 
 Carry the distilled thing itself; never carry where to find it alone.
 

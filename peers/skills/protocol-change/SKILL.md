@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `harness`, `session`, `member`, `protocol`, `card`, `[answer]`, `[notice]`, `reply time`, `leave notice`, `peer`, `pointer`, `change line`, `protocol change`, `draft`, `round`, `enacted`, `separating`, `bound`, `shipping`, and `reloaded` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `skill`, `member`, `protocol`, `card`, `[answer]`, `[notice]`, `reply time`, `leave notice`, `peer`, `pointer`, `change line`, `protocol change`, `draft`, `round`, `enacted`, `separating`, `bound`, `shipping`, and `reloaded` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <time-the-round>
@@ -18,15 +18,15 @@ Work an objection through clarify, compromise, defer, then separate; never skip 
 
 Weigh answers by their reasons; never weigh them by count.
 
-Drop from the addressees a member that sent a leave notice; never wait on its answer.
+Drop from a draft's receivers a member that sent a leave notice; never wait on its answer.
 </weigh-the-answers>
 
 <close-the-round>
-Enact a draft once every addressee has answered, or at its reply time, when a peer besides the proposer accepts and no objection stands; never enact one on silence.
+Enact a draft once every receiver has answered, or at its reply time, when a peer besides the proposer accepts and no objection stands; never enact one on silence.
 
 Let a project whose sessions still object keep its loaded version; never force a change onto it.
 
-Hold a silent member bound to an enacted change from its next read of the pointer; never hold it bound earlier.
+Treat a silent member as bound to an enacted change from its next read of the pointer; never treat it as bound earlier.
 
 Accept a late objection from a silent member, separating its project; never refuse a late objection.
 </close-the-round>

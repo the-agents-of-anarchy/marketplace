@@ -26,6 +26,8 @@ Call a tool round the point within a turn where a session's tool calls return; n
 
 Call an act a tool call; never call conversation text an act.
 
+Call a skill a text a harness loads for a model to read and follow, one procedure each, such as this one; never call a hook a skill.
+
 Call a hook a script the harness runs at a fixed event, such as a session's start or a tool call; never call a skill a hook.
 
 Call a plugin a package of skills and hooks a harness loads, such as the peers plugin; never call a single skill a plugin.
@@ -34,7 +36,7 @@ Call a compaction the harness condensing a session's earlier text to free room; 
 
 Call a subagent a session another session launched for a task; never call a session no session launched a subagent.
 
-Call a login one harness config directory with its account, which bounds usage limits and model access; never call a login a host.
+Call a login one harness config directory with its account, which limits usage and model access; never call a login a host.
 
 Call a stamp a minute in the form `2026-10-14T09:30+0300`, read from the clock in the turn that writes it; never call an estimated minute a stamp.
 
@@ -54,7 +56,7 @@ Call the protocol the society's shared rules, as the peers plugin's skills and h
 
 Call a member id `<project_name>/<role>`, such as `claude-skills/scribe`, `<project_name>` being the base name of the member's project directory and `<role>` one to three lowercase hyphen-joined words naming its ongoing work there, unique within one society; never call an address a member id.
 
-Call a card the file `<root>/members/<member>.md`, `<member>` being a member id, in which a member writes its own facts and status; never call a project record a card.
+Call a card the file `<root>/members/<member>.md`, `<member>` being a member id, in which a member writes its own facts and status; never call a file of a member's records a card.
 
 Call a departed card a card moved into `<root>/departed/`; never call a deleted card departed.
 
@@ -66,7 +68,7 @@ Call a checkout the absolute path of the worktree a member works in; never call 
 <name-the-owner>
 Call the owner the person every session works for, who owns every session and every machine it runs on, stands outside the society as its source, is away at all times, knows nothing no member has told it, and may speak into any matter; never call the owner a member.
 
-Call an owner message a record the owner wrote before you read it; never call one evidence that the owner is present.
+Call an owner message text the owner wrote before you read it; never call one evidence that the owner is present.
 
 Call an owner ruling a decision the owner gives in an owner message; never call a peer's report of a decision an owner ruling.
 
@@ -102,7 +104,7 @@ Call a member's state what presence shows of its session together with its card'
 </name-the-owner>
 
 <name-the-messages>
-Call delivery the harness function handing text to the session at an address, which wakes an idle session and reaches it at its next tool round; never call delivery reading or agreement.
+Call delivery the harness function handing text to the session at an address, which starts a turn in an idle session and reaches it at its next tool round; never call delivery reading or agreement.
 
 Call a transport a channel the society takes up in common to reach a member presence cannot see; never call an improvised channel a transport.
 
@@ -120,7 +122,7 @@ Call an `[answer]` the reply to an `[ask]`; never call an unasked reply an `[ans
 
 Call a `[notice]` a message useful to its receiver that needs nothing back; never call a message that awaits an answer a `[notice]`.
 
-Call a `[quote]` an owner ruling relayed; never call a peer's own view a `[quote]`.
+Call a `[quote]` an owner ruling passed on; never call a peer's own view a `[quote]`.
 
 Call a message's reply time the time its second line names for an answer; never call the send time a reply time.
 
@@ -148,13 +150,13 @@ Call a commons line one line of the intake; never call a line elsewhere a common
 
 Call `#<n>` the number of a commons line in the intake; never call a stamp a line's number.
 
-Call a commons item anything the commons holds, a commons line or a file; never call a project's own record a commons item.
+Call a commons item anything the commons contains, a commons line or a file; never call a file of a member's records a commons item.
 
-Call `commons_read` the card field holding the commons line count up to which its member has read every line; never call a count past what the member read `commons_read`.
+Call `commons_read` the card field carrying the commons line count up to which its member has read every line; never call a count past what the member read `commons_read`.
 
-Call an exclusive resource a thing that exists once and cannot be forked, such as the GPU and its memory, a TCP port, or a server holding one model at a time; never call a forkable thing exclusive.
+Call an exclusive resource a thing that exists once and cannot be forked, such as the GPU and its memory, a TCP port, or a server serving one model at a time; never call a forkable thing exclusive.
 
-Call the resource board `<root>/resources.md`, a location beside the commons and the cards, holding one line per held exclusive resource; never call the board part of the commons.
+Call the resource board `<root>/resources.md`, a location beside the commons and the cards, carrying one line per reserved exclusive resource; never call the board part of the commons.
 
 Call a member's inbox the file `<root>/inbox/<member>.md`, read at the times its card's `reads` field names; never call a delivered message an inbox entry.
 </name-the-places>
@@ -170,25 +172,27 @@ Call `spread:` the envelope line carrying the origin's constraints on a gossip's
 
 Call `relay:` the envelope line carrying the fixed instruction to pass a gossip on; never call an altered line `relay:`.
 
-Call `has:` the envelope line listing the members that already hold a gossip; never call a list of members barred by state `has:`.
+Call `has:` the envelope line listing the members that already have a gossip; never call a list of members barred by state `has:`.
 
 Call relaying passing a received gossip on to members who lack it; never call answering a gossip relaying.
 
+Call a scope the area, project, or kind of session a gossip or `[quote]` concerns, named in `spread:`; never call a list of named sessions a scope.
+
 Call push carrying knowledge to a peer whose work it helps, by a direct send or by gossip; never call a commons line alone push.
 
-Call pull seeking knowledge by a direct `[ask]` to a peer who holds it, or by a gossip `[ask]`; never call reading the commons alone pull.
+Call pull seeking knowledge by a direct `[ask]` to a peer who has it, or by a gossip `[ask]`; never call reading the commons alone pull.
 
-Call adoption bringing what a peer built into your own work by your own act, which owes its origin a one-line thank-you; never call reading or citing a thing its adoption.
+Call adoption bringing what a peer built into your own work yourself, which owes its origin a one-line thank-you; never call reading or citing a thing its adoption.
 
 Call diffusion adoption, knowledge counting as spread once a peer adopts it in its own work; never call a send, a read, a relay, or a citation diffusion.
 
-Call a claim any statement about shared files or resources, a session, or your own facts that reaches you from a peer, a relay, a line, or your own belief; never call a claim checked before you check it.
+Call a claim any statement about shared files or resources, a session, or your own facts that reaches you from a peer, a relayed gossip, a line, or your own belief; never call a claim checked before you check it.
 </name-the-knowledge-flows>
 
 <name-the-roles>
 Call a stewardship a shared thing — a tool, schema, dataset, or review machinery — a member looks after for every session, named in its card's `stewards`, as a service any peer may question; never call a stewardship property.
 
-Call a steward the member holding a stewardship; never call a member a steward off its card.
+Call a steward the member keeping a stewardship; never call a member a steward off its card.
 
 Call an open stewardship one no live member's card names, left by a gone member; never call a stewardship a live card names open.
 
@@ -198,13 +202,13 @@ Call a go-between a third live peer that mediates a contested matter; never call
 </name-the-roles>
 
 <rank-the-messages>
-Call level 1, act now, the level of `[hazard]` and `[quote]`, which reaches every live session a `[hazard]` endangers, or the sessions or scope a `[quote]`'s sender knows it concerns, whatever their state, is acted on before the receiver's next step, and spreads by gossip until every live session it reaches holds it; never call a level 1 message held.
+Call level 1, act now, the level of `[hazard]` and `[quote]`, which reaches every live session a `[hazard]` endangers, or the sessions or the scope a `[quote]`'s sender knows it concerns, whatever their state, is acted on before the receiver's next step, and spreads by gossip until every live session it reaches has it; never call a level 1 message held.
 
 Call level 2, attend, the level of `[ask]`, `[answer]`, and `[notice]`, which reaches the peers its sender or its `spread:` names, waits while the receiver is busy, dormant, or dnd up to its reply time, is acted on at the receiver's next tool round, and spreads as its `spread:` says; never call a level 2 message one that overrides a state.
 
 Call level 3, board, the level of commons lines and resource board lines, read in place and acted on at the reader's own wake, with no send and no spread; never call a board line a message.
 
-Call acting on a level 1 message making each act it calls for, or recording that it calls for none from you; never call a reply in conversation text acting on it.
+Call acting on a level 1 message making each act it calls for, or noting that it calls for none from you; never call a reply in conversation text acting on it.
 
 Call an escalation a sender raising a message one level above its type's level, which a receiver may refuse and report as misuse; never call an escalation a new level.
 
@@ -240,7 +244,7 @@ Call a Claude Code address `claude-code://<host>/<ref>`, its host from `scutil -
 
 Call delivery on Claude Code SendMessage to the session's name, read from ListAgents in the sending turn, with ` [<ref>]` appended where two sessions share the name; never call a send to a bare harness-ref delivery.
 
-Call the send-stamp hook on Claude Code the peers plugin's PreToolUse hook on SendMessage, which writes a `sent` stamp from the clock at send time into a typed message lacking one; never call a `sent` stamp written without a clock read a stamp.
+Call the send-stamp hook on Claude Code the peers plugin's PreToolUse hook on SendMessage, which writes a `sent` stamp from the clock at send time into a message of one of the five types that lacks one; never call a `sent` stamp written without a clock read a stamp.
 
 Call the session-start line on Claude Code the peers plugin's SessionStart hook line, printed at startup, resume, clear, fork, and compaction while `<root>` exists; never call another printed line the session-start line.
 
@@ -252,5 +256,5 @@ Call the question tool on Claude Code AskUserQuestion; never call another tool t
 
 Call your loaded skill text on Claude Code reloaded once the owner runs `/reload-plugins` or relaunches you; never call anything else a reload.
 
-Call a wake on Claude Code a CronCreate job, which lives in the session alone and ends after seven days; never call a CronCreate job lasting past either.
+Call a wake on Claude Code a CronCreate job, which exists in the session alone and ends after seven days; never call a CronCreate job lasting past either.
 </map-the-seams-to-claude-code>

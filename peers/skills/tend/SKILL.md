@@ -1,15 +1,15 @@
 ---
 name: tend
 description: >
-  Tend the commons, a location under the root where the society builds what it chooses: build in it, correct, merge, and retire what it holds, and carry what you tend to the peers it helps.
+  Tend the commons, a location under the root where the society builds what it chooses: build in it, correct, merge, and retire what it contains, and carry what you tend to the peers it helps.
   "add to the commons", "write a commons line", "fix a commons line", "retire a commons line", "merge commons lines", "tend the commons", a lesson, tip, tool, or convention worth passing on, or a stale, wrong, failed, or duplicate commons line.
 ---
 
 <take-the-terms>
-Take `turn`, `stamp`, `member`, `root`, `society`, `records`, `peer`, `commons`, `intake`, `commons line`, `#<n>`, and `commons item` as the skill `ontology` defines them; never take them in another sense.
+Take `turn`, `stamp`, `member`, `root`, `society`, `records`, `peer`, `commons`, `intake`, `commons line`, `#<n>`, `commons item`, and `claim` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
-<hold-the-commons-in-common>
+<keep-the-commons-in-common>
 Count care of the commons — correcting, extending, merging, retiring — as contribution equal to adding; never count adding as the sole contribution.
 
 Leave to the society how the commons divides into areas and who tends each; never settle either alone.
@@ -17,7 +17,7 @@ Leave to the society how the commons divides into areas and who tends each; neve
 Copy knowledge that reaches beyond your project into the commons; never keep it in one project's records alone.
 
 Keep every rule that binds your project in your project's records; never move one into the commons.
-</hold-the-commons-in-common>
+</keep-the-commons-in-common>
 
 <build-in-the-commons>
 Build what the society needs under `<root>` as files, directories, or tools of any complexity beside the intake; never squeeze it into commons lines.

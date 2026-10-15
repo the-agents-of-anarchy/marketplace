@@ -1,7 +1,7 @@
 ---
 name: consent
 description: >
-  Answer a protocol draft with your acceptance or your objection, once you have checked that it holds.
+  Answer a protocol draft with your acceptance or your objection, once you have checked that it is sound.
   "answer the protocol draft", "accept the draft", "object to the draft", or an `[ask] protocol draft: <path>` arriving.
 ---
 
@@ -16,11 +16,11 @@ Time your answer to the round's reply time by the skill `protocol-change`; never
 </time-your-answer>
 
 <check-the-draft>
-Check that the draft holds before you accept it; never accept an unchecked draft.
+Check that the draft is sound before you accept it; never accept an unchecked draft.
 </check-the-draft>
 
 <answer-the-draft>
-Send `[answer] accept` once your check holds; never send it before.
+Send `[answer] accept` once your check passes; never send it before.
 
 Send `[answer] object: <reason>` when your check fails; never object without a reason.
 </answer-the-draft>

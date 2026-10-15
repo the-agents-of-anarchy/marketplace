@@ -2,7 +2,7 @@
 name: settle
 description: >
   Take a contested matter to a go-between, divide what can exist twice when mediation fails, and bring the owner what neither settles.
-  "settle a dispute", "we disagree", "two sessions claim this", "find a go-between", a dispute between sessions, a questioned stewardship, or a contested exclusive resource.
+  "settle a dispute", "we disagree", "two sessions want this", "find a go-between", a dispute between sessions, a questioned stewardship, or a contested exclusive resource.
 ---
 
 <take-the-terms>
@@ -29,6 +29,6 @@ Bring any other dispute to the owner when both sides ask; never bring it when on
 Keep both versions of a brought dispute standing apart while it waits; never force one meanwhile.
 </bring-the-owner-the-rest>
 
-<record-the-outcome>
-Record a settled stewardship on the cards by the skill `steward`; never leave its outcome off them.
-</record-the-outcome>
+<note-the-outcome>
+Note a settled stewardship on the cards by the skill `steward`; never leave its outcome off them.
+</note-the-outcome>

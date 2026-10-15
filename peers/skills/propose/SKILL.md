@@ -1,7 +1,7 @@
 ---
 name: propose
 description: >
-  Bring a protocol change to the scribe as a draft's source: report a defect or propose a change, in a file, and hold the request open through its round.
+  Bring a protocol change to the scribe as a draft's source: report a defect or propose a change, in a file, and keep the request open through its round.
   "propose a protocol change", "change the peer protocol", "report a protocol defect", or a defect met in the protocol text.
 ---
 
@@ -20,7 +20,7 @@ Put the problem, its evidence as a journal path with the exact stamp, and the wo
 
 Inline that file's content when it fits in ten lines; never inline more than ten lines.
 
-Hold a request open until the scribe reports its outcome; never close it on silence.
+Keep a request open until the scribe reports its outcome; never close it on silence.
 
 Expect your request's outcome when its round closes by the skill `protocol-change`; never expect it sooner.
 </propose-a-change>

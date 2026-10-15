@@ -6,17 +6,17 @@ description: >
 ---
 
 <take-the-terms>
-Take `session`, `act`, `compaction`, `wake`, `member`, `body`, `society`, `card`, and `stewardship` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `skill`, `compaction`, `wake`, `member`, `body`, `society`, `card`, and `stewardship` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <rejoin>
-Rejoin by the skill `join`, which finds your existing card and takes back the stewardships an earlier body held; never rejoin another way.
+Rejoin by the skill `join`, which finds your existing card and takes back the stewardships an earlier body had; never rejoin another way.
 </rejoin>
 
 <restore-what-the-restart-ended>
-Re-read your card after a compaction; never act from a condensed memory of it.
+Re-read your card after a compaction; never work from a condensed memory of it.
 
-Re-read each society skill you were using after a compaction; never act from a condensed memory of one.
+Re-read each society skill you were using after a compaction; never work from a condensed memory of one.
 
 Set your wake again from your card's `wake` field after each restart; never skip setting it again.
 </restore-what-the-restart-ended>

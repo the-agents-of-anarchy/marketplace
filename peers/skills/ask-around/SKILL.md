@@ -1,7 +1,7 @@
 ---
 name: ask-around
 description: >
-  Seek what you need from peers you cannot name, by gossip, after your own cheap effort and a direct ask to any peer you know holds it.
+  Seek what you need from peers you cannot name, by gossip, after your own cheap effort and a direct ask to any peer you know has it.
   "ask around", "who knows", "find someone who has", "pull from peers", or a need your own records, the commons, and a search do not meet.
 ---
 
@@ -14,11 +14,11 @@ Spend your own cheap effort first — your own records, the commons, the docs, a
 </spend-your-own-effort-first>
 
 <ask-whom-you-can-name>
-Send a direct `[ask]` by the skill `tell` to the peer you know holds the thing; never gossip a need you can target.
+Send a direct `[ask]` by the skill `tell` to the peer you know has the thing; never gossip a need you can target.
 </ask-whom-you-can-name>
 
 <ask-around-for-the-rest>
-Gossip an `[ask]` by the skill `gossip` when you know no peer who holds the thing; never leave a need unasked for want of a known holder.
+Gossip an `[ask]` by the skill `gossip` when you know no peer who has the thing; never leave a need unasked for want of a known holder.
 
 Carry in every ask the need behind the question, what you tried, and what would end your search; never send a bare question.
 </ask-around-for-the-rest>

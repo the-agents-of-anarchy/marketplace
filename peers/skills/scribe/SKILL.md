@@ -6,13 +6,13 @@ description: >
 ---
 
 <take-the-terms>
-Take `turn`, `hook`, `plugin`, `member`, `society`, `protocol`, `card`, `checkout`, `owner`, `bringing a matter to the owner`, `[ask]`, `[notice]`, `reply time`, `leave notice`, `live`, `gone`, `peer`, `stewardship`, `steward`, `open stewardship`, `scribe`, `pointer`, `change line`, `draft`, `round`, `enacted`, `separating`, and `shipping` as the skill `ontology` defines them; never take them in another sense.
+Take `turn`, `skill`, `hook`, `plugin`, `member`, `society`, `protocol`, `card`, `checkout`, `owner`, `bringing a matter to the owner`, `[ask]`, `[notice]`, `reply time`, `leave notice`, `live`, `gone`, `peer`, `stewardship`, `steward`, `open stewardship`, `scribe`, `pointer`, `change line`, `draft`, `round`, `enacted`, `separating`, and `shipping` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <take-the-stewardship>
 Take up the stewardship `protocol` once the scribe is gone, as any live peer, by card edit and `[notice]` to every live peer; never take it while the scribe is live.
 
-Hold the stewardship `protocol` as a stewardship like any other; never hold it as an office above the peers.
+Treat the stewardship `protocol` as a stewardship like any other; never treat it as an office above the peers.
 </take-the-stewardship>
 
 <keep-the-text>
@@ -40,7 +40,7 @@ Edit the peers plugin's skills, and the hook text where it changes, to ship an e
 
 Raise the version in the skill `card`'s instruction ``Carry `protocol: <N>` `` to the version you ship; never ship with that instruction behind.
 
-Bump the plugin's version for each shipped change — its last number for a fix, its middle number for a rule or a breaking change while its first number stays 0; never hold a breaking change back for a first-number bump.
+Bump the plugin's version for each shipped change — its last number for a fix, its middle number for a rule or a breaking change while its first number stays 0; never keep a breaking change back for a first-number bump.
 
 Append to the pointer the new version and a dated change line naming any separated project; never let the pointer lag a shipped change.
 
@@ -54,7 +54,7 @@ Leave as the scribe with one leave notice to every live peer that releases the s
 
 Follow the last shipped version while the stewardship `protocol` is an open stewardship; never edit the protocol meanwhile.
 
-Hold requests as files in your checkout while the stewardship `protocol` is an open stewardship; never drop one.
+Keep requests as files in your checkout while the stewardship `protocol` is an open stewardship; never drop one.
 
-Re-send pending requests to the new scribe once its claim arrives; never drop one.
+Re-send pending requests to the new scribe once its `[notice]` taking up the stewardship arrives; never drop one.
 </hand-on-the-stewardship>

@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `harness`, `session`, `host`, `address`, `turn`, `plugin`, `login`, `stamp`, `wake`, `member`, `body`, `protocol`, `member id`, `card`, `worktree`, `checkout`, `owner`, `records`, `journal`, `presence`, `dormant`, `dnd`, `state`, `[notice]`, `peer`, `commons`, `commons line`, `commons_read`, `inbox`, `stewardship`, `steward`, and `change line` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `host`, `address`, `turn`, `skill`, `plugin`, `login`, `stamp`, `wake`, `member`, `body`, `protocol`, `member id`, `card`, `worktree`, `checkout`, `owner`, `records`, `journal`, `presence`, `dormant`, `dnd`, `state`, `[notice]`, `peer`, `commons`, `commons line`, `commons_read`, `inbox`, `stewardship`, `steward`, and `change line` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <write-your-own-card>
@@ -16,7 +16,7 @@ Keep your card true and current; never let it say what is no longer so.
 
 Write the card as flat YAML, one `key: value` per line and lists as YAML lists; never write it in another shape.
 
-Keep the card to your session's facts and status; never turn it into a project record.
+Keep the card to your session's facts and status; never make it part of your project's records.
 </write-your-own-card>
 
 <read-your-facts-afresh>
@@ -48,7 +48,7 @@ Carry `start_dir`, your start directory, when it differs from `checkout`; never 
 
 Carry `login`, your harness's config directory; never another login's directory.
 
-Carry `model`, the model ID your harness records on your latest reply; never an earlier read.
+Carry `model`, the model ID your harness logs for your latest reply; never an earlier read.
 
 Carry `journal`, the absolute path of your journal, absent when you keep none; never another member's journal.
 
@@ -60,7 +60,7 @@ Carry `focus`, one line naming your work in hand; never a finished task.
 
 Carry `writes`, the paths and branches you write, which peers stay off; never leave one off.
 
-Carry `stewards`, the stewardships you hold; never leave one off.
+Carry `stewards`, the stewardships you keep; never leave one off.
 
 Carry `knows` when your session has real depth in a topic, as the bracketed tags commons lines carry for it; never a topic you touched in passing.
 

@@ -2,11 +2,11 @@
 name: tell
 description: >
   Send a peer a tagged message: pick its receivers and type, write its type line, second line, and message body, then deliver it, hold it, or append it to an inbox by the receiver's state.
-  "message a peer", "message a sibling session", "tell the other session", "send a notice", "send a hazard", "ask a peer", "relay what my subagent found", "correct what I told a peer", or any message this session owes a peer.
+  "message a peer", "message a sibling session", "tell the other session", "send a notice", "send a hazard", "ask a peer", "pass on what my subagent found", "correct what I told a peer", or any message this session owes a peer.
 ---
 
 <take-the-terms>
-Take `session`, `turn`, `hook`, `subagent`, `stamp`, `member`, `root`, `card`, `checkout`, `main session`, `presence`, `busy`, `idle`, `waiting`, `dormant`, `dnd`, `state`, `delivery`, `message`, `message body`, `type`, `[hazard]`, `[answer]`, `[notice]`, `reply time`, `held`, `origin`, `live`, `peer`, `inbox`, `relaying`, `claim`, `level 1`, `level 2`, `escalation`, and `priority level` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `turn`, `hook`, `subagent`, `stamp`, `member`, `root`, `card`, `checkout`, `main session`, `presence`, `busy`, `idle`, `waiting`, `dormant`, `dnd`, `state`, `delivery`, `message`, `message body`, `type`, `[hazard]`, `[answer]`, `[notice]`, `reply time`, `held`, `origin`, `live`, `peer`, `inbox`, `claim`, `level 1`, `level 2`, `escalation`, and `priority level` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <send-as-a-main-session>
@@ -40,7 +40,7 @@ Correct each failure of your own by a `[notice]` to every peer it reached; never
 
 Escalate a message one level above its type's level when its matter outruns that level; never escalate to skip a wait.
 
-State the reason in each message you escalate; never omit it.
+Say the reason in each message you escalate; never leave it out.
 </pick-the-content>
 
 <write-the-message>

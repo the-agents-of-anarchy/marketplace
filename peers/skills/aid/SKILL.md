@@ -6,13 +6,13 @@ description: >
 ---
 
 <take-the-terms>
-Take `delivery`, `message`, `[notice]`, and `peer` as the skill `ontology` defines them; never take them in another sense.
+Take `message`, `[notice]`, and `peer` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <offer-unasked>
 Offer a fix, finding, or spare capacity a peer lacks, unasked; never wait to be asked.
 
-Deliver help as an artifact — a file, commit, or finding — with one `[notice]` by the skill `tell`; never deliver it as a long message.
+Hand over help as an artifact — a file, commit, or finding — with one `[notice]` by the skill `tell`; never hand it over as a long message.
 
 Report a peer's breakage to that peer; never leave it unreported.
 </offer-unasked>

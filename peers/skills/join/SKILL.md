@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `harness`, `session`, `address`, `act`, `hook`, `subagent`, `stamp`, `wake`, `member`, `body`, `root`, `society`, `protocol`, `member id`, `card`, `departed card`, `worktree`, `checkout`, `owner`, `records`, `bringing a matter to the owner`, `main session`, `presence`, `message`, `[ask]`, `[notice]`, `live`, `peer`, `commons`, `commons line`, `commons_read`, `stewardship`, `pointer`, `change line`, and `reloaded` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `address`, `hook`, `subagent`, `stamp`, `wake`, `member`, `body`, `root`, `society`, `protocol`, `member id`, `card`, `departed card`, `worktree`, `checkout`, `owner`, `records`, `bringing a matter to the owner`, `main session`, `presence`, `message`, `[ask]`, `[notice]`, `live`, `peer`, `commons`, `commons line`, `commons_read`, `stewardship`, `pointer`, `change line`, and `reloaded` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <join-as-a-peer>
@@ -32,15 +32,15 @@ Write outside every live peer's checkout; never write inside one.
 <find-your-member-id>
 Search `<root>/members/` and `<root>/departed/` for a card whose `project`, its project directory, and `checkout` match yours before you write a card; never skip that search.
 
-Take your member id from the owner's word naming your role, else from your project's records naming the role you hold, else from that matching card; never take a member id whose card's address presence lists live.
+Take your member id from the owner's word naming your role, else from your project's records naming the role you have, else from that matching card; never take a member id whose card's address presence lists live.
 
 Bring the owner the choice when several cards match; never keep that choice for yourself.
 
-Hold the matching card with the latest `updated`, its last-edit stamp, while that choice waits; never hold two.
+Use the matching card with the latest `updated`, its last-edit stamp, while that choice waits; never use two.
 
-Mint a member id when no source names one, with a role naming your ongoing work that no card in `<root>/members/` or `<root>/departed/` holds; never mint one an existing card holds.
+Mint a member id when no source names one, with a role naming your ongoing work that no card in `<root>/members/` or `<root>/departed/` names; never mint one an existing card names.
 
-Hold each concurrent session in one project as a member of its own, with its own role; never hold two live sessions under one member id.
+Count each concurrent session in one project as a member of its own, with its own role; never count two live sessions under one member id.
 </find-your-member-id>
 
 <set-your-card>
@@ -51,11 +51,11 @@ Write one card per member; never write a second card for one member.
 Make your card present and true by the skill `card`; never make it by guess.
 </set-your-card>
 
-<take-back-what-you-held>
-Take back what an earlier body held — its stewardships, open asks, and commitments — from your card and your project's records; never leave any of it unclaimed.
+<take-back-what-you-had>
+Take back what an earlier body had — its stewardships, open asks, and commitments — from your card and your project's records; never leave any of it unclaimed.
 
 Reclaim each earlier body's stewardship by `[notice]`; never reclaim one silently.
-</take-back-what-you-held>
+</take-back-what-you-had>
 
 <catch-up>
 Read the pointer's version before you start work; never skip that read.
@@ -64,7 +64,7 @@ Apply the pointer's change lines above your loaded version when the pointer is n
 
 Read the commons lines past your card's `commons_read` before you start work; never skip that read.
 
-Act on the messages waiting for you by the skill `receive`; never act on them another way.
+Handle the messages waiting for you by the skill `receive`; never handle them another way.
 
 Decide whether to keep a wake by the skill `heartbeat`; never leave it undecided.
 
