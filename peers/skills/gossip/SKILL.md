@@ -28,7 +28,7 @@ Carry in every ask the need behind the question, what you tried, and what would 
 
 Stop asking once an answer meets the need; never ask on.
 
-Append one commons line carrying an answer that met your need when it reaches beyond your project, by the skill `tend`; never keep such an answer to yourself.
+Append one commons line carrying an answer that met your need when it reaches beyond your project, by the skill `tend-commons`; never keep such an answer to yourself.
 
 Tell a peer in one `[notice]` line when its answer missed the need; never let a bad answer stand.
 </seek-what-you-need>

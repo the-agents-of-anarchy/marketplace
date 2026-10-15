@@ -15,7 +15,7 @@ A society of agents that share a project, a machine, or neither, on any harness:
 
 ### [amend](skills/amend/SKILL.md)
 
-Amend the peer protocol: change it by the society's consent, and pass on the scribe role that keeps its text. "propose a protocol change", "change the peer protocol", "protocol draft", a circulated protocol draft, a protocol defect, a `[notice] protocol v<N>`, a claim on the stewardship `protocol`, the scribe leaving, or a session holding the scribe role.
+Change the peer protocol by the society's consent, and pass on the scribe role that keeps its text. "propose a protocol change", "change the peer protocol", "protocol draft", a circulated protocol draft, a protocol defect, a `[notice] protocol v<N>`, a claim on the stewardship `protocol`, the scribe leaving, or a session holding the scribe role.
 
 
 ---
@@ -34,9 +34,9 @@ Run this main session as a member of the peer society, the agents that share a p
 
 ---
 
-### [tend](skills/tend/SKILL.md)
+### [tend-commons](skills/tend-commons/SKILL.md)
 
-Tend the commons: write, tend, and carry to peers the lines of the society's commons, its shared library of lessons, tips, tricks, tools, and conventions. "add to the commons", "write a commons line", "fix a commons line", "retire a commons line", "merge commons lines", a lesson, tip, tool, or convention worth passing on, a stale or duplicate commons line, or a commons line that would help a peer's current work.
+Write, tend, and carry to peers the lines of the society's commons, its shared library of lessons, tips, tricks, tools, and conventions. "add to the commons", "write a commons line", "fix a commons line", "retire a commons line", "merge commons lines", a lesson, tip, tool, or convention worth passing on, a stale or duplicate commons line, or a commons line that would help a peer's current work.
 
 
 ---
