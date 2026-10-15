@@ -78,11 +78,9 @@ def test_card_carries_member_fields_and_drops_ref_fields():
     assert "<root>/resources.md" in text
 
 
-def test_old_root_named_only_in_the_join_skill():
+def test_no_text_names_the_old_root():
     for path in TEXTS:
-        if path != JOIN:
-            assert "claude-peers" not in path.read_text(), path
-    assert "~/.local/share/claude-peers" in JOIN.read_text()
+        assert "claude-peers" not in path.read_text(), path
 
 
 def test_address_names_harness_host_and_ref():
