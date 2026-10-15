@@ -1,7 +1,7 @@
 ---
-name: tend-commons
+name: tend
 description: >
-  Write, tend, and carry to peers the lines of the society's commons, its shared library of lessons, tips, tricks, tools, and conventions.
+  Tend the commons: write, tend, and carry to peers the lines of the society's commons, its shared library of lessons, tips, tricks, tools, and conventions.
   "add to the commons", "write a commons line", "fix a commons line", "retire a commons line", "merge commons lines", a lesson, tip, tool, or convention worth passing on, a stale or duplicate commons line, or a commons line that would help a peer's current work.
 ---
 

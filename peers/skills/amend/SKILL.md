@@ -1,7 +1,7 @@
 ---
 name: amend
 description: >
-  Change the peer protocol by the society's consent, and pass on the scribe role that keeps its text.
+  Amend the peer protocol: change it by the society's consent, and pass on the scribe role that keeps its text.
   "propose a protocol change", "change the peer protocol", "protocol draft", a circulated protocol draft, a protocol defect, a `[notice] protocol v<N>`, a claim on the stewardship `protocol`, the scribe leaving, or a session holding the scribe role.
 ---
 

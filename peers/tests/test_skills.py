@@ -17,8 +17,8 @@ def frontmatter_name(path):
     return match.group(1) if match else None
 
 
-def test_skill_set_is_join_gossip_amend_and_tend_commons():
-    assert sorted(p.name for p in SKILLS.iterdir() if p.is_dir()) == ["amend", "gossip", "join", "tend-commons"]
+def test_skill_set_is_join_gossip_amend_and_tend():
+    assert sorted(p.name for p in SKILLS.iterdir() if p.is_dir()) == ["amend", "gossip", "join", "tend"]
 
 
 def test_frontmatter_name_matches_directory():

@@ -336,7 +336,7 @@ Read a received `[notice] commons:` before your next step; never leave it for la
 
 Adopt or ignore a received commons line; never answer it, except to thank its origin for what you adopt.
 
-Write, tend, and carry commons lines to peers by the skill `tend-commons`; never write to the commons another way.
+Write, tend, and carry commons lines to peers by the skill `tend`; never write to the commons another way.
 </use-the-commons>
 
 <steward-shared-things>
