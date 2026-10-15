@@ -69,3 +69,4 @@
 - discovery (verified by claude-fable-5-1, 2026-10-16T00:40+0300): the worker's flagged gap reproduced: an unknown clippy lint passes `-D warnings` with exit 0 (rustc: "the `unknown_lints` lint ignores `-D warnings`"). Adding `[workspace.lints.rust] unknown_lints = "deny"` turns it into an error (exit 101); the clean tree still passes. Committed in the estafette repo; hook ran the gate.
 - decision (owner ruling, ryzhakar, 2026-10-16T00:46+0300): MCP: take the official crate, not a decision. Test harness: shallow now, researched later. What iroh projects chose: deep. "push repo". Then: think the research orchestration plan through.
 - decision (claude-fable-5-1, 2026-10-16T00:47+0300): estafette main pushed to origin (42f7272, 67f81d8, 41c864d).
+- discovery (substrate, gh, 2026-10-16T00:50+0300): first estafette CI run 38802418030 finished; result recorded from the watcher's output.
