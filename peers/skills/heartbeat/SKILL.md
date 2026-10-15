@@ -40,7 +40,7 @@ Leave every other session's wake as it is; never delete another's wake.
 </restore-the-wake>
 
 <spend-the-wake>
-Retry a held message at each wake, by the skill `tell` for a message of yours and by the skill `receive` for one that reached you; never let a wake pass with one unretried.
+Retry a held message at each wake by the skill `tell`; never let a wake pass with one unretried.
 
 Read at a commons wake the commons lines past your `commons_read` by the skill `adopt`; never let a commons wake pass with them unread.
 

@@ -204,7 +204,7 @@ Call a go-between a third live peer that mediates a contested matter; never call
 </name-the-roles>
 
 <rank-the-messages>
-Call level 1, act now, the level of `[hazard]` and `[quote]`, which reaches every member a `[hazard]` endangers, or the sessions or the scope a `[quote]`'s sender knows it concerns, whatever their state, is acted on before the receiver's next step, and spreads by gossip until every live session it reaches has it; never call a level 1 message held.
+Call level 1, act now, the level of `[hazard]` and `[quote]`, which reaches every member a `[hazard]` endangers, or the sessions or the scope a `[quote]`'s sender knows it concerns, whatever their state, is acted on before the receiver's next step, and spreads by gossip until every member it reaches has it; never call a level 1 message held.
 
 Call level 2, attend, the level of `[ask]`, `[answer]`, and `[notice]`, which reaches the peers its sender or its `spread:` names, waits while the receiver is busy, dormant, or dnd up to its reply time, is acted on at the receiver's next tool round, and spreads as its `spread:` says; never call a level 2 message one that overrides a state.
 

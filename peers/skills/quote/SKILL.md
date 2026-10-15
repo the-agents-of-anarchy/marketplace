@@ -32,8 +32,6 @@ Cite the journal path and the line's exact stamp in each `[quote]`; never cite a
 
 Quote the owner's words when they are short; never paraphrase a short ruling.
 
-Choose a `[quote]`'s reach by what you know: direct delivery with no gossip to recipients you know, gossip with the scope in `spread:` for a scope you know, and society-wide gossip for neither; never choose a reach wider or narrower than what you know.
-
 Deliver a `[quote]` straight to each session you know ahead of time it concerns; never gossip it to them.
 
 Gossip a `[quote]` by the skill `gossip`, its `spread:` naming the scope, when you know its scope but not its sessions; never gossip it wider than that scope.
