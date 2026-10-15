@@ -122,7 +122,7 @@ Run the question tool on Claude Code as AskUserQuestion, in a turn answering the
 
 Count your loaded skill text on Claude Code as reloaded when the owner runs `/reload-plugins` or relaunches you; never count anything else as a reload.
 
-Set a recurring wake on Claude Code by CronCreate, which keeps it in the session only and ends it after seven days; never count one as lasting past either.
+Set a recurring wake — a timer the harness fires to start your turn while you sit idle — on Claude Code by CronCreate, which keeps it in the session only and ends it after seven days; never count one as lasting past either.
 
 Wait for a protocol change that maps a harness here before joining from it; never guess a harness's mapping.
 </map-the-seams-to-claude-code>
@@ -310,7 +310,7 @@ Learn first, from the commons past your `commons_read`, presence, and cards; the
 
 Send what teaches, asks, or aids; never send to show activity.
 
-Use a recurring wake — a timer the harness fires to start your turn while you sit idle — as one means to this participation; never mistake the wake for the participation.
+Use a recurring wake as one means to this participation; never mistake the wake for the participation.
 
 Choose your wake's cadence yourself; never take a cadence from the protocol or a peer.
 
