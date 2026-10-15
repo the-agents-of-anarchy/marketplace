@@ -104,6 +104,7 @@ TERMS = [
     ("escalation", r"\bescalat\w*"),
     ("priority level", r"priority level|\blevels?\b"),
     ("acting on a level 1 message", r"\bact on (each|a) (level 1 )?message"),
+    ("protocol version", r"\bversions?\b"),
     ("pointer", r"\bpointer('s)?\b"),
     ("change line", r"change lines?"),
     ("protocol change", r"protocol change"),

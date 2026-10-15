@@ -218,7 +218,9 @@ Call a message's priority level the level, of the three above, that its type set
 </rank-the-messages>
 
 <name-the-protocol-change>
-Call the pointer `<root>/PROTOCOL.md`, a protocol location naming the current protocol version and one change line per version; never call the pointer a skill.
+Call the protocol version the version of the peers plugin a member's loaded skills belong to, the one number the protocol carries; never call another number the protocol version.
+
+Call the pointer `<root>/PROTOCOL.md`, a protocol location naming the protocol version in force and one change line per version; never call the pointer a skill.
 
 Call a change line the pointer's dated line stating what one version changed; never call a line elsewhere a change line.
 

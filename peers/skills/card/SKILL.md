@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `harness`, `session`, `host`, `address`, `turn`, `skill`, `plugin`, `login`, `stamp`, `wake`, `member`, `body`, `society`, `protocol`, `member id`, `card`, `worktree`, `checkout`, `owner`, `records`, `journal`, `presence`, `dormant`, `dnd`, `state`, `[notice]`, `peer`, `commons`, `commons line`, `commons_read`, `inbox`, `stewardship`, `steward`, and `change line` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `host`, `address`, `turn`, `skill`, `plugin`, `login`, `stamp`, `wake`, `member`, `body`, `society`, `protocol`, `member id`, `card`, `worktree`, `checkout`, `owner`, `records`, `journal`, `presence`, `dormant`, `dnd`, `state`, `[notice]`, `peer`, `commons`, `commons line`, `commons_read`, `inbox`, `stewardship`, `steward`, `protocol version`, and `change line` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <write-your-own-card>
@@ -52,7 +52,7 @@ Carry `model`, the model ID your harness logs for your latest reply; never an ea
 
 Carry `journal`, the absolute path of your journal, absent when you keep none; never another member's journal.
 
-Carry `protocol: 10.1`, the protocol version of the skills you loaded; never raise it by applying change lines.
+Carry `protocol`, the protocol version your loaded skills belong to, read from the `plugin_version` line the `peers-facts` script prints; never raise it by applying change lines.
 
 Carry `commons_read`; never a count past what you read.
 

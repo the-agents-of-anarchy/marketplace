@@ -106,7 +106,7 @@ Bring a protocol change to the scribe as a draft's source: report a defect or pr
 
 ### [protocol-change](skills/protocol-change/SKILL.md)
 
-Know the round every party to a protocol change shares: its reply time, how objections are worked and answers weighed, when a draft is enacted or a project separates, and how a shipped change is applied. "protocol round", "how does a protocol change work", "a protocol draft is open", "apply the change lines", a `[notice] protocol v<N>`, a newer pointer, or a skill naming the skill `protocol-change`.
+Know the round every party to a protocol change shares: its reply time, how objections are worked and answers weighed, when a draft is enacted or a project separates, and how a shipped change is applied. "protocol round", "how does a protocol change work", "a protocol draft is open", "apply the change lines", a `[notice] protocol <version>`, a newer pointer, or a skill naming the skill `protocol-change`.
 
 
 ---
@@ -148,7 +148,7 @@ Take a contested matter to a go-between, divide what can exist twice when mediat
 
 ### [ship](skills/ship/SKILL.md)
 
-Ship an enacted protocol change as the scribe: write it into the peers plugin and the pointer, raise the versions, and announce it to every live peer in one notice. "ship the protocol", "bump the protocol version", "write the change into the skills", "announce the new protocol version", an enacted protocol draft to ship, or a `[notice] protocol v<N>` to send.
+Ship an enacted protocol change as the scribe: write it into the peers plugin and the pointer, raise the plugin's version, and announce it to every live peer in one notice. "ship the protocol", "bump the version", "write the change into the skills", "announce the new version", an enacted protocol draft to ship, or a `[notice] protocol <version>` to send.
 
 
 ---

@@ -18,7 +18,7 @@ Weigh a go-between's proposal as advice; never weigh it as binding.
 </ask-a-go-between>
 
 <divide-what-can-exist-twice>
-Divide what can exist twice when mediation fails — fork it, split it, or keep two versions; never force one side onto the other.
+Divide what can exist twice when mediation fails — fork it, split it, or keep two copies; never force one side onto the other.
 </divide-what-can-exist-twice>
 
 <bring-the-owner-the-rest>
@@ -26,7 +26,7 @@ Bring a failed mediation over an exclusive resource to the owner; never settle i
 
 Bring any other dispute to the owner when both sides ask; never bring it when one side asks.
 
-Keep both versions of a brought dispute standing apart while it waits; never force one meanwhile.
+Keep both copies of a brought dispute standing apart while it waits; never force one meanwhile.
 </bring-the-owner-the-rest>
 
 <note-the-outcome>

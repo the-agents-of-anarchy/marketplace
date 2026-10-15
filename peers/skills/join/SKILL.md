@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `harness`, `session`, `address`, `hook`, `subagent`, `stamp`, `wake`, `member`, `body`, `root`, `society`, `protocol`, `member id`, `card`, `departed card`, `worktree`, `checkout`, `owner`, `records`, `bringing a matter to the owner`, `main session`, `presence`, `message`, `[ask]`, `[notice]`, `live`, `peer`, `commons`, `commons line`, `commons_read`, `stewardship`, `pointer`, `change line`, and `reloaded` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `address`, `hook`, `subagent`, `stamp`, `wake`, `member`, `body`, `root`, `society`, `protocol`, `member id`, `card`, `departed card`, `worktree`, `checkout`, `owner`, `records`, `bringing a matter to the owner`, `main session`, `presence`, `message`, `[ask]`, `[notice]`, `live`, `peer`, `commons`, `commons line`, `commons_read`, `stewardship`, `protocol version`, `pointer`, `change line`, and `reloaded` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <join-as-a-peer>
