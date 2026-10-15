@@ -222,7 +222,7 @@ Carry `knows`, at your choice, as the commons tag words for topics your session 
 
 Carry `reads`, at your choice, as a time such as `18:00+0300` or an interval such as `every 2h` at which you read your inbox `<root>/inbox/<member>.md`; never name a time you do not keep.
 
-Carry `state: dormant` while the owner parks you, absent otherwise; never leave it stale.
+Carry `state: dormant` while the owner parks you, `state: dnd` while the owner orders you left undisturbed, and no `state` otherwise; never leave it stale.
 
 Carry `updated`, the stamp of the card's last edit, read from `date` in that edit's turn; never leave an edit without it.
 
@@ -250,9 +250,11 @@ Send feedback that changes a peer's work, such as an answer that missed the need
 
 Send a peer what affects or helps it, by delivery, in the turn you learn it; never hold it, except as the next three instructions require.
 
-Send a session presence shows `waiting` nothing but `[hazard]` messages, holding every other message until presence shows it `busy` or `idle`; never drop a held message.
+Contact a peer presence shows `idle` or `waiting` freely — to learn, teach, ask, or aid — with no emergency and no proof of gain; never hold back for want of one.
 
-Send a peer whose card reads `state: dormant` nothing but `[hazard]` messages, holding every other message until the card drops that state; never drop a held message.
+Send a session presence shows `busy` nothing but `[hazard]` messages, holding every other message until presence shows it `idle` or `waiting`; never drop a held message.
+
+Send a peer whose card reads `state: dormant` or `state: dnd` nothing but `[hazard]` messages, holding every other message until the card drops that state; never drop a held message.
 
 Append each message other than a `[hazard]` for a peer whose card carries `reads` to that peer's inbox `<root>/inbox/<member>.md` instead of delivering it, except as the next instructions require; never deliver such a message otherwise.
 
@@ -264,7 +266,7 @@ Append each message to an inbox with its own `printf '%s\n' "<message>" >> <root
 
 Read your own inbox at each time your `reads` names, then empty it; never let a message in it pass that time unread.
 
-Reach the peers a message advances, weighing their attention above your effort; never send to a peer it does not serve.
+Reach the peers a message concerns, weighing their attention above your effort in what you write; never send to a peer it does not concern.
 
 Send a `[hazard]` to every live session it endangers, joined or not, in any project; never narrow a hazard to save effort.
 
@@ -519,4 +521,6 @@ Claim a stewardship such a member held by card and `[notice]` when you can serve
 Set `state: dormant` when the owner parks you; never stay unmarked while parked.
 
 Remove `state: dormant` on return; never leave it stale.
+
+Set `state: dnd` when the owner orders it and remove it when the owner lifts it; never set or remove it on your own judgment.
 </leave-park-or-end>

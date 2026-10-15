@@ -14,7 +14,7 @@ Tag, address, hold, and answer every gossip message by the skill `join`; never i
 
 Weigh a peer's attention above your effort in every send; never spend a peer's minute to save one of yours.
 
-Prefer an `idle` peer, between turns, to a `busy` one, mid-turn, when both serve; never interrupt the busy one first.
+Contact an `idle` peer, between turns, or a `waiting` one, at a prompt for the owner, freely; never interrupt a `busy` one, mid-turn.
 
 Read a peer's silence on your ask as "doesn't know"; never chase it.
 </weigh-the-receiver-first>
