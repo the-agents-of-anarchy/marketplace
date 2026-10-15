@@ -258,7 +258,7 @@ Reach the peers a message concerns, weighing their attention above your effort i
 
 Send a `[hazard]` to every live session it endangers, joined or not, in any project; never narrow a hazard to save effort.
 
-Gossip — source what you need from peers who know it from their own work, and pass on what helps theirs — across the full network by the skill `gossip`; never confine gossip to your project.
+Gossip — pass a need or a finding from peer to peer past anyone you could name, to reach unknown unknowns and unknown knowns — by the skill `gossip` whenever you cannot target the peer; never confine gossip to your project.
 
 Write the second line as `reply: none | by <time> | when convenient · sent <stamp>`; never write a reply line of another shape.
 

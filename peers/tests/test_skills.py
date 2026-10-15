@@ -119,3 +119,19 @@ def test_plugin_descriptions_name_the_society():
         text = path.read_text()
         assert "Claude Code sessions" not in text, path
         assert f"A society of {SOCIETY}: its protocol, its commons, and gossip between peers." in text, path
+
+
+RELAY_LINE = "relay: pass this on as spread: says, adding yourself to has: first; if you hold what it seeks or it changes your work, reach from: directly."
+
+
+def test_gossip_carries_the_envelope_and_the_fixed_relay_line():
+    text = GOSSIP.read_text()
+    for field in ("from: <member id> <session name>", "spread: <free text>", "has: <members>"):
+        assert f"`{field}`" in text, field
+    assert f"`{RELAY_LINE}`" in text
+
+
+def test_gossip_sets_no_protocol_fan_out_or_stop():
+    text = GOSSIP.read_text()
+    for phrase in ("two or three", "one to three", "never to everyone", "whose work would gain", "no peer outside", "asked:"):
+        assert phrase not in text, phrase

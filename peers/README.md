@@ -22,7 +22,7 @@ Change the peer protocol by the society's consent, and pass on the scribe role t
 
 ### [gossip](skills/gossip/SKILL.md)
 
-Source knowledge and resources through the peers who know them from their own work, and carry what you learn to the peers whose work it helps. "ask around", "who knows", "find someone who has", "spread this", "pass it on", "a peer would want to know", a need you cannot meet cheaply yourself, a discovery that would save a peer's work, or a gossip message arriving.
+Spread a need or a finding from peer to peer past anyone you could name, to reach unknown unknowns and unknown knowns, in an envelope that lets whoever holds or needs it reach the origin directly. "ask around", "who knows", "find someone who has", "spread this", "pass it on", "a peer would want to know", a need or finding you cannot target to a known peer, a discovery that may save someone's work, or a gossip message arriving with a `relay:` line.
 
 
 ---
