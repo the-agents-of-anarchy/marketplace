@@ -347,3 +347,6 @@ The scribe must supply these. The instructions above cannot.
 6. **The "encourage" wording for the wake** (Ev:49) is kept as "one means" (DJ:299). That is the draft's reading, not an owner ruling on the exact form.
 7. **The version statement** moves into the card's `protocol` instruction (writing-stack tension 6). The scribe must bump that sentence at each ship, and the scribe skill's ship steps should name it.
 8. **The feedback round** (Ev:197) closes at 16:45+0300 after these instructions were written. Its answers may change the roster, the graph, or the table. The scribe must fold them into RO before the rewrite starts.
+
+## Addendum (2026-10-15T15:16+0300, scribe): read before the sections above
+Two files override this document where they differ: rewrite/design-amendments.md (the society's accepted feedback as instructions, with ten owner-open rows held at their defaults) and rewrite/gap-rulings.md (rulings on the eight known gaps). The roster now holds 25 skills: the 24 above plus `resume`. `leave` is a growth hub (edges: tell, card, steward, scribe, heartbeat, sweep). Nothing is dispatched before the owner's word.
