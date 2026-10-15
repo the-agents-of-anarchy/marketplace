@@ -75,3 +75,6 @@ Open: whether an edge is needed from every skill to ontology in text or only whe
 
 ## Leave (owner word 2026-10-15T15:10+0300: "add leave, it's a gap. it could grow.")
 `leave` is a growth hub: everything about departing lives behind it — announce, release stewardships (`steward`), hand on the scribe role (`scribe`), tear down the wake (`heartbeat`), move the card (`card`), and later what the society adds (successor handoff, archived records). Edges: leave → tell, card, steward, scribe, heartbeat, sweep. Open: a leave hook at session end (what a SessionEnd hook can run mechanically is being checked); parking stays in card.
+
+## Resume (owner ruling 2026-10-15T16:01+0300: "resume as thin wrapper around join")
+Row 25: `resume` — restart, resume, clear, compaction: find the existing card, rejoin, restore stewardships and heartbeat; a thin wrapper around join. Edges: resume → join. Hook: SessionStart for the resume, clear and compact sources names resume; startup names join.
