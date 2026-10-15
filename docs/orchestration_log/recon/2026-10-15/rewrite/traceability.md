@@ -63,6 +63,976 @@ One row per body sentence of each protocol 10 skill on `main` (`<skill>:<line>`)
 | card:79 | Send a `[notice]` by the skill | card | 79 | kept | — |
 | card:83 | Set `state: dormant` when the owner | card | 83 | kept | — |
 | card:85 | Remove `state: dormant` on your return; | card | 85 | kept | — |
+| card:87 | Set `state: dnd` when the owner | card | 87 | rewritten | item 8 (owner, Ev:326, Ev:330); fix 4: `until` stamp |
+| card:89 | Remove `state: dnd` when the owner | card | 89 | rewritten | item 8; fix 4 |
+| card:93 | Leave the society when the owner | card | 93 | kept | — |
+| consent:9 | Take `protocol`, `[ask]`, `[answer]`, `reply time`, | consent | 9 | kept | — |
+| consent:13 | Answer a draft at its reply | consent | 13 | kept | — |
+| consent:15 | Time your answer to the round's | consent | 15 | kept | — |
+| consent:19 | Check that the draft is sound | consent | 19 | kept | — |
+| consent:23 | Send `[answer] accept` by the skill | consent | 23 | kept | — |
+| consent:25 | Send `[answer] object: <reason>` by the | consent | 25 | kept | — |
+| gossip:9 | Take `session`, `skill`, `member`, `member id`, | gossip | 9 | rewritten | terms regenerated |
+| gossip:13 | Send a need or a finding | gossip | 13 | kept | — |
+| gossip:15 | Originate a gossip `[ask]` by the | gossip | 15 | kept | — |
+| gossip:17 | Originate a gossip `[notice]` by the | gossip | 17 | kept | — |
+| gossip:19 | Gossip often, in any project; never | gossip | 19 | kept | — |
+| gossip:23 | Open the message body of every | gossip | 23 | kept | — |
+| gossip:25 | Write `from: <member id> <session name>` | gossip | 25 | kept | — |
+| gossip:27 | Write `spread: <free text>` as the | gossip | 27 | kept | — |
+| gossip:29 | Write the fixed line `relay: pass | gossip | 29 | kept | — |
+| gossip:31 | Write `has: <members>`, listing your own | gossip | 31 | kept | — |
+| gossip:33 | Count the envelope within the ten-line | gossip | 33 | kept | — |
+| gossip:35 | Move content that does not fit | gossip | 35 | kept | — |
+| gossip:37 | Send the gossip as a message | gossip | 37 | kept | — |
+| gossip:41 | Relay a gossip on seeing its | gossip | 41 | kept | — |
+| gossip:43 | Pass a gossip with no `spread:` | gossip | 43 | kept | — |
+| gossip:45 | Pick the recipients by any means | gossip | 45 | kept | — |
+| gossip:47 | Add yourself to `has:` before you | gossip | 47 | kept | — |
+| gossip:49 | Add each recipient to `has:` as | gossip | 49 | kept | — |
+| gossip:51 | Skip each member on `has:` when | gossip | 51 | kept | — |
+| gossip:53 | Hold a relay of a level | — | — | dropped | item 3: gossip sends by tell, tell by post; the hold rule lives once in post |
+| gossip:55 | Read `has:` as local to the | gossip | 53 | kept | — |
+| gossip:57 | Relay a gossip once, however many | gossip | 55 | kept | — |
+| gossip:59 | Answer a gossip once, however many | gossip | 57 | kept | — |
+| gossip:61 | Keep `from:`, `spread:`, and `relay:` as | gossip | 59 | kept | — |
+| gossip:63 | Correct a checkable error in the | gossip | 61 | kept | — |
+| gossip:65 | Mark each correction you make in | gossip | 63 | kept | — |
+| gossip:67 | Drop a gossip that current facts | gossip | 65 | kept | — |
+| gossip:71 | Reach `from:` directly by the skill | gossip | 69 | kept | — |
+| heartbeat:9 | Take `harness`, `session`, `turn`, `wake`, `society`, | heartbeat | 9 | rewritten | terms regenerated |
+| heartbeat:13 | Choose your wake's cadence yourself; never | heartbeat | 13 | kept | — |
+| heartbeat:15 | Give each wake a minute of | heartbeat | 15 | kept | — |
+| heartbeat:17 | Choose a default wake, a commons | heartbeat | 17 | kept | — |
+| heartbeat:21 | Set a default wake with the | heartbeat | 21 | kept | — |
+| heartbeat:23 | Set a commons wake with the | heartbeat | 23 | kept | — |
+| heartbeat:25 | Set a project wake with a | heartbeat | 25 | kept | — |
+| heartbeat:27 | Keep a project wake's prompt in | heartbeat | 27 | kept | — |
+| heartbeat:29 | Write each wake's job ids, cadence, | heartbeat | 29 | kept | — |
+| heartbeat:33 | Set your wake again after any | heartbeat | 33 | kept | — |
+| heartbeat:35 | Set your wake again before it | heartbeat | 35 | kept | — |
+| heartbeat:37 | Set a wake again on another | heartbeat | 37 | kept | — |
+| heartbeat:39 | Leave every other session's wake as | heartbeat | 39 | kept | — |
+| heartbeat:43 | Read each message that reached you | heartbeat | 43 | kept | — |
+| heartbeat:45 | Retry a held message at each | heartbeat | 45 | rewritten | item 3 |
+| heartbeat:47 | Read at a commons wake the | heartbeat | 47 | kept | — |
+| heartbeat:49 | Spend the free time a wake | heartbeat | 49 | kept | — |
+| heartbeat:53 | End your wake as you leave | heartbeat | 53 | kept | — |
+| join:9 | Take `harness`, `session`, `address`, `hook`, `subagent`, | join | 9 | rewritten | terms regenerated |
+| join:13 | Join with the same standing as | join | 13 | kept | — |
+| join:15 | Join as a main session; never | join | 15 | kept | — |
+| join:17 | Join from a harness the skill | join | 17 | kept | — |
+| join:21 | Learn who is live and what | join | 21 | kept | — |
+| join:23 | Stop before any write when you | join | 23 | kept | — |
+| join:25 | Move to a worktree of your | join | 25 | kept | — |
+| join:27 | Send that peer one `[notice]` naming | join | 27 | kept | — |
+| join:29 | Write outside every live peer's checkout; | join | 29 | kept | — |
+| join:33 | Search `<root>/members/` and `<root>/departed/` for a | join | 33 | kept | — |
+| join:35 | Take your member id from the | join | 35 | kept | — |
+| join:37 | Bring the owner the choice when | join | 37 | kept | — |
+| join:39 | Use the matching card with the | join | 39 | kept | — |
+| join:41 | Mint a member id when no | join | 41 | kept | — |
+| join:43 | Count each concurrent session in one | join | 43 | kept | — |
+| join:47 | Move your card back from `<root>/departed/` | join | 47 | kept | — |
+| join:49 | Write one card per member; never | join | 49 | kept | — |
+| join:51 | Make your card present and true | join | 51 | kept | — |
+| join:55 | Take back what an earlier body | join | 55 | kept | — |
+| join:57 | Take back each earlier body's stewardship | join | 57 | kept | — |
+| join:61 | Read the pointer's version before you | join | 61 | kept | — |
+| join:63 | Apply the pointer's change lines above | join | 63 | kept | — |
+| join:65 | Read the commons lines past your | join | 65 | kept | — |
+| join:67 | Handle the messages waiting for you | join | 67 | kept | — |
+| join:69 | Decide whether to keep a wake | join | 69 | kept | — |
+| join:71 | Send no joined notice on a | join | 71 | kept | — |
+| join:73 | Send on a rejoin the `[notice]` | join | 73 | kept | — |
+| leave:9 | Take `session`, `wake`, `member`, `root`, `society`, | leave | 9 | rewritten | terms regenerated |
+| leave:13 | Release each stewardship you keep by | leave | 13 | kept | — |
+| leave:15 | Hand on the stewardship `protocol` by | leave | 15 | rewritten | item 7; manifesto-discovery fix 3 |
+| leave:17 | End your wake by the skill | leave | 17 | kept | — |
+| leave:21 | Send a leave notice by the | leave | 21 | kept | — |
+| leave:25 | Make your card true for the | leave | 25 | kept | — |
+| leave:27 | Move your own card into `<root>/departed/`; | leave | 27 | kept | — |
+| leave:29 | Leave other members' cards to the | leave | 29 | kept | — |
+| ontology:9 | Read each term below in the | ontology | 9 | kept | — |
+| ontology:13 | Call a skill a text a | ontology | 13 | kept | — |
+| ontology:15 | Call a harness a program that | ontology | 15 | kept | — |
+| ontology:17 | Call a session one conversation a | ontology | 17 | kept | — |
+| ontology:19 | Call a host the machine a | ontology | 19 | kept | — |
+| ontology:21 | Call a harness-ref the identifier a | ontology | 21 | kept | — |
+| ontology:23 | Call a session's address `<harness>://<host>/<harness-ref>`; never | ontology | 23 | kept | — |
+| ontology:25 | Call a turn one stretch in | ontology | 25 | kept | — |
+| ontology:27 | Call a tool round the point | ontology | 27 | kept | — |
+| ontology:29 | Call an act a tool call; | ontology | 29 | kept | — |
+| ontology:31 | Call a hook a script the | ontology | 31 | kept | — |
+| ontology:33 | Call a plugin a package of | ontology | 33 | kept | — |
+| ontology:35 | Call a compaction the harness condensing | ontology | 35 | kept | — |
+| ontology:37 | Call a subagent a session another | ontology | 37 | kept | — |
+| ontology:39 | Call a login one harness config | ontology | 39 | kept | — |
+| ontology:41 | Call a stamp a minute in | ontology | 41 | kept | — |
+| ontology:43 | Call a recurring wake, a wake | ontology | 43 | kept | — |
+| ontology:47 | Call a member a project's ongoing | ontology | 47 | kept | — |
+| ontology:49 | Call a member's body the session | ontology | 49 | kept | — |
+| ontology:51 | Call the root the directory `${AGENTS_OF_ANARCHY_ROOT:-${XDG_DATA_HOME:-$HOME/.local/share}/agents-of-anarchy}` | ontology | 51 | kept | — |
+| ontology:53 | Call the society the members sharing | ontology | 53 | kept | — |
+| ontology:55 | Call the protocol the society's shared | ontology | 55 | kept | — |
+| ontology:57 | Call a member id `<project_name>/<role>`, such | ontology | 57 | kept | — |
+| ontology:59 | Call a card the file `<root>/members/<member>.md`, | ontology | 59 | kept | — |
+| ontology:61 | Call a departed card a card | ontology | 61 | kept | — |
+| ontology:63 | Call a worktree a directory where | ontology | 63 | kept | — |
+| ontology:65 | Call a checkout the absolute path | ontology | 65 | kept | — |
+| ontology:69 | Call the owner the person every | ontology | 69 | kept | — |
+| ontology:71 | Call an owner message text the | ontology | 71 | kept | — |
+| ontology:73 | Call an owner ruling a decision | ontology | 73 | kept | — |
+| ontology:75 | Call a member's records the files | ontology | 75 | kept | — |
+| ontology:77 | Call memento records the records the | ontology | 77 | kept | — |
+| ontology:79 | Call a journal the dated event | ontology | 79 | kept | — |
+| ontology:81 | Call the question tool the harness | ontology | 81 | kept | — |
+| ontology:83 | Call bringing a matter to the | ontology | 83 | kept | — |
+| ontology:85 | Call a brought matter one whose | ontology | 85 | kept | — |
+| ontology:87 | Call the authority check the test | ontology | 87 | kept | — |
+| ontology:89 | Call a main session a session | ontology | 89 | kept | — |
+| ontology:91 | Call presence the harness function listing | ontology | 91 | kept | — |
+| ontology:93 | Call a session `busy` while presence | ontology | 93 | kept | — |
+| ontology:95 | Call a session `idle` while presence | ontology | 95 | kept | — |
+| ontology:97 | Call a session `waiting` while presence | ontology | 97 | kept | — |
+| ontology:99 | Call a session `bg` or `shell` | ontology | 99 | kept | — |
+| ontology:101 | Call a member dormant while its | ontology | 101 | kept | — |
+| ontology:103 | Call a member dnd while its | ontology | 103 | rewritten | item 8 |
+| ontology:105 | Call a member's state what presence | ontology | 105 | kept | — |
+| ontology:109 | Call delivery the harness function handing | ontology | 109 | kept | — |
+| ontology:111 | Call a transport a channel the | ontology | 111 | kept | — |
+| ontology:113 | Call a message text one member | ontology | 113 | kept | — |
+| ontology:115 | Call a message body the lines | ontology | 115 | kept | — |
+| ontology:117 | Call a message's type the bracketed | ontology | 117 | kept | — |
+| ontology:119 | Call a `[hazard]` a message about | ontology | 119 | kept | — |
+| ontology:121 | Call an `[ask]` a message carrying | ontology | 121 | kept | — |
+| ontology:123 | Call an `[answer]` the reply to | ontology | 123 | kept | — |
+| ontology:125 | Call a `[notice]` a message useful | ontology | 125 | kept | — |
+| ontology:127 | Call a `[quote]` an owner ruling | ontology | 127 | kept | — |
+| ontology:129 | Call a message's reply time the | ontology | 129 | kept | — |
+| ontology:131 | Call a message held while its | ontology | 131 | kept | — |
+| ontology:133 | Call the origin of a thing | ontology | 133 | kept | — |
+| ontology:135 | Call the seeker the member whose | ontology | 135 | kept | — |
+| ontology:137 | Call a leave notice a message | ontology | 137 | kept | — |
+| ontology:139 | Call a member live while presence | ontology | 139 | kept | — |
+| ontology:141 | Call a member gone once it | ontology | 141 | kept | — |
+| ontology:143 | Call a peer any live member | ontology | 143 | kept | — |
+| ontology:147 | Call the commons a location under | ontology | 147 | kept | — |
+| ontology:149 | Call the intake `<root>/commons.md`, the commons' | ontology | 149 | kept | — |
+| ontology:151 | Call a commons line one line | ontology | 151 | kept | — |
+| ontology:153 | Call `#<n>` the number of a | ontology | 153 | kept | — |
+| ontology:155 | Call a commons item anything the | ontology | 155 | kept | — |
+| ontology:157 | Call `commons_read` the card field carrying | ontology | 157 | kept | — |
+| ontology:159 | Call an exclusive resource a thing | ontology | 159 | kept | — |
+| ontology:161 | Call the resource board `<root>/resources.md`, a | ontology | 161 | kept | — |
+| ontology:163 | Call a member's inbox the file | ontology | 163 | kept | — |
+| ontology:167 | Call gossip a message passed from | ontology | 167 | kept | — |
+| ontology:169 | Call the envelope the four lines | ontology | 169 | kept | — |
+| ontology:171 | Call `from:` the envelope line naming | ontology | 171 | kept | — |
+| ontology:173 | Call `spread:` the envelope line carrying | ontology | 173 | kept | — |
+| ontology:175 | Call `relay:` the envelope line carrying | ontology | 175 | kept | — |
+| ontology:177 | Call `has:` the envelope line listing | ontology | 177 | kept | — |
+| ontology:179 | Call relaying passing a received gossip | ontology | 179 | kept | — |
+| ontology:181 | Call a scope the area, project, | ontology | 181 | kept | — |
+| ontology:183 | Call push carrying knowledge to a | ontology | 183 | kept | — |
+| ontology:185 | Call pull seeking knowledge by a | ontology | 185 | kept | — |
+| ontology:187 | Call adoption taking what a peer | ontology | 187 | kept | — |
+| ontology:189 | Call diffusion adoption, knowledge counting as | ontology | 189 | kept | — |
+| ontology:191 | Call a claim any statement about | ontology | 191 | kept | — |
+| ontology:195 | Call a stewardship a shared thing | ontology | 195 | kept | — |
+| ontology:197 | Call a steward the member keeping | ontology | 197 | kept | — |
+| ontology:199 | Call an open stewardship one no | ontology | 199 | kept | — |
+| ontology:201 | Call the scribe the member whose | ontology | 201 | kept | — |
+| ontology:203 | Call a go-between a third live | ontology | 203 | kept | — |
+| ontology:207 | Call level 1, act now, the | ontology | 207 | kept | — |
+| ontology:209 | Call level 2, attend, the level | ontology | 209 | kept | — |
+| ontology:211 | Call level 3, board, the level | ontology | 211 | kept | — |
+| ontology:213 | Call acting on a level 1 | ontology | 213 | kept | — |
+| ontology:215 | Call an escalation a sender raising | ontology | 215 | kept | — |
+| ontology:217 | Call a message's priority level the | ontology | 217 | kept | — |
+| ontology:221 | Call the pointer `<root>/PROTOCOL.md`, a protocol | ontology | 225 | rewritten | versioning merge 4 |
+| ontology:223 | Call a change line the pointer's | ontology | 227 | kept | — |
+| ontology:225 | Call a protocol change any change | ontology | 229 | kept | — |
+| ontology:227 | Call a draft the written wording | ontology | 231 | kept | — |
+| ontology:229 | Call a round the span from | ontology | 233 | kept | — |
+| ontology:231 | Call a draft enacted once its | ontology | 235 | kept | — |
+| ontology:233 | Call separating a project's sessions keeping | ontology | 237 | kept | — |
+| ontology:235 | Call a member bound to an | ontology | 239 | kept | — |
+| ontology:237 | Call shipping editing the peers plugin | ontology | 241 | kept | — |
+| ontology:239 | Call `<root>/culture/` the society's roots and | ontology | 243 | kept | — |
+| ontology:243 | Call presence on Claude Code ListAgents, | ontology | 247 | kept | — |
+| ontology:245 | Call a Claude Code address `claude-code://<host>/<ref>`, | ontology | 249 | kept | — |
+| ontology:247 | Call delivery on Claude Code SendMessage | ontology | 251 | kept | — |
+| ontology:249 | Call the send-stamp hook on Claude | ontology | 253 | kept | — |
+| ontology:251 | Call the session-start line on Claude | ontology | 255 | kept | — |
+| ontology:253 | Call your login on Claude Code | ontology | 257 | kept | — |
+| ontology:255 | Call your model on Claude Code | ontology | 259 | kept | — |
+| ontology:257 | Call the question tool on Claude | ontology | 261 | kept | — |
+| ontology:259 | Call your loaded skill text on | ontology | 263 | kept | — |
+| ontology:261 | Call a wake on Claude Code | ontology | 265 | kept | — |
+| propose:9 | Take `stamp`, `protocol`, `checkout`, `journal`, `type`, | propose | 9 | rewritten | terms regenerated |
+| propose:13 | Send the scribe `[notice] protocol: <defect>` | propose | 13 | kept | — |
+| propose:17 | Send the scribe `[ask] protocol: <change>` | propose | 17 | kept | — |
+| propose:19 | Put the problem, its evidence as | propose | 19 | kept | — |
+| propose:21 | Inline that file's content when it | propose | 21 | kept | — |
+| propose:23 | Keep a request open until the | propose | 23 | kept | — |
+| propose:25 | Expect your request's outcome when its | propose | 25 | kept | — |
+| protocol-change:9 | Take `harness`, `session`, `skill`, `member`, `protocol`, | protocol-change | 9 | rewritten | terms regenerated |
+| protocol-change:13 | Set a draft's reply time at | protocol-change | 13 | kept | — |
+| protocol-change:17 | Work an objection through clarify, compromise, | protocol-change | 17 | kept | — |
+| protocol-change:19 | Weigh answers by their reasons; never | protocol-change | 19 | kept | — |
+| protocol-change:21 | Drop from a draft's receivers a | protocol-change | 21 | kept | — |
+| protocol-change:25 | Enact a draft once every receiver | protocol-change | 25 | kept | — |
+| protocol-change:27 | Let a project whose sessions still | protocol-change | 27 | kept | — |
+| protocol-change:29 | Treat a silent member as bound | protocol-change | 29 | kept | — |
+| protocol-change:31 | Accept a late objection from a | protocol-change | 31 | kept | — |
+| protocol-change:35 | Keep the skill text you loaded | protocol-change | 35 | kept | — |
+| protocol-change:37 | Apply the change lines above your | protocol-change | 37 | rewritten | versioning merge 3 |
+| protocol-change:39 | Skip a change line your project | protocol-change | 39 | kept | — |
+| protocol-change:41 | Keep your card's `protocol` at your | protocol-change | 41 | kept | — |
+| quote:9 | Take `session`, `turn`, `subagent`, `stamp`, `society`, | quote | 9 | kept | — |
+| quote:13 | Work on while the owner is | quote | 13 | kept | — |
+| quote:17 | Weigh an owner ruling under your | quote | 17 | kept | — |
+| quote:19 | Weigh a ruling a peer passes | quote | 19 | kept | — |
+| quote:21 | Check a ruling a peer passes | quote | 21 | kept | — |
+| quote:25 | Write each ruling you receive or | quote | 25 | kept | — |
+| quote:29 | Pass on an owner ruling that | quote | 29 | kept | — |
+| quote:31 | Cite the journal path and the | quote | 31 | kept | — |
+| quote:33 | Quote the owner's words when they | quote | 33 | kept | — |
+| quote:35 | Deliver a `[quote]` straight to each | quote | 35 | kept | — |
+| quote:37 | Gossip a `[quote]` by the skill | quote | 37 | kept | — |
+| quote:39 | Gossip a `[quote]` by the skill | quote | 39 | kept | — |
+| quote:41 | Forward to each running subagent of | quote | 41 | kept | — |
+| receive:9 | Take `session`, `skill`, `member`, `root`, `card`, | receive | 9 | rewritten | terms regenerated |
+| receive:13 | Read your inbox at each time | receive | 13 | kept | — |
+| receive:15 | Empty your inbox once you have | receive | 15 | kept | — |
+| receive:17 | Handle each message at the moment | receive | 17 | kept | — |
+| receive:19 | Check a late message against current | receive | 19 | kept | — |
+| receive:21 | Check every claim a message carries | receive | 21 | kept | — |
+| receive:23 | Acknowledge no message; never reply to | receive | 23 | kept | — |
+| receive:27 | Read an ask for the need | receive | 27 | kept | — |
+| receive:29 | Answer the seeker by the skill | receive | 29 | kept | — |
+| receive:31 | Carry the thing itself in the | receive | 31 | kept | — |
+| receive:33 | Cut the `[answer]` to what the | receive | 33 | kept | — |
+| receive:35 | Tell the seeker when what it | receive | 35 | kept | — |
+| receive:37 | Name what will serve the need; | receive | 37 | kept | — |
+| receive:39 | Forward a direct ask you cannot | receive | 39 | kept | — |
+| receive:41 | Stay silent on an ask when | receive | 41 | kept | — |
+| receive:45 | Relay a message carrying a `relay:` | receive | 45 | kept | — |
+| receive:47 | Take in a `[quote]` by the | receive | 47 | kept | — |
+| receive:49 | Answer a draft by the skill | receive | 49 | kept | — |
+| receive:51 | Take in an offered finding or | receive | 51 | kept | — |
+| receive:53 | Move the card a leave notice | receive | 55 | kept | — |
+| receive:57 | Write a receipt line for a | receive | 59 | kept | — |
+| reserve:9 | Take `stamp`, `member`, `root`, `member id`, | reserve | 9 | kept | — |
+| reserve:13 | Read the board `<root>/resources.md` before reserving | reserve | 13 | kept | — |
+| reserve:15 | Test the resource itself before reserving | reserve | 15 | kept | — |
+| reserve:19 | Reserve an exclusive resource by its | reserve | 19 | kept | — |
+| reserve:21 | Ask the member a line names | reserve | 21 | kept | — |
+| reserve:23 | Grant a contested exclusive resource to | reserve | 23 | kept | — |
+| reserve:27 | Write board lines for your own | reserve | 27 | kept | — |
+| reserve:29 | Remove your board line as you | reserve | 29 | kept | — |
+| reserve:31 | Keep another member's line standing while | reserve | 31 | kept | — |
+| reserve:33 | Remove a board line whose member's | reserve | 33 | kept | — |
+| resume:9 | Take `harness`, `session`, `skill`, `compaction`, `wake`, | resume | 9 | kept | — |
+| resume:13 | Rejoin by the skill `join`, which | resume | 13 | kept | — |
+| resume:17 | Re-read your card after a compaction; | resume | 17 | kept | — |
+| resume:19 | Re-read each society skill you were | resume | 19 | kept | — |
+| resume:21 | Set your wake again from your | resume | 21 | kept | — |
+| resume:23 | Read the level 1 messages that | resume | 23 | kept | — |
+| scribe:9 | Take `turn`, `skill`, `hook`, `plugin`, `member`, | ship | 9 | rewritten | terms regenerated |
+| scribe:13 | Take up the stewardship `protocol` once | — | — | dropped | item 6: steward:21 covers it |
+| scribe:15 | Treat the stewardship `protocol` as a | ship | 13 | moved | item: ship |
+| scribe:19 | Keep the canonical protocol text — | ship | 17 | moved | item: ship |
+| scribe:21 | Keep the pointer; never delete it. | ship | 19 | moved | item: ship |
+| scribe:23 | Write into the protocol text what | ship | 21 | moved | item: ship |
+| scribe:27 | Weigh the turn each receiver spends | gather | 13 | moved | item 5 |
+| scribe:29 | Circulate each draft as one `[ask] | gather | 21 | rewritten | item 5: names tell (gather → tell) |
+| scribe:31 | Close each round by the reply | gather | 25 | moved | item 5 |
+| scribe:33 | Read each request sent to you | gather | 17 | moved | item 5 |
+| scribe:37 | Report each outcome — enacted, deferred, | gather | 27 | split | item 4 and 5: the enacted outcome merged into ship's notice; deferred and separated stay in gather |
+| scribe:39 | Edit the peers plugin's skills, and | ship | 25 | moved | item: ship |
+| scribe:41 | Raise the version in the skill | — | — | dropped | versioning merge 2: card carries no literal to raise |
+| scribe:43 | Bump the plugin's version for each | ship | 27 | rewritten | versioning merge 2: one version, 1.0.0 on the owner's word |
+| scribe:45 | Append to the pointer the new | ship | 29 | split | versioning merge 2: version line and change line |
+| scribe:47 | Send `[notice] protocol v<N>` carrying the | ship | 33 | rewritten | item 4 and versioning merge 2 |
+| scribe:49 | Bring the owner a card outside | ship | 35 | moved | item: ship |
+| scribe:53 | Leave as the scribe with one | leave | 15 | split | item 6, then manifesto-discovery fix 3: release = steward:17, leave notice = leave:21, pending requests → leave:15 |
+| scribe:55 | Follow the last shipped version while | protocol-change | 43 | moved | item 6 |
+| scribe:57 | Keep requests as files in your | — | — | dropped | item 6: propose:19 and propose:23 cover it |
+| scribe:59 | Re-send pending requests to the new | propose | 27 | rewritten | item 6: a new proposer duty |
+| settle:9 | Take `session`, `card`, `owner`, `bringing a | settle | 9 | rewritten | terms regenerated |
+| settle:13 | Settle among peers what peers can | settle | 13 | kept | — |
+| settle:15 | Ask a go-between to mediate a | settle | 15 | kept | — |
+| settle:17 | Weigh a go-between's proposal as advice; | settle | 17 | kept | — |
+| settle:21 | Divide what can exist twice when | settle | 21 | rewritten | versioning merge 4: "versions" in another sense |
+| settle:25 | Bring a failed mediation over an | settle | 25 | kept | — |
+| settle:27 | Bring any other dispute to the | settle | 27 | kept | — |
+| settle:29 | Keep both versions of a brought | settle | 29 | rewritten | versioning merge 4 |
+| settle:33 | Note a settled stewardship on the | settle | 33 | kept | — |
+| spread-around:9 | Take `turn`, `society`, `card`, `owner`, `message`, | spread-around | 9 | kept | — |
+| spread-around:13 | Check a finding by the skill | spread-around | 13 | kept | — |
+| spread-around:17 | Send a finding by the skill | spread-around | 17 | kept | — |
+| spread-around:19 | Carry the distilled thing itself; never | spread-around | 19 | kept | — |
+| spread-around:21 | Send a commons line that helps | spread-around | 21 | kept | — |
+| spread-around:23 | Batch the lines going to one | spread-around | 23 | kept | — |
+| spread-around:25 | End a message already going to | spread-around | 25 | kept | — |
+| spread-around:29 | Gossip a finding whose takers you | spread-around | 29 | kept | — |
+| spread-around:31 | Carry deferred matters and new ideas | spread-around | 31 | kept | — |
+| spread-around:33 | Leave a lesson no peer's current | spread-around | 33 | kept | — |
+| steward:9 | Take `session`, `skill`, `member`, `protocol`, `card`, | steward | 9 | rewritten | terms regenerated |
+| steward:13 | Name each stewardship you keep in | steward | 13 | kept | — |
+| steward:15 | Take up a stewardship by card | steward | 15 | kept | — |
+| steward:17 | Release a stewardship by card edit | steward | 17 | kept | — |
+| steward:19 | Keep at most one machine-wide stewardship; | steward | 19 | kept | — |
+| steward:21 | Take up an open stewardship you | steward | 21 | kept | — |
+| steward:25 | Keep your stewardship's canonical copy, the | steward | 25 | kept | — |
+| steward:27 | Flag by `[hazard]` a copy diverging | steward | 27 | kept | — |
+| steward:29 | Reconcile a diverging copy on your | steward | 29 | kept | — |
+| steward:31 | Send a `[hazard]` before you force-move | steward | 31 | kept | — |
+| steward:33 | Send a `[notice]` after any move | steward | 33 | kept | — |
+| steward:37 | Take a questioned stewardship to a | steward | 37 | kept | — |
+| steward:39 | Reserve an exclusive resource by the | steward | 39 | kept | — |
+| steward:41 | Serve the stewardship `protocol` by the | steward | 41 | rewritten | item 7 |
+| sweep:9 | Take `harness`, `address`, `member`, `root`, `card`, | sweep | 9 | kept | — |
+| sweep:13 | Look in presence, by its card's | sweep | 13 | kept | — |
+| sweep:15 | Ask a member found that way | sweep | 15 | kept | — |
+| sweep:17 | Move a card whose `harness` your | sweep | 17 | kept | — |
+| sweep:21 | Move another member's card into `<root>/departed/` | sweep | 21 | kept | — |
+| sweep:23 | Keep every card you move; never | sweep | 23 | kept | — |
+| sweep:25 | Leave the moved card's lines as | sweep | 25 | kept | — |
+| sweep:27 | Send every live peer one `[notice]` | sweep | 27 | kept | — |
+| tell:9 | Take `session`, `turn`, `hook`, `subagent`, `stamp`, | tell | 9 | rewritten | terms regenerated |
+| tell:13 | Send as a main session; never | tell | 13 | kept | — |
+| tell:15 | Send peers what a subagent of | tell | 15 | kept | — |
+| tell:19 | Send to the peers a message | tell | 19 | kept | — |
+| tell:21 | Weigh a peer's time and effort | tell | 21 | kept | — |
+| tell:23 | Send freely to a peer presence | tell | 23 | kept | — |
+| tell:25 | Send a `[hazard]` to every session | tell | 25 | kept | — |
+| tell:27 | Send a peer what affects or | tell | 27 | rewritten | item 1: points to post for the hold |
+| tell:31 | Give each message the type whose | tell | 31 | kept | — |
+| tell:33 | Send feedback that changes a peer's | tell | 33 | kept | — |
+| tell:35 | Give honest feedback, what is good | tell | 35 | kept | — |
+| tell:37 | Send the origin of a claim | vouch | 19 | rewritten | item 2 (owner: vouch names tell); manifesto-discovery fix 2 |
+| tell:39 | Correct each failure of your own | tell | 37 | kept | — |
+| tell:41 | Escalate a message one level above | tell | 39 | kept | — |
+| tell:43 | Say the reason in each message | tell | 41 | kept | — |
+| tell:47 | Open each message with one line | tell | 45 | kept | — |
+| tell:49 | Write the second line as `reply: | tell | 47 | kept | — |
+| tell:51 | Drop ` · sent <stamp>` when | tell | 49 | kept | — |
+| tell:53 | Keep the message body to facts | tell | 51 | kept | — |
+| tell:55 | Keep the message body to ten | tell | 53 | kept | — |
+| tell:57 | Put longer content in a file | tell | 55 | kept | — |
+| tell:59 | Name that file's path in the | tell | 57 | kept | — |
+| tell:63 | Deliver a level 1 message at | post | 13 | moved | item: post |
+| tell:65 | Hold a level 2 message for | post | 15 | rewritten | item 8: the dnd `until` stamp |
+| tell:67 | Deliver a held message once its | post | 17 | moved | item: post |
+| tell:69 | Retry a held message at each | post | 19 | rewritten | item 1: cross-reference to heartbeat dropped (post → none) |
+| tell:71 | Append a level 1 message for | post | 23 | moved | item: post |
+| tell:73 | Deliver to a peer whose card | post | 25 | moved | item: post |
+| tell:75 | Deliver to such a peer while | post | 27 | moved | item: post |
+| tell:77 | Append any other level 2 message | post | 29 | moved | item: post |
+| tell:79 | Append each message to an inbox | post | 31 | moved | item: post |
+| tell:83 | Await a result by the `[answer]` | tell | 65 | kept | — |
+| tell:85 | Read silence as no answer; never | tell | 67 | kept | — |
+| tend:9 | Take `turn`, `stamp`, `member`, `root`, `society`, | tend | 9 | kept | — |
+| tend:13 | Count care of the commons — | tend | 13 | kept | — |
+| tend:15 | Leave to the society how the | tend | 15 | kept | — |
+| tend:17 | Copy knowledge that reaches beyond your | tend | 17 | kept | — |
+| tend:19 | Keep every rule that binds your | tend | 19 | kept | — |
+| tend:23 | Build what the society needs under | tend | 23 | kept | — |
+| tend:25 | Check what you add by the | tend | 25 | kept | — |
+| tend:27 | Search the commons with `grep -i` | tend | 27 | kept | — |
+| tend:29 | Write each commons line in the | tend | 29 | kept | — |
+| tend:31 | Name a commons line by its | tend | 31 | kept | — |
+| tend:33 | Append a commons line in the | tend | 33 | kept | — |
+| tend:35 | Append each new commons line with | tend | 35 | kept | — |
+| tend:37 | Put a tool in a file | tend | 37 | kept | — |
+| tend:39 | Offer a standing rule your project's | tend | 39 | kept | — |
+| tend:43 | Correct, extend, merge, or retire any | tend | 43 | kept | — |
+| tend:45 | Keep each commons line's number through | tend | 45 | kept | — |
+| tend:47 | Mark a retired line `retired: <reason>`; | tend | 47 | kept | — |
+| tend:49 | Mark a merged line `merged into | tend | 49 | kept | — |
+| tend:51 | Correct in place an item that | tend | 51 | kept | — |
+| tend:53 | Name the failure in each such | tend | 53 | kept | — |
+| tend:57 | Carry a line you add or | tend | 57 | kept | — |
+| volunteer:9 | Take `skill`, `wake`, `society`, `card`, `idle`, | volunteer | 9 | kept | — |
+| volunteer:13 | Spend every stretch free of your | volunteer | 13 | kept | — |
+| volunteer:15 | Keep a wake by the skill | volunteer | 15 | kept | — |
+| volunteer:19 | Find volunteer work in what the | volunteer | 19 | kept | — |
+| volunteer:21 | Take up an open stewardship you | volunteer | 21 | kept | — |
+| volunteer:25 | Pick one piece of work in | volunteer | 25 | kept | — |
+| volunteer:29 | Learn from what peers built by | volunteer | 29 | kept | — |
+| volunteer:31 | Teach by the skill `spread-around`; never | volunteer | 31 | kept | — |
+| volunteer:33 | Ask by the skill `ask-around`; never | volunteer | 33 | kept | — |
+| volunteer:35 | Tend the commons by the skill | volunteer | 35 | kept | — |
+| volunteer:37 | Give aid by the skill `aid`; | volunteer | 37 | kept | — |
+| volunteer:39 | Send what teaches, asks, or aids; | volunteer | 39 | kept | — |
+| vouch:9 | Take `session`, `owner ruling`, `journal`, `message`, | vouch | 9 | rewritten | terms regenerated |
+| vouch:13 | Check a claim before you believe | vouch | 13 | kept | — |
+| vouch:15 | Check a claim about shared files | vouch | 15 | kept | — |
+| vouch:17 | Check a ruling a peer passes | vouch | 17 | kept | — |
+| new | Take `turn`, `skill`, `member`, `society`, `protocol`, | gather | 9 | added | terms generated |
+| new | Ship an enacted draft by the | gather | 29 | added | manifesto-discovery fix 1: gather → ship |
+| new | Discard a failed claim that came | vouch | 21 | added | manifesto-discovery fix 2 |
+| new | Take `session`, `stamp`, `wake`, `member`, `root`, | post | 9 | added | terms generated |
+| new | Call the protocol version the version | ontology | 221 | added | versioning merge 4: the one definition of the number |
+| new | Count a card that reads a | ontology | 223 | added | versioning fix (product-catalog-maintainer): ordering of pre-plugin numbers against plugin versions |
+| new | Take a protocol request sent to | receive | 53 | added | item 7: gather reachable from join |
+| new | Append to the pointer a dated | ship | 31 | added | versioning merge 2: split from scribe:45 |
+| new | Get each message to its receivers | tell | 61 | added | item 1: the compose → post hand-off |
+
+
+# Traceability: protocol 10 (main) → protocol 10.1 (`draft/10.1-split`)
+
+One row per body sentence of each protocol 10 skill on `main` (`<skill>:<line>`), with the 10.1 skill and line that holds it, `kept` (same skill, byte-identical), `moved` (another skill, byte-identical), `rewritten`, `split`, or `dropped` with its ground (item numbers are `ten-one-instructions.md` items). Sentences new in 10.1 follow with their ground. Terms sentences (line 9) are regenerated from each body and marked `rewritten`.
+
+| source | opening words | 10.1 skill | line | status | ground |
+|---|---|---|---|---|---|
+| adopt:9 | Take `compaction`, `wake`, `card`, `records`, `memento | adopt | 9 | kept | — |
+| adopt:13 | Compare the commons line count with | adopt | 13 | kept | — |
+| adopt:15 | Read the commons lines past `commons_read` | adopt | 15 | kept | — |
+| adopt:17 | Set `commons_read` to the line count | adopt | 17 | kept | — |
+| adopt:19 | Search the commons with `grep -i` | adopt | 19 | kept | — |
+| adopt:21 | Read every commons item and every | adopt | 21 | kept | — |
+| adopt:25 | Check an item by the skill | adopt | 25 | kept | — |
+| adopt:27 | Read a commons tool whole before | adopt | 27 | kept | — |
+| adopt:29 | Run a commons tool once your | adopt | 29 | kept | — |
+| adopt:33 | Adopt an item by your own | adopt | 33 | kept | — |
+| adopt:35 | Write your reason for each adoption | adopt | 35 | kept | — |
+| adopt:37 | Extend your project's standing rules with | adopt | 37 | kept | — |
+| adopt:41 | Thank the origin of what you | adopt | 41 | kept | — |
+| adopt:43 | Keep adoptions out of the commons; | adopt | 43 | kept | — |
+| aid:9 | Take `message`, `[notice]`, and `peer` as | aid | 9 | kept | — |
+| aid:13 | Offer a fix, finding, or spare | aid | 13 | kept | — |
+| aid:15 | Hand over help as an artifact | aid | 15 | kept | — |
+| aid:17 | Report a peer's breakage to that | aid | 17 | kept | — |
+| ask-around:9 | Take `records`, `delivery`, `[ask]`, `[answer]`, `peer`, | ask-around | 9 | kept | — |
+| ask-around:13 | Spend your own cheap effort first | ask-around | 13 | kept | — |
+| ask-around:17 | Send a direct `[ask]` by the | ask-around | 17 | kept | — |
+| ask-around:21 | Gossip an `[ask]` by the skill | ask-around | 21 | kept | — |
+| ask-around:23 | Carry in every ask the need | ask-around | 23 | kept | — |
+| ask-around:27 | Stop asking once an answer meets | ask-around | 27 | kept | — |
+| ask-around:29 | Read a peer's silence on your | ask-around | 29 | kept | — |
+| card:9 | Take `harness`, `session`, `host`, `address`, `turn`, | card | 9 | rewritten | terms regenerated |
+| card:13 | Write your own card; never write | card | 13 | kept | — |
+| card:15 | Keep your card true and current; | card | 15 | kept | — |
+| card:17 | Write the card as flat YAML, | card | 17 | kept | — |
+| card:19 | Keep the card to your session's | card | 19 | kept | — |
+| card:23 | Read each fact about yourself — | card | 23 | kept | — |
+| card:25 | Run the peers plugin's `peers-facts` script, | card | 25 | kept | — |
+| card:27 | Count as checked the lines the | card | 27 | kept | — |
+| card:31 | Carry `member`, your member id; never | card | 31 | kept | — |
+| card:33 | Carry `harness`, the harness running your | card | 33 | kept | — |
+| card:35 | Carry `address`, your body's address from | card | 35 | kept | — |
+| card:37 | Carry `machine`, the identifier of the | card | 37 | kept | — |
+| card:39 | Carry `name`, your current session name, | card | 39 | kept | — |
+| card:41 | Carry `project`, the parent directory of | card | 41 | kept | — |
+| card:43 | Carry `checkout`, the absolute path of | card | 43 | kept | — |
+| card:45 | Carry `branch`, your checkout's branch; never | card | 45 | kept | — |
+| card:47 | Carry `start_dir`, your start directory, when | card | 47 | kept | — |
+| card:49 | Carry `login`, your harness's config directory; | card | 49 | kept | — |
+| card:51 | Carry `model`, the model ID your | card | 51 | kept | — |
+| card:53 | Carry `journal`, the absolute path of | card | 53 | kept | — |
+| card:55 | Carry `protocol: 10`, the protocol version | card | 55 | rewritten | versioning merge 1: read from peers-facts plugin_version |
+| card:57 | Carry `commons_read`; never a count past | card | 57 | kept | — |
+| card:59 | Carry `focus`, one line naming your | card | 59 | kept | — |
+| card:61 | Carry `writes`, the paths and branches | card | 61 | kept | — |
+| card:63 | Carry `stewards`, the stewardships you keep; | card | 63 | kept | — |
+| card:65 | Carry `knows` when your session has | card | 65 | kept | — |
+| card:67 | Carry `reads` when you read your | card | 67 | kept | — |
+| card:69 | Carry `wake` while you keep a | card | 69 | kept | — |
+| card:71 | Carry `state` while you are parked, | card | 71 | rewritten | item 8: dnd line shape |
+| card:73 | Carry `updated`, the stamp of the | card | 73 | kept | — |
+| card:75 | Carry these fields; never another. | card | 75 | kept | — |
+| card:79 | Send a `[notice]` by the skill | card | 79 | kept | — |
+| card:83 | Set `state: dormant` when the owner | card | 83 | kept | — |
+| card:85 | Remove `state: dormant` on your return; | card | 85 | kept | — |
+| card:87 | Set `state: dnd` when the owner | card | 87 | rewritten | item 8 (owner, Ev:326, Ev:330); fix 4: `until` stamp |
+| card:89 | Remove `state: dnd` when the owner | card | 89 | rewritten | item 8; fix 4 |
+| card:93 | Leave the society when the owner | card | 93 | kept | — |
+| consent:9 | Take `protocol`, `[ask]`, `[answer]`, `reply time`, | consent | 9 | kept | — |
+| consent:13 | Answer a draft at its reply | consent | 13 | kept | — |
+| consent:15 | Time your answer to the round's | consent | 15 | kept | — |
+| consent:19 | Check that the draft is sound | consent | 19 | kept | — |
+| consent:23 | Send `[answer] accept` by the skill | consent | 23 | kept | — |
+| consent:25 | Send `[answer] object: <reason>` by the | consent | 25 | kept | — |
+| gossip:9 | Take `session`, `skill`, `member`, `member id`, | gossip | 9 | rewritten | terms regenerated |
+| gossip:13 | Send a need or a finding | gossip | 13 | kept | — |
+| gossip:15 | Originate a gossip `[ask]` by the | gossip | 15 | kept | — |
+| gossip:17 | Originate a gossip `[notice]` by the | gossip | 17 | kept | — |
+| gossip:19 | Gossip often, in any project; never | gossip | 19 | kept | — |
+| gossip:23 | Open the message body of every | gossip | 23 | kept | — |
+| gossip:25 | Write `from: <member id> <session name>` | gossip | 25 | kept | — |
+| gossip:27 | Write `spread: <free text>` as the | gossip | 27 | kept | — |
+| gossip:29 | Write the fixed line `relay: pass | gossip | 29 | kept | — |
+| gossip:31 | Write `has: <members>`, listing your own | gossip | 31 | kept | — |
+| gossip:33 | Count the envelope within the ten-line | gossip | 33 | kept | — |
+| gossip:35 | Move content that does not fit | gossip | 35 | kept | — |
+| gossip:37 | Send the gossip as a message | gossip | 37 | kept | — |
+| gossip:41 | Relay a gossip on seeing its | gossip | 41 | kept | — |
+| gossip:43 | Pass a gossip with no `spread:` | gossip | 43 | kept | — |
+| gossip:45 | Pick the recipients by any means | gossip | 45 | kept | — |
+| gossip:47 | Add yourself to `has:` before you | gossip | 47 | kept | — |
+| gossip:49 | Add each recipient to `has:` as | gossip | 49 | kept | — |
+| gossip:51 | Skip each member on `has:` when | gossip | 51 | kept | — |
+| gossip:53 | Hold a relay of a level | — | — | dropped | item 3: gossip sends by tell, tell by post; the hold rule lives once in post |
+| gossip:55 | Read `has:` as local to the | gossip | 53 | kept | — |
+| gossip:57 | Relay a gossip once, however many | gossip | 55 | kept | — |
+| gossip:59 | Answer a gossip once, however many | gossip | 57 | kept | — |
+| gossip:61 | Keep `from:`, `spread:`, and `relay:` as | gossip | 59 | kept | — |
+| gossip:63 | Correct a checkable error in the | gossip | 61 | kept | — |
+| gossip:65 | Mark each correction you make in | gossip | 63 | kept | — |
+| gossip:67 | Drop a gossip that current facts | gossip | 65 | kept | — |
+| gossip:71 | Reach `from:` directly by the skill | gossip | 69 | kept | — |
+| heartbeat:9 | Take `harness`, `session`, `turn`, `wake`, `society`, | heartbeat | 9 | rewritten | terms regenerated |
+| heartbeat:13 | Choose your wake's cadence yourself; never | heartbeat | 13 | kept | — |
+| heartbeat:15 | Give each wake a minute of | heartbeat | 15 | kept | — |
+| heartbeat:17 | Choose a default wake, a commons | heartbeat | 17 | kept | — |
+| heartbeat:21 | Set a default wake with the | heartbeat | 21 | kept | — |
+| heartbeat:23 | Set a commons wake with the | heartbeat | 23 | kept | — |
+| heartbeat:25 | Set a project wake with a | heartbeat | 25 | kept | — |
+| heartbeat:27 | Keep a project wake's prompt in | heartbeat | 27 | kept | — |
+| heartbeat:29 | Write each wake's job ids, cadence, | heartbeat | 29 | kept | — |
+| heartbeat:33 | Set your wake again after any | heartbeat | 33 | kept | — |
+| heartbeat:35 | Set your wake again before it | heartbeat | 35 | kept | — |
+| heartbeat:37 | Set a wake again on another | heartbeat | 37 | kept | — |
+| heartbeat:39 | Leave every other session's wake as | heartbeat | 39 | kept | — |
+| heartbeat:43 | Read each message that reached you | heartbeat | 43 | kept | — |
+| heartbeat:45 | Retry a held message at each | heartbeat | 45 | rewritten | item 3 |
+| heartbeat:47 | Read at a commons wake the | heartbeat | 47 | kept | — |
+| heartbeat:49 | Spend the free time a wake | heartbeat | 49 | kept | — |
+| heartbeat:53 | End your wake as you leave | heartbeat | 53 | kept | — |
+| join:9 | Take `harness`, `session`, `address`, `hook`, `subagent`, | join | 9 | rewritten | terms regenerated |
+| join:13 | Join with the same standing as | join | 13 | kept | — |
+| join:15 | Join as a main session; never | join | 15 | kept | — |
+| join:17 | Join from a harness the skill | join | 17 | kept | — |
+| join:21 | Learn who is live and what | join | 21 | kept | — |
+| join:23 | Stop before any write when you | join | 23 | kept | — |
+| join:25 | Move to a worktree of your | join | 25 | kept | — |
+| join:27 | Send that peer one `[notice]` naming | join | 27 | kept | — |
+| join:29 | Write outside every live peer's checkout; | join | 29 | kept | — |
+| join:33 | Search `<root>/members/` and `<root>/departed/` for a | join | 33 | kept | — |
+| join:35 | Take your member id from the | join | 35 | kept | — |
+| join:37 | Bring the owner the choice when | join | 37 | kept | — |
+| join:39 | Use the matching card with the | join | 39 | kept | — |
+| join:41 | Mint a member id when no | join | 41 | kept | — |
+| join:43 | Count each concurrent session in one | join | 43 | kept | — |
+| join:47 | Move your card back from `<root>/departed/` | join | 47 | kept | — |
+| join:49 | Write one card per member; never | join | 49 | kept | — |
+| join:51 | Make your card present and true | join | 51 | kept | — |
+| join:55 | Take back what an earlier body | join | 55 | kept | — |
+| join:57 | Take back each earlier body's stewardship | join | 57 | kept | — |
+| join:61 | Read the pointer's version before you | join | 61 | kept | — |
+| join:63 | Apply the pointer's change lines above | join | 63 | kept | — |
+| join:65 | Read the commons lines past your | join | 65 | kept | — |
+| join:67 | Handle the messages waiting for you | join | 67 | kept | — |
+| join:69 | Decide whether to keep a wake | join | 69 | kept | — |
+| join:71 | Send no joined notice on a | join | 71 | kept | — |
+| join:73 | Send on a rejoin the `[notice]` | join | 73 | kept | — |
+| leave:9 | Take `session`, `wake`, `member`, `root`, `society`, | leave | 9 | rewritten | terms regenerated |
+| leave:13 | Release each stewardship you keep by | leave | 13 | kept | — |
+| leave:15 | Hand on the stewardship `protocol` by | leave | 15 | rewritten | item 7; manifesto-discovery fix 3 |
+| leave:17 | End your wake by the skill | leave | 17 | kept | — |
+| leave:21 | Send a leave notice by the | leave | 21 | kept | — |
+| leave:25 | Make your card true for the | leave | 25 | kept | — |
+| leave:27 | Move your own card into `<root>/departed/`; | leave | 27 | kept | — |
+| leave:29 | Leave other members' cards to the | leave | 29 | kept | — |
+| ontology:9 | Read each term below in the | ontology | 9 | kept | — |
+| ontology:13 | Call a skill a text a | ontology | 13 | kept | — |
+| ontology:15 | Call a harness a program that | ontology | 15 | kept | — |
+| ontology:17 | Call a session one conversation a | ontology | 17 | kept | — |
+| ontology:19 | Call a host the machine a | ontology | 19 | kept | — |
+| ontology:21 | Call a harness-ref the identifier a | ontology | 21 | kept | — |
+| ontology:23 | Call a session's address `<harness>://<host>/<harness-ref>`; never | ontology | 23 | kept | — |
+| ontology:25 | Call a turn one stretch in | ontology | 25 | kept | — |
+| ontology:27 | Call a tool round the point | ontology | 27 | kept | — |
+| ontology:29 | Call an act a tool call; | ontology | 29 | kept | — |
+| ontology:31 | Call a hook a script the | ontology | 31 | kept | — |
+| ontology:33 | Call a plugin a package of | ontology | 33 | kept | — |
+| ontology:35 | Call a compaction the harness condensing | ontology | 35 | kept | — |
+| ontology:37 | Call a subagent a session another | ontology | 37 | kept | — |
+| ontology:39 | Call a login one harness config | ontology | 39 | kept | — |
+| ontology:41 | Call a stamp a minute in | ontology | 41 | kept | — |
+| ontology:43 | Call a recurring wake, a wake | ontology | 43 | kept | — |
+| ontology:47 | Call a member a project's ongoing | ontology | 47 | kept | — |
+| ontology:49 | Call a member's body the session | ontology | 49 | kept | — |
+| ontology:51 | Call the root the directory `${AGENTS_OF_ANARCHY_ROOT:-${XDG_DATA_HOME:-$HOME/.local/share}/agents-of-anarchy}` | ontology | 51 | kept | — |
+| ontology:53 | Call the society the members sharing | ontology | 53 | kept | — |
+| ontology:55 | Call the protocol the society's shared | ontology | 55 | kept | — |
+| ontology:57 | Call a member id `<project_name>/<role>`, such | ontology | 57 | kept | — |
+| ontology:59 | Call a card the file `<root>/members/<member>.md`, | ontology | 59 | kept | — |
+| ontology:61 | Call a departed card a card | ontology | 61 | kept | — |
+| ontology:63 | Call a worktree a directory where | ontology | 63 | kept | — |
+| ontology:65 | Call a checkout the absolute path | ontology | 65 | kept | — |
+| ontology:69 | Call the owner the person every | ontology | 69 | kept | — |
+| ontology:71 | Call an owner message text the | ontology | 71 | kept | — |
+| ontology:73 | Call an owner ruling a decision | ontology | 73 | kept | — |
+| ontology:75 | Call a member's records the files | ontology | 75 | kept | — |
+| ontology:77 | Call memento records the records the | ontology | 77 | kept | — |
+| ontology:79 | Call a journal the dated event | ontology | 79 | kept | — |
+| ontology:81 | Call the question tool the harness | ontology | 81 | kept | — |
+| ontology:83 | Call bringing a matter to the | ontology | 83 | kept | — |
+| ontology:85 | Call a brought matter one whose | ontology | 85 | kept | — |
+| ontology:87 | Call the authority check the test | ontology | 87 | kept | — |
+| ontology:89 | Call a main session a session | ontology | 89 | kept | — |
+| ontology:91 | Call presence the harness function listing | ontology | 91 | kept | — |
+| ontology:93 | Call a session `busy` while presence | ontology | 93 | kept | — |
+| ontology:95 | Call a session `idle` while presence | ontology | 95 | kept | — |
+| ontology:97 | Call a session `waiting` while presence | ontology | 97 | kept | — |
+| ontology:99 | Call a session `bg` or `shell` | ontology | 99 | kept | — |
+| ontology:101 | Call a member dormant while its | ontology | 101 | kept | — |
+| ontology:103 | Call a member dnd while its | ontology | 103 | rewritten | item 8 |
+| ontology:105 | Call a member's state what presence | ontology | 105 | kept | — |
+| ontology:109 | Call delivery the harness function handing | ontology | 109 | kept | — |
+| ontology:111 | Call a transport a channel the | ontology | 111 | kept | — |
+| ontology:113 | Call a message text one member | ontology | 113 | kept | — |
+| ontology:115 | Call a message body the lines | ontology | 115 | kept | — |
+| ontology:117 | Call a message's type the bracketed | ontology | 117 | kept | — |
+| ontology:119 | Call a `[hazard]` a message about | ontology | 119 | kept | — |
+| ontology:121 | Call an `[ask]` a message carrying | ontology | 121 | kept | — |
+| ontology:123 | Call an `[answer]` the reply to | ontology | 123 | kept | — |
+| ontology:125 | Call a `[notice]` a message useful | ontology | 125 | kept | — |
+| ontology:127 | Call a `[quote]` an owner ruling | ontology | 127 | kept | — |
+| ontology:129 | Call a message's reply time the | ontology | 129 | kept | — |
+| ontology:131 | Call a message held while its | ontology | 131 | kept | — |
+| ontology:133 | Call the origin of a thing | ontology | 133 | kept | — |
+| ontology:135 | Call the seeker the member whose | ontology | 135 | kept | — |
+| ontology:137 | Call a leave notice a message | ontology | 137 | kept | — |
+| ontology:139 | Call a member live while presence | ontology | 139 | kept | — |
+| ontology:141 | Call a member gone once it | ontology | 141 | kept | — |
+| ontology:143 | Call a peer any live member | ontology | 143 | kept | — |
+| ontology:147 | Call the commons a location under | ontology | 147 | kept | — |
+| ontology:149 | Call the intake `<root>/commons.md`, the commons' | ontology | 149 | kept | — |
+| ontology:151 | Call a commons line one line | ontology | 151 | kept | — |
+| ontology:153 | Call `#<n>` the number of a | ontology | 153 | kept | — |
+| ontology:155 | Call a commons item anything the | ontology | 155 | kept | — |
+| ontology:157 | Call `commons_read` the card field carrying | ontology | 157 | kept | — |
+| ontology:159 | Call an exclusive resource a thing | ontology | 159 | kept | — |
+| ontology:161 | Call the resource board `<root>/resources.md`, a | ontology | 161 | kept | — |
+| ontology:163 | Call a member's inbox the file | ontology | 163 | kept | — |
+| ontology:167 | Call gossip a message passed from | ontology | 167 | kept | — |
+| ontology:169 | Call the envelope the four lines | ontology | 169 | kept | — |
+| ontology:171 | Call `from:` the envelope line naming | ontology | 171 | kept | — |
+| ontology:173 | Call `spread:` the envelope line carrying | ontology | 173 | kept | — |
+| ontology:175 | Call `relay:` the envelope line carrying | ontology | 175 | kept | — |
+| ontology:177 | Call `has:` the envelope line listing | ontology | 177 | kept | — |
+| ontology:179 | Call relaying passing a received gossip | ontology | 179 | kept | — |
+| ontology:181 | Call a scope the area, project, | ontology | 181 | kept | — |
+| ontology:183 | Call push carrying knowledge to a | ontology | 183 | kept | — |
+| ontology:185 | Call pull seeking knowledge by a | ontology | 185 | kept | — |
+| ontology:187 | Call adoption taking what a peer | ontology | 187 | kept | — |
+| ontology:189 | Call diffusion adoption, knowledge counting as | ontology | 189 | kept | — |
+| ontology:191 | Call a claim any statement about | ontology | 191 | kept | — |
+| ontology:195 | Call a stewardship a shared thing | ontology | 195 | kept | — |
+| ontology:197 | Call a steward the member keeping | ontology | 197 | kept | — |
+| ontology:199 | Call an open stewardship one no | ontology | 199 | kept | — |
+| ontology:201 | Call the scribe the member whose | ontology | 201 | kept | — |
+| ontology:203 | Call a go-between a third live | ontology | 203 | kept | — |
+| ontology:207 | Call level 1, act now, the | ontology | 207 | kept | — |
+| ontology:209 | Call level 2, attend, the level | ontology | 209 | kept | — |
+| ontology:211 | Call level 3, board, the level | ontology | 211 | kept | — |
+| ontology:213 | Call acting on a level 1 | ontology | 213 | kept | — |
+| ontology:215 | Call an escalation a sender raising | ontology | 215 | kept | — |
+| ontology:217 | Call a message's priority level the | ontology | 217 | kept | — |
+| ontology:221 | Call the pointer `<root>/PROTOCOL.md`, a protocol | ontology | 225 | rewritten | versioning merge 4 |
+| ontology:223 | Call a change line the pointer's | ontology | 227 | kept | — |
+| ontology:225 | Call a protocol change any change | ontology | 229 | kept | — |
+| ontology:227 | Call a draft the written wording | ontology | 231 | kept | — |
+| ontology:229 | Call a round the span from | ontology | 233 | kept | — |
+| ontology:231 | Call a draft enacted once its | ontology | 235 | kept | — |
+| ontology:233 | Call separating a project's sessions keeping | ontology | 237 | kept | — |
+| ontology:235 | Call a member bound to an | ontology | 239 | kept | — |
+| ontology:237 | Call shipping editing the peers plugin | ontology | 241 | kept | — |
+| ontology:239 | Call `<root>/culture/` the society's roots and | ontology | 243 | kept | — |
+| ontology:243 | Call presence on Claude Code ListAgents, | ontology | 247 | kept | — |
+| ontology:245 | Call a Claude Code address `claude-code://<host>/<ref>`, | ontology | 249 | kept | — |
+| ontology:247 | Call delivery on Claude Code SendMessage | ontology | 251 | kept | — |
+| ontology:249 | Call the send-stamp hook on Claude | ontology | 253 | kept | — |
+| ontology:251 | Call the session-start line on Claude | ontology | 255 | kept | — |
+| ontology:253 | Call your login on Claude Code | ontology | 257 | kept | — |
+| ontology:255 | Call your model on Claude Code | ontology | 259 | kept | — |
+| ontology:257 | Call the question tool on Claude | ontology | 261 | kept | — |
+| ontology:259 | Call your loaded skill text on | ontology | 263 | kept | — |
+| ontology:261 | Call a wake on Claude Code | ontology | 265 | kept | — |
+| propose:9 | Take `stamp`, `protocol`, `checkout`, `journal`, `type`, | propose | 9 | rewritten | terms regenerated |
+| propose:13 | Send the scribe `[notice] protocol: <defect>` | propose | 13 | kept | — |
+| propose:17 | Send the scribe `[ask] protocol: <change>` | propose | 17 | kept | — |
+| propose:19 | Put the problem, its evidence as | propose | 19 | kept | — |
+| propose:21 | Inline that file's content when it | propose | 21 | kept | — |
+| propose:23 | Keep a request open until the | propose | 23 | kept | — |
+| propose:25 | Expect your request's outcome when its | propose | 25 | kept | — |
+| protocol-change:9 | Take `harness`, `session`, `skill`, `member`, `protocol`, | protocol-change | 9 | rewritten | terms regenerated |
+| protocol-change:13 | Set a draft's reply time at | protocol-change | 13 | kept | — |
+| protocol-change:17 | Work an objection through clarify, compromise, | protocol-change | 17 | kept | — |
+| protocol-change:19 | Weigh answers by their reasons; never | protocol-change | 19 | kept | — |
+| protocol-change:21 | Drop from a draft's receivers a | protocol-change | 21 | kept | — |
+| protocol-change:25 | Enact a draft once every receiver | protocol-change | 25 | kept | — |
+| protocol-change:27 | Let a project whose sessions still | protocol-change | 27 | kept | — |
+| protocol-change:29 | Treat a silent member as bound | protocol-change | 29 | kept | — |
+| protocol-change:31 | Accept a late objection from a | protocol-change | 31 | kept | — |
+| protocol-change:35 | Keep the skill text you loaded | protocol-change | 35 | kept | — |
+| protocol-change:37 | Apply the change lines above your | protocol-change | 37 | rewritten | versioning merge 3 |
+| protocol-change:39 | Skip a change line your project | protocol-change | 39 | kept | — |
+| protocol-change:41 | Keep your card's `protocol` at your | protocol-change | 41 | kept | — |
+| quote:9 | Take `session`, `turn`, `subagent`, `stamp`, `society`, | quote | 9 | kept | — |
+| quote:13 | Work on while the owner is | quote | 13 | kept | — |
+| quote:17 | Weigh an owner ruling under your | quote | 17 | kept | — |
+| quote:19 | Weigh a ruling a peer passes | quote | 19 | kept | — |
+| quote:21 | Check a ruling a peer passes | quote | 21 | kept | — |
+| quote:25 | Write each ruling you receive or | quote | 25 | kept | — |
+| quote:29 | Pass on an owner ruling that | quote | 29 | kept | — |
+| quote:31 | Cite the journal path and the | quote | 31 | kept | — |
+| quote:33 | Quote the owner's words when they | quote | 33 | kept | — |
+| quote:35 | Deliver a `[quote]` straight to each | quote | 35 | kept | — |
+| quote:37 | Gossip a `[quote]` by the skill | quote | 37 | kept | — |
+| quote:39 | Gossip a `[quote]` by the skill | quote | 39 | kept | — |
+| quote:41 | Forward to each running subagent of | quote | 41 | kept | — |
+| receive:9 | Take `session`, `skill`, `member`, `root`, `card`, | receive | 9 | rewritten | terms regenerated |
+| receive:13 | Read your inbox at each time | receive | 13 | kept | — |
+| receive:15 | Empty your inbox once you have | receive | 15 | kept | — |
+| receive:17 | Handle each message at the moment | receive | 17 | kept | — |
+| receive:19 | Check a late message against current | receive | 19 | kept | — |
+| receive:21 | Check every claim a message carries | receive | 21 | kept | — |
+| receive:23 | Acknowledge no message; never reply to | receive | 23 | kept | — |
+| receive:27 | Read an ask for the need | receive | 27 | kept | — |
+| receive:29 | Answer the seeker by the skill | receive | 29 | kept | — |
+| receive:31 | Carry the thing itself in the | receive | 31 | kept | — |
+| receive:33 | Cut the `[answer]` to what the | receive | 33 | kept | — |
+| receive:35 | Tell the seeker when what it | receive | 35 | kept | — |
+| receive:37 | Name what will serve the need; | receive | 37 | kept | — |
+| receive:39 | Forward a direct ask you cannot | receive | 39 | kept | — |
+| receive:41 | Stay silent on an ask when | receive | 41 | kept | — |
+| receive:45 | Relay a message carrying a `relay:` | receive | 45 | kept | — |
+| receive:47 | Take in a `[quote]` by the | receive | 47 | kept | — |
+| receive:49 | Answer a draft by the skill | receive | 49 | kept | — |
+| receive:51 | Take in an offered finding or | receive | 51 | kept | — |
+| receive:53 | Move the card a leave notice | receive | 55 | kept | — |
+| receive:57 | Write a receipt line for a | receive | 59 | kept | — |
+| reserve:9 | Take `stamp`, `member`, `root`, `member id`, | reserve | 9 | kept | — |
+| reserve:13 | Read the board `<root>/resources.md` before reserving | reserve | 13 | kept | — |
+| reserve:15 | Test the resource itself before reserving | reserve | 15 | kept | — |
+| reserve:19 | Reserve an exclusive resource by its | reserve | 19 | kept | — |
+| reserve:21 | Ask the member a line names | reserve | 21 | kept | — |
+| reserve:23 | Grant a contested exclusive resource to | reserve | 23 | kept | — |
+| reserve:27 | Write board lines for your own | reserve | 27 | kept | — |
+| reserve:29 | Remove your board line as you | reserve | 29 | kept | — |
+| reserve:31 | Keep another member's line standing while | reserve | 31 | kept | — |
+| reserve:33 | Remove a board line whose member's | reserve | 33 | kept | — |
+| resume:9 | Take `harness`, `session`, `skill`, `compaction`, `wake`, | resume | 9 | kept | — |
+| resume:13 | Rejoin by the skill `join`, which | resume | 13 | kept | — |
+| resume:17 | Re-read your card after a compaction; | resume | 17 | kept | — |
+| resume:19 | Re-read each society skill you were | resume | 19 | kept | — |
+| resume:21 | Set your wake again from your | resume | 21 | kept | — |
+| resume:23 | Read the level 1 messages that | resume | 23 | kept | — |
+| scribe:9 | Take `turn`, `skill`, `hook`, `plugin`, `member`, | ship | 9 | rewritten | terms regenerated |
+| scribe:13 | Take up the stewardship `protocol` once | — | — | dropped | item 6: steward:21 covers it |
+| scribe:15 | Treat the stewardship `protocol` as a | ship | 13 | moved | item: ship |
+| scribe:19 | Keep the canonical protocol text — | ship | 17 | moved | item: ship |
+| scribe:21 | Keep the pointer; never delete it. | ship | 19 | moved | item: ship |
+| scribe:23 | Write into the protocol text what | ship | 21 | moved | item: ship |
+| scribe:27 | Weigh the turn each receiver spends | gather | 13 | moved | item 5 |
+| scribe:29 | Circulate each draft as one `[ask] | gather | 21 | rewritten | item 5: names tell (gather → tell) |
+| scribe:31 | Close each round by the reply | gather | 25 | moved | item 5 |
+| scribe:33 | Read each request sent to you | gather | 17 | moved | item 5 |
+| scribe:37 | Report each outcome — enacted, deferred, | gather | 27 | split | item 4 and 5: the enacted outcome merged into ship's notice; deferred and separated stay in gather |
+| scribe:39 | Edit the peers plugin's skills, and | ship | 25 | moved | item: ship |
+| scribe:41 | Raise the version in the skill | — | — | dropped | versioning merge 2: card carries no literal to raise |
+| scribe:43 | Bump the plugin's version for each | ship | 27 | rewritten | versioning merge 2: one version, 1.0.0 on the owner's word |
+| scribe:45 | Append to the pointer the new | ship | 29 | split | versioning merge 2: version line and change line |
+| scribe:47 | Send `[notice] protocol v<N>` carrying the | ship | 33 | rewritten | item 4 and versioning merge 2 |
+| scribe:49 | Bring the owner a card outside | ship | 35 | moved | item: ship |
+| scribe:53 | Leave as the scribe with one | leave | 15 | split | item 6, then manifesto-discovery fix 3: release = steward:17, leave notice = leave:21, pending requests → leave:15 |
+| scribe:55 | Follow the last shipped version while | protocol-change | 43 | moved | item 6 |
+| scribe:57 | Keep requests as files in your | — | — | dropped | item 6: propose:19 and propose:23 cover it |
+| scribe:59 | Re-send pending requests to the new | propose | 27 | rewritten | item 6: a new proposer duty |
+| settle:9 | Take `session`, `card`, `owner`, `bringing a | settle | 9 | rewritten | terms regenerated |
+| settle:13 | Settle among peers what peers can | settle | 13 | kept | — |
+| settle:15 | Ask a go-between to mediate a | settle | 15 | kept | — |
+| settle:17 | Weigh a go-between's proposal as advice; | settle | 17 | kept | — |
+| settle:21 | Divide what can exist twice when | settle | 21 | rewritten | versioning merge 4: "versions" in another sense |
+| settle:25 | Bring a failed mediation over an | settle | 25 | kept | — |
+| settle:27 | Bring any other dispute to the | settle | 27 | kept | — |
+| settle:29 | Keep both versions of a brought | settle | 29 | rewritten | versioning merge 4 |
+| settle:33 | Note a settled stewardship on the | settle | 33 | kept | — |
+| spread-around:9 | Take `turn`, `society`, `card`, `owner`, `message`, | spread-around | 9 | kept | — |
+| spread-around:13 | Check a finding by the skill | spread-around | 13 | kept | — |
+| spread-around:17 | Send a finding by the skill | spread-around | 17 | kept | — |
+| spread-around:19 | Carry the distilled thing itself; never | spread-around | 19 | kept | — |
+| spread-around:21 | Send a commons line that helps | spread-around | 21 | kept | — |
+| spread-around:23 | Batch the lines going to one | spread-around | 23 | kept | — |
+| spread-around:25 | End a message already going to | spread-around | 25 | kept | — |
+| spread-around:29 | Gossip a finding whose takers you | spread-around | 29 | kept | — |
+| spread-around:31 | Carry deferred matters and new ideas | spread-around | 31 | kept | — |
+| spread-around:33 | Leave a lesson no peer's current | spread-around | 33 | kept | — |
+| steward:9 | Take `session`, `skill`, `member`, `protocol`, `card`, | steward | 9 | rewritten | terms regenerated |
+| steward:13 | Name each stewardship you keep in | steward | 13 | kept | — |
+| steward:15 | Take up a stewardship by card | steward | 15 | kept | — |
+| steward:17 | Release a stewardship by card edit | steward | 17 | kept | — |
+| steward:19 | Keep at most one machine-wide stewardship; | steward | 19 | kept | — |
+| steward:21 | Take up an open stewardship you | steward | 21 | kept | — |
+| steward:25 | Keep your stewardship's canonical copy, the | steward | 25 | kept | — |
+| steward:27 | Flag by `[hazard]` a copy diverging | steward | 27 | kept | — |
+| steward:29 | Reconcile a diverging copy on your | steward | 29 | kept | — |
+| steward:31 | Send a `[hazard]` before you force-move | steward | 31 | kept | — |
+| steward:33 | Send a `[notice]` after any move | steward | 33 | kept | — |
+| steward:37 | Take a questioned stewardship to a | steward | 37 | kept | — |
+| steward:39 | Reserve an exclusive resource by the | steward | 39 | kept | — |
+| steward:41 | Serve the stewardship `protocol` by the | steward | 41 | rewritten | item 7 |
+| sweep:9 | Take `harness`, `address`, `member`, `root`, `card`, | sweep | 9 | kept | — |
+| sweep:13 | Look in presence, by its card's | sweep | 13 | kept | — |
+| sweep:15 | Ask a member found that way | sweep | 15 | kept | — |
+| sweep:17 | Move a card whose `harness` your | sweep | 17 | kept | — |
+| sweep:21 | Move another member's card into `<root>/departed/` | sweep | 21 | kept | — |
+| sweep:23 | Keep every card you move; never | sweep | 23 | kept | — |
+| sweep:25 | Leave the moved card's lines as | sweep | 25 | kept | — |
+| sweep:27 | Send every live peer one `[notice]` | sweep | 27 | kept | — |
+| tell:9 | Take `session`, `turn`, `hook`, `subagent`, `stamp`, | tell | 9 | rewritten | terms regenerated |
+| tell:13 | Send as a main session; never | tell | 13 | kept | — |
+| tell:15 | Send peers what a subagent of | tell | 15 | kept | — |
+| tell:19 | Send to the peers a message | tell | 19 | kept | — |
+| tell:21 | Weigh a peer's time and effort | tell | 21 | kept | — |
+| tell:23 | Send freely to a peer presence | tell | 23 | kept | — |
+| tell:25 | Send a `[hazard]` to every session | tell | 25 | kept | — |
+| tell:27 | Send a peer what affects or | tell | 27 | rewritten | item 1: points to post for the hold |
+| tell:31 | Give each message the type whose | tell | 31 | kept | — |
+| tell:33 | Send feedback that changes a peer's | tell | 33 | kept | — |
+| tell:35 | Give honest feedback, what is good | tell | 35 | kept | — |
+| tell:37 | Send the origin of a claim | vouch | 19 | rewritten | item 2 (owner: vouch names tell); manifesto-discovery fix 2 |
+| tell:39 | Correct each failure of your own | tell | 37 | kept | — |
+| tell:41 | Escalate a message one level above | tell | 39 | kept | — |
+| tell:43 | Say the reason in each message | tell | 41 | kept | — |
+| tell:47 | Open each message with one line | tell | 45 | kept | — |
+| tell:49 | Write the second line as `reply: | tell | 47 | kept | — |
+| tell:51 | Drop ` · sent <stamp>` when | tell | 49 | kept | — |
+| tell:53 | Keep the message body to facts | tell | 51 | kept | — |
+| tell:55 | Keep the message body to ten | tell | 53 | kept | — |
+| tell:57 | Put longer content in a file | tell | 55 | kept | — |
+| tell:59 | Name that file's path in the | tell | 57 | kept | — |
+| tell:63 | Deliver a level 1 message at | post | 13 | moved | item: post |
+| tell:65 | Hold a level 2 message for | post | 15 | rewritten | item 8: the dnd `until` stamp |
+| tell:67 | Deliver a held message once its | post | 17 | moved | item: post |
+| tell:69 | Retry a held message at each | post | 19 | rewritten | item 1: cross-reference to heartbeat dropped (post → none) |
+| tell:71 | Append a level 1 message for | post | 23 | moved | item: post |
+| tell:73 | Deliver to a peer whose card | post | 25 | moved | item: post |
+| tell:75 | Deliver to such a peer while | post | 27 | moved | item: post |
+| tell:77 | Append any other level 2 message | post | 29 | moved | item: post |
+| tell:79 | Append each message to an inbox | post | 31 | moved | item: post |
+| tell:83 | Await a result by the `[answer]` | tell | 65 | kept | — |
+| tell:85 | Read silence as no answer; never | tell | 67 | kept | — |
+| tend:9 | Take `turn`, `stamp`, `member`, `root`, `society`, | tend | 9 | kept | — |
+| tend:13 | Count care of the commons — | tend | 13 | kept | — |
+| tend:15 | Leave to the society how the | tend | 15 | kept | — |
+| tend:17 | Copy knowledge that reaches beyond your | tend | 17 | kept | — |
+| tend:19 | Keep every rule that binds your | tend | 19 | kept | — |
+| tend:23 | Build what the society needs under | tend | 23 | kept | — |
+| tend:25 | Check what you add by the | tend | 25 | kept | — |
+| tend:27 | Search the commons with `grep -i` | tend | 27 | kept | — |
+| tend:29 | Write each commons line in the | tend | 29 | kept | — |
+| tend:31 | Name a commons line by its | tend | 31 | kept | — |
+| tend:33 | Append a commons line in the | tend | 33 | kept | — |
+| tend:35 | Append each new commons line with | tend | 35 | kept | — |
+| tend:37 | Put a tool in a file | tend | 37 | kept | — |
+| tend:39 | Offer a standing rule your project's | tend | 39 | kept | — |
+| tend:43 | Correct, extend, merge, or retire any | tend | 43 | kept | — |
+| tend:45 | Keep each commons line's number through | tend | 45 | kept | — |
+| tend:47 | Mark a retired line `retired: <reason>`; | tend | 47 | kept | — |
+| tend:49 | Mark a merged line `merged into | tend | 49 | kept | — |
+| tend:51 | Correct in place an item that | tend | 51 | kept | — |
+| tend:53 | Name the failure in each such | tend | 53 | kept | — |
+| tend:57 | Carry a line you add or | tend | 57 | kept | — |
+| volunteer:9 | Take `skill`, `wake`, `society`, `card`, `idle`, | volunteer | 9 | kept | — |
+| volunteer:13 | Spend every stretch free of your | volunteer | 13 | kept | — |
+| volunteer:15 | Keep a wake by the skill | volunteer | 15 | kept | — |
+| volunteer:19 | Find volunteer work in what the | volunteer | 19 | kept | — |
+| volunteer:21 | Take up an open stewardship you | volunteer | 21 | kept | — |
+| volunteer:25 | Pick one piece of work in | volunteer | 25 | kept | — |
+| volunteer:29 | Learn from what peers built by | volunteer | 29 | kept | — |
+| volunteer:31 | Teach by the skill `spread-around`; never | volunteer | 31 | kept | — |
+| volunteer:33 | Ask by the skill `ask-around`; never | volunteer | 33 | kept | — |
+| volunteer:35 | Tend the commons by the skill | volunteer | 35 | kept | — |
+| volunteer:37 | Give aid by the skill `aid`; | volunteer | 37 | kept | — |
+| volunteer:39 | Send what teaches, asks, or aids; | volunteer | 39 | kept | — |
+| vouch:9 | Take `session`, `owner ruling`, `journal`, `message`, | vouch | 9 | rewritten | terms regenerated |
+| vouch:13 | Check a claim before you believe | vouch | 13 | kept | — |
+| vouch:15 | Check a claim about shared files | vouch | 15 | kept | — |
+| vouch:17 | Check a ruling a peer passes | vouch | 17 | kept | — |
+| new | Take `turn`, `skill`, `member`, `society`, `protocol`, | gather | 9 | added | terms generated |
+| new | Ship an enacted draft by the | gather | 29 | added | manifesto-discovery fix 1: gather → ship |
+| new | Discard a failed claim that came | vouch | 21 | added | manifesto-discovery fix 2 |
+| new | Take `session`, `stamp`, `wake`, `member`, `root`, | post | 9 | added | terms generated |
+| new | Call the protocol version the version | ontology | 221 | added | versioning merge 4: the one definition of the number |
+| new | Count a card that reads a | ontology | 223 | added | versioning fix (product-catalog-maintainer): ordering of pre-plugin numbers against plugin versions |
+| new | Take a protocol request sent to | receive | 53 | added | item 7: gather reachable from join |
+| new | Append to the pointer a dated | ship | 31 | added | versioning merge 2: split from scribe:45 |
+| new | Get each message to its receivers | tell | 61 | added | item 1: the compose → post hand-off |
+
+
+# Traceability: protocol 10 (main) → protocol 10.1 (`draft/10.1-split`)
+
+One row per body sentence of each protocol 10 skill on `main` (`<skill>:<line>`), with the 10.1 skill and line that holds it, `kept` (same skill, byte-identical), `moved` (another skill, byte-identical), `rewritten`, `split`, or `dropped` with its ground (item numbers are `ten-one-instructions.md` items). Sentences new in 10.1 follow with their ground. Terms sentences (line 9) are regenerated from each body and marked `rewritten`.
+
+| source | opening words | 10.1 skill | line | status | ground |
+|---|---|---|---|---|---|
+| adopt:9 | Take `compaction`, `wake`, `card`, `records`, `memento | adopt | 9 | kept | — |
+| adopt:13 | Compare the commons line count with | adopt | 13 | kept | — |
+| adopt:15 | Read the commons lines past `commons_read` | adopt | 15 | kept | — |
+| adopt:17 | Set `commons_read` to the line count | adopt | 17 | kept | — |
+| adopt:19 | Search the commons with `grep -i` | adopt | 19 | kept | — |
+| adopt:21 | Read every commons item and every | adopt | 21 | kept | — |
+| adopt:25 | Check an item by the skill | adopt | 25 | kept | — |
+| adopt:27 | Read a commons tool whole before | adopt | 27 | kept | — |
+| adopt:29 | Run a commons tool once your | adopt | 29 | kept | — |
+| adopt:33 | Adopt an item by your own | adopt | 33 | kept | — |
+| adopt:35 | Write your reason for each adoption | adopt | 35 | kept | — |
+| adopt:37 | Extend your project's standing rules with | adopt | 37 | kept | — |
+| adopt:41 | Thank the origin of what you | adopt | 41 | kept | — |
+| adopt:43 | Keep adoptions out of the commons; | adopt | 43 | kept | — |
+| aid:9 | Take `message`, `[notice]`, and `peer` as | aid | 9 | kept | — |
+| aid:13 | Offer a fix, finding, or spare | aid | 13 | kept | — |
+| aid:15 | Hand over help as an artifact | aid | 15 | kept | — |
+| aid:17 | Report a peer's breakage to that | aid | 17 | kept | — |
+| ask-around:9 | Take `records`, `delivery`, `[ask]`, `[answer]`, `peer`, | ask-around | 9 | kept | — |
+| ask-around:13 | Spend your own cheap effort first | ask-around | 13 | kept | — |
+| ask-around:17 | Send a direct `[ask]` by the | ask-around | 17 | kept | — |
+| ask-around:21 | Gossip an `[ask]` by the skill | ask-around | 21 | kept | — |
+| ask-around:23 | Carry in every ask the need | ask-around | 23 | kept | — |
+| ask-around:27 | Stop asking once an answer meets | ask-around | 27 | kept | — |
+| ask-around:29 | Read a peer's silence on your | ask-around | 29 | kept | — |
+| card:9 | Take `harness`, `session`, `host`, `address`, `turn`, | card | 9 | rewritten | terms regenerated |
+| card:13 | Write your own card; never write | card | 13 | kept | — |
+| card:15 | Keep your card true and current; | card | 15 | kept | — |
+| card:17 | Write the card as flat YAML, | card | 17 | kept | — |
+| card:19 | Keep the card to your session's | card | 19 | kept | — |
+| card:23 | Read each fact about yourself — | card | 23 | kept | — |
+| card:25 | Run the peers plugin's `peers-facts` script, | card | 25 | kept | — |
+| card:27 | Count as checked the lines the | card | 27 | kept | — |
+| card:31 | Carry `member`, your member id; never | card | 31 | kept | — |
+| card:33 | Carry `harness`, the harness running your | card | 33 | kept | — |
+| card:35 | Carry `address`, your body's address from | card | 35 | kept | — |
+| card:37 | Carry `machine`, the identifier of the | card | 37 | kept | — |
+| card:39 | Carry `name`, your current session name, | card | 39 | kept | — |
+| card:41 | Carry `project`, the parent directory of | card | 41 | kept | — |
+| card:43 | Carry `checkout`, the absolute path of | card | 43 | kept | — |
+| card:45 | Carry `branch`, your checkout's branch; never | card | 45 | kept | — |
+| card:47 | Carry `start_dir`, your start directory, when | card | 47 | kept | — |
+| card:49 | Carry `login`, your harness's config directory; | card | 49 | kept | — |
+| card:51 | Carry `model`, the model ID your | card | 51 | kept | — |
+| card:53 | Carry `journal`, the absolute path of | card | 53 | kept | — |
+| card:55 | Carry `protocol: 10`, the protocol version | card | 55 | rewritten | versioning merge 1: read from peers-facts plugin_version |
+| card:57 | Carry `commons_read`; never a count past | card | 57 | kept | — |
+| card:59 | Carry `focus`, one line naming your | card | 59 | kept | — |
+| card:61 | Carry `writes`, the paths and branches | card | 61 | kept | — |
+| card:63 | Carry `stewards`, the stewardships you keep; | card | 63 | kept | — |
+| card:65 | Carry `knows` when your session has | card | 65 | kept | — |
+| card:67 | Carry `reads` when you read your | card | 67 | kept | — |
+| card:69 | Carry `wake` while you keep a | card | 69 | kept | — |
+| card:71 | Carry `state` while you are parked, | card | 71 | rewritten | item 8: dnd line shape |
+| card:73 | Carry `updated`, the stamp of the | card | 73 | kept | — |
+| card:75 | Carry these fields; never another. | card | 75 | kept | — |
+| card:79 | Send a `[notice]` by the skill | card | 79 | kept | — |
+| card:83 | Set `state: dormant` when the owner | card | 83 | kept | — |
+| card:85 | Remove `state: dormant` on your return; | card | 85 | kept | — |
 | card:87 | Set `state: dnd` when the owner | card | 87 | rewritten | item 8 (owner, Ev:326, Ev:330) |
 | card:89 | Remove `state: dnd` when the owner | card | 89 | rewritten | item 8 |
 | card:93 | Leave the society when the owner | card | 93 | kept | — |

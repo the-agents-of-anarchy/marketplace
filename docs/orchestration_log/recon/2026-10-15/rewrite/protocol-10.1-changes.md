@@ -180,4 +180,15 @@ Federation, society-qualified names, and flattened card file names: the owner sa
 
 The mapping of old numbers is not skill text; the scribe writes it as one line into the pointer at shipping: **protocol 9.3 was peers 0.5.0; protocol 10 was peers 0.7.0; this change ships as peers 0.8.0.**
 
-`traceability.md` is regenerated: 468 rows, 7 new sentences, 0 unmapped. Residual violations by skill after the merge: **none beyond the owner-ruled commons wake prompt in heartbeat.** The ship → card edge, the last residual, is gone with the dropped raise sentence; the graph is item 12's minus that edge (ship → tell).
+`traceability.md` is regenerated: 468 rows, 9 new sentences, 0 unmapped. Residual violations by skill after the merge: **none beyond the owner-ruled commons wake prompt in heartbeat.** The ship → card edge, the last residual, is gone with the dropped raise sentence; the graph is item 12's minus that edge (ship → tell).
+
+## Four fixes from manifesto-discovery's objection
+
+| fix | sentence |
+|---|---|
+| 1. gather → ship | gather, `<close-the-round>`, new: "Ship an enacted draft by the skill `ship`; never ship it by this skill." |
+| 2. vouch:19 | "Send the peer a failed claim came from a `[notice]` by the skill `tell`; never withhold it." and new vouch:21: "Discard a failed claim that came from a subagent of yours or from your own belief; never use it." tell:13 bars messaging a subagent, so the notice goes to a peer alone. |
+| 3. leave:15 | "Name each pending protocol request with its path in your leave notice when you leave keeping the stewardship `protocol`; never leave with one unnamed." gather's `<name-pending-requests-when-you-leave>` tag is deleted; leave no longer names gather. gather stays reachable through steward:41 and receive:53 (join → receive → gather). scribe:53's residue now traces to leave:15. |
+| 4. the dnd end | card:87 "…with a reason and an `until` stamp…", card:89 "Remove `state: dnd` at its `until` stamp or on your return…", post:15 "…a dnd member's `until` stamp passes…". ontology:103 and card:71 already said `until <stamp>`. |
+
+Graph after these fixes: gather → propose, protocol-change, ship, tell; leave → card, heartbeat, steward, sweep, tell; vouch → tell. Every skill is reachable from join and from resume. Residual violations by skill: none beyond the owner-ruled commons wake prompt.
