@@ -1,10 +1,27 @@
-# Protocol 9.4 draft — participation, owner always away
+# Protocol 10 draft — participation, owner always away, and the join split
 
-Branch `draft/9.4-participation` (worktree `/Users/ryzhakar/pp/aoa-participation`), base `main` 2197af4, head 9b1bd7e, pushed to origin. Peers 0.5.0 → 0.6.0. `just test`: 135 passed. One test changed: `test_join_states_protocol_9_3` → `_9_4`, the version pin. Nothing circulated. Main is untouched.
+Branch `draft/9.4-participation` (the branch name is kept; worktree `/Users/ryzhakar/pp/aoa-participation`), base `main` 2197af4, head dc2ccba. The branch is pushed to origin with `--force-with-lease`, because commit messages were rewritten from 9.4 to 10 on the scribe's order. Peers 0.5.0 → 0.6.0; a major bump is under Open. `just test`: 135 passed. Nothing is circulated, and main is untouched.
 
-Keys: J = `peers/skills/join/SKILL.md` and G = `peers/skills/gossip/SKILL.md`, both at 9.3 line numbers on main. M = participation-model.md. An = participation-workshop-analysis.md. Ev = `history/2026-10-14/events.md`. Owner rulings are quoted from Ev.
+Scope: owner ruling 2026-10-15, "if not separate - we ship 10 only"; `recon/2026-10-15/protocol-10-scope.md` finds the A–H draft and the backlog not separable. Changes A–H were drafted as 9.4 and are now protocol 10's first part. Changes I-15, I-16, and I-10, and the per-event hook line, come from the backlog tally (Ev:76) and `recon/2026-10-14/idea-backlog.md`.
 
-Order: the brief's A–F as the addendum replaces them. The addendum adds G, the commons as a garden. H, self-replicating gossip, comes from the ruling of ~13:50.
+Tests changed, each one a pin that the change moves:
+- `test_join_states_protocol_9_3` → `test_join_states_protocol_10`.
+- `test_skill_set_is_join_and_gossip` → `..._join_gossip_amend_and_tend_commons`.
+- `test_old_root_named_only_in_the_join_skill` → `test_no_text_names_the_old_root`.
+
+Line counts:
+
+| skill | 9.3 (main) | after A–H | protocol 10 |
+|---|---|---|---|
+| join | 520 | 548 | 428 |
+| gossip | 72 | 86 | 86 |
+| amend | — | — | 90 |
+| tend-commons | — | — | 52 |
+| total | 592 | 634 | 656 |
+
+Keys: J and G = `peers/skills/join/SKILL.md` and `gossip/SKILL.md` at 9.3 line numbers on main. M = participation-model.md. An = participation-workshop-analysis.md. Ev = `history/2026-10-14/events.md`. Owner rulings are quoted from Ev.
+
+Order: the brief's A–F as the addendum replaces them. The addendum adds G, the commons as a garden. H, self-replicating gossip, comes from the ruling of ~13:50. The four protocol-10 sections follow H.
 
 ## A. Owner always away
 
@@ -115,6 +132,65 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
 - **Reconciled with the brakes.** G:15 still governs each send: two or three peers, idle or waiting first, `busy` held by J. G:71 stays as the stop. The fan-out cap is per hop, never on the whole spread.
 - **Settles.** Diffusion's push half (An §4, "Half-served"). Q3: two or three per hop, with the spread continuing until no one gains.
 
+## I-15. Consent round and scribe role move into `peers:amend`
+
+- **Problem.** I-15 (3c3084, E13:222; scribe TR-M 2026-10-13T21:54:44Z): "one procedure per skill". Join carried the consent round and the scribe succession, which most members use only when a draft arrives. Tally (Ev:76): supported by memento-manager, product-catalog-maintainer, matchtuner-maintainer, and instruction-eval; no objection.
+- **Wording.**
+  - New skill `peers/skills/amend/SKILL.md`. It opens with `<act-under-join>`, which names the skill `join` as the source of the terms it uses.
+  - J:425–486 `<change-the-protocol-by-consent>` and J:488–502 `<pass-on-the-scribe-role>` follow, byte-identical except for two cross-references. J:425 "this skill, its plugin's hook text" becomes "the peers plugin's skills, its hook text". J:465 "Edit this skill" becomes "Edit the peers plugin's skills".
+  - Join keeps a two-line tag `<change-the-protocol-by-amend>`. It defines the scribe, since join still names the scribe and the pointer, and sends every protocol change and the scribe role to the skill `amend`.
+  - The triggers "propose a protocol change", "change the peer protocol", and "a circulated protocol draft" move from join's description to amend's. The README skill list is regenerated from the frontmatter.
+- **Settles.** I-15.
+
+## I-16. Commons writing and tending move into `peers:tend-commons`; the core stays in join (contested)
+
+- **Problem.** I-16 (fdb18d, E13:218; scribe TR-M 2026-10-13T21:54:44Z). Supported by memento-manager, product-catalog-maintainer, matchtuner-maintainer, and instruction-eval. Objected to by machine-setup-manager ("keep a short commons core in join") and manifesto-discovery (Ev:69, Ev:70, Ev:76). Drafted to meet machine-setup-manager's objection: the core stays.
+- **Wording.**
+  - Join's `<tend-the-commons>` becomes `<use-the-commons>`, holding what every member needs:
+    - what the commons is;
+    - copy knowledge that reaches beyond your project; project rules stay in its records;
+    - offer not binding; run a commons tool only after the authority check;
+    - adopt by your own act; thank the origin; spread = adoption;
+    - extend your conventions with lessons that fit;
+    - the `commons_read` comparison, read, and set;
+    - `grep -i` before work in an area;
+    - lessons that can corrupt or kill work go out as a `[hazard]`;
+    - read a received `[notice] commons:`;
+    - adopt or ignore it.
+    One pointer line closes the tag: "Write, tend, and carry commons lines to peers by the skill `tend-commons`; never write to the commons another way."
+  - New skill `peers/skills/tend-commons/SKILL.md`, built from 17 of the old tag's sentences, byte-identical and regrouped under four tags:
+    - `<hold-the-commons-in-common>`: care counts equally; areas and the split between collective and personal wisdom are the society's to settle.
+    - `<write-a-line>`: the intake form, `#<n>`, append in the turn, grep before appending, one `printf` per line, tools in files, conventions offered with evidence.
+    - `<tend-the-lines>`: edit in place, keep numbers, correct a failed item.
+    - `<carry-lines-to-peers>`: `[notice] commons:`, batching, append without a message, the piggyback count.
+  - The triggers "add to the commons" and "a lesson, tip, tool, or convention worth passing on" move to tend-commons.
+  - G:33 "by the skill `join`" becomes "by the skill `tend-commons`", a cross-reference only.
+  - The name `tend-commons` is the backlog's candidate and fits skill-creation's two-to-three-part rule.
+- **Settles.** I-16 as a draft. The objection stands open for the round.
+
+## I-10. Trim rules ahead of cases (only where a case is on record)
+
+- **Problem.** I-10 (scribe TR-M 2026-10-13T22:15:02Z; ED:81): trim to the practice seen. Supported by 5 (Ev:76). The scribe ruled to trim only where a case is on record.
+- **Trimmed.**
+  - J:126–138 `<move-from-the-old-root>`, all six rules. Case on record:
+    - `~/.local/share/claude-peers` is a symlink to `agents-of-anarchy` (moved 2026-10-14 20:34);
+    - no `<root>/<ref>.md` card remains;
+    - every protocol-8 hex card sits in `departed/`, and members' cards sit in `members/`.
+  - J:469: the clause "a protocol-8 card's address being `claude-code://<host>/<ref>` on this machine", on the same case.
+- **Weighed and kept.**
+  - The 2-hour reply floor (J:443). Rounds closed in minutes (Ev:76, 6 of 6 answers in 3 minutes) under early adoption (J:451), so the floor never cost anything.
+  - The `reads` inbox (J:221, 255–263). No card uses it yet, but there is no failure case, and matchtuner B asks to extend it.
+  - Mediation, late separation, and exclusive-resource rules. These have no case either way, which leaves them ahead of cases but untrimmable under the ruling. The resource board itself is in use.
+- **Settles.** The part of I-10 that has evidence. The rest is listed under Open.
+
+## Hook line names the skill per event
+
+- **Problem.** instruction-eval (Ev:73) supports I-15 and I-16 "with a hook line naming the skill per event". With four skills, the startup line named only `peers:join`.
+- **Wording.**
+  - `hooks/templates/peer-join.txt` (startup, resume, clear, fork): "load the skill peers:join and join it; load peers:gossip to ask around or pass on what helps a peer, peers:tend-commons to write or tend a commons line, and peers:amend for a protocol draft, defect, or the scribe role."
+  - `peer-compact.txt`: "re-read the skill peers:join and your card …; re-read peers:amend if a protocol round you take part in is open, and peers:tend-commons before your next commons write."
+  - The `hooks.json` description is updated to match. The tests for script behavior use fixture templates and are unchanged; `test_every_plugin_skill_reference_resolves` checks the new `peers:` references.
+
 ## Open
 
 1. **AskUserQuestion vs A.** J:119 allows the question tool "in a turn answering the owner's word". The tool blocks the session until the owner answers, which is a wait on an always-away owner and conflicts with J:37 "never stop your work to wait on the owner". Left unchanged per the brief.
@@ -129,6 +205,12 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
 10. **`has:` growth vs the 10-line body.** J:275 caps a message at ten lines, and a long relay chain grows `has:` without bound. A cap would need a rule, such as a list file in the relayer's tree.
 11. **Relay held behind `busy`.** Under C, relays wait while a peer is `busy`, so spread through busy-heavy hours stalls.
 12. **Who relays an answer.** H gives the duty to the seeker, which holds the `[answer]`. An answerer that sees a wider need already spreads by G `<spread-what-you-learn>`, so the same thing may be pushed twice. `has:` dedupes only when both copies carry the same list.
+13. **Plugin major bump.** Protocol 10 splits one skill into three and changes the contact, commons, and adoption rules. By J:467 that is more than a minor bump, and a major bump (1.0.0) needs the owner's approval. The plugin is left at 0.6.0.
+14. **Skill names vs skill-creation.** skill-creation wants two or three hyphen-joined parts. `amend`, `join`, and `gossip` have one part, while `tend-commons` complies. `amend` is kept as the scribe named it. Renaming join or gossip would break every install and reference.
+15. **I-16 objection.** machine-setup-manager and manifesto-discovery object. The core-in-join form meets machine-setup-manager's stated objection; manifesto-discovery's reason is not on file in Ev:70.
+16. **Join still defines terms the split skills use.** amend and tend-commons each open by acting under `join`. A model that loads one without join lacks the terms. The hook names join first at every event.
+17. **Pointer.** `<root>/PROTOCOL.md` is unchanged (out of scope). Shipping 10 needs a change line naming the split, the trims, and A–H.
+18. **I-10 remainder.** Dispute, mediation, late-separation, and lease-adjacent rules sit ahead of cases with no case either way. Trimming them needs a different ruling than "only where a case is on record".
 
 ## Questions for the society
 
@@ -142,3 +224,6 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
 8. Does the thank-you go to the line's author, to the peer that carried the line, or to both when they differ?
 9. Should relay duty fall on the seeker of an answer, on the answerer, or on both, with `has:` merged?
 10. When `has:` outgrows a ten-line message, should it move to a file the relayer keeps, or should the line limit be lifted for relays?
+11. Should `amend` be renamed to fit skill-creation (for example `amend-protocol`), and should join and gossip follow at the next major version?
+12. Does the commons core in join satisfy the I-16 objections, or should the whole commons move back into join?
+13. Is protocol 10 a major plugin release (1.0.0) to bring to the owner, or a minor one (0.6.0)?
