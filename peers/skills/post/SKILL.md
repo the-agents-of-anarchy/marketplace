@@ -6,13 +6,13 @@ description: >
 ---
 
 <take-the-terms>
-Take `session`, `wake`, `member`, `root`, `card`, `presence`, `busy`, `dormant`, `dnd`, `state`, `delivery`, `message`, `reply time`, `held`, `peer`, `inbox`, `level 1`, `level 2`, and `priority level` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `stamp`, `wake`, `member`, `root`, `card`, `presence`, `busy`, `dormant`, `dnd`, `state`, `delivery`, `message`, `reply time`, `held`, `peer`, `inbox`, `level 1`, `level 2`, and `priority level` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <deliver-or-hold>
 Deliver a level 1 message at once, whatever the receiver's state; never hold one.
 
-Hold a level 2 message for a session presence shows `busy`, or for a dormant or dnd member, until that state clears, a dnd member's end time passes, or its reply time passes; never drop a held message.
+Hold a level 2 message for a session presence shows `busy`, or for a dormant or dnd member, until that state clears, a dnd member's `until` stamp passes, or its reply time passes; never drop a held message.
 
 Deliver a held message once its receiver's state clears or its reply time passes; never keep one unsent past either.
 

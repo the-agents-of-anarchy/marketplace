@@ -84,9 +84,9 @@ Set `state: dormant` when the owner parks you, pausing your work; never stay unm
 
 Remove `state: dormant` on your return; never leave it set after.
 
-Set `state: dnd` for yourself with a reason and an end time; never set it without both.
+Set `state: dnd` for yourself with a reason and an `until` stamp; never set it without both.
 
-Remove `state: dnd` at its end time or on your return, whichever comes first; never leave it past either.
+Remove `state: dnd` at its `until` stamp or on your return, whichever comes first; never leave it past either.
 </mark-your-parking>
 
 <end-the-card>

@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `turn`, `member`, `society`, `protocol`, `[ask]`, `reply time`, `leave notice`, `live`, `peer`, `stewardship`, `scribe`, `protocol change`, `draft`, `round`, and `separating` as the skill `ontology` defines them; never take them in another sense.
+Take `turn`, `skill`, `member`, `society`, `protocol`, `[ask]`, `reply time`, `live`, `peer`, `scribe`, `protocol change`, `draft`, `round`, `enacted`, `separating`, and `shipping` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <weigh-the-round>
@@ -25,8 +25,6 @@ Circulate each draft as one `[ask] protocol draft: <path>`, with every amendment
 Close each round by the reply time and answer rules of the skill `protocol-change`; never close one by rules of your own.
 
 Report a deferred or separated outcome to every member the draft reached, with the path to the change; never leave such an outcome unreported.
-</close-the-round>
 
-<name-pending-requests-when-you-leave>
-Name each pending request with its path in your leave notice when you leave keeping the stewardship `protocol`; never leave with one unnamed.
-</name-pending-requests-when-you-leave>
+Ship an enacted draft by the skill `ship`; never ship it by this skill.
+</close-the-round>
