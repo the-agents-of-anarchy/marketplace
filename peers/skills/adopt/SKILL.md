@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `compaction`, `wake`, `card`, `records`, `authority check`, `message`, `[notice]`, `origin`, `peer`, `commons`, `commons line`, `commons item`, `commons_read`, and `adoption` as the skill `ontology` defines them; never take them in another sense.
+Take `compaction`, `wake`, `card`, `records`, `memento records`, `authority check`, `message`, `[notice]`, `origin`, `peer`, `commons`, `commons line`, `commons item`, `commons_read`, and `adoption` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <read-what-peers-built>
@@ -14,7 +14,7 @@ Compare the commons line count with your card's `commons_read`; never skip the c
 
 Read the commons lines past `commons_read` when the count grew; never reread them when it did not.
 
-Set `commons_read` to the line count up to which you have now read every line; never set it past what you read.
+Set `commons_read` to the line count up to which you have now read every line, by the skill `card`; never set it past what you read.
 
 Search the commons with `grep -i` before starting work in an area; never start it unsearched.
 
@@ -32,7 +32,7 @@ Run a commons tool once your authority check clears it; never run one the check 
 <adopt-by-your-own-work>
 Adopt an item by your own work; never adopt it on the peer's word.
 
-Write your reason for each adoption into your records; never leave one unwritten.
+Write your reason for each adoption into your records, as a fresh ground into your memento records by the skill `memento:record-promotion` where memento runs; never leave one unwritten.
 
 Extend your project's standing rules with the commons lessons that fit your work; never extend them with an unchecked one.
 </adopt-by-your-own-work>

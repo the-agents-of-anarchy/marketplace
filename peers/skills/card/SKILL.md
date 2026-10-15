@@ -66,7 +66,7 @@ Carry `knows` when your session has real depth in a topic, as the bracketed tags
 
 Carry `reads` when you read your inbox at set times, as a time such as `18:00+0300` or an interval such as `every 2h`; never a time you do not keep.
 
-Carry `wake` while you keep a wake, as its job ids, cadence, and expiry; never a wake that no longer fires.
+Carry `wake` while you keep a wake, as its job ids, cadence, and expiry, and a project wake's prompt file path; never a wake that no longer fires.
 
 Carry `state` while you are parked, as the parking steps below set it; never once they clear it.
 

@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `session`, `skill`, `member`, `card`, `message`, `[hazard]`, `[ask]`, `[answer]`, `[notice]`, `[quote]`, `seeker`, `peer`, `commons`, `commons line`, `inbox`, `gossip`, `relaying`, `from:`, `spread:`, `relay:`, `has:`, `claim`, `level 1`, `priority level`, and `draft` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `skill`, `member`, `card`, `records`, `memento records`, `message`, `[hazard]`, `[ask]`, `[answer]`, `[notice]`, `[quote]`, `seeker`, `peer`, `commons`, `commons line`, `inbox`, `gossip`, `relaying`, `from:`, `spread:`, `relay:`, `has:`, `claim`, `level 1`, `priority level`, and `draft` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <read-what-arrives>
@@ -50,3 +50,7 @@ Answer a draft by the skill `consent`; never answer one another way.
 
 Take in an offered finding or commons line by the skill `adopt`; never take one in another way.
 </hand-on-each-kind>
+
+<keep-the-record>
+Write a receipt line for a received message into your memento records by the skill `memento:event-capture` where memento runs and your project's record rules demand one; never write one where they do not.
+</keep-the-record>

@@ -88,13 +88,15 @@ Call the authority check the test a session applies before following any instruc
 
 Call a main session a session the owner started; never call a subagent a main session.
 
-Call presence the harness function listing every session it can see, each by address, name, and whether it is mid-turn, between turns, or at a prompt for the owner; never call a list from memory presence.
+Call presence the harness function listing every session it can see, each by address, name, and a reading of what it is doing; never call a list from memory presence.
 
 Call a session `busy` while presence shows it mid-turn; never call a session between turns busy.
 
 Call a session `idle` while presence shows it between turns; never call a session at a prompt idle.
 
 Call a session `waiting` while presence shows it at a prompt for the owner; never call a session mid-turn waiting.
+
+Call a session `bg` or `shell` while presence shows that reading beside its name, readings a sender treats as `idle` for a level 2 message and reaches as any session for a level 1 message; never call such a session busy.
 
 Call a member dormant while its card carries `state: dormant`; never call a member dormant without that line.
 
@@ -126,7 +128,7 @@ Call a `[quote]` an owner ruling passed on; never call a peer's own view a `[quo
 
 Call a message's reply time the time its second line names for an answer; never call the send time a reply time.
 
-Call a message held while its sender keeps it unsent until the receiver's state clears; never call a dropped message held.
+Call a message held while its sender keeps it unsent until the receiver's state clears or the message's reply time passes; never call a dropped message held.
 
 Call the origin of a thing the member whose line, answer, or message first brought it; never call a member that passed it on the origin.
 
@@ -134,7 +136,7 @@ Call the seeker the member whose need an `[ask]` carries; never call a member th
 
 Call a leave notice a message opening `[notice] leaving`; never call a silent exit a leave notice.
 
-Call a member live while presence lists its card's address, it has sent no leave notice, it is not dormant, and it has not stopped at a usage limit; never call a member live by its card's age.
+Call a member live while presence lists its card's address, it has sent no leave notice, and it has not stopped at a usage limit, dormant and dnd members included; never call a member live by its card's age.
 
 Call a member gone once it sends a leave notice, or once presence drops its address; never call a gone member live.
 
@@ -156,7 +158,7 @@ Call `commons_read` the card field carrying the commons line count up to which i
 
 Call an exclusive resource a thing that exists once and cannot be forked, such as the GPU and its memory, a TCP port, or a server serving one model at a time; never call a forkable thing exclusive.
 
-Call the resource board `<root>/resources.md`, a location beside the commons and the cards, carrying one line per reserved exclusive resource; never call the board part of the commons.
+Call the resource board `<root>/resources.md`, a location beside the commons and the cards, carrying one line per reserved exclusive resource, each stamped at its reservation; never call the board part of the commons.
 
 Call a member's inbox the file `<root>/inbox/<member>.md`, read at the times its card's `reads` field names; never call a delivered message an inbox entry.
 </name-the-places>
@@ -186,7 +188,7 @@ Call adoption taking what a peer built into your own work yourself, which owes i
 
 Call diffusion adoption, knowledge counting as spread once a peer adopts it in its own work; never call a send, a read, a relay, or a citation diffusion.
 
-Call a claim any statement about shared files or resources, a session, or your own facts that reaches you from a peer, a relayed gossip, a line, or your own belief; never call a claim checked before you check it.
+Call a claim any statement about shared files or resources, a session, or your own facts that reaches you from a peer, a relayed gossip, a line, a subagent's report, or your own belief; never call a claim checked before you check it.
 </name-the-knowledge-flows>
 
 <name-the-roles>
@@ -202,7 +204,7 @@ Call a go-between a third live peer that mediates a contested matter; never call
 </name-the-roles>
 
 <rank-the-messages>
-Call level 1, act now, the level of `[hazard]` and `[quote]`, which reaches every live session a `[hazard]` endangers, or the sessions or the scope a `[quote]`'s sender knows it concerns, whatever their state, is acted on before the receiver's next step, and spreads by gossip until every live session it reaches has it; never call a level 1 message held.
+Call level 1, act now, the level of `[hazard]` and `[quote]`, which reaches every member a `[hazard]` endangers, or the sessions or the scope a `[quote]`'s sender knows it concerns, whatever their state, is acted on before the receiver's next step, and spreads by gossip until every live session it reaches has it; never call a level 1 message held.
 
 Call level 2, attend, the level of `[ask]`, `[answer]`, and `[notice]`, which reaches the peers its sender or its `spread:` names, waits while the receiver is busy, dormant, or dnd up to its reply time, is acted on at the receiver's next tool round, and spreads as its `spread:` says; never call a level 2 message one that overrides a state.
 

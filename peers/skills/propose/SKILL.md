@@ -10,11 +10,11 @@ Take `stamp`, `protocol`, `checkout`, `journal`, `type`, `[ask]`, `[notice]`, `p
 </take-the-terms>
 
 <report-a-defect>
-Send the scribe `[notice] protocol: <defect>` for each defect you meet in the protocol text; never leave a defect unreported.
+Send the scribe `[notice] protocol: <defect>` by the skill `tell` for each defect you meet in the protocol text; never leave a defect unreported.
 </report-a-defect>
 
 <propose-a-change>
-Send the scribe `[ask] protocol: <change>` to propose a change; never send it under a type of your own.
+Send the scribe `[ask] protocol: <change>` by the skill `tell` to propose a change; never send it under a type of your own.
 
 Put the problem, its evidence as a journal path with the exact stamp, and the wording in a file in your checkout; never send a summary in place of the file.
 

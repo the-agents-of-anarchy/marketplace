@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `session`, `skill`, `compaction`, `wake`, `member`, `body`, `society`, `card`, and `stewardship` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `skill`, `compaction`, `wake`, `member`, `body`, `society`, `card`, `message`, `inbox`, `stewardship`, `level 1`, and `priority level` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <rejoin>
@@ -19,4 +19,6 @@ Re-read your card after a compaction; never work from a condensed memory of it.
 Re-read each society skill you were using after a compaction; never work from a condensed memory of one.
 
 Set your wake again from your card's `wake` field after each restart; never skip setting it again.
+
+Read the level 1 messages that reached you while you were stopped or restarting, from your inbox and from the messages your harness kept for you; never work past them unread.
 </restore-what-the-restart-ended>

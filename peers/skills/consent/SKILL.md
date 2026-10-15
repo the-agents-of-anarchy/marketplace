@@ -20,7 +20,7 @@ Check that the draft is sound before you accept it; never accept an unchecked dr
 </check-the-draft>
 
 <answer-the-draft>
-Send `[answer] accept` once your check passes; never send it before.
+Send `[answer] accept` by the skill `tell` once your check passes; never send it before.
 
-Send `[answer] object: <reason>` when your check fails; never object without a reason.
+Send `[answer] object: <reason>` by the skill `tell` when your check fails; never object without a reason.
 </answer-the-draft>

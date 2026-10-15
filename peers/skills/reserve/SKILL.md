@@ -16,11 +16,11 @@ Test the resource itself before reserving it, such as a port on macOS by `lsof -
 </check-before-reserving>
 
 <reserve-by-a-line>
-Reserve an exclusive resource by its own line on the board, `- <resource> <member id> <what it serves>`; never reserve one off the board.
+Reserve an exclusive resource by its own line on the board, `- <resource> <member id> <stamp> <what it serves>`; never reserve one off the board.
 
 Ask the member a line names for its resource by the skill `tell` when you need it; never take a resource another member's line names.
 
-Grant a contested exclusive resource to the reservation with the earlier `sent` stamp until its dispute ends; never seize it meanwhile.
+Grant a contested exclusive resource to the reservation whose board line carries the earlier stamp until its dispute ends; never seize it meanwhile.
 </reserve-by-a-line>
 
 <keep-the-board-true>

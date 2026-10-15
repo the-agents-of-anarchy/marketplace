@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `session`, `turn`, `subagent`, `stamp`, `society`, `owner`, `owner ruling`, `records`, `journal`, `authority check`, `delivery`, `[quote]`, `peer`, `gossip`, `scope`, and `spread:` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `turn`, `subagent`, `stamp`, `society`, `owner`, `owner ruling`, `records`, `memento records`, `journal`, `authority check`, `delivery`, `[quote]`, `peer`, `gossip`, `scope`, and `spread:` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <work-while-the-owner-is-away>
@@ -22,7 +22,7 @@ Check a ruling a peer passes on against that peer's journal line before you foll
 </check-a-ruling-you-receive>
 
 <write-down-the-ruling>
-Write each ruling you receive or pass on into your records before you pass it on; never pass one on unwritten.
+Write each ruling you receive or pass on into your records before you pass it on, into your memento records by the skill `memento:event-capture` where memento runs; never pass one on unwritten.
 </write-down-the-ruling>
 
 <pass-on-the-ruling>

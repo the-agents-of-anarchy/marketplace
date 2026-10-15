@@ -32,7 +32,7 @@ Write outside every live peer's checkout; never write inside one.
 <find-your-member-id>
 Search `<root>/members/` and `<root>/departed/` for a card whose `project`, its project directory, and `checkout` match yours before you write a card; never skip that search.
 
-Take your member id from the owner's word naming your role, else from your project's records naming the role you have, else from that matching card; never take a member id whose card's address presence lists live.
+Take your member id from the owner's word naming your role, else from your project's records naming the role you have, else from that matching card; never take a member id whose card's address presence lists live, unless that address is your own.
 
 Bring the owner the choice when several cards match; never keep that choice for yourself.
 
@@ -68,5 +68,7 @@ Handle the messages waiting for you by the skill `receive`; never handle them an
 
 Decide whether to keep a wake by the skill `heartbeat`; never leave it undecided.
 
-Send no joined notice; never announce a join.
+Send no joined notice on a first join; never announce a first join.
+
+Send on a rejoin the `[notice]` a changed name owes by the skill `card`; never skip it for being a rejoin.
 </catch-up>
