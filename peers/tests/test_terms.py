@@ -135,7 +135,7 @@ def description(path):
 def scanned_body(path):
     text = description(path) + body(path)
     text = re.sub(rf"<{TERMS_TAG}>.*?</{TERMS_TAG}>", "", text, flags=re.S)
-    text = re.sub(r"the skills? `[a-z:-]+`", "", text)
+    text = re.sub(r"the skills? `[a-z:-]+`( and `[a-z-]+`)?", "", text)
     text = re.sub(r"peers:[a-z-]+", "", text)
     text = re.sub(r"by the skills [a-z-]+(, [a-z-]+)*,? and [a-z-]+", "", text)
     return text
@@ -169,7 +169,7 @@ def test_terms_sentence_names_every_ontology_term_the_body_uses(skill):
 # Ordinary-verb and other-sense uses of ontology terms, banned in every skill (ruling, round 5).
 # Each entry: (term, phrases where the word carries the ontology sense, pattern of the other sense).
 OTHER_SENSES = [
-    ("held", ["Hold a level 2 message", "Hold a relay of a level 2 gossip", "holds a level 2 message",
+    ("held", ["Hold a level 2 message", "held message",
               "never hold one.", "never hold it past that turn", "call for a hold", "a held message",
               "message held", "<deliver-or-hold>", "</deliver-or-hold>", "deliver it, hold it, or append"],
      r"\b[Hh]old(s|ing)?\b|\bheld\b"),

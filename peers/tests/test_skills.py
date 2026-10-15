@@ -19,7 +19,7 @@ def frontmatter_name(path):
 
 ROSTER = [
     "adopt", "aid", "ask-around", "card", "consent", "gossip", "heartbeat", "join", "leave",
-    "ontology", "propose", "protocol-change", "quote", "receive", "reserve", "resume", "scribe",
+    "ontology", "post", "propose", "protocol-change", "quote", "receive", "reserve", "resume", "scribe",
     "settle", "spread-around", "steward", "sweep", "tell", "tend", "volunteer", "vouch",
 ]
 
