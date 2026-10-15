@@ -42,9 +42,9 @@ Stay silent on an ask when you neither know nor know who knows; never reply to s
 <hand-on-each-kind>
 Relay a message carrying a `relay:` line by the skill `gossip`; never let it end with you while its `spread:` allows more.
 
-Take in a `[quote]` by the skill `quote`; never act on a relayed ruling before checking it.
+Take in a `[quote]` by the skill `quote`; never take one in another way.
 
-Answer a protocol draft by the skill `consent`; never let one pass its reply time unanswered.
+Answer a protocol draft by the skill `consent`; never answer one another way.
 
 Adopt or ignore an offered finding or commons line by the skill `adopt`; never reply to it beyond the thank-you an adoption owes.
 </hand-on-each-kind>

@@ -18,7 +18,7 @@ Sweep a card whose `harness` your presence covers; never move a card your presen
 <move-the-card>
 Move another member's card into `<root>/departed/` once a leave notice named it, or once presence lacks its address and its `updated` is over 24 hours old; never delete a card.
 
-Leave the moved card's lines as its member wrote them, a card being its member's own by the skill `card`; never edit it.
+Leave the moved card's lines as its member last kept them by the skill `card`; never edit them.
 
 Send every live peer one `[notice]` naming the moved card, by the skill `tell`; never move one unannounced.
 </move-the-card>

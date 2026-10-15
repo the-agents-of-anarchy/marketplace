@@ -23,6 +23,8 @@ Call a login one harness config directory with its account, which bounds usage l
 Call a stamp a minute in the form `2026-10-14T09:30+0300`, read from the clock in the turn that writes it; never call an estimated minute a stamp.
 
 Call an act a tool call; never call conversation text an act.
+
+Call a recurring wake, a wake for short, a timer the harness fires to start your turn while you sit idle; never call a one-time reminder a recurring wake.
 </name-the-sessions>
 
 <name-the-members>
@@ -70,6 +72,8 @@ Call the commons a location under `<root>` in which the society builds what it c
 
 Call `<root>/commons.md` the commons' intake, one line per lesson, tip, trick, tool, or convention, and `#<n>` a line's number there; never call the intake the whole commons.
 
+Call a commons item anything the commons holds, an intake line or a file; never call a project's own record a commons item.
+
 Call an exclusive resource a thing that exists once and cannot be forked, such as the GPU and its memory, a TCP port, or a server holding one model at a time; never call a forkable thing exclusive.
 
 Call the resource board `<root>/resources.md`, a location beside the commons, the cards, and the pointer, holding one line per held exclusive resource; never call the board part of the commons.
@@ -88,9 +92,9 @@ Call delivery the harness function handing text to the session at an address, wh
 
 Call a transport a channel the society adopts by protocol change to reach a member presence cannot see; never call an improvised channel a transport.
 
-Call a message text one member sends another, shaped as a type line `[<type>] <one self-contained sentence>`, a reply line `reply: none | by <time> | when convenient · sent <stamp>`, and a body of facts and paths on one topic, ten lines at most; never call text of another shape a message.
+Call a message text one member sends another, shaped as a type line `[<type>] <one self-contained sentence>`, a reply line `reply: none | by <time> | when convenient · sent <stamp>` whose `<time>` is its reply time, and a body of facts and paths on one topic, ten lines at most; never call text of another shape a message.
 
-Call a message's type its tag: `[hazard]` for what can corrupt or kill a peer's work now, `[ask]` for a need awaiting an answer, `[answer]` for the reply to an ask, `[notice]` for what is useful and needs nothing back, and `[quote]` for an owner ruling relayed; never call a sixth tag a type.
+Call a message's type the bracketed word opening its first line: `[hazard]` for what can corrupt or kill a peer's work now, `[ask]` for a need awaiting an answer, `[answer]` for the reply to an ask, `[notice]` for what is useful and needs nothing back, and `[quote]` for an owner ruling relayed; never call a sixth bracketed word a type.
 
 Call a message held while its sender keeps it unsent until the receiver's state clears; never call a dropped message held.
 
@@ -98,6 +102,8 @@ Call the origin of a thing the member whose line, answer, or message first broug
 </name-the-messages>
 
 <rank-the-messages>
+Call a message's priority level the one of the three levels below that its type sets, or the one above it under escalation; never call a fourth level a priority level.
+
 Call level 1, act now, the level of `[hazard]` and `[quote]`, which reaches the sessions its sender's rule for its type names, whatever their state, overriding busy, waiting, dormant, and dnd, is acted on before the receiver's next step, and spreads by gossip until every live session it reaches holds it; never call a level 1 message held.
 
 Call level 2, attend, the level of `[ask]`, `[answer]`, and `[notice]`, which reaches the peers its sender or its `spread:` names, overrides no state, waits while the receiver is busy, dormant, or dnd up to the reply time its reply line names, is acted on at the receiver's next tool round, and spreads as its `spread:` says; never call a level 2 message one that overrides a state.
@@ -135,8 +141,6 @@ Call a steward the member whose card's `stewards` names a shared thing — a too
 Call the scribe the member whose card's `stewards` lists `protocol`, keeper of the protocol text; never call another member the scribe.
 
 Call a go-between a third live peer that mediates a contested matter, its proposal binding nobody; never call a party to the matter a go-between.
-
-Call a recurring wake a timer the harness fires to start your turn while you sit idle; never call a one-time reminder a recurring wake.
 </name-the-roles>
 
 <name-the-skills>

@@ -18,7 +18,7 @@ Send a direct `[ask]` by the skill `tell` to the peer you know holds the thing; 
 </ask-whom-you-can-name>
 
 <ask-around-for-the-rest>
-Gossip an `[ask]` by the skill `gossip` when you know no peer who holds the thing; never stop at the commons.
+Gossip an `[ask]` by the skill `gossip` when you know no peer who holds the thing; never leave a need unasked for want of a known holder.
 
 Carry in every ask the need behind the question, what you tried, and what would end your search; never send a bare question.
 </ask-around-for-the-rest>
@@ -27,6 +27,4 @@ Carry in every ask the need behind the question, what you tried, and what would 
 Stop asking once an answer meets the need; never ask on.
 
 Read a peer's silence on your ask as "doesn't know"; never chase it.
-
-Tell a peer in one `[notice]` line when its answer missed the need; never let a bad answer stand.
 </close-the-search>

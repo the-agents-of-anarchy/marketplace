@@ -64,7 +64,7 @@ Read what the commons learned since your card's `commons_read` before you start 
 
 Act on the messages waiting for you by the skill `receive`; never start work over them.
 
-Settle whether to keep a recurring wake by the skill `heartbeat`; never leave the choice unmade.
+Decide whether to keep a recurring wake by the skill `heartbeat`; never leave the choice unmade.
 
 Send no joined notice; never announce a join.
 </catch-up>

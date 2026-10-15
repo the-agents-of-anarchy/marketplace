@@ -16,7 +16,7 @@ Check a claim about shared state or a session — a peer's, a relay's, your own 
 </check-the-claim>
 
 <route-a-failed-check>
-Tell the origin of a claim that fails your check, by the skill `tell`; never let a failed claim travel on.
+Tell the origin of a claim that fails your check, by the skill `tell`; never keep a failed check from its origin.
 
 Correct each failure of your own that reached a peer, by a `[notice]` to that peer through the skill `tell`; never hide one.
 </route-a-failed-check>

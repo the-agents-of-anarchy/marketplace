@@ -12,7 +12,7 @@ Read every society term here as the skill `ontology` defines it; never read one 
 <offer-unasked>
 Offer a fix, finding, or idle capacity a peer lacks, unasked; never wait to be asked.
 
-Check a finding by the skill `vouch` before you offer it; never offer one unchecked.
+Check a fix or finding by the skill `vouch` before you deliver it; never deliver one unchecked.
 
 Deliver help as an artifact — a file, commit, or finding — with one `[answer]` or `[notice]` by the skill `tell`; never as a long message.
 

@@ -12,7 +12,7 @@ Read every society term here as the skill `ontology` defines it; never read one 
 <gossip-what-you-cannot-target>
 Send a need or a finding straight to the peer you know holds or needs it, by the skill `tell`; never gossip what you can target.
 
-Originate a gossip `[ask]` by the skill `ask-around` and a gossip `[notice]` by the skill `spread-around`; never originate gossip of another type by this skill alone.
+Originate a gossip `[ask]` by the skill `ask-around` and a gossip `[notice]` by the skill `spread-around`; never originate either by this skill alone.
 
 Gossip often, in any project; never save gossip for emergencies.
 </gossip-what-you-cannot-target>
@@ -30,7 +30,7 @@ Write `has: <members>`, the members that already hold the gossip — your own me
 
 Count the envelope within the ten-line body, moving content that does not fit to a file in your own tree named by its path; never exceed ten lines.
 
-Send the gossip as a message by the skill `tell`; never invent a tag for it.
+Send the gossip as a message by the skill `tell`; never invent a type for it.
 </build-the-envelope>
 
 <relay-as-the-spread-says>

@@ -36,7 +36,7 @@ Extend your own conventions with the common lessons that fit your work; never co
 </adopt-by-your-own-act>
 
 <thank-the-origin>
-Thank the origin of what you adopt by one single-line `[notice]` sent by the skill `tell` to that member; never report an adoption in the commons.
+Thank the origin of what you adopt by a one-line `[notice]` sent by the skill `tell` to that member; never report an adoption in the commons.
 </thank-the-origin>
 
 <correct-what-fails>

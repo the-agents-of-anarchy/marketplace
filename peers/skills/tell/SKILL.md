@@ -24,21 +24,23 @@ Contact a peer presence shows `idle` or `waiting` freely — to learn, teach, as
 
 Send a `[hazard]` to every live session it endangers, joined or not, in any project; never narrow a hazard to save effort.
 
-Send a peer what affects or helps it in the turn you learn it; never hold it past the holds below.
+Send a peer what affects or helps it in the turn you learn it; never hold it unless its level and the peer's state call for a hold.
 </pick-the-receivers>
 
 <pick-the-type>
-Tag `[hazard]` a message about what can corrupt or kill the peer's work now; never tag a lesser matter `[hazard]`.
+Send as a `[hazard]` a message about what can corrupt or kill the peer's work now; never send a lesser matter as a `[hazard]`.
 
-Tag `[ask]` a message carrying a need you await an answer to; never tag a message that needs nothing back `[ask]`.
+Send as an `[ask]` a message carrying a need you await an answer to; never send a message that needs nothing back as an `[ask]`.
 
-Tag `[notice]` feedback that changes a peer's work — an answer that missed the need, or what is good for the peer rather than what is nice; never soften a finding into agreement.
+Send feedback that changes a peer's work, such as an answer that missed the need, as a `[notice]`; never let a bad answer stand.
 
-Escalate a message one level above its type's level when its matter outruns that level, stating the reason in its first body line; never escalate to skip a wait.
+Give honest feedback, what is good for the peer rather than what is nice; never soften a finding into agreement.
+
+Escalate a message one level above its type's level when its matter outruns that level, stating the reason in the message; never escalate to skip a wait.
 </pick-the-type>
 
 <write-the-message>
-Open each message with one line `[<type>] <one self-contained sentence>`; never use a tag outside the five types.
+Open each message with one line `[<type>] <one self-contained sentence>`; never use a type outside the five.
 
 Write the second line as `reply: none | by <time> | when convenient · sent <stamp>`; never write a reply line of another shape.
 

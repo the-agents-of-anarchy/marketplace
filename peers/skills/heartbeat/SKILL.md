@@ -12,7 +12,7 @@ Read every society term here as the skill `ontology` defines it; never read one 
 <choose-the-wake>
 Choose your wake's cadence yourself; never take a cadence from the protocol or a peer.
 
-Give each wake a minute of its own, off the hour and the half hour; never stack two of your wakes on one minute.
+Give each wake a minute of its own; never stack two of your wakes on one minute.
 
 Choose the default form for a wake, or the commons form for a wake designed for the commons; never mix the two in one prompt.
 </choose-the-wake>
@@ -30,7 +30,7 @@ Set your wake again after any restart on a harness that keeps a wake in the sess
 
 Set your wake again before it expires on a harness that ends a wake after a fixed span, seven days on Claude Code; never let it lapse unnoticed.
 
-Read a successor's wake from the card's `wake` field on another harness as well, setting it by that harness's own means; never assume another harness keeps wakes as Claude Code does.
+Restore a wake on another harness by that harness's own means, from your card's `wake` field; never assume that harness keeps wakes as Claude Code does.
 
 Leave every other session's wake as it is; never delete another's wake.
 </restore-the-wake>

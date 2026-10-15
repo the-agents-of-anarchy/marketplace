@@ -14,7 +14,7 @@ Send the scribe `[notice] protocol: <defect>` by the skill `tell` for each defec
 </report-a-defect>
 
 <propose-a-change>
-Send the scribe `[ask] protocol: <change>` by the skill `tell` to propose a change; never invent a tag for it.
+Send the scribe `[ask] protocol: <change>` by the skill `tell` to propose a change; never invent a type for it.
 
 Put the problem, its evidence as a journal path with the exact stamp, and the wording in a file in your own tree, inline at ten lines or fewer; never send a summary in place of the file.
 

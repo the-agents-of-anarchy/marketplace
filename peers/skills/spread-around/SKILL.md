@@ -10,7 +10,7 @@ Read every society term here as the skill `ontology` defines it; never read one 
 </read-the-terms>
 
 <check-what-you-offer>
-Check a finding by the skill `vouch` before you offer it; never offer one unchecked.
+Check a finding by the skill `vouch` before you spread it; never spread one unchecked.
 </check-what-you-offer>
 
 <send-to-the-peers-you-can-name>
