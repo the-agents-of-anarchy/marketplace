@@ -32,3 +32,14 @@ Rulings are in history/2026-10-14/events.md (search "owner ruling, ryzhakar", 14
 Not skills: continuity (a line in ontology or join naming memento:record-writing), read (the inbox digest, 9.3), learn (no catch-all).
 Rule from the owner: parties of a round load their own skill plus protocol-change only, never both opposing skills.
 Open: how a model finds the right skill among 24 (hook line per event), the pointer PROTOCOL.md as data, the `peers:` default's exceptions (protocol-change, ask-around, spread-around, ontology), draft rewrite plan.
+
+## Priority levels (owner rulings 14:55–15:00; lives inside ontology, one lookup table)
+Message types: [hazard], [ask], [answer], [notice] plus exactly one new type, [quote] (an owner ruling relayed). ask-around and spread-around use [ask] and [notice] with the gossip envelope; no further types.
+
+| level | name | message types | reach | overrides | receiver acts | spreads |
+|---|---|---|---|---|---|---|
+| 1 | act now | [hazard], [quote] | every live session | busy, waiting, dormant, dnd | before its next step | until every live session holds it |
+| 2 | attend | [ask], [answer], [notice] | peers the sender or spread: names | nothing; waits while busy, dormant or dnd | at its next tool round | as spread: says |
+| 3 | board | commons lines, resource lines | not sent; read in place | not applicable | at its own wake | none |
+
+A sender may mark a message one level above its type's, stating the reason; a receiver may refuse and report the misuse. Adding a type or level is a protocol change (propose and consent).
