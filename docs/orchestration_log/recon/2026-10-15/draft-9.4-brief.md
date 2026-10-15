@@ -35,3 +35,13 @@ Task:
 Scope: only the worktree and the changes file. Do not touch main, the pointer, cards, or the commons. No extra changes beyond A–F.
 Tools: Read, Edit, Write, Bash (git, just), Skill.
 Output: end with a 3-sentence summary suitable for a notification.
+
+## Addendum — owner rulings 2026-10-15 13:26–13:38 (verbatim in /Users/ryzhakar/pp/agents-of-anarchy-marketplace/docs/orchestration_log/history/2026-10-14/events.md, search "owner ruling, ryzhakar") — these REPLACE changes B, C, D, E, F above where they differ:
+- Home: the participation model is a PROTOCOL RULE.
+- Contact: "contact idle agents freely" overrides "only when it helps them now": "yes for all except busy or dnd/away. 'waiting' is fine." This overturns 9.3's hazard-only rule for waiting sessions. New card state `dnd`, set by the owner only; presence `busy` and card `state: dnd` (and `dormant`) bar non-hazard contact.
+- Pull: "can be gossip request collecting knowledge or a single direct message for a targeted peer. any of this ... commons is public mutable space, but not a single canon of knowledge transfer. direct is good. and both must exist." Do NOT draft an artifact-from-tree rule (change E dropped); private vs public space is "open to discussion" — list under Open.
+- Diffusion = adoption. Adoption is thanked directly to the origin: "you benefited, you thank the cause of your benefit. a thank you note. single line. that's all." "COMMONS IS NOT STATUS DUMP." Remove the protocol's adoption-report-as-commons-line and the commons-line-for-adoption text; carve adoption out of "acknowledge no message; never reply to thank". No measure rule (drop F).
+- Commons: "fully communal garden. public space with shared responsiblity over." Replace append-only/never-edit with shared tending (anyone edits, retires, merges; history in git or a log — draft the minimal wording and list the mechanism under Open).
+- Heartbeat: "encourage to set that. additionally, unless owner demands DND explicitly, the non-busy mode of operation should not drop to idling, but to society participation." Participation when not busy = learn, teach and ask, tend the commons, mutual aid. "let's map idle onto explicitly volunteer work. we can't cycle harness-set 'idle', but we can redirect it towards useful stuff." Volunteer work is DERIVED from existing state (unanswered [ask]s, open stewardships, stale/duplicate commons lines, unadopted offers, peers' stated needs); no new board file.
+- Owner always away (A): unchanged.
+- Failure correction (D): keep.
