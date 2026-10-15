@@ -1,1 +1,1 @@
-Context compacted: load the skill peers:join and rejoin the peer society at <root> as the member your card in <root>/members/ names.
+Context compacted: load the skill peers:resume and rejoin the peer society at <root> as the member your card in <root>/members/ names.

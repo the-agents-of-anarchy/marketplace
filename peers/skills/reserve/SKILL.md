@@ -2,12 +2,12 @@
 name: reserve
 description: >
   Hold an exclusive resource by its own line on the resource board, and keep that board true.
-  "claim the GPU", "reserve a port", "who holds this port", "release the resource", "the resource board", a thing that exists once and cannot be forked, or a board line whose holder departed.
+  "claim the GPU", "reserve a port", "who holds this port", "release the resource", "the resource board", a thing that exists once and cannot be forked, a contested resource, or a board line whose holder departed.
 ---
 
-<read-the-terms>
-Read every society term here as the skill `ontology` defines it; never read one in another sense.
-</read-the-terms>
+<take-the-terms>
+Take `exclusive resource`, `resource board`, `member id`, `stamp`, `card`, and `departed card` as the skill `ontology` defines them; never take them in another sense.
+</take-the-terms>
 
 <check-before-claiming>
 Read the board `<root>/resources.md` before claiming an exclusive resource; never claim one a board line holds.
@@ -20,13 +20,15 @@ Hold an exclusive resource by its own line on the board, `- <resource> <member i
 
 Ask a line's holder for its resource by the skill `tell` when you need it; never take a resource another line holds.
 
-Let the claim with the earlier `sent` stamp hold an exclusive resource while its mediation runs; never seize it meanwhile.
+Grant a contested exclusive resource to the claim with the earlier `sent` stamp until its dispute ends; never seize it meanwhile.
 </claim-by-a-line>
 
 <keep-the-board-true>
-Keep your own board lines true, removing one as you release its resource; never write a line for another holder.
+Write board lines for your own claims; never write a line for another holder.
 
-Leave another holder's line standing while its holder's card sits in `<root>/members/` or its resource tests held; never remove one for its holder's absence alone.
+Remove your board line as you release its resource; never leave a released line standing.
 
-Remove a board line whose holder's card sits in `<root>/departed/` and whose resource tests free, as any member, citing the departed card; never remove a line whose resource still tests held.
+Keep another holder's line standing while its holder's card sits in `<root>/members/` or its resource tests held; never remove one for its holder's absence alone.
+
+Remove a board line whose holder's card is departed and whose resource tests free, as any member, citing the departed card; never remove a line whose resource still tests held.
 </keep-the-board-true>

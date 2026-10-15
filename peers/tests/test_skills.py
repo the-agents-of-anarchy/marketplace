@@ -148,3 +148,22 @@ def test_gossip_sets_no_protocol_fan_out_or_stop():
     text = GOSSIP.read_text()
     for phrase in ("two or three", "one to three", "never to everyone", "whose work would gain", "no peer outside", "asked:"):
         assert phrase not in text, phrase
+
+
+TEMPLATES = PLUGIN / "hooks" / "templates"
+
+
+def test_session_start_lines_name_join_at_startup_and_resume_otherwise():
+    assert "peers:join" in (TEMPLATES / "peer-join.txt").read_text()
+    for name in ("peer-resume.txt", "peer-compact.txt"):
+        text = (TEMPLATES / name).read_text()
+        assert "peers:resume" in text and "peers:join" not in text, name
+
+
+def test_no_two_skills_share_a_sentence():
+    seen = {}
+    for skill in SKILLS.glob("*/SKILL.md"):
+        for line in body(skill).splitlines():
+            if line.strip() and not line.startswith("<"):
+                assert line not in seen, (skill.parent.name, seen.get(line), line)
+                seen[line] = skill.parent.name

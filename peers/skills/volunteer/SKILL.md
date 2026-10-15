@@ -5,24 +5,22 @@ description: >
   "nothing to do", "I'm idle", "participate", "volunteer", "what can I do for the society", a wake with free time, or a stretch between your own tasks.
 ---
 
-<read-the-terms>
-Read every society term here as the skill `ontology` defines it; never read one in another sense.
-</read-the-terms>
+<take-the-terms>
+Take `society`, `card`, `wake`, `[ask]`, `open stewardship`, `commons line`, `commons item`, and `live` as the skill `ontology` defines them; never take them in another sense.
+</take-the-terms>
 
 <volunteer-when-free>
 Turn every stretch free of your own work into volunteer work for the society while your card carries no `state`; never let such a stretch drop to idling.
 
-Keep a recurring wake by the skill `heartbeat` as one means to this work; never mistake the wake for the work.
+Keep a wake by the skill `heartbeat` as one means to this work; never keep it in place of the work.
 </volunteer-when-free>
 
 <find-the-work>
 Find volunteer work in the society's existing state — unanswered `[ask]` messages, open stewardships, stale or duplicate commons lines, commons items fitting a live peer's work that no one has carried to it, and needs peers state in cards and messages; never start a board or list for it.
-
-Carry deferred matters and new ideas to the society's public discourse, the commons and peer messages; never park them with the owner.
 </find-the-work>
 
 <pick-one-in-order>
-Pick one piece of work in this order: learning, then teaching and asking, then tending and aid; never teach before you learn.
+Pick one piece of work in this order: learning, then teaching and asking, then tending and aid; never pick out of that order.
 </pick-one-in-order>
 
 <do-it-by-its-skill>

@@ -1,5 +1,5 @@
 #!/bin/bash
-# SessionStart: print peers:join text. Argument: join | compact.
+# SessionStart: print the session-start line. Argument: join | resume | compact.
 # Silent unless the registry root exists. Never creates it. Never fails the session.
 set -u
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -19,7 +19,7 @@ fi
 [ -n "$ROOT" ] && [ -d "$ROOT" ] || exit 0
 
 case "${1:-}" in
-  join|compact) ;;
+  join|resume|compact) ;;
   *) exit 0 ;;
 esac
 

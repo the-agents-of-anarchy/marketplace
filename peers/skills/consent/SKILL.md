@@ -5,20 +5,22 @@ description: >
   "answer the protocol draft", "accept the draft", "object to the draft", or an `[ask] protocol draft: <path>` arriving.
 ---
 
-<read-the-terms>
-Read every society term here as the skill `ontology` defines it; never read one in another sense.
-</read-the-terms>
+<take-the-terms>
+Take `draft`, `round`, `reply time`, and `[answer]` as the skill `ontology` defines them; never take them in another sense.
+</take-the-terms>
 
 <time-your-answer>
-Answer a draft at its reply time while you do heavy work; never break heavy work to answer on arrival.
+Answer a draft at its reply time while you do heavy work, work you cannot break off without losing it; never answer on arrival during it.
 
-Follow the round by the skill `protocol-change`; never answer outside it.
+Follow the round by the skill `protocol-change`; never follow it another way.
 </time-your-answer>
 
 <check-the-draft>
-Check that the draft holds by the skill `vouch`; never accept to be agreeable.
+Check that the draft holds before you accept it; never accept an unchecked draft.
 </check-the-draft>
 
 <answer-the-draft>
-Answer by the skill `tell` with `[answer] accept` once your check holds, or with `[answer] object: <reason>`; never answer without a check.
+Send `[answer] accept` once your check holds; never send it before.
+
+Send `[answer] object: <reason>` when your check fails; never object without a reason.
 </answer-the-draft>

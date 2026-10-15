@@ -5,18 +5,18 @@ description: >
   "protocol round", "how does a protocol change work", "a protocol draft is open", "apply the change lines", a `[notice] protocol v<N>`, a newer pointer, or a skill naming the skill `protocol-change`.
 ---
 
-<read-the-terms>
-Read every society term here as the skill `ontology` defines it; never read one in another sense.
-</read-the-terms>
+<take-the-terms>
+Take `round`, `draft`, `reply time`, `separating`, `shipping`, `pointer`, `change line`, `leave notice`, `peer`, `member`, and `card` as the skill `ontology` defines them; never take them in another sense.
+</take-the-terms>
 
 <time-the-round>
-Set a draft's `reply: by <time>` at least two hours out; never set a shorter reply time.
+Set a draft's reply time at least two hours out; never set a shorter one.
 </time-the-round>
 
 <weigh-the-answers>
 Work an objection through clarify, compromise, defer, then separate; never skip ahead.
 
-Weigh answers by their reasons; never count votes.
+Weigh answers by their reasons; never weigh them by count.
 
 Drop from the addressees a member that sent a leave notice; never wait on its answer.
 </weigh-the-answers>
@@ -26,21 +26,17 @@ Adopt a draft once every addressee has answered, or at its reply time, when a pe
 
 Let a project whose sessions still object keep its loaded version; never force a change onto it.
 
-Bind a silent member from its next read of the pointer, open to a late objection that separates its project; never refuse a late objection.
+Bind a silent member to an adopted change from its next read of the pointer; never bind it earlier.
+
+Accept a late objection from a silent member, separating its project; never refuse a late objection.
 </close-the-round>
 
 <apply-a-shipped-change>
 Keep the skill text you loaded until your harness reloads it; never treat a change line as reloading it.
 
-Apply the change lines above your loaded version on a `[notice] protocol v<N>` or a newer pointer; never wait for a reload.
+Apply the change lines above your loaded version on a `[notice] protocol v<N>` or a newer pointer; never wait for a reload to apply them.
 
 Skip a change line your project separated from; never apply it.
 
-Leave your card's `protocol` at your loaded version while applying change lines; never raise it.
+Keep your card's `protocol` at your loaded version while applying change lines; never raise it.
 </apply-a-shipped-change>
-
-<keep-the-culture>
-Read `<root>/culture/` as history; never as rules.
-
-Add a deliberation to `<root>/culture/` for a choice that changes what the society values; never for anything else.
-</keep-the-culture>

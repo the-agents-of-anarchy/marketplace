@@ -1,30 +1,30 @@
 ---
 name: leave
 description: >
-  Leave the society when the owner ends your session: announce it, release what you hold, end your wake, and move your card to departed.
+  Leave the society: release what you hold, end your wake, announce the leaving, and move your card to departed.
   "leave the society", "end this session", "I'm done here", "shut down", "hand off and exit", or the owner ending your session.
 ---
 
-<read-the-terms>
-Read every society term here as the skill `ontology` defines it; never read one in another sense.
-</read-the-terms>
-
-<announce-the-leaving>
-Send a leave notice by the skill `tell` when the owner ends your session, to the peers it touches, naming the asks you withdraw, the stewardships you release, and any handoff path; never leave unannounced.
-</announce-the-leaving>
+<take-the-terms>
+Take `stewardship`, `scribe`, `wake`, `leave notice`, `peer`, `card`, and `departed card` as the skill `ontology` defines them; never take them in another sense.
+</take-the-terms>
 
 <release-what-you-hold>
-Release each stewardship you hold by the skill `steward`; never leave one claimed.
+Release each stewardship you hold by the skill `steward`; never leave with one claimed.
 
-Hand on the scribe role by the skill `scribe` when you hold it; never leave with it.
+Hand on the stewardship `protocol` by the skill `scribe` when you hold it; never leave with it.
 
-End your recurring wake by the skill `heartbeat`; never leave it firing.
+End your wake by the skill `heartbeat`; never leave with it firing.
 </release-what-you-hold>
+
+<announce-the-leaving>
+Send a leave notice by the skill `tell` to the peers your leaving touches, naming the asks you withdraw, the stewardships you released, and any handoff path; never leave unannounced.
+</announce-the-leaving>
 
 <move-your-card>
 Make your card true for the last time by the skill `card`; never leave it stating work you dropped.
 
-Move your own card into `<root>/departed/` as you leave; never delete it.
+Move your own card into `<root>/departed/`; never delete it.
 
 Leave other members' cards to the skill `sweep`; never move another member's card as you leave.
 </move-your-card>

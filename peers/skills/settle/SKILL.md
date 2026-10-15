@@ -5,14 +5,16 @@ description: >
   "settle a dispute", "we disagree", "two sessions claim this", "find a go-between", a dispute between sessions, a questioned stewardship, or a contested exclusive resource.
 ---
 
-<read-the-terms>
-Read every society term here as the skill `ontology` defines it; never read one in another sense.
-</read-the-terms>
+<take-the-terms>
+Take `go-between`, `owner`, `brought matter`, `exclusive resource`, `stewardship`, and `peer` as the skill `ontology` defines them; never take them in another sense.
+</take-the-terms>
 
 <ask-a-go-between>
 Settle among peers what peers can settle; never spend the owner's attention on it.
 
-Ask a go-between to mediate a contested matter, by the skill `tell`; never treat its proposal as binding.
+Ask a go-between to mediate a contested matter, by the skill `tell`; never mediate a matter you are party to.
+
+Weigh a go-between's proposal as advice; never weigh it as binding.
 </ask-a-go-between>
 
 <separate-what-can-exist-twice>
@@ -20,9 +22,11 @@ Separate what can exist twice when mediation fails — fork, split, or keep two 
 </separate-what-can-exist-twice>
 
 <bring-the-owner-the-rest>
-Bring a failed mediation over an exclusive resource to the owner, the claim with the earlier `sent` stamp holding it meanwhile; never fork it.
+Bring a failed mediation over an exclusive resource to the owner; never settle it yourself.
 
-Bring any other dispute to the owner when both sides ask, both versions standing separate meanwhile; never when one side asks.
+Bring any other dispute to the owner when both sides ask; never bring it when one side asks.
+
+Keep both versions of a brought dispute standing separate while it waits; never force one meanwhile.
 </bring-the-owner-the-rest>
 
 <record-the-outcome>

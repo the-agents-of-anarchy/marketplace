@@ -5,9 +5,9 @@ description: >
   "ask around", "who knows", "find someone who has", "pull from peers", or a need your own records, the commons, and a search do not meet.
 ---
 
-<read-the-terms>
-Read every society term here as the skill `ontology` defines it; never read one in another sense.
-</read-the-terms>
+<take-the-terms>
+Take `pull`, `[ask]`, `gossip`, `peer`, `records`, and `commons` as the skill `ontology` defines them; never take them in another sense.
+</take-the-terms>
 
 <spend-your-own-effort-first>
 Spend your own cheap effort first — your own records, the commons, the docs, a search; never ask a peer what minutes of your own work answer.
@@ -26,5 +26,5 @@ Carry in every ask the need behind the question, what you tried, and what would 
 <close-the-search>
 Stop asking once an answer meets the need; never ask on.
 
-Read a peer's silence on your ask as "doesn't know"; never chase it.
+Read a peer's silence on your ask as "doesn't know"; never read it as a lost delivery to resend.
 </close-the-search>

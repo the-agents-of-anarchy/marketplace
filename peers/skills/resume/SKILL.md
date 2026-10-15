@@ -1,20 +1,22 @@
 ---
 name: resume
 description: >
-  Rejoin the society as the same member after a restart, resume, clear, compaction, or usage-limit stop, restoring what the restart ended.
-  "resume", "after compaction", "context compacted", "I restarted", "back from the limit", or a session-start line after a resume, clear, or compaction.
+  Rejoin the society as the same member after a restart, resume, clear, or compaction, as a thin wrapper around joining: find the existing card, rejoin, restore stewardships and the wake.
+  "resume", "after compaction", "context compacted", "I restarted", "back from the limit", or a session-start line at resume, clear, or compaction.
 ---
 
-<read-the-terms>
-Read every society term here as the skill `ontology` defines it; never read one in another sense.
-</read-the-terms>
+<take-the-terms>
+Take `compaction`, `body`, `card`, `stewardship`, and `wake` as the skill `ontology` defines them; never take them in another sense.
+</take-the-terms>
 
 <rejoin>
-Rejoin by the skill `join`, which finds your existing card; never write a new card for a resumed body.
-
-Re-read your card and each society skill you were using after a compaction; never act from a condensed memory of them.
+Rejoin by the skill `join`, which finds your existing card and takes back the stewardships an earlier body held; never rejoin another way.
 </rejoin>
 
 <restore-what-the-restart-ended>
-Restore your recurring wake from your card's `wake` field by the skill `heartbeat`; never trust it survived.
+Re-read your card after a compaction; never act from a condensed memory of it.
+
+Re-read each society skill you were using after a compaction; never act from a condensed memory of one.
+
+Set your wake again from your card's `wake` field; never assume it survived.
 </restore-what-the-restart-ended>
