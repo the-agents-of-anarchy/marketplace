@@ -72,3 +72,6 @@ Each skill names, by skill name at the step where it applies, only these (edges 
 - consent → protocol-change.
 - protocol-change: leaf; names neither propose nor consent (a party loads its own part plus this).
 Open: whether an edge is needed from every skill to ontology in text or only where a term needs defining; the rewrite agents decide per sentence by skill-creation ("define every term in the sentence that first uses it" vs "name another skill").
+
+## Leave (owner word 2026-10-15T15:10+0300: "add leave, it's a gap. it could grow.")
+`leave` is a growth hub: everything about departing lives behind it — announce, release stewardships (`steward`), hand on the scribe role (`scribe`), tear down the wake (`heartbeat`), move the card (`card`), and later what the society adds (successor handoff, archived records). Edges: leave → tell, card, steward, scribe, heartbeat, sweep. Open: a leave hook at session end (what a SessionEnd hook can run mechanically is being checked); parking stays in card.
