@@ -27,7 +27,7 @@ Outcome: the peers plugin carries the 24 skills of `RO:5-30`. Every skill passes
 
 Each skill opens from the one-sentence procedure below (SC:10). Take its instructions from the source lines listed. "Edges" are the skills it names; see (f).
 
-A source line marked `→ prov.` sits in `ontology` provisionally: no roster skill holds it. List each one as an open item; never give it a home of your own.
+A source line listed under "Provisional sources" sits in `ontology` provisionally, because no roster skill holds it. List each one as an open item; never give it a home of your own.
 
 1. **ontology**
    - Procedure: Read every term the society's skills use as this skill defines it.
@@ -54,7 +54,7 @@ A source line marked `→ prov.` sits in `ontology` provisionally: no roster ski
    - Sources:
      - J9:61, J9:233, J9:235, J9:239, J9:247-261, J9:265, J9:267, J9:271-277, J9:281;
      - J9:347 (merged into J9:267);
-     - DJ:63, DJ:223-229, DJ:237-259, DJ:263-273, DJ:333 (merged);
+     - DJ:63, DJ:223, DJ:225, DJ:229, DJ:237-253, DJ:257-259, DJ:263-269, DJ:273, DJ:333 (merged);
      - Ev:181.
    - Edges: receive.
 5. **receive**
@@ -275,7 +275,8 @@ Edges, from RO:50-73. The skill named on the left names each skill on its right.
 1. Write each edge as "by the skill `<name>`" inside the sentence of the step where that skill takes over (SC:52; Ev:193); never gather edges into a list or a closing tag.
 2. Name a skill by its bare name; never by `peers/skills/<name>/` or any path (SC:52).
 3. Write only the edges in the table; never add an edge the table lacks. Record a missing edge you need as an open item.
-4. Name `protocol-change` from `propose` and `consent`; never name `propose` and `consent` from one skill except `scribe`, and never name either from `protocol-change` (RO:33, RO:73).
+4. Name `protocol-change` from `propose` and from `consent`; never name `propose` or `consent` from `protocol-change` (RO:73).
+5. Name `propose` and `consent` from different skills; never name both from one skill (RO:33).
 
 ## (g) Hooks and tests
 
@@ -284,7 +285,7 @@ Hooks (RO:48 — "SessionStart → join. PreToolUse send-stamp → tell. Heartbe
 2. Rewrite `peers/hooks/templates/peer-compact.txt` to name the skill `peers:join` alone; never name another skill there.
 3. Rewrite the `description` of `peers/hooks/hooks.json` to name `peers:join` for SessionStart and `peers:tell` for the send stamp; never change a matcher, command, or timeout.
 4. Add `quote` to `TAG_PATTERN` at `peers/hooks/send-stamp.sh:4` (RO:37); never change another line of the script.
-5. Write the heartbeat wake prompt as one fixed backticked line inside the skill `heartbeat`, naming `peers:heartbeat`. Members pass it to their recurring wake. Never ship it as a file outside the skill (SC:48).
+5. Write the heartbeat wake prompt — the text a member passes to its recurring wake — as one fixed backticked line inside the skill `heartbeat`, naming `peers:heartbeat`; never ship it as a file outside the skill (SC:48).
 
 Tests (`peers/tests/test_skills.py` unless named):
 1. Replace `test_skill_set_is_join_gossip_amend_and_tend_commons` (lines 20-21) with a test pinning the 24 names of RO:5-30, sorted; never pin a count without the names.
@@ -294,8 +295,8 @@ Tests (`peers/tests/test_skills.py` unless named):
 5. Retarget `test_address_names_harness_host_and_ref`, `test_member_id_unique_within_one_society`, and `test_protocol_stewardship_is_named_protocol` (lines 86-102) to `ontology/SKILL.md`; never change what they assert.
 6. Keep `test_join_description_names_the_society`, `test_plugin_descriptions_name_the_society`, both gossip envelope tests (lines 127-137), `test_no_text_names_a_retired_skill`, `test_every_plugin_skill_reference_resolves`, and `test_no_text_names_the_old_root` unchanged; never edit them.
 7. Add `"quote"` to the tag list of `test_each_protocol_tag_is_stamped` at `peers/tests/test_send_stamp.py:119`; never remove a tag.
-8. Leave `test_peer_join.py`, `test_peers_card.py`, and `test_peers_facts.py` as they are, since they use fixture templates and scripts; never edit them.
-9. Rewrite the `## Skills` section of `peers/README.md` from the 24 frontmatters, in the existing format and alphabetical order. No generator ships in the repository. Never edit the README outside that section.
+8. Leave `test_peer_join.py`, `test_peers_card.py`, and `test_peers_facts.py` as they are; never edit them.
+9. Rewrite the `## Skills` section of `peers/README.md` by hand from the 24 frontmatters, in the existing format and alphabetical order; never edit the README outside that section.
 10. Name every test you changed, with its old and new names, in the changes file; never leave a test change unlisted.
 
 ## (h) Verification
@@ -327,7 +328,7 @@ Leave each of these as an open item in the changes file, with its sources; never
 2. The commons edit trail: git over `<root>` or an edit log, and who sets it up (Ev:102; CH:293, CH:313).
 3. The sender-escalation misuse check: how a receiver tests an escalation and where it reports misuse (RO:45).
 4. Every Open item (CH:290-308) and Question (CH:310-325) that no ruling at Ev:150-196 settles.
-5. Every `→ prov.` placement of (b) item 1.
+5. Every provisional placement of (b) item 1.
 
 ## (j) Report
 

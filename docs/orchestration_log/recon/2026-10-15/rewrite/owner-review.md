@@ -2,7 +2,7 @@
 
 Read first. Everything here is bounded; the rewrite starts on your word.
 
-State: 24 skills named, graph and priority table settled (recon/2026-10-15/skill-roster.md, plus `resume` and the leave growth hub by default). Society feedback 6 of 6, consolidated in rewrite/feedback-matrix.md (62 findings, nine contradict your rulings and sit in its owner-open list, 24 accepted or accepted with change, rest rejected or noted). Writing stack and instructions for the single fable agent: rewrite/writing-stack.md (done), rewrite/rewrite-instructions.md (in preparation), plus rewrite/design-amendments.md (the accepted findings as instructions).
+State: 24 skills named, graph and priority table settled (recon/2026-10-15/skill-roster.md, plus `resume` and the leave growth hub by default). Society feedback 6 of 6, consolidated in rewrite/feedback-matrix.md (62 findings, ten contradict your rulings and sit in its owner-open list (its summary says nine, its list has ten ids: F12, F25, F26, F30, F31, F40, F49, F50, F54, F58), 24 accepted or accepted with change, rest rejected or noted). Writing stack and instructions for the single fable agent: rewrite/writing-stack.md (done), rewrite/rewrite-instructions.md (in preparation), plus rewrite/design-amendments.md (the accepted findings as instructions).
 
 ## Rulings needed, each with the default taken while you were away (all reversible, journal 15:08, 15:10, 15:11)
 1. [quote] reach (F49; 6 of 6 peers object; PC counted 22 owner rulings in 94 minutes): default = sessions the ruling concerns plus spread, society-wide when the sender marks it; priority stays Level 1.
