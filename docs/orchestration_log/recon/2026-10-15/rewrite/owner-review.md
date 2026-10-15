@@ -1,19 +1,24 @@
-# Owner review packet — protocol 10 skill rewrite (2026-10-15T15:13+0300)
+# Owner review packet — protocol 10 skill rewrite (2026-10-15T15:14+0300)
 
-Status: names, graph, priority table settled (skill-roster.md). Society feedback 6 of 6 in. The rewrite waits for the owner's rulings and go. Matrix: rewrite/feedback-matrix.md (when written). Instructions: rewrite/rewrite-instructions.md and rewrite/writing-stack.md (rewrite-prep).
+Read first. Everything here is bounded; the rewrite starts on your word.
 
-## Rulings needed (each has a reversible default the scribe took, journal line 15:08 and 15:10)
-1. [quote] default reach: the sessions the ruling concerns plus spread; society-wide when the sender marks it. Five of five peers object to every live session; your wording was "priority reach as hazards do".
-2. Thanks: your single direct line stands; machine-setup (3 turns in 12 min) and matchtuner report the cost.
-3. A resume skill (restart, resume, clear, compaction): added by default; proposed by product-catalog, instruction-eval, manifesto-discovery.
-4. Parking: card (your ruling); matchtuner and memento-manager argue leave.
-5. Leave: a skill and growth hub; no leave hook (SessionEnd cannot run a model turn, fires on clear and resume).
-6. Missing-skill candidates not yet in the roster: delegate (what a dispatched agent may do; relay a subagent's reports), a hook off switch with clearable state.
-7. Level 1 cost: a full-context turn on every session of a limit-prone login (instruction-eval); level 2 "next tool round" never fires for a session dead at the limit — needs an expiry or re-send rule.
-8. Sender escalation over dnd: refusal only after the interruption (manifesto-discovery).
-9. Double-procedure claims (tell, scribe, card, adopt, receive, tend, volunteer, heartbeat, ontology): the rewrite agent applies skill-creation's one-sentence test and lists what it split.
-10. Open from earlier: private vs public space; commons edit trail and edit notice; the 24 skill descriptions in every session's skill list (cap at one line).
+State: 24 skills named, graph and priority table settled (recon/2026-10-15/skill-roster.md, plus `resume` and the leave growth hub by default). Society feedback 6 of 6, consolidated in rewrite/feedback-matrix.md (62 findings, nine contradict your rulings and sit in its owner-open list, 24 accepted or accepted with change, rest rejected or noted). Writing stack and instructions for the single fable agent: rewrite/writing-stack.md (done), rewrite/rewrite-instructions.md (in preparation), plus rewrite/design-amendments.md (the accepted findings as instructions).
+
+## Rulings needed, each with the default taken while you were away (all reversible, journal 15:08, 15:10, 15:11)
+1. [quote] reach (F49; 6 of 6 peers object; PC counted 22 owner rulings in 94 minutes): default = sessions the ruling concerns plus spread, society-wide when the sender marks it; priority stays Level 1.
+2. Level 1 over dnd for [quote] (F50, PC): your ruling stands (Level 1 overrides dnd); PC asks whether a relay of your own word needs to. Default: unchanged.
+3. Sender escalation (F54): refusal comes after the interruption. Default: unchanged, a refusal reports misuse.
+4. Thanks (F58): your single direct line stands; machine-setup measured three turns in 12 minutes. Default: unchanged, cost reported.
+5. Parking in card (F25/F26): your ruling stands; MT argues leave, four peers argue a split of card. Default: card.
+6. adopt's read (F30) and join → adopt (F12): default adopt keeps the read; join gets no edge.
+7. Spend-aware skill (F40, instruction-eval): shared login limit makes every wake, answer and volunteer cost a turn. Not in the roster; against idle-to-volunteer. Default: no skill.
+8. Table in ontology (F31): terms plus priority rules are two things. Default: your ruling stands.
+9. Description load (F59): 24 descriptions in every session list. Default: measure words first, keep skill-creation's form.
+
+## Convergence (3 or more peers)
+Level 1 reach (6/6), scribe holds three procedures (6/6), card holds two (4), tell holds two (4), heartbeat → receive (4), description load (4), leave → heartbeat (3, already in), vouch edge for quote and receive (3), resume (3, in), heartbeat practice text (3).
 
 ## Risks
-- Every skill is a new text written to rules nobody has run on a 24-skill set; the audit loop is the check.
-- The fable agent is a single point: one agent rewrites all 24 plus tests and hooks.
+- 24 new texts written to rules nobody has run on a set this size; the audit loop and the traceability table are the check.
+- One fable agent rewrites everything plus tests and hooks: single point of failure; instructions require stop conditions and a changes file.
+- Nine of the peer claims are not checkable here (commons numbers, other repos' journals); none gates a decision.
