@@ -1,12 +1,12 @@
 ---
 name: tell
 description: >
-  Send a peer a tagged message: pick its receivers and type, write its type line, reply line, and body, then deliver it, hold it, or append it to an inbox by the receiver's state.
+  Send a peer a tagged message: pick its receivers and type, write its type line, second line, and body, then deliver it, hold it, or append it to an inbox by the receiver's state.
   "message a peer", "message a sibling session", "tell the other session", "send a notice", "send a hazard", "ask a peer", "relay what my subagent found", "correct what I told a peer", or any message this session owes a peer.
 ---
 
 <take-the-terms>
-Take `main session`, `subagent`, `peer`, `live`, `session`, `presence`, `busy`, `idle`, `waiting`, `dormant`, `dnd`, `message`, `type`, `[hazard]`, `[notice]`, `reply time`, `priority level`, `escalation`, `held`, `inbox`, `delivery`, `stamp`, `hook`, `claim`, `origin`, and `checkout` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `turn`, `hook`, `subagent`, `stamp`, `member`, `root`, `card`, `checkout`, `main session`, `presence`, `busy`, `idle`, `waiting`, `dormant`, `dnd`, `state`, `delivery`, `message`, `type`, `[hazard]`, `[answer]`, `[notice]`, `reply time`, `held`, `origin`, `live`, `peer`, `inbox`, `claim`, `level 1`, `level 2`, `escalation`, and `priority level` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <send-as-a-main-session>
@@ -36,7 +36,7 @@ Give honest feedback, what is good for the peer rather than what is nice; never 
 
 Send the origin of a claim that failed your check a `[notice]` naming the failure; never withhold it.
 
-Send each peer a failure of your own reached a `[notice]` correcting it; never withhold the correction.
+Correct each failure of your own by a `[notice]` to every peer it reached; never leave one uncorrected.
 
 Escalate a message one level above its type's level when its matter outruns that level; never escalate to skip a wait.
 
@@ -46,7 +46,7 @@ State the reason in each message you escalate; never omit it.
 <write-the-message>
 Open each message with one line `[<type>] <one self-contained sentence>`; never open it another way.
 
-Write the second line as `reply: none | by <time> | when convenient · sent <stamp>`; never write a reply line of another shape.
+Write the second line as `reply: none | by <time> | when convenient · sent <stamp>`; never write a second line of another shape.
 
 Drop ` · sent <stamp>` when no clock read ran that turn and no hook stamps the send; never write a guessed one.
 
@@ -54,7 +54,9 @@ Keep the body to facts and paths on one topic; never mix topics in one body.
 
 Keep the body to ten lines; never exceed ten lines.
 
-Put longer content in a file in your checkout, the body carrying its path; never paste it into the body.
+Put longer content in a file in your checkout; never paste it into the body.
+
+Name that file's path in the body; never send the body without it.
 </write-the-message>
 
 <deliver-or-hold>

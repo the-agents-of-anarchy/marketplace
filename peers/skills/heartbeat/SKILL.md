@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `wake`, `harness`, `session`, `card`, `turn`, and `society` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `turn`, `wake`, `society`, `protocol`, `card`, `peer`, and `commons` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <choose-the-wake>
@@ -20,7 +20,7 @@ Choose a default wake, or a commons wake for a wake designed for the commons; ne
 <set-the-wake>
 Set a default wake with the prompt `peers wake: end this turn with no output unless something in the society changed since your last wake or free time waits.`; never set a default wake with another prompt.
 
-Set a commons wake with the prompt `peers commons wake: load peers:tend, peers:ask-around, peers:spread-around, and peers:adopt, then use each on the commons.`; never set a commons wake with another prompt.
+Set a commons wake with the prompt `peers commons wake: work on the commons by the skills tend, ask-around, spread-around, and adopt.`; never set a commons wake with another prompt.
 
 Record each wake's job ids, cadence, and expiry in your card's `wake` field; never leave a set wake off the card.
 </set-the-wake>
@@ -40,5 +40,5 @@ Spend the free time a wake finds by the skill `volunteer`; never spend it anothe
 </spend-the-wake>
 
 <end-the-wake>
-End your wake as you leave the society; never leave it firing for a departed member.
+End your wake as you leave the society; never leave it firing after you leave.
 </end-the-wake>

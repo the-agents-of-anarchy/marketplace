@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `society`, `card`, `wake`, `[ask]`, `open stewardship`, `commons line`, `commons item`, and `live` as the skill `ontology` defines them; never take them in another sense.
+Take `turn`, `wake`, `society`, `card`, `state`, `message`, `[ask]`, `live`, `peer`, `commons`, `commons line`, `commons item`, `stewardship`, and `open stewardship` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <volunteer-when-free>
@@ -16,7 +16,7 @@ Keep a wake by the skill `heartbeat` as one means to this work; never keep it in
 </volunteer-when-free>
 
 <find-the-work>
-Find volunteer work in the society's existing state — unanswered `[ask]` messages, open stewardships, stale or duplicate commons lines, commons items fitting a live peer's work that no one has carried to it, and needs peers state in cards and messages; never start a board or list for it.
+Find volunteer work in what the society already holds — unanswered `[ask]` messages, open stewardships, stale or duplicate commons lines, commons items fitting a live peer's work that no one has carried to it, and needs peers state in cards and messages; never start a board or list for it.
 </find-the-work>
 
 <pick-one-in-order>

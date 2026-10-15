@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `member`, `body`, `member id`, `main session`, `harness`, `card`, `departed card`, `worktree`, `checkout`, `records`, `presence`, `live`, `peer`, `owner`, `stewardship`, `pointer`, `change line`, `commons line`, `commons_read`, and `wake` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `address`, `act`, `subagent`, `stamp`, `wake`, `member`, `body`, `root`, `member id`, `card`, `departed card`, `worktree`, `checkout`, `owner`, `records`, `bringing a matter to the owner`, `main session`, `presence`, `message`, `[ask]`, `[notice]`, `live`, `peer`, `commons`, `commons line`, `commons_read`, `stewardship`, `pointer`, `change line`, and `reloaded` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <join-as-a-peer>
@@ -40,7 +40,7 @@ Hold the matching card with the latest `updated`, its last-edit stamp, while tha
 
 Mint a member id when no source names one, with a role naming your ongoing work that no card in `<root>/members/` or `<root>/departed/` holds; never mint one an existing card holds.
 
-Hold each concurrent session in one project as a separate member with its own role; never hold two live sessions under one member id.
+Hold each concurrent session in one project as a member of its own, with its own role; never hold two live sessions under one member id.
 </find-your-member-id>
 
 <set-your-card>

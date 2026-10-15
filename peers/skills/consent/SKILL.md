@@ -6,13 +6,13 @@ description: >
 ---
 
 <take-the-terms>
-Take `draft`, `round`, `reply time`, and `[answer]` as the skill `ontology` defines them; never take them in another sense.
+Take `[answer]`, `reply time`, `draft`, and `round` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <time-your-answer>
 Answer a draft at its reply time while you do heavy work, work you cannot break off without losing it; never answer on arrival during it.
 
-Follow the round by the skill `protocol-change`; never follow it another way.
+Time your answer to the round's reply time by the skill `protocol-change`; never answer after it.
 </time-your-answer>
 
 <check-the-draft>

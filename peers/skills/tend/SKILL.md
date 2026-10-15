@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `commons`, `commons line`, `#<n>`, `commons item`, `root`, `stamp`, `member`, `records`, `turn`, and `peer` as the skill `ontology` defines them; never take them in another sense.
+Take `turn`, `stamp`, `member`, `root`, `society`, `records`, `peer`, `commons`, `intake`, `commons line`, `#<n>`, and `commons item` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <hold-the-commons-in-common>

@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `gossip`, `envelope`, `from:`, `spread:`, `relay:`, `has:`, `origin`, `seeker`, `relaying`, `peer`, `member id`, `session`, `level 2`, `busy`, `dormant`, `dnd`, and `checkout` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `member`, `member id`, `checkout`, `busy`, `dormant`, `dnd`, `state`, `message`, `type`, `[ask]`, `[notice]`, `held`, `origin`, `seeker`, `peer`, `gossip`, `relaying`, `envelope`, `from:`, `spread:`, `relay:`, `has:`, `level 2`, and `priority level` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <gossip-what-you-cannot-target>
@@ -64,7 +64,7 @@ Correct a checkable error in the content before relaying; never relay a known er
 
 Mark each correction you make in the content; never correct it unmarked.
 
-Drop a gossip current state has outdated; never relay it.
+Drop a gossip that current facts have outdated; never relay it.
 </relay-as-the-spread-says>
 
 <reach-the-origin>

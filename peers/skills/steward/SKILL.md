@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `stewardship`, `steward`, `open stewardship`, `card`, `session`, `peer`, `[hazard]`, `[notice]`, `go-between`, `exclusive resource`, and `scribe` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `member`, `protocol`, `card`, `[hazard]`, `[notice]`, `held`, `exclusive resource`, `stewardship`, `steward`, `open stewardship`, and `go-between` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <name-it-on-your-card>

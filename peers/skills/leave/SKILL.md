@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `stewardship`, `scribe`, `wake`, `leave notice`, `peer`, `card`, and `departed card` as the skill `ontology` defines them; never take them in another sense.
+Take `wake`, `member`, `root`, `protocol`, `card`, `departed card`, `[ask]`, `leave notice`, `peer`, and `stewardship` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <release-what-you-hold>

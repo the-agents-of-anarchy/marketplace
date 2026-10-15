@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `message`, `inbox`, `priority level`, `act`, `tool round`, `claim`, `seeker`, `[ask]`, `[answer]`, `[quote]`, `gossip`, `from:`, `has:`, `relay:`, `spread:`, `draft`, `commons line`, and `peer` as the skill `ontology` defines them; never take them in another sense.
+Take `act`, `member`, `card`, `message`, `[ask]`, `[answer]`, `[quote]`, `seeker`, `peer`, `commons`, `commons line`, `inbox`, `gossip`, `relaying`, `from:`, `spread:`, `relay:`, `has:`, `claim`, `level 1`, `priority level`, `acting on a level 1 message`, and `draft` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <read-what-arrives>
@@ -16,7 +16,7 @@ Empty your inbox once you have read it; never empty it unread.
 
 Act on each message at the moment its priority level sets; never defer a level 1 message past your next step.
 
-Check a late message against current state before acting on it; never act on it as if it still held.
+Check a late message against current facts before acting on it; never act on it as if it still held.
 
 Check every claim a message carries by the skill `vouch` before acting on it; never act on one unchecked.
 
@@ -28,7 +28,7 @@ Read an ask for the need behind it; never read its words alone.
 
 Answer the seeker by the skill `tell` when you hold what the ask needs or the decision it awaits; never answer for the sake of replying.
 
-Carry the thing itself in the `[answer]` — the fact, command, or exact path and line; never send a bare pointer when the thing fits in ten lines.
+Carry the thing itself in the `[answer]` — the fact, command, or exact path and line; never send where to find it in place of the thing when the thing fits in ten lines.
 
 Cut the `[answer]` to what the need uses; never pad it.
 

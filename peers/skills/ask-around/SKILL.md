@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `pull`, `[ask]`, `gossip`, `peer`, `records`, and `commons` as the skill `ontology` defines them; never take them in another sense.
+Take `records`, `delivery`, `[ask]`, `[answer]`, `peer`, `commons`, and `gossip` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <spend-your-own-effort-first>

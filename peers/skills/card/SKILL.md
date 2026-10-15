@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `card`, `member id`, `body`, `harness`, `address`, `presence`, `session`, `worktree`, `checkout`, `login`, `journal`, `commons line`, `commons_read`, `stewardship`, `inbox`, `wake`, `stamp`, `turn`, and `owner` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `host`, `address`, `turn`, `login`, `stamp`, `wake`, `member`, `body`, `protocol`, `member id`, `card`, `worktree`, `checkout`, `owner`, `records`, `journal`, `presence`, `dormant`, `dnd`, `state`, `[notice]`, `peer`, `commons`, `commons line`, `commons_read`, `inbox`, `stewardship`, `steward`, and `change line` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <write-your-own-card>

@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `exclusive resource`, `resource board`, `member id`, `stamp`, `card`, and `departed card` as the skill `ontology` defines them; never take them in another sense.
+Take `stamp`, `member`, `root`, `member id`, `card`, `departed card`, `held`, `exclusive resource`, and `resource board` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <check-before-claiming>

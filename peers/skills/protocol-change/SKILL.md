@@ -1,12 +1,12 @@
 ---
 name: protocol-change
 description: >
-  Know the round every party to a protocol change shares: its reply time, how objections are worked and answers weighed, when a draft is adopted or a project separates, and how a shipped change is applied.
+  Know the round every party to a protocol change shares: its reply time, how objections are worked and answers weighed, when a draft is enacted or a project separates, and how a shipped change is applied.
   "protocol round", "how does a protocol change work", "a protocol draft is open", "apply the change lines", a `[notice] protocol v<N>`, a newer pointer, or a skill naming the skill `protocol-change`.
 ---
 
 <take-the-terms>
-Take `round`, `draft`, `reply time`, `separating`, `shipping`, `pointer`, `change line`, `leave notice`, `peer`, `member`, and `card` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `member`, `protocol`, `card`, `[answer]`, `[notice]`, `reply time`, `leave notice`, `peer`, `pointer`, `change line`, `draft`, `round`, `enacted`, `separating`, `bound`, `shipping`, and `reloaded` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <time-the-round>
@@ -22,11 +22,11 @@ Drop from the addressees a member that sent a leave notice; never wait on its an
 </weigh-the-answers>
 
 <close-the-round>
-Adopt a draft once every addressee has answered, or at its reply time, when a peer besides the proposer accepts and no objection stands; never adopt on silence.
+Enact a draft once every addressee has answered, or at its reply time, when a peer besides the proposer accepts and no objection stands; never enact one on silence.
 
 Let a project whose sessions still object keep its loaded version; never force a change onto it.
 
-Bind a silent member to an adopted change from its next read of the pointer; never bind it earlier.
+Hold a silent member bound to an enacted change from its next read of the pointer; never hold it bound earlier.
 
 Accept a late objection from a silent member, separating its project; never refuse a late objection.
 </close-the-round>

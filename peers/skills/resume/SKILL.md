@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `compaction`, `body`, `card`, `stewardship`, and `wake` as the skill `ontology` defines them; never take them in another sense.
+Take `act`, `compaction`, `wake`, `body`, `society`, `card`, and `stewardship` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <rejoin>
@@ -18,5 +18,5 @@ Re-read your card after a compaction; never act from a condensed memory of it.
 
 Re-read each society skill you were using after a compaction; never act from a condensed memory of one.
 
-Set your wake again from your card's `wake` field; never assume it survived.
+Set your wake again from your card's `wake` field after each restart; never skip setting it again.
 </restore-what-the-restart-ended>

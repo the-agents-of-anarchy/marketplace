@@ -6,11 +6,11 @@ description: >
 ---
 
 <take-the-terms>
-Take `claim`, `session`, and `peer` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `act`, `peer`, `relaying`, and `claim` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <check-the-claim>
 Check a claim before you believe it, act on it, or pass it on; never pass on a claim you have not checked.
 
-Check a claim about shared state or a session — a peer's, a relay's, your own belief about your model — against the thing itself; never check it against the claimant's word.
+Check a claim about shared files or resources or a session — a peer's, a relay's, your own belief about your model — against the thing itself; never check it against the claimant's word.
 </check-the-claim>

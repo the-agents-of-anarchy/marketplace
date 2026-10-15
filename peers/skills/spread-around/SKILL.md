@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `push`, `peer`, `live`, `card`, `commons`, `commons line`, `#<n>`, `commons_read`, `gossip`, `[notice]`, and `owner` as the skill `ontology` defines them; never take them in another sense.
+Take `turn`, `society`, `card`, `owner`, `message`, `[notice]`, `live`, `peer`, `commons`, `commons line`, `commons_read`, and `gossip` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <check-what-you-offer>
@@ -16,7 +16,7 @@ Check a finding by the skill `vouch` before you spread it; never spread one unch
 <send-to-the-peers-you-can-name>
 Send a finding by the skill `tell` to each peer whose current work needs it, judged by its card's `focus`, the work it has in hand, and `knows`, the topics it has depth in, or by what you saw of its work, in the turn you learn it; never hold it.
 
-Carry the distilled thing itself; never send a pointer alone.
+Carry the distilled thing itself; never carry where to find it alone.
 
 Send a commons line that helps a live peer's current work, judged by meaning against its card, as a `[notice] commons: <#n list>` carrying the line; never broadcast a line.
 

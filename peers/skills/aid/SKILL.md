@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `peer` and `[notice]` as the skill `ontology` defines them; never take them in another sense.
+Take `idle`, `delivery`, `message`, `[notice]`, and `peer` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <offer-unasked>

@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `member`, `gone`, `card`, `departed card`, `presence`, `address`, `harness`, `leave notice`, `live`, `peer`, and `[notice]` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `address`, `member`, `root`, `card`, `departed card`, `presence`, `[answer]`, `[notice]`, `leave notice`, `live`, `gone`, and `peer` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <check-it-is-gone>

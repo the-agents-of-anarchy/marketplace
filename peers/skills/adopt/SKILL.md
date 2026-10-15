@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `commons`, `commons line`, `commons item`, `commons_read`, `adoption`, `origin`, `records`, `authority check`, and `[notice]` as the skill `ontology` defines them; never take them in another sense.
+Take `act`, `card`, `records`, `authority check`, `[notice]`, `origin`, `peer`, `commons`, `commons line`, `commons item`, `commons_read`, and `adoption` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <read-what-peers-built>
