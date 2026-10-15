@@ -176,6 +176,8 @@ Federation, society-qualified names, and flattened card file names: the owner sa
 | `test_skills.py` | `test_card_states_protocol_10_1` pinned the literal "10.1" | `test_card_takes_protocol_from_the_plugin_version` checks card's text names the plugin version source and carries no literal; `test_peers_facts_plugin_version_equals_plugin_json` runs `peers-facts` and checks its `plugin_version` line equals `plugin.json`'s version and the marketplace entry's. |
 | `test_terms.py` | — | new term `protocol version` (pattern `\bversions?\b`); terms sentences regenerated (join, card, ship, protocol-change, ontology gained it). |
 
+| ontology:223 (new, product-catalog-maintainer's objection) | — | "Count a card that reads a pre-plugin protocol number, such as 9.3 or 10, as below every plugin version; never compare the two kinds of number by value." The comparison "below the pointer's version" (ship:35) holds across the switch from 10 to 0.8.0. |
+
 The mapping of old numbers is not skill text; the scribe writes it as one line into the pointer at shipping: **protocol 9.3 was peers 0.5.0; protocol 10 was peers 0.7.0; this change ships as peers 0.8.0.**
 
-`traceability.md` is regenerated: 468 rows, 6 new sentences, 0 unmapped. Residual violations by skill after the merge: **none beyond the owner-ruled commons wake prompt in heartbeat.** The ship → card edge, the last residual, is gone with the dropped raise sentence; the graph is item 12's minus that edge (ship → tell).
+`traceability.md` is regenerated: 468 rows, 7 new sentences, 0 unmapped. Residual violations by skill after the merge: **none beyond the owner-ruled commons wake prompt in heartbeat.** The ship → card edge, the last residual, is gone with the dropped raise sentence; the graph is item 12's minus that edge (ship → tell).
