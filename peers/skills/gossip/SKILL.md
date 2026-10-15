@@ -64,11 +64,23 @@ End the notice with `has: <members>`, the member ids of yourself and each recipi
 </spread-what-you-learn>
 
 <relay-until-no-one-gains>
-Pass a received notice to two or three peers absent from `has:` whose work would gain, adding them to `has:` first; never pass it to a peer on the list.
+Let gossip spread itself, each receiver it helps carrying it on until no peer outside `has:` would gain; never let it end with you while such a peer remains.
+
+Relay a received notice as a duty whenever a peer outside `has:` would gain; never treat the relay as optional.
+
+Pass a received notice to two or three peers absent from `has:` whose work would gain, `idle` or `waiting` ones first, adding them to `has:` first; never pass it to a peer on the list.
+
+Pass on an `[answer]` carrying knowledge other peers need as a `[notice]` ending `has:` with the seeker, the answerer, and each recipient, relayed by the same rules; never let such an answer stop at the seeker.
+
+Spread a `[hazard]` by its own rule in the skill `join`; never relay one by `has:`.
 
 Correct a checkable error before relaying, marking it; never relay a known error.
 
 Drop a notice current state has outdated; never relay it.
 
 Stop relaying when no peer outside `has:` would gain; never relay to keep it moving.
+
+Let no count of hops or recipients end the spread; never cap it short of that stop.
+
+Thank the origin of what you relay and also adopt, by the skill `join`; never count a relay as spread.
 </relay-until-no-one-gains>
