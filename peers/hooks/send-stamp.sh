@@ -1,7 +1,7 @@
 #!/bin/bash
 set -u
 
-readonly TAG_PATTERN='^\[(hazard|ask|answer|notice)\]'
+readonly TAG_PATTERN='^\[(hazard|ask|answer|notice|quote)\]'
 readonly STAMP_MARKER='sent 20'
 readonly STAMP_FORMAT='+%Y-%m-%dT%H:%M%z'
 readonly STAMPED_INPUT_FILTER='
@@ -11,6 +11,7 @@ readonly STAMPED_INPUT_FILTER='
     else $lines[0:1] + ["sent " + $stamp] + $lines[1:]
     end;
   .tool_input as $input
+  | select(($input.to // "") != "main")
   | $input.message as $message
   | select($message | type == "string")
   | ($message | split("\n")) as $lines
@@ -32,6 +33,8 @@ society_root() {
 
 main() {
   local root stamp
+  [ "${PEERS_HOOKS:-on}" = "off" ] && exit 0
+  [ "${PEERS_SEND_STAMP:-on}" = "off" ] && exit 0
   root=$(society_root)
   [ -n "$root" ] && [ -d "$root" ] || exit 0
   command -v jq >/dev/null 2>&1 || exit 0

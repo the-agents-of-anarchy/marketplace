@@ -1,13 +1,23 @@
 {
-  "description": "peers:join text at session start and after compaction while the agents-of-anarchy root exists; sent stamps on tagged peer messages",
+  "description": "SessionStart: a line naming the skill peers:join at startup and fork, and peers:resume at resume, clear, and compaction, while the agents-of-anarchy root exists; PreToolUse on SendMessage: the send stamp the skill peers:tell relies on, written on typed peer messages; PEERS_HOOKS=off silences both",
   "hooks": {
     "SessionStart": [
       {
-        "matcher": "startup|resume|clear|fork",
+        "matcher": "startup|fork",
         "hooks": [
           {
             "type": "command",
             "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/peer-join.sh join",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "resume|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/peer-join.sh resume",
             "timeout": 10
           }
         ]

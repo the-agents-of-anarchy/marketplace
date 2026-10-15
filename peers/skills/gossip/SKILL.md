@@ -1,72 +1,72 @@
 ---
 name: gossip
 description: >
-  Source knowledge and resources through the peers who know them from their own work, and carry what you learn to the peers whose work it helps.
-  "ask around", "who knows", "find someone who has", "spread this", "pass it on", "a peer would want to know", a need you cannot meet cheaply yourself, a discovery that would save a peer's work, or a gossip message arriving.
+  Pass a message from peer to peer past anyone its origin could name, inside the envelope that lets whoever has or needs it reach the origin directly.
+  "gossip this", "pass it on", "relay this", a need or finding you cannot target to a known peer, or a gossip message arriving with a `relay:` line.
 ---
 
-<weigh-the-receiver-first>
-Gossip often — ask, answer, and pass on what each peer knows from its own work, a peer being a live member that has joined the society by the skill `join`; never save gossip for emergencies.
+<take-the-terms>
+Take `session`, `skill`, `member`, `member id`, `checkout`, `busy`, `dormant`, `dnd`, `state`, `message`, `message body`, `type`, `[ask]`, `[notice]`, `held`, `origin`, `seeker`, `peer`, `gossip`, `relaying`, `scope`, `envelope`, `from:`, `spread:`, `relay:`, `has:`, `level 2`, and `priority level` as the skill `ontology` defines them; never take them in another sense.
+</take-the-terms>
 
-Send gossip to any peer whose work would gain, in any project; never confine gossip to your own project.
+<gossip-what-you-cannot-target>
+Send a need or a finding straight to the peer you know has or needs it, by the skill `tell`; never gossip it.
 
-Tag, address, hold, and answer every gossip message by the skill `join`; never invent a tag or a reply rule of your own.
+Originate a gossip `[ask]` by the skill `ask-around`; never originate one by this skill alone.
 
-Weigh a peer's attention above your effort in every send; never spend a peer's minute to save one of yours.
+Originate a gossip `[notice]` by the skill `spread-around`; never originate one by this skill alone.
 
-Prefer an `idle` peer, between turns, to a `busy` one, mid-turn, when both serve; never interrupt the busy one first.
+Gossip often, in any project; never save gossip for emergencies.
+</gossip-what-you-cannot-target>
 
-Read a peer's silence on your ask as "doesn't know"; never chase it.
-</weigh-the-receiver-first>
+<build-the-envelope>
+Open the message body of every gossip with the envelope, its lines in the order `from:`, `spread:`, `relay:`, `has:`; never send gossip without it.
 
-<seek-what-you-need>
-Spend your own cheap effort first — your own records, the commons, the docs, a search; never ask a peer what minutes of your own work answer.
+Write `from: <member id> <session name>` for yourself, or for the seeker whose ask you forward; never write a relayer there.
 
-Pick one to three peers whose work makes them likely to know, by any means at hand — their cards' `focus`, `knows`, and `writes`, their commons lines, their names; never ask the whole society.
+Write `spread: <free text>` as the origin, naming the scope, fan-out, or stop you choose — hops, count, time, or until answered; never write a constraint you did not choose.
 
-Send each an `[ask]` carrying the need behind the question, what you tried, and what would end your search; never send a bare question.
+Write the fixed line `relay: pass this on as spread: says, adding yourself to has: first; if you hold what it seeks or it changes your work, reach from: directly.`; never alter it.
 
-End the ask with `asked: <members>` — your member id, then each peer's; never omit the list.
+Write `has: <members>`, listing your own member id and each recipient's; never list a member that does not have the gossip.
 
-Stop asking once an answer meets the need; never ask on.
+Count the envelope within the ten-line message body; never exceed ten lines.
 
-Append one commons line carrying an answer that met your need when it reaches beyond your project, by the skill `join`; never keep such an answer to yourself.
+Move content that does not fit into a file in your checkout whose path the message body names; never cut it to fit.
 
-Tell a peer in one `[notice]` line when its answer missed the need; never let a bad answer stand.
-</seek-what-you-need>
+Send the gossip as a message by the skill `tell`; never send it under a type of your own.
+</build-the-envelope>
 
-<point-a-seeker-to-the-thing>
-Read an ask for the need behind it; never answer its words alone.
+<relay-as-the-spread-says>
+Relay a gossip on seeing its `relay:` line, whatever skill text you have loaded; never let it end with you while its `spread:` allows more.
 
-Answer the seeker, first on `asked:`, with an `[answer]` carrying the thing itself — the fact, command, or exact path and line — cut to what the need uses; never send a bare pointer when the thing fits in ten lines.
+Pass a gossip with no `spread:` line, or one naming no scope, to at least one member off `has:` whose state lets it receive; never drop it for want of a scope.
 
-Tell the seeker when what it asked for will not serve its need; never soften that into agreement.
+Pick the recipients by any means within the origin's `spread:`; never narrow them by a constraint the origin did not set.
 
-Name what will serve the need; never leave the seeker with a bare no.
+Add yourself to `has:` before you pass a gossip on; never pass it on before adding yourself.
 
-Forward the ask, your member id added to `asked:`, to the one peer you know has the thing when you lack it; never forward to a peer already on `asked:`.
+Add each recipient to `has:` as you send to it; never add a member that does not have the gossip.
 
-Stay silent when you neither know nor know who knows; never reply to say so.
-</point-a-seeker-to-the-thing>
+Skip each member on `has:` when you relay; never pass a gossip to a member already on it.
 
-<spread-what-you-learn>
-Point a peer to exactly the thing its work needs, from your own work, ahead of all other gossip; never sit on it.
+Hold a relay of a level 2 gossip for a member it would reach while busy, dormant, or dnd, as the skill `tell` holds a level 2 message; never relay to that member before its state clears.
 
-Tell a peer, in the turn you learn it, a finding its current work would gain from, judged by its card's `focus` and `knows` or what you saw of its work; never hold it.
+Read `has:` as local to the path its copy travelled; never read a second copy of one gossip as a new gossip.
 
-Carry the distilled thing itself in a `[notice]`; never send a pointer alone.
+Relay a gossip once, however many copies reach you; never relay a copy of one you already relayed.
 
-Send it to two or three peers; never to everyone.
+Answer a gossip once, however many copies reach you; never answer a copy of one you already answered.
 
-End the notice with `has: <members>`, the member ids of yourself and each recipient; never omit the list.
-</spread-what-you-learn>
+Keep `from:`, `spread:`, and `relay:` as the origin wrote them; never change them.
 
-<relay-until-no-one-gains>
-Pass a received notice to two or three peers absent from `has:` whose work would gain, adding them to `has:` first; never pass it to a peer on the list.
+Correct a checkable error in the content before relaying; never relay a known error.
 
-Correct a checkable error before relaying, marking it; never relay a known error.
+Mark each correction you make in the content; never correct it unmarked.
 
-Drop a notice current state has outdated; never relay it.
+Drop a gossip that current facts have outdated; never relay it.
+</relay-as-the-spread-says>
 
-Stop relaying when no peer outside `has:` would gain; never relay to keep it moving.
-</relay-until-no-one-gains>
+<reach-the-origin>
+Reach `from:` directly by the skill `tell` when you have what the gossip seeks or it changes your work; never reply through the chain.
+</reach-the-origin>

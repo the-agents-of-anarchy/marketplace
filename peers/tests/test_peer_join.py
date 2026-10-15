@@ -11,6 +11,7 @@ HOOKS_JSON = HOOKS_DIR / "hooks.json"
 SCRIPT = HOOKS_DIR / "peer-join.sh"
 JOIN_TEXT = "JOIN-FIXTURE: join the peer protocol.\n"
 COMPACT_TEXT = "COMPACT-FIXTURE: rejoin the peer protocol.\n"
+RESUME_TEXT = "RESUME-FIXTURE: resume the peer protocol.\n"
 
 
 @pytest.fixture
@@ -28,10 +29,12 @@ def plugin_root(tmp_path):
     return root
 
 
-def write_templates(plugin_root, join=JOIN_TEXT, compact=COMPACT_TEXT):
+def write_templates(plugin_root, join=JOIN_TEXT, compact=COMPACT_TEXT, resume=RESUME_TEXT):
     templates = plugin_root / "hooks" / "templates"
     if join is not None:
         (templates / "peer-join.txt").write_text(join)
+    if resume is not None:
+        (templates / "peer-resume.txt").write_text(resume)
     if compact is not None:
         (templates / "peer-compact.txt").write_text(compact)
 
@@ -88,11 +91,24 @@ def test_startup_prints_the_join_text(home, plugin_root, session_start):
     assert session_start("startup") == JOIN_TEXT
 
 
-@pytest.mark.parametrize("source", ["resume", "clear", "fork"])
-def test_resume_clear_fork_print_the_join_text(home, plugin_root, session_start, source):
+def test_fork_prints_the_join_text(home, plugin_root, session_start):
     write_templates(plugin_root)
     open_gate(home)
-    assert session_start(source) == JOIN_TEXT
+    assert session_start("fork") == JOIN_TEXT
+
+
+@pytest.mark.parametrize("source", ["resume", "clear"])
+def test_resume_and_clear_print_the_resume_text(home, plugin_root, session_start, source):
+    write_templates(plugin_root)
+    open_gate(home)
+    assert session_start(source) == RESUME_TEXT
+
+
+@pytest.mark.parametrize("source", ["resume", "clear"])
+def test_missing_resume_template_prints_nothing(home, plugin_root, session_start, source):
+    write_templates(plugin_root, resume=None)
+    open_gate(home)
+    assert session_start(source) == ""
 
 
 def test_compact_prints_the_compact_text(home, plugin_root, session_start):
@@ -106,7 +122,7 @@ def test_exactly_one_peer_hook_fires_per_source(source):
     assert len(peer_commands(source)) == 1
 
 
-@pytest.mark.parametrize("source", ["startup", "resume", "clear", "fork"])
+@pytest.mark.parametrize("source", ["startup", "fork"])
 def test_missing_join_template_prints_nothing(home, plugin_root, session_start, source):
     write_templates(plugin_root, join=None)
     open_gate(home)
