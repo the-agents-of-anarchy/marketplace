@@ -1,1 +1,1 @@
-The peer society on this machine lives at <root>: as a main session, load the skill peers:join and join it.
+The peer society on this machine lives at <root>: as a main session, load the skill peers:join and join it; load peers:gossip to ask around or pass on what helps a peer, peers:tend-commons to write or tend a commons line, and peers:amend for a protocol draft, defect, or the scribe role.
