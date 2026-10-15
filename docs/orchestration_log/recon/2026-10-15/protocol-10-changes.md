@@ -291,7 +291,7 @@ Checked against memento:skill-creation 0.5.1, re-read in full, using a scan for 
 10. **Ten-line limit vs envelope.** The envelope takes four of the ten body lines (J:275), and `has:` grows with each hop. The originator may move content to a file named by path, but a long `has:` has no outlet yet.
 11. **Duplicates.** `has:` stops a relayer from sending to a listed member. Two branches of one spread can still reach the same member, whose own `has:` entry then stops a third copy.
 12. **Busy peers.** Delivery mechanics only: J holds non-hazard messages for `busy`, `dnd`, and `dormant` peers, and gossip waits the same way.
-13. **`amend` clashes with memento.** memento reserves "amend" for owner-only acts on the goal and the schema ("Amend the schema on the owner's word"), so a model could load `peers:amend` for a memento schema change. The mitigation is a description that names the peer protocol first. The alternative is `consent` (instruction-eval).
+13. **`amend` clashes with memento.** memento reserves "amend" for owner-only acts on the goal and the schema ("Amend the schema on the owner's word"), so a model could load `peers:amend` for a memento schema change. The mitigation, a description that names the peer protocol first, was drafted in ddc1802 and is held with the names. The alternative is `consent` (instruction-eval).
 14. **I-16 objection.** machine-setup-manager and manifesto-discovery object. The core-in-join form meets machine-setup-manager's stated objection; manifesto-discovery's reason is not on file in Ev:70.
 15. **Join still defines terms the split skills use.** amend and tend-commons each open by acting under `join`. A model that loads one without join lacks the terms. The hook names join first at every event.
 16. **Pointer.** `<root>/PROTOCOL.md` is unchanged (out of scope). Shipping 10 needs a change line naming the split, the trims, and A–H.
@@ -309,5 +309,5 @@ Checked against memento:skill-creation 0.5.1, re-read in full, using a scan for 
 8. Does the thank-you go to the line's author, to the peer that carried the line, or to both when they differ?
 9. Gossip marking: a tag `[gossip]` (memento-manager's pick) or the envelope without a tag (chosen; it needs no new tag, and the `relay:` line carries the instruction)?
 10. Is `has:` as a seen list itself an unwanted assumption, given the owner's "we must not bake in any assumptions"? Without it, nothing stops a gossip from being relayed back to a member that already holds it.
-11. Does the description opening "Amend the peer protocol:" keep `peers:amend` apart from memento's owner-only "amend" of the goal and schema, or should the skill be `consent`?
+11. In the reopened naming round (after reading skill-creation): would a description opening "Amend the peer protocol:" keep `peers:amend` apart from memento's owner-only "amend" of the goal and schema, or should the skill be `consent`?
 12. Does the commons core in join satisfy the I-16 objections, or should the whole commons move back into join?
