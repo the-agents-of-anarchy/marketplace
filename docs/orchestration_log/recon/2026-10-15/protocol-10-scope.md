@@ -12,3 +12,6 @@ Protocol-text items in 10 (from the backlog tally, events.md):
 - Hook line names the skill per event (instruction-eval).
 Not protocol text (practice by their takers, no version): I-09 (memento leads), I-02, I-07, I-18 pi facts, board lines naming launchd labels, A1 usage-limit board line.
 Dropped on objection: I-17 (4 objections). Parked: I-08, I-13, I-14, I-20, I-21 (objections or no case).
+
+## Update 2026-10-15T13:55+0300 (owner ruling: pre-1.0 is alpha, breaking changes at rapid pace)
+I-06 dropped; peers ships 0.7.0; no owner approval pending for a plugin bump.
