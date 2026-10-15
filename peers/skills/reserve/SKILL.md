@@ -2,11 +2,11 @@
 name: reserve
 description: >
   Reserve an exclusive resource by its own line on the resource board, and keep that board true.
-  "reserve the GPU", "reserve a port", "who reserved this port", "release the resource", "the resource board", a thing that exists once and cannot be forked, a contested resource, or a board line whose holder departed.
+  "reserve the GPU", "reserve a port", "who reserved this port", "release the resource", "the resource board", a thing that exists once and cannot be forked, a contested resource, or a board line whose member is gone.
 ---
 
 <take-the-terms>
-Take `stamp`, `member`, `root`, `member id`, `card`, `departed card`, `exclusive resource`, and `resource board` as the skill `ontology` defines them; never take them in another sense.
+Take `stamp`, `member`, `root`, `member id`, `card`, `departed card`, `gone`, `exclusive resource`, and `resource board` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <check-before-reserving>
@@ -16,7 +16,7 @@ Test the resource itself before reserving it, such as a port on macOS by `lsof -
 </check-before-reserving>
 
 <reserve-by-a-line>
-Reserve an exclusive resource by its own line on the board, `- <resource> <member id> <what it serves>`; never use one off the board.
+Reserve an exclusive resource by its own line on the board, `- <resource> <member id> <what it serves>`; never reserve one off the board.
 
 Ask the member a line names for its resource by the skill `tell` when you need it; never take a resource another member's line names.
 

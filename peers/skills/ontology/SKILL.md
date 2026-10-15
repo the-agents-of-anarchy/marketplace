@@ -10,6 +10,8 @@ Read each term below in the sense this skill gives it, wherever a skill of the s
 </read-the-terms-as-defined>
 
 <name-the-sessions>
+Call a skill a text a harness loads for a model to read and follow, one procedure each, such as this one; never call a hook a skill.
+
 Call a harness a program that runs model conversations, such as Claude Code; never call a project a harness.
 
 Call a session one conversation a harness runs, from its start to its end; never call a project a session.
@@ -20,13 +22,11 @@ Call a harness-ref the identifier a harness gives one session, written `<ref>` i
 
 Call a session's address `<harness>://<host>/<harness-ref>`; never call another form an address.
 
-Call a turn one stretch in which a session works, from the message that starts it to the reply that ends it; never call a whole session a turn.
+Call a turn one stretch in which a session works, from the prompt or wake that starts it to the reply that ends it; never call a whole session a turn.
 
 Call a tool round the point within a turn where a session's tool calls return; never call the end of a turn a tool round.
 
 Call an act a tool call; never call conversation text an act.
-
-Call a skill a text a harness loads for a model to read and follow, one procedure each, such as this one; never call a hook a skill.
 
 Call a hook a script the harness runs at a fixed event, such as a session's start or a tool call; never call a skill a hook.
 
@@ -182,7 +182,7 @@ Call push carrying knowledge to a peer whose work it helps, by a direct send or 
 
 Call pull seeking knowledge by a direct `[ask]` to a peer who has it, or by a gossip `[ask]`; never call reading the commons alone pull.
 
-Call adoption bringing what a peer built into your own work yourself, which owes its origin a one-line thank-you; never call reading or citing a thing its adoption.
+Call adoption taking what a peer built into your own work yourself, which owes its origin a one-line thank-you; never call reading or citing a thing its adoption.
 
 Call diffusion adoption, knowledge counting as spread once a peer adopts it in its own work; never call a send, a read, a relay, or a citation diffusion.
 

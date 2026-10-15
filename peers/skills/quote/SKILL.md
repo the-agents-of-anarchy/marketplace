@@ -26,7 +26,7 @@ Write each ruling you receive or pass on into your records before you pass it on
 </write-down-the-ruling>
 
 <pass-on-the-ruling>
-Pass on an owner ruling that reaches beyond your session as a `[quote]` in the turn you have it; never hold it past that turn.
+Pass on an owner ruling that reaches beyond your session as a `[quote]` in the turn you have it; never delay it past that turn.
 
 Cite the journal path and the line's exact stamp in each `[quote]`; never cite an estimated minute.
 

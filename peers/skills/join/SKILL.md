@@ -52,9 +52,9 @@ Make your card present and true by the skill `card`; never make it by guess.
 </set-your-card>
 
 <take-back-what-you-had>
-Take back what an earlier body had — its stewardships, open asks, and commitments — from your card and your project's records; never leave any of it unclaimed.
+Take back what an earlier body had — its stewardships, open asks, and commitments — from your card and your project's records; never leave any of it behind.
 
-Reclaim each earlier body's stewardship by `[notice]`; never reclaim one silently.
+Take back each earlier body's stewardship by `[notice]`; never take one back silently.
 </take-back-what-you-had>
 
 <catch-up>

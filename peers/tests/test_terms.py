@@ -135,7 +135,7 @@ def description(path):
 def scanned_body(path):
     text = description(path) + body(path)
     text = re.sub(rf"<{TERMS_TAG}>.*?</{TERMS_TAG}>", "", text, flags=re.S)
-    text = re.sub(r"the skills? `[a-z-]+`", "", text)
+    text = re.sub(r"the skills? `[a-z:-]+`", "", text)
     text = re.sub(r"peers:[a-z-]+", "", text)
     text = re.sub(r"by the skills [a-z-]+(, [a-z-]+)*,? and [a-z-]+", "", text)
     return text
