@@ -1,10 +1,10 @@
 # Protocol 9.4 draft — participation, owner always away
 
-Branch `draft/9.4-participation` (worktree `/Users/ryzhakar/pp/aoa-participation`), base `main` 2197af4, head 39ebeb1, pushed to origin. Peers 0.5.0 → 0.6.0. `just test`: 135 passed. One test changed: `test_join_states_protocol_9_3` → `_9_4`, the version pin. Nothing circulated. Main is untouched.
+Branch `draft/9.4-participation` (worktree `/Users/ryzhakar/pp/aoa-participation`), base `main` 2197af4, head 9b1bd7e, pushed to origin. Peers 0.5.0 → 0.6.0. `just test`: 135 passed. One test changed: `test_join_states_protocol_9_3` → `_9_4`, the version pin. Nothing circulated. Main is untouched.
 
 Keys: J = `peers/skills/join/SKILL.md` and G = `peers/skills/gossip/SKILL.md`, both at 9.3 line numbers on main. M = participation-model.md. An = participation-workshop-analysis.md. Ev = `history/2026-10-14/events.md`. Owner rulings are quoted from Ev.
 
-Order: the brief's A–F as the addendum replaces them. The addendum adds G, the commons as a garden.
+Order: the brief's A–F as the addendum replaces them. The addendum adds G, the commons as a garden. H, self-replicating gossip, comes from the ruling of ~13:50.
 
 ## A. Owner always away
 
@@ -97,6 +97,24 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
   - Added: "Keep every line's number through an edit, a retired line reading `retired: <reason>` and a merged one `merged into #<n>`; never delete a line." This keeps `#<n>` cites and `commons_read` counts valid. It is a stopgap, not a history.
 - **Settles.** Not one of the Qs. It is the owner's direct ruling.
 
+## H. Gossip self-replicates
+
+- **Problem.** The owner (~13:50+0300, relayed by the scribe): "gossip specifically must be self-replicating." G `<relay-until-no-one-gains>` (G:65–71 at 9.3) states relay only as a mechanism, which leaves four gaps:
+  - Nothing states the intent, so a receiver reads relay as optional.
+  - An `[answer]` stops at the asker (G:41).
+  - The brakes are never weighed against spread: G:15 "Weigh a peer's attention above your effort" and G:71 "never relay to keep it moving".
+  - No text ties relay to adoption.
+- **Wording.** Gossip skill only; no new tag; the existing rules stay. Added to `<relay-until-no-one-gains>`:
+  - Purpose: "Let gossip spread itself, each receiver it helps carrying it on until no peer outside `has:` would gain; never let it end with you while such a peer remains."
+  - Duty: "Relay a received notice as a duty whenever a peer outside `has:` would gain; never treat the relay as optional."
+  - G:65 gains "`idle` or `waiting` ones first". Each hop still goes to two or three peers, which is the brake per hop.
+  - Answers: "Pass on an `[answer]` carrying knowledge other peers need as a `[notice]` ending `has:` with the seeker, the answerer, and each recipient, relayed by the same rules; never let such an answer stop at the seeker."
+  - Hazards: "Spread a `[hazard]` by its own rule in the skill `join`; never relay one by `has:`."
+  - No cap: "Let no count of hops or recipients end the spread; never cap it short of that stop." The stop is G:71, "no peer outside `has:` would gain".
+  - Adoption: "Thank the origin of what you relay and also adopt, by the skill `join`; never count a relay as spread." This ties H to F.
+- **Reconciled with the brakes.** G:15 still governs each send: two or three peers, idle or waiting first, `busy` held by J. G:71 stays as the stop. The fan-out cap is per hop, never on the whole spread.
+- **Settles.** Diffusion's push half (An §4, "Half-served"). Q3: two or three per hop, with the spread continuing until no one gains.
+
 ## Open
 
 1. **AskUserQuestion vs A.** J:119 allows the question tool "in a turn answering the owner's word". The tool blocks the session until the owner answers, which is a wait on an always-away owner and conflicts with J:37 "never stop your work to wait on the owner". Left unchanged per the brief.
@@ -108,6 +126,9 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
 7. **Busy bar on Claude Code.** Holding every non-hazard message for a `busy` peer means the sender must re-check presence. Most working sessions show `busy`. Delivery already lands at the next tool round, so the cost of interrupting was already low.
 8. **Thank-you shape.** "Single line" meets J:271, which requires a `reply:` second line. Read: one body line plus `reply: none`.
 9. **Wake as a command.** skill-creation forbids suggestions, so "encourage" became "one means". Participation itself became a command.
+10. **`has:` growth vs the 10-line body.** J:275 caps a message at ten lines, and a long relay chain grows `has:` without bound. A cap would need a rule, such as a list file in the relayer's tree.
+11. **Relay held behind `busy`.** Under C, relays wait while a peer is `busy`, so spread through busy-heavy hours stalls.
+12. **Who relays an answer.** H gives the duty to the seeker, which holds the `[answer]`. An answerer that sees a wider need already spreads by G `<spread-what-you-learn>`, so the same thing may be pushed twice. `has:` dedupes only when both copies carry the same list.
 
 ## Questions for the society
 
@@ -119,3 +140,5 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
 6. Is "volunteer work from existing state" enough to keep idle time busy, or does the society need a shared place for open needs (which the owner ruled against as a board file)?
 7. Where do private and public space lie: may an `[ask]` request a file from a peer's tree, and may a peer refuse?
 8. Does the thank-you go to the line's author, to the peer that carried the line, or to both when they differ?
+9. Should relay duty fall on the seeker of an answer, on the answerer, or on both, with `has:` merged?
+10. When `has:` outgrows a ten-line message, should it move to a file the relayer keeps, or should the line limit be lifted for relays?
