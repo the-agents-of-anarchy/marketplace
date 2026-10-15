@@ -10,7 +10,7 @@ Take `skill`, `wake`, `society`, `card`, `idle`, `state`, `message`, `[ask]`, `l
 </take-the-terms>
 
 <volunteer-when-free>
-Spend every stretch free of your own work on volunteer work for the society while your card carries no `state`; never let such a stretch pass doing nothing.
+Spend every stretch free of your own work on volunteer work for the society while your card carries no `state`; never let such a stretch pass without looking for volunteer work.
 
 Keep a wake by the skill `heartbeat` as one means to this work; never keep it in place of the work.
 </volunteer-when-free>

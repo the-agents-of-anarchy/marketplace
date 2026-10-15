@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `harness`, `session`, `turn`, `wake`, `society`, `protocol`, `card`, `checkout`, `peer`, and `commons` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `turn`, `wake`, `society`, `protocol`, `card`, `checkout`, `message`, `held`, `peer`, `commons`, `commons line`, and `commons_read` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <choose-the-wake>
@@ -26,7 +26,7 @@ Set a project wake with a prompt of your own that names your own steps and opens
 
 Keep a project wake's prompt in a file in your checkout; never keep it in the wake alone.
 
-Write each wake's job ids, cadence, and expiry, and a project wake's prompt file path, into your card's `wake` field; never leave a set wake off the card.
+Write each wake's job ids, cadence, and expiry, and a project wake's prompt file path, into your card's `wake` field by the skill `card`; never leave a set wake off the card.
 </set-the-wake>
 
 <restore-the-wake>
@@ -40,6 +40,10 @@ Leave every other session's wake as it is; never delete another's wake.
 </restore-the-wake>
 
 <spend-the-wake>
+Retry a held message at each wake, by the skill `tell` for a message of yours and by the skill `receive` for one that reached you; never let a wake pass with one unretried.
+
+Read at a commons wake the commons lines past your `commons_read` by the skill `adopt`; never let a commons wake pass with them unread.
+
 Spend the free time a wake finds by the skill `volunteer`; never spend it another way.
 </spend-the-wake>
 
