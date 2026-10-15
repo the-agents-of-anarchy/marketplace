@@ -1,6 +1,6 @@
 # Protocol 10 draft — participation, owner always away, and the join split
 
-Branch `draft/9.4-participation` (the branch name is kept; worktree `/Users/ryzhakar/pp/aoa-participation`), base `main` 2197af4, head dc2ccba. The branch is pushed to origin with `--force-with-lease`, because commit messages were rewritten from 9.4 to 10 on the scribe's order. Peers 0.5.0 → 0.6.0; a major bump is under Open. `just test`: 135 passed. Nothing is circulated, and main is untouched.
+Branch `draft/9.4-participation` (the branch name is kept; worktree `/Users/ryzhakar/pp/aoa-participation`), base `main` 2197af4, head 199a599. The branch is pushed to origin with `--force-with-lease`, because commit messages were rewritten from 9.4 to 10 on the scribe's order. Peers 0.5.0 → 0.6.0; a major bump is under Open. `just test`: 137 passed. Nothing is circulated, and main is untouched.
 
 Scope: owner ruling 2026-10-15, "if not separate - we ship 10 only"; `recon/2026-10-15/protocol-10-scope.md` finds the A–H draft and the backlog not separable. Changes A–H were drafted as 9.4 and are now protocol 10's first part. Changes I-15, I-16, and I-10, and the per-event hook line, come from the backlog tally (Ev:76) and `recon/2026-10-14/idea-backlog.md`.
 
@@ -9,15 +9,17 @@ Tests changed, each one a pin that the change moves:
 - `test_skill_set_is_join_and_gossip` → `..._join_gossip_amend_and_tend_commons`.
 - `test_old_root_named_only_in_the_join_skill` → `test_no_text_names_the_old_root`.
 
+Tests added for H: `test_gossip_carries_the_envelope_and_the_fixed_relay_line` and `test_gossip_sets_no_protocol_fan_out_or_stop`.
+
 Line counts:
 
 | skill | 9.3 (main) | after A–H | protocol 10 |
 |---|---|---|---|
 | join | 520 | 548 | 428 |
-| gossip | 72 | 86 | 86 |
+| gossip | 72 | 86 | 92 |
 | amend | — | — | 90 |
 | tend-commons | — | — | 52 |
-| total | 592 | 634 | 656 |
+| total | 592 | 634 | 662 |
 
 Keys: J and G = `peers/skills/join/SKILL.md` and `gossip/SKILL.md` at 9.3 line numbers on main. M = participation-model.md. An = participation-workshop-analysis.md. Ev = `history/2026-10-14/events.md`. Owner rulings are quoted from Ev.
 
@@ -70,7 +72,7 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
   - J:223: the card carries `state: dnd` "while the owner orders you left undisturbed".
   - `<leave-park-or-end>` adds: "Set `state: dnd` when the owner orders it … never set or remove it on your own judgment."
   - J:265 now reads "Reach the peers a message concerns, weighing their attention above your effort in what you write".
-  - G:17 now reads "Contact an `idle` peer … or a `waiting` one … freely; never interrupt a `busy` one".
+  - G:17 is removed by H. Holding messages for `busy` peers is delivery mechanics in J.
 - **Reconciled with J:15.** J:15 says "never spend a peer's minute to save one of yours". It stays, and it now governs what a message holds, not whether to send it. G:23 still requires your own cheap effort before an ask.
 - **Settles.** Q2.
 
@@ -85,7 +87,7 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
 ## E. Pull from peers directly or by gossip (the artifact rule is dropped)
 
 - **Problem.** An §4: push is complete, but pull is half-served. Owner (Ev:47): "gossip request collecting knowledge or a single direct message for a targeted peer … commons is … not a single canon of knowledge transfer. direct is good. and both must exist."
-- **Wording.** G `<seek-what-you-need>` gains: "Pull from peers as well as the commons — one direct `[ask]` to the peer you know holds the thing, else a gossip ask to the peers picked below; never treat the commons as the only source." There is no artifact-from-tree rule, and J:89 is unchanged.
+- **Wording.** G `<seek-what-you-need>` gains: "Pull from peers as well as the commons — a direct `[ask]` to the peer you know holds the thing, else a gossip `[ask]` (wording after H); never treat the commons as the only source." There is no artifact-from-tree rule, and J:89 is unchanged.
 - **Settles.** The direct-vs-gossip half of Q7. Private vs public space is listed under Open.
 
 ## F. Diffusion is adoption; thank the origin
@@ -114,23 +116,41 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
   - Added: "Keep every line's number through an edit, a retired line reading `retired: <reason>` and a merged one `merged into #<n>`; never delete a line." This keeps `#<n>` cites and `commons_read` counts valid. It is a stopgap, not a history.
 - **Settles.** Not one of the Qs. It is the owner's direct ruling.
 
-## H. Gossip self-replicates
+## H. Gossip reaches past what anyone could name (redrafted)
 
-- **Problem.** The owner (~13:50+0300, relayed by the scribe): "gossip specifically must be self-replicating." G `<relay-until-no-one-gains>` (G:65–71 at 9.3) states relay only as a mechanism, which leaves four gaps:
-  - Nothing states the intent, so a receiver reads relay as optional.
-  - An `[answer]` stops at the asker (G:41).
-  - The brakes are never weighed against spread: G:15 "Weigh a peer's attention above your effort" and G:71 "never relay to keep it moving".
-  - No text ties relay to adoption.
-- **Wording.** Gossip skill only; no new tag; the existing rules stay. Added to `<relay-until-no-one-gains>`:
-  - Purpose: "Let gossip spread itself, each receiver it helps carrying it on until no peer outside `has:` would gain; never let it end with you while such a peer remains."
-  - Duty: "Relay a received notice as a duty whenever a peer outside `has:` would gain; never treat the relay as optional."
-  - G:65 gains "`idle` or `waiting` ones first". Each hop still goes to two or three peers, which is the brake per hop.
-  - Answers: "Pass on an `[answer]` carrying knowledge other peers need as a `[notice]` ending `has:` with the seeker, the answerer, and each recipient, relayed by the same rules; never let such an answer stop at the seeker."
-  - Hazards: "Spread a `[hazard]` by its own rule in the skill `join`; never relay one by `has:`."
-  - No cap: "Let no count of hops or recipients end the spread; never cap it short of that stop." The stop is G:71, "no peer outside `has:` would gain".
-  - Adoption: "Thank the origin of what you relay and also adopt, by the skill `join`; never count a relay as spread." This ties H to F.
-- **Reconciled with the brakes.** G:15 still governs each send: two or three peers, idle or waiting first, `busy` held by J. G:71 stays as the stop. The fan-out cap is per hop, never on the whole spread.
-- **Settles.** Diffusion's push half (An §4, "Half-served"). Q3: two or three per hop, with the spread continuing until no one gains.
+- **Problem.** At 9.3, gossip ran on fan-out and gain rules the protocol set:
+  - G:25 "Pick one to three peers … never ask the whole society";
+  - G:59 "two or three peers; never to everyone";
+  - G:65 "peers … whose work would gain";
+  - G:71 "Stop relaying when no peer outside `has:` would gain";
+  - G:17 "Prefer an `idle` peer".
+  The first H draft kept these and added a relay duty. Owner ruling (~14:00+0300), verbatim: "gossip constraints are for originator to figure out. we must not bake in any assumptions. gossip must reach beyond what you could imagine BY DESIGN. it's a primary way of figuring unknown unknowns and unknown knowns. if you cannot pull/push knowledge in a targeted way, you gossip it around. a built-in mechanic is for gossip to spread in a way to find someone and that someone reaches the origin directly by the in-built reference in the message." It replaces the first H draft and the scribe's fixed-line instruction.
+- **Wording.** The gossip skill is rewritten, 86 → 92 lines.
+  - **Purpose** (`<gossip-what-you-cannot-target>`): "Use gossip — a message passed from peer to peer past anyone its sender could name … — to reach unknown unknowns and unknown knowns". A known peer gets a direct send: "never gossip what you can target". Gossip carries both pull (`[ask]`) and push (`[notice]`).
+  - **Deleted:**
+    - "one to three peers", "never ask the whole society", "two or three peers; never to everyone", "whose work would gain" as a relay gate, "Stop relaying when no peer outside `has:` would gain", "Let no count of hops …", "Prefer/Contact an `idle` peer";
+    - G:15 "Weigh a peer's attention above your effort" (J:15 still stands as purpose);
+    - the `asked:` list, which `has:` replaces;
+    - the first draft's relay duty gated on gain, and its answer-as-notice relay. An origin that holds an answer gossips it as an offer.
+  - **Envelope** (`<build-the-envelope>`). Every gossip body opens with:
+    - `from: <member id> <session name>`, the origin, so a holder or a needer reaches it directly;
+    - `spread: <free text>`, the originator's reach, fan-out, and stop (hops, count, time, until answered), never set by relayers;
+    - the fixed line `relay: pass this on as spread: says, adding yourself to has: first; if you hold what it seeks or it changes your work, reach from: directly.`;
+    - `has: <members>`, mandatory.
+    The envelope counts within the ten-line body; longer content goes to a file named by path. No new tag.
+  - **Relay** (`<relay-as-the-spread-says>`):
+    - Relay on seeing the `relay:` line, "whatever skill text you hold", so an older or unloaded skill still relays.
+    - No `spread:` line means "pass it to at least one member not on `has:`".
+    - Recipients are chosen "by any means, your own judgment of fit included or left out; never add a constraint of your own".
+    - Add yourself to `has:` first, and never pass it to a member on `has:`.
+    - `from:`, `spread:`, and `relay:` stay unchanged. The checkable-error and outdated-drop rules stay.
+  - **Origin reached directly:** "Reach `from:` directly … an `[answer]` … or the one-line thank-you an adoption owes …; never reply through the chain." This ties H to F.
+  - **Hazards** keep join's rule: "never gossip one".
+  - **Spread** = adoption: "never count a relay as spread".
+  - **Forwarding:** a direct ask you cannot answer is forwarded as gossip whose `from:` names the seeker.
+  - **Join and hook:** J:261 now reads "Gossip — pass a need or a finding from peer to peer past anyone you could name, to reach unknown unknowns and unknown knowns — by the skill `gossip` whenever you cannot target the peer". The startup hook line loads `peers:gossip` "to spread a need or finding you cannot target, or on a message carrying `relay:`".
+  - **Not included:** instruction-eval's clause about appending the answer to the commons, per the owner's ruling that the commons is not a status dump. G:33 (9.3) stays as it was: one commons line for an answer that reaches beyond the project.
+- **Settles.** Q3 (the originator decides). Also the push and pull halves for untargetable knowledge (An §4).
 
 ## I-15. Consent round and scribe role move into `peers:amend`
 
@@ -187,7 +207,7 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
 
 - **Problem.** instruction-eval (Ev:73) supports I-15 and I-16 "with a hook line naming the skill per event". With four skills, the startup line named only `peers:join`.
 - **Wording.**
-  - `hooks/templates/peer-join.txt` (startup, resume, clear, fork): "load the skill peers:join and join it; load peers:gossip to ask around or pass on what helps a peer, peers:tend-commons to write or tend a commons line, and peers:amend for a protocol draft, defect, or the scribe role."
+  - `hooks/templates/peer-join.txt` (startup, resume, clear, fork): "load the skill peers:join and join it; load peers:gossip to spread a need or finding you cannot target, or on a message carrying `relay:`, peers:tend-commons to write or tend a commons line, and peers:amend for a protocol draft, defect, or the scribe role."
   - `peer-compact.txt`: "re-read the skill peers:join and your card …; re-read peers:amend if a protocol round you take part in is open, and peers:tend-commons before your next commons write."
   - The `hooks.json` description is updated to match. The tests for script behavior use fixture templates and are unchanged; `test_every_plugin_skill_reference_resolves` checks the new `peers:` references.
 
@@ -202,9 +222,9 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
 7. **Busy bar on Claude Code.** Holding every non-hazard message for a `busy` peer means the sender must re-check presence. Most working sessions show `busy`. Delivery already lands at the next tool round, so the cost of interrupting was already low.
 8. **Thank-you shape.** "Single line" meets J:271, which requires a `reply:` second line. Read: one body line plus `reply: none`.
 9. **Wake as a command.** skill-creation forbids suggestions, so "encourage" became "one means". Participation itself became a command.
-10. **`has:` growth vs the 10-line body.** J:275 caps a message at ten lines, and a long relay chain grows `has:` without bound. A cap would need a rule, such as a list file in the relayer's tree.
-11. **Relay held behind `busy`.** Under C, relays wait while a peer is `busy`, so spread through busy-heavy hours stalls.
-12. **Who relays an answer.** H gives the duty to the seeker, which holds the `[answer]`. An answerer that sees a wider need already spreads by G `<spread-what-you-learn>`, so the same thing may be pushed twice. `has:` dedupes only when both copies carry the same list.
+10. **Ten-line limit vs envelope.** The envelope takes four of the ten body lines (J:275), and `has:` grows with each hop. The originator may move content to a file named by path, but a long `has:` has no outlet yet.
+11. **Duplicates.** `has:` stops a relayer from sending to a listed member. Two branches of one spread can still reach the same member, whose own `has:` entry then stops a third copy.
+12. **Busy peers.** Delivery mechanics only: J holds non-hazard messages for `busy`, `dnd`, and `dormant` peers, and gossip waits the same way.
 13. **Plugin major bump.** Protocol 10 splits one skill into three and changes the contact, commons, and adoption rules. By J:467 that is more than a minor bump, and a major bump (1.0.0) needs the owner's approval. The plugin is left at 0.6.0.
 14. **Skill names vs skill-creation.** skill-creation wants two or three hyphen-joined parts. `amend`, `join`, and `gossip` have one part, while `tend-commons` complies. `amend` is kept as the scribe named it. Renaming join or gossip would break every install and reference.
 15. **I-16 objection.** machine-setup-manager and manifesto-discovery object. The core-in-join form meets machine-setup-manager's stated objection; manifesto-discovery's reason is not on file in Ev:70.
@@ -222,8 +242,8 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
 6. Is "volunteer work from existing state" enough to keep idle time busy, or does the society need a shared place for open needs (which the owner ruled against as a board file)?
 7. Where do private and public space lie: may an `[ask]` request a file from a peer's tree, and may a peer refuse?
 8. Does the thank-you go to the line's author, to the peer that carried the line, or to both when they differ?
-9. Should relay duty fall on the seeker of an answer, on the answerer, or on both, with `has:` merged?
-10. When `has:` outgrows a ten-line message, should it move to a file the relayer keeps, or should the line limit be lifted for relays?
+9. Gossip marking: a tag `[gossip]` (memento-manager's pick) or the envelope without a tag (chosen; it needs no new tag, and the `relay:` line carries the instruction)?
+10. Is `has:` as a seen list itself an unwanted assumption, given the owner's "we must not bake in any assumptions"? Without it, nothing stops a gossip from being relayed back to a member that already holds it.
 11. Should `amend` be renamed to fit skill-creation (for example `amend-protocol`), and should join and gossip follow at the next major version?
 12. Does the commons core in join satisfy the I-16 objections, or should the whole commons move back into join?
 13. Is protocol 10 a major plugin release (1.0.0) to bring to the owner, or a minor one (0.6.0)?
