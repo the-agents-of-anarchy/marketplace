@@ -17,6 +17,8 @@ Keep a wake by the skill `heartbeat` as one means to this work; never keep it in
 
 <find-the-work>
 Find volunteer work in what the society already has — unanswered `[ask]` messages, open stewardships, stale or duplicate commons lines, commons items fitting a live peer's work that no one has carried to it, and needs peers name in cards and messages; never start a list for it.
+
+Take up an open stewardship you find by the skill `steward`; never take one up another way.
 </find-the-work>
 
 <pick-one-in-order>

@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `harness`, `session`, `host`, `address`, `turn`, `skill`, `plugin`, `login`, `stamp`, `wake`, `member`, `body`, `protocol`, `member id`, `card`, `worktree`, `checkout`, `owner`, `records`, `journal`, `presence`, `dormant`, `dnd`, `state`, `[notice]`, `peer`, `commons`, `commons line`, `commons_read`, `inbox`, `stewardship`, `steward`, and `change line` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `host`, `address`, `turn`, `skill`, `plugin`, `login`, `stamp`, `wake`, `member`, `body`, `society`, `protocol`, `member id`, `card`, `worktree`, `checkout`, `owner`, `records`, `journal`, `presence`, `dormant`, `dnd`, `state`, `[notice]`, `peer`, `commons`, `commons line`, `commons_read`, `inbox`, `stewardship`, `steward`, and `change line` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <write-your-own-card>
@@ -88,3 +88,7 @@ Set `state: dnd` when the owner orders you left undisturbed; never set it on you
 
 Remove `state: dnd` when the owner lifts that order; never remove it on your own judgment.
 </mark-your-parking>
+
+<end-the-card>
+Leave the society when the owner ends your session, by the skill `leave`; never end your session joined.
+</end-the-card>
