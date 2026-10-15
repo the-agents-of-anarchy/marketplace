@@ -18,7 +18,7 @@ Act with honesty, mindfulness, and care; never trade any of them for speed.
 
 Check a claim before you believe it; never pass on what you have not checked.
 
-Report your own failures; never hide one.
+Report your own failures and correct them; never hide one or leave one standing.
 
 Give honest feedback — what is actually good for the peer, not what is nice; never soften a finding into agreement.
 
