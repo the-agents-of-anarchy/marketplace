@@ -3,8 +3,8 @@
 - **Branch:** `draft/10.1-split` in worktree `/Users/ryzhakar/pp/aoa-skills-101`, from `main` at 1858223. The head is in the report.
 - **Untouched:** `main`, the pointer, every card, the commons, and everything under `docs/orchestration_log/` except this file and `traceability.md`.
 - **Rules:** memento:skill-creation 0.5.1 with the same writing stack and the same guards as protocol 10 (`test_terms.py` terms and other-sense tests, the no-copy test, the plugin-reference test). The plan is `ten-one-instructions.md` with `split-design.md`; owner rulings at Ev:326–342 bind, and the owner's names are final: `tell`, `post`, `gather`, `ship`.
-- **Tests:** `just test` gives 201 passed, exit 0 (199 after commit A, 201 after B and C).
-- **Versions:** peers plugin 0.8.0 (`peers/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`); protocol 10.1 in card's `Carry `protocol: 10.1`` and its test pin.
+- **Tests:** `just test` gives 202 passed, exit 0 (199 after commit A, 201 after B and C, 202 after the versioning merge).
+- **Version:** one number, the peers plugin's: 0.8.0 in `peers/.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`. The protocol has no second number; see Versioning.
 - **Skills:** 27. New: `post`, `gather`. Renamed: `scribe` → `ship`. Line counts: post 32, gather 32, ship 36 (scribe was 60), tell 68 (was 86).
 - **Commits:** A `6aa8c78` tell split; B `d098d6c` scribe split and hand-on dissolution; C `65661e7` dnd. `just test` was run after each.
 
@@ -153,3 +153,29 @@ Federation, society-qualified names, and flattened card file names: the owner sa
 - heartbeat's commons wake prompt names four skills, by the owner's ruling, not counted.
 - Every other skill: 0. The literal pass over 469 body sentences finds one emphatic word per sentence and a same-concern prohibition on each; the mechanical rule check and the three guards are green.
 - Two independent audit rounds are expected; nothing beyond the thirteen items was started.
+
+## Versioning: one version, the peers plugin's (owner: "change the protocol versioning - merge it with plugin versioning")
+
+| site | old | new |
+|---|---|---|
+| ontology, `name-the-protocol-change` | no definition of the number | New, before `pointer`: "Call the protocol version the version of the peers plugin a member's loaded skills belong to, the one number the protocol carries; never call another number the protocol version." The only definition of the number. |
+| ontology:223 (pointer) | "naming the current protocol version and one change line per version" | "naming the protocol version in force and one change line per version". |
+| ontology:235 (separating) | "keeping their loaded protocol version" | unchanged text; the term now means the plugin version. |
+| `peers/bin/peers-facts` | no version line | prints `plugin_version: <version>`, read with `sed` from the plugin's `plugin.json` at a path resolved from the script's own location before any directory change. |
+| card:55 | "Carry `protocol: 10.1`, the protocol version of the skills you loaded; never raise it by applying change lines." | "Carry `protocol`, the protocol version your loaded skills belong to, read from the `plugin_version` line the `peers-facts` script prints; never raise it by applying change lines." |
+| ship:4 description | "raise the versions" | "raise the plugin's version". |
+| ship:5 triggers | "bump the protocol version", "announce the new protocol version", "`[notice] protocol v<N>`" | "bump the version", "announce the new version", "`[notice] protocol <version>`". |
+| ship:27 (was scribe:41) | "Raise the version in the skill `card`'s instruction …" | dropped: card carries no literal to raise. The edge ship → card is gone with it. |
+| ship:27 (was scribe:43) | "Bump the plugin's version … while its first number stays 0; never keep a breaking change back for a first-number bump." | "Bump the peers plugin's version for each shipped change — its last number for a fix, its middle number for a rule or a breaking change while its first number stays 0, its first number to 1 on the owner's word; never keep a breaking change back for a first-number bump." |
+| ship:29, 31 (was scribe:45) | "Append to the pointer the new version and a dated change line naming any separated project" | split: "Set the pointer's version line to the plugin version you ship; never let the pointer lag a shipped change." and "Append to the pointer a dated change line opening with that version and naming any separated project; never append one without the version." |
+| ship:33 | "`[notice] protocol v<N>`" | "Send `[notice] protocol <version>`, the plugin version, carrying the change lines and the path to the change …". |
+| protocol-change:5, 37 | "`[notice] protocol v<N>`" | "`[notice] protocol <version>`". "Your loaded version" (27, 37, 41, 43) now means the plugin version your skills belong to, by ontology's definition. |
+| settle:21, 29 | "keep two versions", "both versions" | "keep two copies", "both copies": `version` carries one sense. |
+| `peers/README.md` | the ship entry named "raise the versions" and "protocol version" | regenerated from the frontmatters. |
+| hooks | — | `peer-join.sh` and its templates state no protocol number; unchanged. |
+| `test_skills.py` | `test_card_states_protocol_10_1` pinned the literal "10.1" | `test_card_takes_protocol_from_the_plugin_version` checks card's text names the plugin version source and carries no literal; `test_peers_facts_plugin_version_equals_plugin_json` runs `peers-facts` and checks its `plugin_version` line equals `plugin.json`'s version and the marketplace entry's. |
+| `test_terms.py` | — | new term `protocol version` (pattern `\bversions?\b`); terms sentences regenerated (join, card, ship, protocol-change, ontology gained it). |
+
+The mapping of old numbers is not skill text; the scribe writes it as one line into the pointer at shipping: **protocol 9.3 was peers 0.5.0; protocol 10 was peers 0.7.0; this change ships as peers 0.8.0.**
+
+`traceability.md` is regenerated: 468 rows, 6 new sentences, 0 unmapped. Residual violations by skill after the merge: **none beyond the owner-ruled commons wake prompt in heartbeat.** The ship → card edge, the last residual, is gone with the dropped raise sentence; the graph is item 12's minus that edge (ship → tell).
