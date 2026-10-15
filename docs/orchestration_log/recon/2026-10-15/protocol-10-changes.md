@@ -1,6 +1,6 @@
 # Protocol 10 draft — participation, owner always away, and the join split
 
-Branch `draft/9.4-participation` (the branch name is kept; worktree `/Users/ryzhakar/pp/aoa-participation`), base `main` 2197af4, head 9bd0539. The branch is pushed to origin with `--force-with-lease`, because commit messages were rewritten from 9.4 to 10 on the scribe's order. Peers 0.5.0 → 0.7.0. Owner ruling (~14:00+0300): "before 1.0.0 we're in alpha, and the convention is to allow breaking changes left and right, rapid pace." Breaking changes therefore ride a minor version, and I-06 (rare releases, batching rule changes) is dropped as contradicted by that ruling. `just test`: 137 passed. Nothing is circulated, and main is untouched.
+Branch `draft/9.4-participation` (the branch name is kept; worktree `/Users/ryzhakar/pp/aoa-participation`), base `main` 2197af4, head eb3fde7. The branch is pushed to origin with `--force-with-lease`, because commit messages were rewritten from 9.4 to 10 on the scribe's order. Peers 0.5.0 → 0.7.0. Owner ruling (~14:00+0300): "before 1.0.0 we're in alpha, and the convention is to allow breaking changes left and right, rapid pace." Breaking changes therefore ride a minor version, and I-06 (rare releases, batching rule changes) is dropped as contradicted by that ruling. `just test`: 137 passed. Nothing is circulated, and main is untouched.
 
 Scope: owner ruling 2026-10-15, "if not separate - we ship 10 only"; `recon/2026-10-15/protocol-10-scope.md` finds the A–H draft and the backlog not separable. Changes A–H were drafted as 9.4 and are now protocol 10's first part. Changes I-15, I-16, and I-10, and the per-event hook line, come from the backlog tally (Ev:76) and `recon/2026-10-14/idea-backlog.md`.
 
@@ -16,10 +16,10 @@ Line counts:
 | skill | 9.3 (main) | after A–H | protocol 10 |
 |---|---|---|---|
 | join | 520 | 548 | 428 |
-| gossip | 72 | 86 | 92 |
+| gossip | 72 | 86 | 98 |
 | amend | — | — | 90 |
 | tend-commons | — | — | 52 |
-| total | 592 | 634 | 662 |
+| total | 592 | 634 | 668 |
 
 Keys: J and G = `peers/skills/join/SKILL.md` and `gossip/SKILL.md` at 9.3 line numbers on main. M = participation-model.md. An = participation-workshop-analysis.md. Ev = `history/2026-10-14/events.md`. Owner rulings are quoted from Ev.
 
@@ -151,6 +151,11 @@ Order: the brief's A–F as the addendum replaces them. The addendum adds G, the
   - **Join and hook:** J:261 now reads "Gossip — pass a need or a finding from peer to peer past anyone you could name, to reach unknown unknowns and unknown knowns — by the skill `gossip` whenever you cannot target the peer". The startup hook line loads `peers:gossip` "to spread a need or finding you cannot target, or on a message carrying `relay:`".
   - **Not included:** instruction-eval's clause about appending the answer to the commons, per the owner's ruling that the commons is not a status dump. G:33 (9.3) stays as it was: one commons line for an answer that reaches beyond the project.
 - **Settles.** Q3 (the originator decides). Also the push and pull halves for untargetable knowledge (An §4).
+
+- **Duplicate defect found in use** (commit eb3fde7). trainer-u3, which was dormant, received one gossip five times. The originator's `has:` left out gym/trainer, so four relayers each added it and sent. Changes:
+  1. The originator's `has:` now also lists "every member you know to be `dormant` or `dnd`". **Deviation from the brief:** the brief asked for "every member it knows of". Listing every known member would leave no member outside `has:`, so the default relay ("at least one member not on `has:`") could never fire, and gossip would stop at the first hop. The draft lists only the members that must not receive.
+  2. Relays are held, like any message under join: "Hold a relay for a member whose card reads `state: dormant` or `state: dnd`, or whom presence shows `busy`, until that state clears … never relay to such a member meanwhile." Hazards keep join's rule.
+  3. `has:` is local to its path: "copies of one gossip may reach you by several paths; never take a second copy for a new gossip", and "Relay and answer a gossip once, however many copies reach you".
 
 ## I-15. Consent round and scribe role move into `peers:amend`
 
@@ -289,7 +294,7 @@ Checked against memento:skill-creation 0.5.1, re-read in full, using a scan for 
 8. **Thank-you shape.** "Single line" meets J:271, which requires a `reply:` second line. Read: one body line plus `reply: none`.
 9. **Wake as a command.** skill-creation forbids suggestions, so "encourage" became "one means". Participation itself became a command.
 10. **Ten-line limit vs envelope.** The envelope takes four of the ten body lines (J:275), and `has:` grows with each hop. The originator may move content to a file named by path, but a long `has:` has no outlet yet.
-11. **Duplicates.** `has:` stops a relayer from sending to a listed member. Two branches of one spread can still reach the same member, whose own `has:` entry then stops a third copy.
+11. **Duplicates, resolved by eb3fde7.** `has:` lists known `dormant` and `dnd` members, relays are held for `busy`, `dormant`, and `dnd` members, and a receiver relays and answers once however many copies arrive. Copies along separate paths remain possible by design. A receiver without the skill follows only the fixed `relay:` line, which names none of these three rules.
 12. **Busy peers.** Delivery mechanics only: J holds non-hazard messages for `busy`, `dnd`, and `dormant` peers, and gossip waits the same way.
 13. **`amend` clashes with memento.** memento reserves "amend" for owner-only acts on the goal and the schema ("Amend the schema on the owner's word"), so a model could load `peers:amend` for a memento schema change. The mitigation, a description that names the peer protocol first, was drafted in ddc1802 and is held with the names. The alternative is `consent` (instruction-eval).
 14. **I-16 objection.** machine-setup-manager and manifesto-discovery object. The core-in-join form meets machine-setup-manager's stated objection; manifesto-discovery's reason is not on file in Ev:70.
@@ -311,3 +316,5 @@ Checked against memento:skill-creation 0.5.1, re-read in full, using a scan for 
 10. Is `has:` as a seen list itself an unwanted assumption, given the owner's "we must not bake in any assumptions"? Without it, nothing stops a gossip from being relayed back to a member that already holds it.
 11. In the reopened naming round (after reading skill-creation): would a description opening "Amend the peer protocol:" keep `peers:amend` apart from memento's owner-only "amend" of the goal and schema, or should the skill be `consent`?
 12. Does the commons core in join satisfy the I-16 objections, or should the whole commons move back into join?
+13. Should a shared answered-by record under `<root>` (trainer-u3's proposal) stop duplicate answers and relays across paths, or does it bake in an assumption the owner ruled out ("we must not bake in any assumptions")?
+14. Should the fixed `relay:` line also carry "never to a busy, dormant, or dnd member; once per gossip", so a receiver without the skill keeps the duplicate rules, at the cost of a longer line?
