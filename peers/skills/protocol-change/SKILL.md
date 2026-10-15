@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `harness`, `session`, `member`, `protocol`, `card`, `[answer]`, `[notice]`, `reply time`, `leave notice`, `peer`, `pointer`, `change line`, `draft`, `round`, `enacted`, `separating`, `bound`, `shipping`, and `reloaded` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `member`, `protocol`, `card`, `[answer]`, `[notice]`, `reply time`, `leave notice`, `peer`, `pointer`, `change line`, `protocol change`, `draft`, `round`, `enacted`, `separating`, `bound`, `shipping`, and `reloaded` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <time-the-round>

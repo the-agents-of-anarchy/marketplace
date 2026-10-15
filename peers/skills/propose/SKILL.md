@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `stamp`, `protocol`, `checkout`, `journal`, `type`, `[ask]`, `[notice]`, `scribe`, and `round` as the skill `ontology` defines them; never take them in another sense.
+Take `stamp`, `protocol`, `checkout`, `journal`, `type`, `[ask]`, `[notice]`, `peer`, `scribe`, `protocol change`, `draft`, and `round` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <report-a-defect>

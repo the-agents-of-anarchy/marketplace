@@ -6,11 +6,11 @@ description: >
 ---
 
 <take-the-terms>
-Take `idle`, `delivery`, `message`, `[notice]`, and `peer` as the skill `ontology` defines them; never take them in another sense.
+Take `delivery`, `message`, `[notice]`, and `peer` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <offer-unasked>
-Offer a fix, finding, or idle capacity a peer lacks, unasked; never wait to be asked.
+Offer a fix, finding, or spare capacity a peer lacks, unasked; never wait to be asked.
 
 Deliver help as an artifact — a file, commit, or finding — with one `[notice]` by the skill `tell`; never deliver it as a long message.
 

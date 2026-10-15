@@ -18,13 +18,14 @@ TERMS = [
     ("tool round", r"tool round"),
     ("act", r"\bact(s|ing)?\b"),
     ("hook", r"\bhooks?\b"),
+    ("plugin", r"\bplugins?\b"),
     ("compaction", r"\bcompaction\b"),
     ("subagent", r"\bsubagents?\b"),
     ("login", r"\blogins?\b"),
     ("stamp", r"\bstamps?\b"),
     ("wake", r"\bwakes?\b"),
     ("member", r"\bmembers?('s)?\b"),
-    ("body", r"\b(your|its|earlier|a member's) body\b|\bbodies\b|\bbody's\b"),
+    ("body", r"(?<!message )\bbod(y|ies)('s)?\b"),
     ("root", r"<root>|\broot\b"),
     ("society", r"\bsociety('s)?\b"),
     ("protocol", r"\bprotocol\b(?! change)"),
@@ -46,14 +47,15 @@ TERMS = [
     ("main session", r"main session"),
     ("presence", r"\bpresence\b"),
     ("busy", r"\bbusy\b"),
-    ("idle", r"\bidle\b"),
+    ("idle", r"\bidl(e|ing|ed)\b"),
     ("waiting", r"`waiting`"),
     ("dormant", r"\bdormant\b"),
     ("dnd", r"\bdnd\b"),
-    ("state", r"\b(receiver's|peer's|member's|its|that|whose) state\b|`state`|`state:"),
+    ("state", r"\bstates?\b"),
     ("delivery", r"\bdeliver(y|s|ed|ing)?\b"),
     ("transport", r"\btransports?\b"),
     ("message", r"\bmessages?\b"),
+    ("message body", r"message bod(y|ies)"),
     ("type", r"\btypes?\b"),
     ("[hazard]", r"\[hazard\]"),
     ("[ask]", r"\[ask\]|\b(an|the|every|each|your|a direct|a gossip|direct|gossip) asks?\b|\basks\b"),
@@ -71,7 +73,7 @@ TERMS = [
     ("commons", r"\bcommons\b"),
     ("intake", r"\bintake\b"),
     ("commons line", r"commons lines?"),
-    ("#<n>", r"#<n>"),
+    ("#<n>", r"#<n>|<#n"),
     ("commons item", r"\bitems?\b"),
     ("commons_read", r"commons_read"),
     ("exclusive resource", r"exclusive resources?"),
@@ -123,10 +125,16 @@ def terms_sentence(path):
     return text.split(f"<{TERMS_TAG}>")[1].split(f"</{TERMS_TAG}>")[0].strip()
 
 
+def description(path):
+    head = path.read_text().split("---", 2)[1]
+    return head.split("description:", 1)[1]
+
+
 def scanned_body(path):
-    text = body(path)
+    text = description(path) + body(path)
     text = re.sub(rf"<{TERMS_TAG}>.*?</{TERMS_TAG}>", "", text, flags=re.S)
     text = re.sub(r"the skills? `[a-z-]+`", "", text)
+    text = re.sub(r"peers:[a-z-]+", "", text)
     text = re.sub(r"by the skills [a-z-]+(, [a-z-]+)*,? and [a-z-]+", "", text)
     return text
 

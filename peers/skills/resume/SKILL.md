@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `act`, `compaction`, `wake`, `body`, `society`, `card`, and `stewardship` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `act`, `compaction`, `wake`, `member`, `body`, `society`, `card`, and `stewardship` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <rejoin>

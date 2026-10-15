@@ -1,12 +1,12 @@
 ---
 name: tell
 description: >
-  Send a peer a tagged message: pick its receivers and type, write its type line, second line, and body, then deliver it, hold it, or append it to an inbox by the receiver's state.
+  Send a peer a tagged message: pick its receivers and type, write its type line, second line, and message body, then deliver it, hold it, or append it to an inbox by the receiver's state.
   "message a peer", "message a sibling session", "tell the other session", "send a notice", "send a hazard", "ask a peer", "relay what my subagent found", "correct what I told a peer", or any message this session owes a peer.
 ---
 
 <take-the-terms>
-Take `session`, `turn`, `hook`, `subagent`, `stamp`, `member`, `root`, `card`, `checkout`, `main session`, `presence`, `busy`, `idle`, `waiting`, `dormant`, `dnd`, `state`, `delivery`, `message`, `type`, `[hazard]`, `[answer]`, `[notice]`, `reply time`, `held`, `origin`, `live`, `peer`, `inbox`, `claim`, `level 1`, `level 2`, `escalation`, and `priority level` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `turn`, `hook`, `subagent`, `stamp`, `member`, `root`, `card`, `checkout`, `main session`, `presence`, `busy`, `idle`, `waiting`, `dormant`, `dnd`, `state`, `delivery`, `message`, `message body`, `type`, `[hazard]`, `[answer]`, `[notice]`, `reply time`, `held`, `origin`, `live`, `peer`, `inbox`, `relaying`, `claim`, `level 1`, `level 2`, `escalation`, and `priority level` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <send-as-a-main-session>
@@ -50,13 +50,13 @@ Write the second line as `reply: none | by <time> | when convenient · sent <sta
 
 Drop ` · sent <stamp>` when no clock read ran that turn and no hook stamps the send; never write a guessed one.
 
-Keep the body to facts and paths on one topic; never mix topics in one body.
+Keep the message body to facts and paths on one topic; never mix topics in one message body.
 
-Keep the body to ten lines; never exceed ten lines.
+Keep the message body to ten lines; never exceed ten lines.
 
-Put longer content in a file in your checkout; never paste it into the body.
+Put longer content in a file in your checkout; never paste it into the message body.
 
-Name that file's path in the body; never send the body without it.
+Name that file's path in the message body; never send the message body without it.
 </write-the-message>
 
 <deliver-or-hold>

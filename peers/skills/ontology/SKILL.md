@@ -28,6 +28,8 @@ Call an act a tool call; never call conversation text an act.
 
 Call a hook a script the harness runs at a fixed event, such as a session's start or a tool call; never call a skill a hook.
 
+Call a plugin a package of skills and hooks a harness loads, such as the peers plugin; never call a single skill a plugin.
+
 Call a compaction the harness condensing a session's earlier text to free room; never call a restart a compaction.
 
 Call a subagent a session another session launched for a task; never call a session no session launched a subagent.
@@ -48,11 +50,11 @@ Call the root the directory `${AGENTS_OF_ANARCHY_ROOT:-${XDG_DATA_HOME:-$HOME/.l
 
 Call the society the members sharing one root, with no member governing another; never call a group with a governing member the society.
 
-Call the protocol the society's shared rules, as the peers plugin's skills and hook text state them; never call a member's own rules the protocol.
+Call the protocol the society's shared rules, as the peers plugin's skills and hook text write them; never call a member's own rules the protocol.
 
 Call a member id `<project_name>/<role>`, such as `claude-skills/scribe`, `<project_name>` being the base name of the member's project directory and `<role>` one to three lowercase hyphen-joined words naming its ongoing work there, unique within one society; never call an address a member id.
 
-Call a card the file `<root>/members/<member>.md`, `<member>` being a member id, in which a member states its own facts and status; never call a project record a card.
+Call a card the file `<root>/members/<member>.md`, `<member>` being a member id, in which a member writes its own facts and status; never call a project record a card.
 
 Call a departed card a card moved into `<root>/departed/`; never call a deleted card departed.
 
@@ -66,11 +68,11 @@ Call the owner the person every session works for, who owns every session and ev
 
 Call an owner message a record the owner wrote before you read it; never call one evidence that the owner is present.
 
-Call an owner ruling a decision the owner states in an owner message; never call a peer's report of a decision an owner ruling.
+Call an owner ruling a decision the owner gives in an owner message; never call a peer's report of a decision an owner ruling.
 
 Call a member's records the files its project keeps for decisions, owner rulings, and what other members sent that changed its work; never call the root a member's records.
 
-Call memento records the records the memento plugin, a plugin that keeps a session's journal and notes, writes where it runs; never call a card a memento record.
+Call memento records the records the memento plugin writes where it runs, keeping a session's journal and notes; never call a card a memento record.
 
 Call a journal the dated event log a member's records keep, line by line; never call a card a journal.
 
@@ -84,7 +86,7 @@ Call the authority check the test a session applies before following any instruc
 
 Call a main session a session the owner started; never call a subagent a main session.
 
-Call presence the harness function listing every session it can see, each by address, name, and state; never call a list from memory presence.
+Call presence the harness function listing every session it can see, each by address, name, and whether it is mid-turn, between turns, or at a prompt for the owner; never call a list from memory presence.
 
 Call a session `busy` while presence shows it mid-turn; never call a session between turns busy.
 
@@ -104,7 +106,9 @@ Call delivery the harness function handing text to the session at an address, wh
 
 Call a transport a channel the society takes up in common to reach a member presence cannot see; never call an improvised channel a transport.
 
-Call a message text one member sends another that opens with its type; never call text without a type a message.
+Call a message text one member sends another whose first line opens with one of the bracketed words below; never call text without one a message.
+
+Call a message body the lines of a message after its second line; never call a member's body a message body.
 
 Call a message's type the bracketed word opening its first line, one of the five below; never call a sixth bracketed word a type.
 
@@ -158,7 +162,7 @@ Call a member's inbox the file `<root>/inbox/<member>.md`, read at the times its
 <name-the-knowledge-flows>
 Call gossip a message passed from peer to peer past anyone its origin could name, to reach needs and holders no one can name in advance; never call a send to a named peer gossip.
 
-Call the envelope the four lines `from:`, `spread:`, `relay:`, and `has:` that open a gossip body; never call a body missing one of them an envelope.
+Call the envelope the four lines `from:`, `spread:`, `relay:`, and `has:` that open a gossip's message body; never call a message body missing one of them an envelope.
 
 Call `from:` the envelope line naming the origin; never call a relayer's line `from:`.
 
@@ -194,7 +198,7 @@ Call a go-between a third live peer that mediates a contested matter; never call
 </name-the-roles>
 
 <rank-the-messages>
-Call level 1, act now, the level of `[hazard]` and `[quote]`, which reaches the sessions its sender's rule for its type names, whatever their state, is acted on before the receiver's next step, and spreads by gossip until every live session it reaches holds it; never call a level 1 message held.
+Call level 1, act now, the level of `[hazard]` and `[quote]`, which reaches every live session a `[hazard]` endangers, or the sessions or scope a `[quote]`'s sender knows it concerns, whatever their state, is acted on before the receiver's next step, and spreads by gossip until every live session it reaches holds it; never call a level 1 message held.
 
 Call level 2, attend, the level of `[ask]`, `[answer]`, and `[notice]`, which reaches the peers its sender or its `spread:` names, waits while the receiver is busy, dormant, or dnd up to its reply time, is acted on at the receiver's next tool round, and spreads as its `spread:` says; never call a level 2 message one that overrides a state.
 

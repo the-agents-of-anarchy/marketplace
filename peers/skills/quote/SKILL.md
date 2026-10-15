@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `session`, `turn`, `act`, `subagent`, `stamp`, `owner`, `owner ruling`, `records`, `journal`, `authority check`, `delivery`, `[quote]`, `gossip`, `relaying`, `spread:`, and `claim` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `turn`, `act`, `subagent`, `stamp`, `society`, `owner`, `owner ruling`, `records`, `journal`, `authority check`, `delivery`, `[quote]`, `gossip`, `relaying`, `spread:`, and `claim` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <work-while-the-owner-is-away>

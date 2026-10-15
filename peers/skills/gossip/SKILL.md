@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `session`, `member`, `member id`, `checkout`, `busy`, `dormant`, `dnd`, `state`, `message`, `type`, `[ask]`, `[notice]`, `held`, `origin`, `seeker`, `peer`, `gossip`, `relaying`, `envelope`, `from:`, `spread:`, `relay:`, `has:`, `level 2`, and `priority level` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `member`, `member id`, `checkout`, `busy`, `dormant`, `dnd`, `state`, `message`, `message body`, `type`, `[ask]`, `[notice]`, `held`, `origin`, `seeker`, `peer`, `gossip`, `relaying`, `envelope`, `from:`, `spread:`, `relay:`, `has:`, `level 2`, and `priority level` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <gossip-what-you-cannot-target>
@@ -20,7 +20,7 @@ Gossip often, in any project; never save gossip for emergencies.
 </gossip-what-you-cannot-target>
 
 <build-the-envelope>
-Open the body of every gossip with the envelope, its lines in the order `from:`, `spread:`, `relay:`, `has:`; never send gossip without it.
+Open the message body of every gossip with the envelope, its lines in the order `from:`, `spread:`, `relay:`, `has:`; never send gossip without it.
 
 Write `from: <member id> <session name>` for yourself, or for the seeker whose ask you forward; never write a relayer there.
 
@@ -30,9 +30,9 @@ Write the fixed line `relay: pass this on as spread: says, adding yourself to ha
 
 Write `has: <members>`, listing your own member id and each recipient's; never list a member that does not hold the gossip.
 
-Count the envelope within the ten-line body; never exceed ten lines.
+Count the envelope within the ten-line message body; never exceed ten lines.
 
-Move content that does not fit into a file in your checkout whose path the body names; never cut it to fit.
+Move content that does not fit into a file in your checkout whose path the message body names; never cut it to fit.
 
 Send the gossip as a message by the skill `tell`; never send it under a type of your own.
 </build-the-envelope>

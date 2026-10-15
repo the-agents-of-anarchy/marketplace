@@ -2,15 +2,15 @@
 name: scribe
 description: >
   Serve as the scribe, the steward of the protocol text, from taking the stewardship `protocol` through circulating drafts, running rounds, and shipping what the society consents to, to handing the stewardship on.
-  "I am the scribe", "take the scribe role", "circulate a protocol draft", "ship the protocol", "bump the protocol version", "the scribe is leaving", a claim on the stewardship `protocol`, or an enacted protocol draft to ship.
+  "I am the scribe", "take the scribe role", "circulate a protocol draft", "ship the protocol", "bump the protocol version", "the scribe is leaving", a member taking up the stewardship `protocol`, or an enacted protocol draft to ship.
 ---
 
 <take-the-terms>
-Take `turn`, `hook`, `member`, `protocol`, `card`, `checkout`, `owner`, `bringing a matter to the owner`, `[ask]`, `[notice]`, `reply time`, `live`, `peer`, `stewardship`, `scribe`, `pointer`, `change line`, `draft`, `round`, `enacted`, `separating`, and `shipping` as the skill `ontology` defines them; never take them in another sense.
+Take `turn`, `hook`, `plugin`, `member`, `society`, `protocol`, `card`, `checkout`, `owner`, `bringing a matter to the owner`, `[ask]`, `[notice]`, `reply time`, `leave notice`, `live`, `gone`, `peer`, `stewardship`, `steward`, `open stewardship`, `scribe`, `pointer`, `change line`, `draft`, `round`, `enacted`, `separating`, and `shipping` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <take-the-stewardship>
-Take up the stewardship `protocol` once the scribe departs, as any live peer, by card edit and `[notice]` to every live peer; never take it while the scribe is live.
+Take up the stewardship `protocol` once the scribe is gone, as any live peer, by card edit and `[notice]` to every live peer; never take it while the scribe is live.
 
 Hold the stewardship `protocol` as a stewardship like any other; never hold it as an office above the peers.
 </take-the-stewardship>
@@ -50,11 +50,11 @@ Bring the owner a card outside a separated project whose `protocol` stays below 
 </ship-the-outcome>
 
 <hand-on-the-stewardship>
-Leave as the scribe with one `[notice] leaving` to every live peer that releases the stewardship `protocol` and lists pending requests with their paths; never leave silently.
+Leave as the scribe with one leave notice to every live peer that releases the stewardship `protocol` and lists pending requests with their paths; never leave silently.
 
-Follow the last shipped version while the stewardship `protocol` stands open; never edit the protocol meanwhile.
+Follow the last shipped version while the stewardship `protocol` is an open stewardship; never edit the protocol meanwhile.
 
-Hold requests as files in your checkout while the stewardship `protocol` stands open; never drop one.
+Hold requests as files in your checkout while the stewardship `protocol` is an open stewardship; never drop one.
 
 Re-send pending requests to the new scribe once its claim arrives; never drop one.
 </hand-on-the-stewardship>

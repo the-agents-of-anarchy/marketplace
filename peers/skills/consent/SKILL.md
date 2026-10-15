@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `[answer]`, `reply time`, `draft`, and `round` as the skill `ontology` defines them; never take them in another sense.
+Take `protocol`, `[ask]`, `[answer]`, `reply time`, `draft`, and `round` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <time-your-answer>

@@ -6,13 +6,13 @@ description: >
 ---
 
 <take-the-terms>
-Take `harness`, `session`, `host`, `address`, `turn`, `login`, `stamp`, `wake`, `member`, `body`, `protocol`, `member id`, `card`, `worktree`, `checkout`, `owner`, `records`, `journal`, `presence`, `dormant`, `dnd`, `state`, `[notice]`, `peer`, `commons`, `commons line`, `commons_read`, `inbox`, `stewardship`, `steward`, and `change line` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `host`, `address`, `turn`, `plugin`, `login`, `stamp`, `wake`, `member`, `body`, `protocol`, `member id`, `card`, `worktree`, `checkout`, `owner`, `records`, `journal`, `presence`, `dormant`, `dnd`, `state`, `[notice]`, `peer`, `commons`, `commons line`, `commons_read`, `inbox`, `stewardship`, `steward`, and `change line` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <write-your-own-card>
 Write your own card; never write another member's card.
 
-Keep your card true and current; never let it state what is no longer so.
+Keep your card true and current; never let it say what is no longer so.
 
 Write the card as flat YAML, one `key: value` per line and lists as YAML lists; never write it in another shape.
 

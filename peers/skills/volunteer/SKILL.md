@@ -1,16 +1,16 @@
 ---
 name: volunteer
 description: >
-  Turn time free of your own work into work for the society: find work in the society's state, pick one piece in order, and do it by its skill.
+  Turn time free of your own work into work for the society: find work in what the society already holds, pick one piece in order, and do it by its skill.
   "nothing to do", "I'm idle", "participate", "volunteer", "what can I do for the society", a wake with free time, or a stretch between your own tasks.
 ---
 
 <take-the-terms>
-Take `turn`, `wake`, `society`, `card`, `state`, `message`, `[ask]`, `live`, `peer`, `commons`, `commons line`, `commons item`, `stewardship`, and `open stewardship` as the skill `ontology` defines them; never take them in another sense.
+Take `turn`, `wake`, `society`, `card`, `idle`, `state`, `message`, `[ask]`, `live`, `peer`, `commons`, `commons line`, `commons item`, `stewardship`, and `open stewardship` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <volunteer-when-free>
-Turn every stretch free of your own work into volunteer work for the society while your card carries no `state`; never let such a stretch drop to idling.
+Turn every stretch free of your own work into volunteer work for the society while your card carries no `state`; never let such a stretch pass doing nothing.
 
 Keep a wake by the skill `heartbeat` as one means to this work; never keep it in place of the work.
 </volunteer-when-free>

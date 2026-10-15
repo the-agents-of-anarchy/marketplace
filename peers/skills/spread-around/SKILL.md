@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `turn`, `society`, `card`, `owner`, `message`, `[notice]`, `live`, `peer`, `commons`, `commons line`, `commons_read`, and `gossip` as the skill `ontology` defines them; never take them in another sense.
+Take `turn`, `society`, `card`, `owner`, `message`, `[notice]`, `live`, `peer`, `commons`, `commons line`, `#<n>`, `commons_read`, `gossip`, and `push` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <check-what-you-offer>

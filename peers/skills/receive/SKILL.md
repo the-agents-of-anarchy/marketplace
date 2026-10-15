@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `act`, `member`, `card`, `message`, `[ask]`, `[answer]`, `[quote]`, `seeker`, `peer`, `commons`, `commons line`, `inbox`, `gossip`, `relaying`, `from:`, `spread:`, `relay:`, `has:`, `claim`, `level 1`, `priority level`, `acting on a level 1 message`, and `draft` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `act`, `member`, `card`, `message`, `[hazard]`, `[ask]`, `[answer]`, `[notice]`, `[quote]`, `seeker`, `peer`, `commons`, `commons line`, `inbox`, `gossip`, `relaying`, `from:`, `spread:`, `relay:`, `has:`, `claim`, `level 1`, `priority level`, `acting on a level 1 message`, and `draft` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <read-what-arrives>

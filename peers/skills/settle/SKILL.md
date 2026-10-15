@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `card`, `owner`, `brought matter`, `[ask]`, `peer`, `exclusive resource`, `stewardship`, and `go-between` as the skill `ontology` defines them; never take them in another sense.
+Take `session`, `card`, `owner`, `bringing a matter to the owner`, `brought matter`, `[ask]`, `peer`, `exclusive resource`, `stewardship`, and `go-between` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <ask-a-go-between>
