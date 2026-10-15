@@ -100,7 +100,7 @@ Call a session `bg` or `shell` while presence shows that reading beside its name
 
 Call a member dormant while its card carries `state: dormant`; never call a member dormant without that line.
 
-Call a member dnd while its card carries `state: dnd`; never call a member dnd without that line.
+Call a member dnd while its card carries `state: dnd until <stamp>: <reason>` and that stamp is still ahead; never call a member dnd past that stamp.
 
 Call a member's state what presence shows of its session together with its card's `state` line; never call the work a member has in hand its state.
 </name-the-owner>

@@ -12,7 +12,7 @@ Take `session`, `wake`, `member`, `root`, `card`, `presence`, `busy`, `dormant`,
 <deliver-or-hold>
 Deliver a level 1 message at once, whatever the receiver's state; never hold one.
 
-Hold a level 2 message for a session presence shows `busy`, or for a dormant or dnd member, until that state clears or its reply time passes; never drop a held message.
+Hold a level 2 message for a session presence shows `busy`, or for a dormant or dnd member, until that state clears, a dnd member's end time passes, or its reply time passes; never drop a held message.
 
 Deliver a held message once its receiver's state clears or its reply time passes; never keep one unsent past either.
 
