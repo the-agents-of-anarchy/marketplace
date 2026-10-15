@@ -50,7 +50,7 @@ Set the spread as the originator in `spread: <free text>`, naming any reach, fan
 
 Write the fixed line `relay: pass this on as spread: says, adding yourself to has: first; if you hold what it seeks or it changes your work, reach from: directly.`; never alter it.
 
-Write `has: <members>` with your own member id and each recipient's; never omit it.
+Write `has: <members>` with your own member id, each recipient's, and every member you know to be `dormant` or `dnd`; never omit it.
 
 Count the envelope within the ten-line body, moving content that does not fit to a file in your own tree named by its path; never exceed ten lines.
 </build-the-envelope>
@@ -63,6 +63,12 @@ Read a gossip with no `spread:` line as asking each receiver to pass it to at le
 Pick the recipients by any means, your own judgment of fit included or left out; never add a constraint of your own to the originator's.
 
 Add yourself to `has:` before you pass a gossip on, and each recipient as you send; never pass it to a member already on `has:`.
+
+Hold a relay for a member whose card reads `state: dormant` or `state: dnd`, or whom presence shows `busy`, until that state clears, by the skill `join`; never relay to such a member meanwhile.
+
+Read `has:` as local to the path a copy travelled, so copies of one gossip may reach you by several paths; never take a second copy for a new gossip.
+
+Relay and answer a gossip once, however many copies reach you; never relay or answer a copy of one you already hold.
 
 Keep `from:`, `spread:`, and `relay:` as the originator wrote them; never change them.
 
