@@ -50,8 +50,8 @@ def body(path):
     return path.read_text().split("---", 2)[2]
 
 
-def test_join_states_protocol_9_4():
-    assert "This skill is peer protocol 9.4." in JOIN.read_text()
+def test_join_states_protocol_10():
+    assert "This skill is peer protocol 10." in JOIN.read_text()
 
 
 def test_claude_code_terms_live_only_in_the_one_mapping_tag():
