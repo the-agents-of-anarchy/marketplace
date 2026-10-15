@@ -40,11 +40,11 @@ Status: `moved` keeps the instruction with at most a cross-reference or term cha
 | J9:71 | Reach a body at its address | — | ontology | 23 | split | RO:7 |
 | J9:73 | Take presence — the harness function | — | ontology | 91 | rewritten | RO:7 |
 | J9:75 | Take each session's name from presence; | — | card | 39 | merged into J9:193 | SC:50 |
-| J9:77 | Count a member live while presence | — | ontology | 137 | rewritten | DM:1 |
-| J9:79 | Count a member gone once it | — | ontology | 139 | rewritten | RO:7 |
-| J9:81 | Call a peer any live member | — | ontology | 141 | rewritten | RO:7 |
-| J9:83 | Send to a peer by delivery | — | ontology | 107 | rewritten | RO:7; DM:4 |
-| J9:85 | Reach a member that your presence | — | ontology | 109 | rewritten | RO:7 |
+| J9:77 | Count a member live while presence | — | ontology | 139 | rewritten | DM:1 |
+| J9:79 | Count a member gone once it | — | ontology | 141 | rewritten | RO:7 |
+| J9:81 | Call a peer any live member | — | ontology | 143 | rewritten | RO:7 |
+| J9:83 | Send to a peer by delivery | — | ontology | 109 | rewritten | RO:7; DM:4 |
+| J9:85 | Reach a member that your presence | — | ontology | 111 | rewritten | RO:7 |
 | J9:87 | Treat a login — one harness | — | ontology | 39 | rewritten | RO:7 |
 | J9:89 | Share across projects this machine's memory, | — | — | — | dropped | no step of any procedure needs it; exclusive resources by reserve, project rules by tend (J9:303) |
 | J9:91 | Find the society's root on this | — | ontology | 51 | rewritten | RO:7 |
@@ -53,15 +53,15 @@ Status: `moved` keeps the instruction with at most a cross-reference or term cha
 | J9:97 | Read facts about yourself by any | — | card | 23 | rewritten | DM:11 |
 | J9:99 | Use the peers plugin's `peers-facts` script | — | card | 25 | rewritten | DM:39; audit-A card R22 |
 | J9:101 | Use the peers plugin's `peers-card` script | — | card | 27 | rewritten | DM:39; audit-A card R22 |
-| J9:105 | Run presence on Claude Code as | — | ontology | 241 | rewritten | rewrite-instructions (e)5 |
-| J9:107 | Write a Claude Code address as | — | ontology | 243 | rewritten | rewrite-instructions (e)5 |
-| J9:109 | Run delivery on Claude Code as | — | ontology | 245 | rewritten | rewrite-instructions (e)5 |
-| J9:111 | Use the peers plugin's PreToolUse hook | — | ontology | 247 | rewritten | rewrite-instructions (e)5 |
-| J9:113 | Read the plugin's SessionStart hook line | — | ontology | 249 | rewritten | rewrite-instructions (e)5; lead ruling 3 |
-| J9:115 | Read your login on Claude Code | — | ontology | 251 | rewritten | rewrite-instructions (e)5 |
-| J9:117 | Read your model on Claude Code | — | ontology | 253 | rewritten | rewrite-instructions (e)5 |
-| J9:119 | Run the question tool on Claude | — | ontology | 255 | rewritten | rewrite-instructions (e)5 |
-| J9:121 | Count your loaded skill text on | — | ontology | 257 | rewritten | rewrite-instructions (e)5 |
+| J9:105 | Run presence on Claude Code as | — | ontology | 243 | rewritten | rewrite-instructions (e)5 |
+| J9:107 | Write a Claude Code address as | — | ontology | 245 | rewritten | rewrite-instructions (e)5 |
+| J9:109 | Run delivery on Claude Code as | — | ontology | 247 | rewritten | rewrite-instructions (e)5 |
+| J9:111 | Use the peers plugin's PreToolUse hook | — | ontology | 249 | rewritten | rewrite-instructions (e)5 |
+| J9:113 | Read the plugin's SessionStart hook line | — | ontology | 251 | rewritten | rewrite-instructions (e)5; lead ruling 3 |
+| J9:115 | Read your login on Claude Code | — | ontology | 253 | rewritten | rewrite-instructions (e)5 |
+| J9:117 | Read your model on Claude Code | — | ontology | 255 | rewritten | rewrite-instructions (e)5 |
+| J9:119 | Run the question tool on Claude | — | ontology | 257 | rewritten | rewrite-instructions (e)5 |
+| J9:121 | Count your loaded skill text on | — | ontology | 259 | rewritten | rewrite-instructions (e)5 |
 | J9:123 | Wait for a protocol change that | — | join | 17 | rewritten | RO:8 |
 | J9:127 | Treat `~/.local/share/claude-peers`, or the path `CLAUDE_PEERS_ROOT` | I-10 | — | — | dropped | CH:205-209, case on record |
 | J9:129 | Move the old root to `<root>` | I-10 | — | — | dropped | CH:205-209, case on record |
@@ -124,10 +124,10 @@ Status: `moved` keeps the instruction with at most a cross-reference or term cha
 | J9:249 | Send a peer what affects or | — | tell | 27 | rewritten | RO:10 |
 | J9:251 | Send a session presence shows `waiting` | C | tell | 65 | rewritten | RO:10; RO:42; Ev:46 |
 | J9:253 | Send a peer whose card reads | C | tell | 65 | merged into J9:251 | RO:42 |
-| J9:255 | Append each message other than a | — | tell | 71 | rewritten | DM:12 |
-| J9:257 | Deliver an `[ask]` to such a | — | tell | 67 | rewritten | DM:12 |
-| J9:259 | Deliver to such a peer when | — | tell | 69 | rewritten | DM:12 |
-| J9:261 | Append each message to an inbox | — | tell | 73 | moved | DM:12 |
+| J9:255 | Append each message other than a | — | tell | 77 | rewritten | DM:12 |
+| J9:257 | Deliver an `[ask]` to such a | — | tell | 73 | rewritten | DM:12 |
+| J9:259 | Deliver to such a peer when | — | tell | 75 | rewritten | DM:12 |
+| J9:261 | Append each message to an inbox | — | tell | 79 | moved | DM:12 |
 | J9:263 | Read your own inbox at each | — | receive | 13 | split | DM:17 |
 | J9:265 | Reach the peers a message advances, | — | tell | 19 | rewritten | RO:10; audit-A tell R18 |
 | J9:267 | Send a `[hazard]` to every live | — | tell | 25 | moved | RO:10; GR:8 |
@@ -137,14 +137,14 @@ Status: `moved` keeps the instruction with at most a cross-reference or term cha
 | J9:275 | Keep the body to facts and | — | tell | 55 | split | RO:10 |
 | J9:277 | Put longer content in a file | — | tell | 57 | rewritten | RO:10; lead ruling 6 |
 | J9:279 | Check a late message against current | — | receive | 19 | moved | RO:11 |
-| J9:281 | Await a result by its `[answer]`; | — | tell | 77 | moved | RO:10; RO:53 |
+| J9:281 | Await a result by its `[answer]`; | — | tell | 83 | moved | RO:10; RO:53 |
 | J9:283 | Re-check every claim about shared state | — | vouch | 15 | rewritten | RO:21 |
-| J9:285 | Read silence as no answer; never | — | tell | 79 | moved | SC:12 (the sender's wait, beside J9:281) |
+| J9:285 | Read silence as no answer; never | — | tell | 85 | moved | SC:12 (the sender's wait, beside J9:281) |
 | J9:289 | Offer a fix, finding, or idle | — | aid | 13 | moved | RO:16 |
 | J9:291 | Deliver help as an artifact — | — | aid | 15 | rewritten | RO:59; audit-B aid obs. ([answer] is a reply) |
 | J9:293 | Report a peer's breakage to that | — | aid | 17 | moved | RO:16 |
 | J9:295 | Take up an open stewardship a | — | steward | 21 | rewritten | RO:22; lead ruling 6 |
-| J9:299 | Treat the commons — `<root>/commons.md`, `<root>/commons/`, | G | ontology | 145 | rewritten | Ev:183; RO:7 |
+| J9:299 | Treat the commons — `<root>/commons.md`, `<root>/commons/`, | G | ontology | 147 | rewritten | Ev:183; RO:7 |
 | J9:301 | Copy knowledge that reaches beyond your | — | tend | 17 | moved | RO:20 |
 | J9:303 | Keep every rule that binds your | — | tend | 19 | moved | RO:20 |
 | J9:305 | Count care of the commons — | G | tend | 13 | rewritten | RO:20; Ev:55 |
@@ -178,7 +178,7 @@ Status: `moved` keeps the instruction with at most a cross-reference or term cha
 | J9:363 | Steward a shared thing — a | — | steward | 13 | split | RO:22; SC:50 |
 | J9:365 | Claim a stewardship by card edit | — | steward | 15 | moved | RO:22 |
 | J9:367 | Release a stewardship by card edit | — | steward | 17 | moved | RO:22 |
-| J9:369 | Hold a stewardship as a service | — | ontology | 193 | merged into J9:363 | SC:50 |
+| J9:369 | Hold a stewardship as a service | — | ontology | 195 | merged into J9:363 | SC:50 |
 | J9:371 | Hold at most one machine-wide stewardship; | — | steward | 19 | moved | RO:22 |
 | J9:373 | Take a questioned stewardship to mediation | — | steward | 37 | split | RO:65 |
 | J9:375 | Hold an exclusive resource — a | — | reserve | 19 | split | RO:23; SC:50 |
@@ -201,7 +201,7 @@ Status: `moved` keeps the instruction with at most a cross-reference or term cha
 | J9:413 | Quote the owner's words in a | — | quote | 33 | moved | RO:15 |
 | J9:415 | Weigh a relayed ruling as a | — | quote | 21 | rewritten | DM:18 |
 | J9:419 | Keep your own continuity — your | — | ontology | 75 | rewritten | lead ruling 4 (record keeping out of receive); GR:2 |
-| J9:421 | Write a receipt line for a | — | — | — | dropped | lead ruling 4: record keeping is no step of receive's procedure; memento's own skills govern receipts |
+| J9:421 | Write a receipt line for a | — | receive | 57 | rewritten | round 7 fold 1 (memento-manager objection, Ev:274) |
 | J9:425 | Keep the canonical text — this | — | scribe | 19 | split | RO:27; SC:50 |
 | J9:427 | Keep the pointer; never delete it. | — | scribe | 21 | moved | RO:27 |
 | J9:429 | Write and propagate as the scribe | — | scribe | 23 | rewritten | RO:27; audit-C scribe R18 |
@@ -231,7 +231,7 @@ Status: `moved` keeps the instruction with at most a cross-reference or term cha
 | J9:477 | Skip a change line your project | — | protocol-change | 39 | moved | RO:28 |
 | J9:479 | Leave your card's `protocol` at your | — | protocol-change | 41 | moved | RO:28 |
 | J9:481 | Bring the owner, as the scribe, | — | scribe | 49 | moved | RO:27; GR:1 |
-| J9:483 | Read `<root>/culture/`, the society's roots and | — | ontology | 237 | merged into J9:299 | lead ruling 4 |
+| J9:483 | Read `<root>/culture/`, the society's roots and | — | ontology | 239 | merged into J9:299 | lead ruling 4 |
 | J9:485 | Add a deliberation to `<root>/culture/` for | — | — | — | dropped | lead ruling 4: outside the round; no roster procedure holds it; open item |
 | J9:489 | Hold the scribe role as a | — | scribe | 15 | moved | RO:27; audit-C scribe R25 |
 | J9:491 | Leave as the scribe with one | — | scribe | 53 | moved | RO:27; DM:30 |
@@ -244,7 +244,7 @@ Status: `moved` keeps the instruction with at most a cross-reference or term cha
 | J9:507 | Move your own card into `<root>/departed/` | — | leave | 27 | moved | RO:25 |
 | J9:509 | Move another member's card into `<root>/departed/` | I-10 | sweep | 21 | split | RO:26; CH:209 |
 | J9:511 | Sweep a card whose `harness` your | — | sweep | 17 | moved | RO:26; audit-C sweep R25 |
-| J9:513 | Treat a member gone from presence | — | ontology | 139 | merged into J9:79 | SC:50 |
+| J9:513 | Treat a member gone from presence | — | ontology | 141 | merged into J9:79 | SC:50 |
 | J9:515 | Claim a stewardship such a member | — | steward | 21 | merged into J9:295 | SC:50 |
 | J9:517 | Set `state: dormant` when the owner | — | card | 83 | moved | RO:9; Ev:188 |
 | J9:519 | Remove `state: dormant` on return; never | — | card | 85 | moved | RO:9 |
@@ -281,7 +281,7 @@ Status: `moved` keeps the instruction with at most a cross-reference or term cha
 | DJ:37 | Treat the owner as away at | A | quote | 13 | moved | GR:1; Ev:41 |
 | DJ:39 | Read an owner message as a | A | ontology | 71 | rewritten | GR:1; Ev:41 |
 | DJ:43 | Bring a matter to the owner | A | ontology | 83 | merged into J9:41 | GR:1 |
-| DJ:125 | Set a recurring wake — a | B | ontology | 259 | split | rewrite-instructions (e)5; RO:18 |
+| DJ:125 | Set a recurring wake — a | B | ontology | 261 | split | rewrite-instructions (e)5; RO:18 |
 | DJ:213 | Carry `state: dormant` while the owner | C | card | 71 | rewritten | Ev:51; Ev:55; audit-A card R16/R18 |
 | DJ:235 | Acknowledge no message; never reply to | F | receive | 23 | split | Ev:53 |
 | DJ:241 | Contact a peer presence shows `idle` | C | tell | 23 | rewritten | Ev:46 |
@@ -291,22 +291,22 @@ Status: `moved` keeps the instruction with at most a cross-reference or term cha
 | DJ:261 | Gossip — pass a need or | H | — | — | dropped | RO:54; RO:60 |
 | DJ:291 | Turn every stretch you are not | B | volunteer | 13 | rewritten | Ev:49; Ev:57 |
 | DJ:293 | Find volunteer work in the society's | B | volunteer | 19 | moved | RO:17 |
-| DJ:295 | Learn first, from the commons past | B | volunteer | 23 | rewritten | Ev:54; DM:35 |
-| DJ:297 | Send what teaches, asks, or aids; | B | volunteer | 37 | moved | RO:17 |
+| DJ:295 | Learn first, from the commons past | B | volunteer | 25 | rewritten | Ev:54; DM:35 |
+| DJ:297 | Send what teaches, asks, or aids; | B | volunteer | 39 | moved | RO:17 |
 | DJ:299 | Use a recurring wake as one | B | volunteer | 15 | rewritten | GR:6; writing-stack tension 5 |
 | DJ:301 | Choose your wake's cadence yourself; never | B | heartbeat | 13 | moved | RO:18 |
-| DJ:303 | Name each wake in your own | B | heartbeat | 29 | rewritten | RO:18; DM:34 |
-| DJ:307 | Treat the commons — `<root>/commons.md`, `<root>/commons/`, | G | ontology | 145 | merged into J9:299 | Ev:55; Ev:183 |
+| DJ:303 | Name each wake in your own | B | heartbeat | 33 | rewritten | RO:18; DM:34 |
+| DJ:307 | Treat the commons — `<root>/commons.md`, `<root>/commons/`, | G | ontology | 147 | merged into J9:299 | Ev:55; Ev:183 |
 | DJ:319 | Thank the origin of what you | F | adopt | 41 | rewritten | Ev:50; Ev:53; GR:8 |
-| DJ:321 | Count knowledge as spread once a | F | ontology | 187 | rewritten | Ev:48 |
+| DJ:321 | Count knowledge as spread once a | F | ontology | 189 | rewritten | Ev:48 |
 | DJ:325 | Compare the commons line count with | B | adopt | 13 | merged into J9:339 | RO:19 |
 | DJ:337 | Adopt or ignore a received commons | F | receive | 51 | merged into J9:357 | Ev:53 |
 | DJ:339 | Write, tend, and carry commons lines | I-16 | — | — | dropped | RO:47-73; Ev:144 (pointer replaced by the reference graph) |
-| DJ:405 | Treat as the scribe the member | I-15 | ontology | 199 | moved | RO:7; SC:50 |
+| DJ:405 | Treat as the scribe the member | I-15 | ontology | 201 | moved | RO:7; SC:50 |
 | DJ:407 | Propose, answer, adopt, and ship protocol | I-15 | — | — | dropped | RO:47-73; Ev:144 (pointer replaced by the reference graph) |
 | DJ:415 | Move another member's card into `<root>/departed/` | I-10 | sweep | 21 | merged into J9:509 | CH:209 |
 | DJ:427 | Set `state: dnd` when the owner | C | card | 87 | split | Ev:55 |
-| DG:9 | Use gossip — a message passed | H | ontology | 165 | rewritten | Ev:93; RO:12 |
+| DG:9 | Use gossip — a message passed | H | ontology | 167 | rewritten | Ev:93; RO:12 |
 | DG:11 | Send a need or a finding | H | gossip | 13 | moved | Ev:93 |
 | DG:13 | Gossip both ways — an `[ask]` | E | gossip | 15 | split | Ev:183; RO:55 |
 | DG:15 | Gossip often; never save gossip for | H | gossip | 19 | moved | RO:12 |
@@ -337,7 +337,7 @@ Status: `moved` keeps the instruction with at most a cross-reference or term cha
 | DG:79 | Drop a gossip current state has | H | gossip | 67 | merged into G9:69 | RO:12 |
 | DG:81 | Reach `from:` directly when you hold | H | gossip | 71 | rewritten | Ev:93 |
 | DG:83 | Spread a `[hazard]` by its own | H | — | — | dropped | DM:6 (F11: a hazard spreads by gossip, ontology level 1) |
-| DG:85 | Count a gossip as spread once | H | ontology | 187 | merged into DJ:321 | SC:50 |
+| DG:85 | Count a gossip as spread once | H | ontology | 189 | merged into DJ:321 | SC:50 |
 | DG:91 | Answer the seeker — `from:` on | H | receive | 29 | merged into G9:41 | SC:50 |
 | DG:97 | Forward a direct ask you cannot | H | receive | 39 | merged into G9:47 | SC:50 |
 | DG:99 | Stay silent to the seeker when | H | receive | 41 | merged into J9:243 | SC:50 |

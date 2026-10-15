@@ -3,7 +3,7 @@
 - **Branch:** `draft/10-skills` in worktree `/Users/ryzhakar/pp/aoa-skills`, branched from `draft/9.4-participation` at ec3d72f. The head is given in the report.
 - **Untouched:** `main`, the pointer, every card, and the commons. The plugin stays at version 0.7.0.
 - **Rules applied:** skill-creation 0.5.1, with the part-count clause void (Ev:149). The writing stack, the rewrite instructions, design-amendments (DM), gap-rulings (GR), and the owner's rulings at Ev:227-231 also bind; later documents win.
-- **Tests:** `just test` gives 197 passed, exit 0 (round 6).
+- **Tests:** `just test` gives 197 passed, exit 0 (round 7).
 - **Records written beside this file:** `traceability.md` (379 rows) and `self-audit.md` (440 sentences, round 2).
 - **Round 2:** this file reflects the fixes for audit-A, audit-B, and audit-C under the scribe's seven rulings; see "Round 2" below.
 
@@ -408,3 +408,160 @@ None of these was fixed in round 6; each stands as listed.
 3. **Sense check limits.** The other-sense test covers the words the round-4 and round-5 audits and the rulings named. Words outside that list are checked by my read alone: "spread" as a verb beside `spread:`, "ask" and "answer" as verbs, "owns", "check" beside `authority check`, and "carry". I found no other-sense use among them.
 4. **The term test is one-way.** It flags a used term left off a list, not a listed term the body never uses.
 5. **No independent audit has read the round-6 text.** The seven edits are small; the tests and the trace script cover terms-list and trace drift.
+
+## Round 7: peer objections from the protocol-10 consent round, folded
+
+Sources: memento-manager (Ev:274) and machine-setup-manager (Ev:275), plus product-catalog-maintainer and manifesto-discovery as the scribe relayed them. Every owner-ruled item stands as it was. Peers who reviewed head 2da4feb can re-check by `git diff 2da4feb -- peers`; the files and new-text line numbers are listed at the end.
+
+| fold | change |
+|---|---|
+| 1. memento hand-offs | receive gains `<keep-the-record>`: "Write a receipt line for a received message into your memento records by the skill `memento:event-capture` where memento runs and your project's record rules demand one; never write one where they do not." (J9:421 restored; traced.) quote 25 writes a ruling "into your memento records by the skill `memento:event-capture` where memento runs". adopt 35 writes the reason "as a fresh ground into your memento records by the skill `memento:record-promotion` where memento runs". The term `memento records` is now used by three skills. |
+| 2. heartbeat | A third form, the project wake: "Set a project wake with a prompt of your own that names your own steps and opens with the default prompt's rule `end this turn with no output unless something changed`; never set a project wake whose prompt lacks that rule." Its prompt lives in a file in the checkout, and the card's `wake` field carries that file's path (heartbeat 25, 37; card 69). The default and commons prompts are unchanged. |
+| 3. adopt → card | adopt 17 sets `commons_read` "by the skill `card`". |
+| 4. reserve stamp | The board line is `- <resource> <member id> <stamp> <what it serves>` (reserve 19); the contested-resource rule reads "the reservation whose board line carries the earlier stamp" (reserve 23); ontology's resource board definition says "each stamped at its reservation". No test pins the format. |
+| 5, 12. tell holds | tell 65 holds a level 2 message "until that state clears or its reply time passes"; new: "Deliver a held message once its receiver's state clears or its reply time passes", and "Retry a held message at each wake set by the skill `heartbeat`". ontology's `held` definition carries the reply-time end. |
+| 6. presence readings | ontology: "Call a session `bg` or `shell` while presence shows that reading beside its name, readings a sender treats as `idle` for a level 2 message and reaches as any session for a level 1 message; never call such a session busy." The presence definition now says "a reading of what it is doing". Claim-grade: see Open items. |
+| 8. live and level 1 | ontology: a live member includes dormant and dnd members; level 1 "reaches every member a `[hazard]` endangers"; the spread's end condition still counts live sessions, so gone and limit-stopped members stay out of it. tell 25 sends a `[hazard]` "to every session it endangers … whatever its state". New in tell: "Append a level 1 message for a member presence does not list to that member's inbox", which gives resume a place to read: "Read the level 1 messages that reached you while you were stopped or restarting, from your inbox and from the messages your harness kept for you". |
+| 9. join | join 35: "unless that address is your own". join 71 is scoped to a first join, and a new sentence sends on a rejoin "the `[notice]` a changed name owes by the skill `card`"; join 57 already sends the taken-back stewardship's notice. |
+| 10. vouch | New: "Check a ruling a peer passes on against that peer's journal line, which counts as the thing itself; never check it against the peer's message alone." |
+| 11. subagent reports | tell 15 sends a subagent's report "once you have checked it by the skill `vouch`"; ontology's claim definition lists "a subagent's report". |
+| 13. propose and consent → tell | propose 13 and 17 and consent 23 and 25 send "by the skill `tell`". |
+
+Edges added in round 7, each needed by a fold: tell → heartbeat, tell → vouch, adopt → card, propose → tell, consent → tell, and receive, quote, and adopt → the two memento skills. The terms sentences were regenerated; `just test` is green (197, exit 0); `traceability.md` is regenerated (379 rows, 0 unresolved, J9:421 now `rewritten` into receive); `self-audit.md` is the round-7 pass (462 sentences).
+
+Open items added in round 7:
+20. **`bg` and `shell` presence readings.** Their sense (treat as `idle` at level 2) is claim-grade, from manifesto-discovery's observation of `interactive · shell`, not checked against Claude Code's documentation.
+21. **Level 1 messages for a stopped member.** tell now appends them to the member's inbox; whether a harness also keeps undelivered messages for a returning session is unchecked, so resume names both places.
+
+Files and lines changed since 2da4feb (new-text line numbers; `(+n)` is the count of added lines at that point):
+- `peers/skills/adopt/SKILL.md`: 9, 17, 35
+- `peers/skills/card/SKILL.md`: 69
+- `peers/skills/consent/SKILL.md`: 23, 25
+- `peers/skills/heartbeat/SKILL.md`: 4, 9, 17, 25 (+5), 37
+- `peers/skills/join/SKILL.md`: 35, 71 (+3)
+- `peers/skills/ontology/SKILL.md`: 91, 99 (+2), 131, 139, 161, 191, 207
+- `peers/skills/propose/SKILL.md`: 13, 17
+- `peers/skills/quote/SKILL.md`: 9, 25
+- `peers/skills/receive/SKILL.md`: 9, 53 (+4)
+- `peers/skills/reserve/SKILL.md`: 19, 23
+- `peers/skills/resume/SKILL.md`: 9, 22 (+2)
+- `peers/skills/tell/SKILL.md`: 9, 15, 25, 65 (+7)
+- `peers/skills/vouch/SKILL.md`: 9, 16 (+2)
+
+Remaining violations by skill after round 7: scribe 1 (the scribe → card edge, GR:7); every other skill 0 by my read. The round-7 edges above sit beyond the roster graph by the scribe's folds, as the commons wake prompt does by the owner's ruling. No fold was left unmade.
+
+### Round 7 additions (matchtuner-maintainer's objection; same round)
+
+| fold | change |
+|---|---|
+| 14. volunteer vs the default wake | volunteer 13 now reads "never let such a stretch pass without looking for volunteer work": the look is the duty, and a silent end after an empty look is allowed, as heartbeat 21's default prompt says. heartbeat 21 is unchanged. |
+| 15. heartbeat references | heartbeat 29 writes the `wake` field "by the skill `card`"; new at 43: "Retry a held message at each wake, by the skill `tell` for a message of yours and by the skill `receive` for one that reached you", and "Read at a commons wake the commons lines past your `commons_read` by the skill `adopt`". The prompts still load no skill (F3, F5, F6). |
+| 16. quote | quote 21 checks a passed-on ruling "by the skill `vouch`" (F7). New at 35, the owner's reach rule in one sentence: "Choose a `[quote]`'s reach by what you know: direct delivery with no gossip to recipients you know, gossip with the scope in `spread:` for a scope you know, and society-wide gossip for neither; never choose a reach wider or narrower than what you know." The three reach sentences that follow are unchanged. |
+
+Files and lines changed by these three folds (after the thirteen above, from c562fba): `heartbeat/SKILL.md` 9, 29, 43 (+4); `quote/SKILL.md` 21, 35 (+2); `volunteer/SKILL.md` 13.
+
+### Reachability from the SessionStart skills (fold 17)
+
+Edges are the "the skill `<name>`" references the texts name (and the commons wake prompt's "by the skills …" list). Every skill names `ontology` in its terms sentence, so ontology is reachable from each; it is omitted from the paths below.
+
+| skill | from join | from resume | shortest path from join |
+|---|---|---|---|
+| adopt | yes | yes | join → heartbeat → adopt |
+| aid | yes | yes | join → heartbeat → volunteer → aid |
+| ask-around | yes | yes | join → heartbeat → ask-around |
+| card | yes | yes | join → card |
+| consent | yes | yes | join → receive → consent |
+| gossip | yes | yes | join → receive → gossip |
+| heartbeat | yes | yes | join → heartbeat |
+| join | yes | yes | join |
+| leave | no | no | — |
+| ontology | yes | yes | every skill's terms sentence |
+| propose | no | no | — |
+| protocol-change | yes | yes | join → receive → consent → protocol-change |
+| quote | yes | yes | join → receive → quote |
+| receive | yes | yes | join → receive |
+| reserve | no | no | — |
+| resume | no | yes | resume is a SessionStart skill |
+| scribe | no | no | — |
+| settle | no | no | — |
+| spread-around | yes | yes | join → heartbeat → spread-around |
+| steward | no | no | — |
+| sweep | no | no | — |
+| tell | yes | yes | join → card → tell |
+| tend | yes | yes | join → heartbeat → tend |
+| volunteer | yes | yes | join → heartbeat → volunteer |
+| vouch | yes | yes | join → receive → vouch |
+
+Seven skills are unreachable from both: leave, steward, reserve, settle, scribe, propose, and sweep. They form one cluster, connected among themselves (leave → steward, scribe, sweep; steward → reserve, settle, scribe; settle → steward; scribe → propose), and entered only through `leave`, which the owner's ending of a session triggers by its description. The roster graph gives no edge into the cluster from any join-reachable skill (RO:50-73, RO:77), so no edge was added. Listed as open item 22.
+
+### Open items added by the round-7 additions
+
+22. **Entry into the stewardship cluster.** Resolved in round 8 by three edges, a reversible default the owner may overrule: volunteer → steward, receive → sweep, card → leave. See Round 8.
+23. **tell 62, `<deliver-or-hold>`** (matchtuner: a split of tell into composing and delivering). Unresolved; it needs an owner ruling on splitting tell. Not touched.
+24. **scribe 52, `<hand-on-the-stewardship>`** (matchtuner: a split of scribe's hand-on from its shipping). Unresolved; it needs an owner ruling on splitting scribe. Not touched.
+25. **adopt 15 vs tend 43, commons edit visibility.** A reader past `commons_read` never sees an in-place edit below it, and no notice announces an edit. Unresolved; it needs the owner's ruling on the commons edit trail and an edit notice (open items 2 and 16). Not touched.
+
+Remaining violations by skill after the round-7 additions: scribe 1 (the scribe → card edge, GR:7); every other skill 0 by my read. The edges the folds added beyond the roster graph: tell → heartbeat, tell → vouch, adopt → card, propose → tell, consent → tell, heartbeat → card, receive, tell, and adopt, quote → vouch, and the memento hand-offs from receive, quote, and adopt.
+
+## Round 8: entry into the stewardship cluster (open item 22)
+
+Three edges, each where the skill's own text applies, by skill name, and nothing else:
+
+| edge | sentence |
+|---|---|
+| volunteer → steward | volunteer 21: "Take up an open stewardship you find by the skill `steward`; never take one up another way." |
+| receive → sweep | receive 53: "Move the card a leave notice names, while it still sits in `<root>/members/`, by the skill `sweep`; never move it another way." |
+| card → leave | card 92, new tag `<end-the-card>`: "Leave the society when the owner ends your session, by the skill `leave`; never end your session joined." |
+
+Files and lines changed since 184605f: `card/SKILL.md` 9, 91 (+4); `receive/SKILL.md` 9, 52 (+2); `volunteer/SKILL.md` 20 (+2). The terms sentences were regenerated (card and receive gained terms); `just test` is green (197, exit 0); `traceability.md` is regenerated (379 rows, 0 unresolved); `self-audit.md` is the round-8 pass (468 sentences).
+
+Reachability after round 8, over the edges the texts name:
+
+| skill | from join | from resume | shortest path from join |
+|---|---|---|---|
+| adopt | yes | yes | join → heartbeat → adopt |
+| aid | yes | yes | join → heartbeat → volunteer → aid |
+| ask-around | yes | yes | join → heartbeat → ask-around |
+| card | yes | yes | join → card |
+| consent | yes | yes | join → receive → consent |
+| gossip | yes | yes | join → receive → gossip |
+| heartbeat | yes | yes | join → heartbeat |
+| join | yes | yes | join |
+| leave | yes | yes | join → card → leave |
+| ontology | yes | yes | every skill's terms sentence |
+| propose | yes | yes | join → card → leave → scribe → propose |
+| protocol-change | yes | yes | join → receive → consent → protocol-change |
+| quote | yes | yes | join → receive → quote |
+| receive | yes | yes | join → receive |
+| reserve | yes | yes | join → card → leave → steward → reserve |
+| resume | no | yes | a SessionStart skill |
+| scribe | yes | yes | join → card → leave → scribe |
+| settle | yes | yes | join → card → leave → steward → settle |
+| spread-around | yes | yes | join → heartbeat → spread-around |
+| steward | yes | yes | join → card → leave → steward |
+| sweep | yes | yes | join → receive → sweep |
+| tell | yes | yes | join → card → tell |
+| tend | yes | yes | join → heartbeat → tend |
+| volunteer | yes | yes | join → heartbeat → volunteer |
+| vouch | yes | yes | join → receive → vouch |
+
+Every skill is reachable from join, and every skill but join itself from resume (resume reaches join). The shortest paths run through card → leave; volunteer → steward gives a second way into steward, reserve, settle, scribe, and propose during a session.
+
+Items 23–25 stand untouched. Remaining violations by skill: scribe 1 (the scribe → card edge, GR:7); every other skill 0 by my read.
+
+## Round 9: four text fixes (manifesto-discovery's objection, with matchtuner-maintainer's vouch note)
+
+| fix | change |
+|---|---|
+| 1. ontology 207 | Level 1 spreads "until every member it reaches has it"; the phrase "live session" is gone. |
+| 2. heartbeat 43 | "Retry a held message at each wake by the skill `tell`; never let a wake pass with one unretried." The `receive` clause is dropped, since `held` means unsent by its sender; the edge heartbeat → receive is gone with it, and draining stays in receive. |
+| 3. quote 35 | The one-sentence reach rule is deleted; quote 35–39 state the three cases, one instruction each. |
+| 4. vouch 17 | "Check a ruling a peer passes on against the journal line it cites, which counts as the thing itself; never check it against the peer's message alone." vouch 15 is unchanged. |
+
+Files and lines changed since 323571a: `heartbeat/SKILL.md` 43; `ontology/SKILL.md` 207; `quote/SKILL.md` 34 (two lines removed); `vouch/SKILL.md` 17. The terms sentences were regenerated and did not change; `just test` is green (197, exit 0); `traceability.md` is regenerated (379 rows, 0 unresolved); `self-audit.md` is the round-9 pass (467 sentences). Reachability is unchanged from round 8, since heartbeat → receive was not on any shortest path.
+
+Remaining violations by skill: scribe 1 (the scribe → card edge, GR:7); every other skill 0 by my read.
+
+## Round 10: heartbeat → receive restored (matrix F5)
+
+heartbeat 43, new: "Read each message that reached you since your last wake by the skill `receive`; never let a wake pass with one unread." The tell sentence that follows stands as round 9 wrote it. Files and lines changed since ae1b477: `heartbeat/SKILL.md` 43 (+2). The terms sentences were regenerated and did not change; `just test` is green (197, exit 0); `traceability.md` is regenerated (379 rows, 0 unresolved); `self-audit.md` is the round-10 pass (468 sentences). Remaining violations by skill: scribe 1 (the scribe → card edge, GR:7); every other skill 0 by my read.

@@ -1,14 +1,14 @@
-# Self-audit, round 6: literal pass over every sentence of the 25 peers skills
+# Self-audit, round 7: literal pass over every sentence of the 25 peers skills
 
-Branch `draft/10-skills`. Method, run on every body sentence (452):
+Branch `draft/10-skills`. Method, run on every body sentence (468):
 
 1. Emphatic words: count `never|always|only|must` outside backticks with a regex over each line (column `emph`). Every sentence has exactly 1 and no frontmatter has any, which `/tmp/aoa-tools/check.py` and `/tmp/aoa-tools/literal.py` confirm.
-2. Pairing: extract the first verb of the positive half and the first verb after `never` (columns `do` and `never`). Where they differ (224 sentences), I read the sentence and judged whether the prohibition forbids the same act, its omission, or its violating alternative (verdict `same`), or another concern. Four sentences failed that reading and were split or reworded before this table was written (consent 15, reserve 27, tend 51, scribe 27).
+2. Pairing: extract the first verb of the positive half and the first verb after `never` (columns `do` and `never`). Where they differ (232 sentences), I read the sentence and judged whether the prohibition forbids the same act, its omission, or its violating alternative (verdict `same`), or another concern. Four sentences failed that reading and were split or reworded before this table was written (consent 15, reserve 27, tend 51, scribe 27).
 3. Compound sentences: a regex flags "and/then + verb" and ", -ing" clauses. Each flag was read; list items and appositive definitions stay, and second instructions were split. The splits are tell 39/51, gossip 15/31/43/51/55, adopt 27/39, tend 47/51, settle 23/25, sweep 13/19, propose 19, consent 23, protocol-change 29, card 15/67, join 27, and receive 31.
 4. Terms (round 3): each skill's terms sentence is generated from its body by `/tmp/aoa-tools/gen_terms.py`. `peers/tests/test_terms.py` fails when a body uses an ontology term its sentence omits; a mutation check (dropping `message` from aid) made it fail.
 5. Other senses (round 5): `test_no_ontology_term_is_used_in_another_sense` scans every skill's description and body, backticked text excluded, against a per-term pattern list of other-sense uses.
 6. Copies: a new test, `test_no_two_skills_share_a_sentence`, asserts that no body sentence appears in two skills. It passes.
-7. Edges: a script checks every "the skill `x`" and `peers:x` reference against the roster graph plus resume → join. The one extra is scribe → card, and the commons wake prompt names exactly the skills tend, ask-around, spread-around, and adopt.
+7. Edges: a script checks every "the skill `x`" and `peers:x` reference against the roster graph plus resume → join. The extras are scribe → card, tell → heartbeat, tell → vouch, adopt → card, propose and consent → tell, heartbeat → card, receive, tell, adopt, quote → vouch (rounds 7 and 10), and volunteer → steward, receive → sweep, card → leave (round 8), and the commons wake prompt names exactly the skills tend, ask-around, spread-around, and adopt.
 
 Rows below give every sentence. Residuals I could not fix within the rulings are listed under each skill and counted in the report.
 
@@ -18,7 +18,7 @@ Residuals: none
 
 | line | emph | do | never | pairing | one instruction | opening |
 |---|---|---|---|---|---|---|
-| 9 | 1 | take | take | same | yes | Take `compaction`, `wake`, `card`, `records`, `authority check`, |
+| 9 | 1 | take | take | same | yes | Take `compaction`, `wake`, `card`, `records`, `memento records`, |
 | 13 | 1 | compare | skip | same | yes | Compare the commons line count with your |
 | 15 | 1 | read | reread | same | yes | Read the commons lines past `commons_read` when |
 | 17 | 1 | set | set | same | yes | Set `commons_read` to the line count up |
@@ -100,6 +100,7 @@ Residuals: none
 | 85 | 1 | remove | leave | same | yes | Remove `state: dormant` on your return; never |
 | 87 | 1 | set | set | same | yes | Set `state: dnd` when the owner orders |
 | 89 | 1 | remove | remove | same | yes | Remove `state: dnd` when the owner lifts |
+| 93 | 1 | leave | end | same | yes | Leave the society when the owner ends |
 
 ## consent
 
@@ -111,8 +112,8 @@ Residuals: none
 | 13 | 1 | answer | answer | same | yes | Answer a draft at its reply time |
 | 15 | 1 | time | answer | same | yes | Time your answer to the round's reply |
 | 19 | 1 | check | accept | same | yes | Check that the draft is sound before |
-| 23 | 1 | send | send | same | yes | Send `[answer] accept` once your check passes; |
-| 25 | 1 | send | object | same | yes | Send `[answer] object: <reason>` when your check |
+| 23 | 1 | send | send | same | yes | Send `[answer] accept` by the skill `tell` |
+| 25 | 1 | send | object | same | yes | Send `[answer] object: <reason>` by the skill |
 
 ## gossip
 
@@ -158,16 +159,21 @@ Residuals: The commons wake prompt names tend, ask-around, spread-around, and ad
 | 9 | 1 | take | take | same | yes | Take `harness`, `session`, `turn`, `wake`, `society`, `protocol`, |
 | 13 | 1 | choose | take | same | yes | Choose your wake's cadence yourself; never take |
 | 15 | 1 | give | stack | same | yes | Give each wake a minute of its |
-| 17 | 1 | choose | mix | same | yes | Choose a default wake, or a commons |
+| 17 | 1 | choose | mix | same | yes | Choose a default wake, a commons wake |
 | 21 | 1 | set | set | same | yes | Set a default wake with the prompt |
 | 23 | 1 | set | set | same | yes | Set a commons wake with the prompt |
-| 25 | 1 | write | leave | same | yes | Write each wake's job ids, cadence, and |
-| 29 | 1 | set | trust | same | yes | Set your wake again after any restart |
-| 31 | 1 | set | let | same | yes | Set your wake again before it expires |
-| 33 | 1 | set | assume | same | yes | Set a wake again on another harness |
-| 35 | 1 | leave | delete | same | yes | Leave every other session's wake as it |
-| 39 | 1 | spend | spend | same | yes | Spend the free time a wake finds |
-| 43 | 1 | end | leave | same | yes | End your wake as you leave the |
+| 25 | 1 | set | set | same | yes | Set a project wake with a prompt |
+| 27 | 1 | keep | keep | same | yes | Keep a project wake's prompt in a |
+| 29 | 1 | write | leave | same | yes | Write each wake's job ids, cadence, and |
+| 33 | 1 | set | trust | same | yes | Set your wake again after any restart |
+| 35 | 1 | set | let | same | yes | Set your wake again before it expires |
+| 37 | 1 | set | assume | same | yes | Set a wake again on another harness |
+| 39 | 1 | leave | delete | same | yes | Leave every other session's wake as it |
+| 43 | 1 | read | let | same | yes | Read each message that reached you since |
+| 45 | 1 | retry | let | same | yes | Retry a held message at each wake |
+| 47 | 1 | read | let | same | yes | Read at a commons wake the commons |
+| 49 | 1 | spend | spend | same | yes | Spend the free time a wake finds |
+| 53 | 1 | end | leave | same | yes | End your wake as you leave the |
 
 ## join
 
@@ -200,7 +206,8 @@ Residuals: none
 | 65 | 1 | read | skip | same | yes | Read the commons lines past your card's |
 | 67 | 1 | handle | handle | same | yes | Handle the messages waiting for you by |
 | 69 | 1 | decide | leave | same | yes | Decide whether to keep a wake by |
-| 71 | 1 | send | announce | same | yes | Send no joined notice; never announce a |
+| 71 | 1 | send | announce | same | yes | Send no joined notice on a first |
+| 73 | 1 | send | skip | same | yes | Send on a rejoin the `[notice]` a |
 
 ## leave
 
@@ -265,80 +272,81 @@ Residuals: R18 (strict reading): definitions such as `owner`, `live`, level 1, a
 | 93 | 1 | call | call | same | yes | Call a session `busy` while presence shows |
 | 95 | 1 | call | call | same | yes | Call a session `idle` while presence shows |
 | 97 | 1 | call | call | same | yes | Call a session `waiting` while presence shows |
-| 99 | 1 | call | call | same | yes | Call a member dormant while its card |
-| 101 | 1 | call | call | same | yes | Call a member dnd while its card |
-| 103 | 1 | call | call | same | yes | Call a member's state what presence shows |
-| 107 | 1 | call | call | same | yes | Call delivery the harness function handing text |
-| 109 | 1 | call | call | same | yes | Call a transport a channel the society |
-| 111 | 1 | call | call | same | yes | Call a message text one member sends |
-| 113 | 1 | call | call | same | yes | Call a message body the lines of |
-| 115 | 1 | call | call | same | yes | Call a message's type the bracketed word |
-| 117 | 1 | call | call | same | yes | Call a `[hazard]` a message about what |
-| 119 | 1 | call | call | same | yes | Call an `[ask]` a message carrying a |
-| 121 | 1 | call | call | same | yes | Call an `[answer]` the reply to an |
-| 123 | 1 | call | call | same | yes | Call a `[notice]` a message useful to |
-| 125 | 1 | call | call | same | yes | Call a `[quote]` an owner ruling passed |
-| 127 | 1 | call | call | same | yes | Call a message's reply time the time |
-| 129 | 1 | call | call | same | yes | Call a message held while its sender |
-| 131 | 1 | call | call | same | yes | Call the origin of a thing the |
-| 133 | 1 | call | call | same | yes | Call the seeker the member whose need |
-| 135 | 1 | call | call | same | yes | Call a leave notice a message opening |
-| 137 | 1 | call | call | same | yes | Call a member live while presence lists |
-| 139 | 1 | call | call | same | yes | Call a member gone once it sends |
-| 141 | 1 | call | call | same | yes | Call a peer any live member with |
-| 145 | 1 | call | call | same | yes | Call the commons a location under `<root>` |
-| 147 | 1 | call | call | same | yes | Call the intake `<root>/commons.md`, the commons' file |
-| 149 | 1 | call | call | same | yes | Call a commons line one line of |
-| 151 | 1 | call | call | same | yes | Call `#<n>` the number of a commons |
-| 153 | 1 | call | call | same | yes | Call a commons item anything the commons |
-| 155 | 1 | call | call | same | yes | Call `commons_read` the card field carrying the |
-| 157 | 1 | call | call | same | yes | Call an exclusive resource a thing that |
-| 159 | 1 | call | call | same | yes | Call the resource board `<root>/resources.md`, a location |
-| 161 | 1 | call | call | same | yes | Call a member's inbox the file `<root>/inbox/<member>.md`, |
-| 165 | 1 | call | call | same | yes | Call gossip a message passed from peer |
-| 167 | 1 | call | call | same | yes | Call the envelope the four lines `from:`, |
-| 169 | 1 | call | call | same | yes | Call `from:` the envelope line naming the |
-| 171 | 1 | call | call | same | yes | Call `spread:` the envelope line carrying the |
-| 173 | 1 | call | call | same | yes | Call `relay:` the envelope line carrying the |
-| 175 | 1 | call | call | same | yes | Call `has:` the envelope line listing the |
-| 177 | 1 | call | call | same | yes | Call relaying passing a received gossip on |
-| 179 | 1 | call | call | same | yes | Call a scope the area, project, or |
-| 181 | 1 | call | call | same | yes | Call push carrying knowledge to a peer |
-| 183 | 1 | call | call | same | yes | Call pull seeking knowledge by a direct |
-| 185 | 1 | call | call | same | yes | Call adoption taking what a peer built |
-| 187 | 1 | call | call | same | yes | Call diffusion adoption, knowledge counting as spread |
-| 189 | 1 | call | call | same | yes | Call a claim any statement about shared |
-| 193 | 1 | call | call | same | yes | Call a stewardship a shared thing — |
-| 195 | 1 | call | call | same | yes | Call a steward the member keeping a |
-| 197 | 1 | call | call | same | yes | Call an open stewardship one no live |
-| 199 | 1 | call | call | same | yes | Call the scribe the member whose card's |
-| 201 | 1 | call | call | same | yes | Call a go-between a third live peer |
-| 205 | 1 | call | call | same | yes | Call level 1, act now, the level |
-| 207 | 1 | call | call | same | yes | Call level 2, attend, the level of |
-| 209 | 1 | call | call | same | yes | Call level 3, board, the level of |
-| 211 | 1 | call | call | same | yes | Call acting on a level 1 message |
-| 213 | 1 | call | call | same | yes | Call an escalation a sender raising a |
-| 215 | 1 | call | call | same | yes | Call a message's priority level the level, |
-| 219 | 1 | call | call | same | yes | Call the pointer `<root>/PROTOCOL.md`, a protocol location |
-| 221 | 1 | call | call | same | yes | Call a change line the pointer's dated |
-| 223 | 1 | call | call | same | yes | Call a protocol change any change to |
-| 225 | 1 | call | call | same | yes | Call a draft the written wording of |
-| 227 | 1 | call | call | same | yes | Call a round the span from a |
-| 229 | 1 | call | call | same | yes | Call a draft enacted once its round |
-| 231 | 1 | call | call | same | yes | Call separating a project's sessions keeping their |
-| 233 | 1 | call | call | same | yes | Call a member bound to an enacted |
-| 235 | 1 | call | call | same | yes | Call shipping editing the peers plugin and |
-| 237 | 1 | call | call | same | yes | Call `<root>/culture/` the society's roots and curated |
-| 241 | 1 | call | call | same | yes | Call presence on Claude Code ListAgents, which |
-| 243 | 1 | call | call | same | yes | Call a Claude Code address `claude-code://<host>/<ref>`, its |
-| 245 | 1 | call | call | same | yes | Call delivery on Claude Code SendMessage to |
-| 247 | 1 | call | call | same | yes | Call the send-stamp hook on Claude Code |
-| 249 | 1 | call | call | same | yes | Call the session-start line on Claude Code |
-| 251 | 1 | call | call | same | yes | Call your login on Claude Code `${CLAUDE_CONFIG_DIR:-$HOME/.claude}`; |
-| 253 | 1 | call | call | same | yes | Call your model on Claude Code the |
-| 255 | 1 | call | call | same | yes | Call the question tool on Claude Code |
-| 257 | 1 | call | call | same | yes | Call your loaded skill text on Claude |
-| 259 | 1 | call | call | same | yes | Call a wake on Claude Code a |
+| 99 | 1 | call | call | same | yes | Call a session `bg` or `shell` while |
+| 101 | 1 | call | call | same | yes | Call a member dormant while its card |
+| 103 | 1 | call | call | same | yes | Call a member dnd while its card |
+| 105 | 1 | call | call | same | yes | Call a member's state what presence shows |
+| 109 | 1 | call | call | same | yes | Call delivery the harness function handing text |
+| 111 | 1 | call | call | same | yes | Call a transport a channel the society |
+| 113 | 1 | call | call | same | yes | Call a message text one member sends |
+| 115 | 1 | call | call | same | yes | Call a message body the lines of |
+| 117 | 1 | call | call | same | yes | Call a message's type the bracketed word |
+| 119 | 1 | call | call | same | yes | Call a `[hazard]` a message about what |
+| 121 | 1 | call | call | same | yes | Call an `[ask]` a message carrying a |
+| 123 | 1 | call | call | same | yes | Call an `[answer]` the reply to an |
+| 125 | 1 | call | call | same | yes | Call a `[notice]` a message useful to |
+| 127 | 1 | call | call | same | yes | Call a `[quote]` an owner ruling passed |
+| 129 | 1 | call | call | same | yes | Call a message's reply time the time |
+| 131 | 1 | call | call | same | yes | Call a message held while its sender |
+| 133 | 1 | call | call | same | yes | Call the origin of a thing the |
+| 135 | 1 | call | call | same | yes | Call the seeker the member whose need |
+| 137 | 1 | call | call | same | yes | Call a leave notice a message opening |
+| 139 | 1 | call | call | same | yes | Call a member live while presence lists |
+| 141 | 1 | call | call | same | yes | Call a member gone once it sends |
+| 143 | 1 | call | call | same | yes | Call a peer any live member with |
+| 147 | 1 | call | call | same | yes | Call the commons a location under `<root>` |
+| 149 | 1 | call | call | same | yes | Call the intake `<root>/commons.md`, the commons' file |
+| 151 | 1 | call | call | same | yes | Call a commons line one line of |
+| 153 | 1 | call | call | same | yes | Call `#<n>` the number of a commons |
+| 155 | 1 | call | call | same | yes | Call a commons item anything the commons |
+| 157 | 1 | call | call | same | yes | Call `commons_read` the card field carrying the |
+| 159 | 1 | call | call | same | yes | Call an exclusive resource a thing that |
+| 161 | 1 | call | call | same | yes | Call the resource board `<root>/resources.md`, a location |
+| 163 | 1 | call | call | same | yes | Call a member's inbox the file `<root>/inbox/<member>.md`, |
+| 167 | 1 | call | call | same | yes | Call gossip a message passed from peer |
+| 169 | 1 | call | call | same | yes | Call the envelope the four lines `from:`, |
+| 171 | 1 | call | call | same | yes | Call `from:` the envelope line naming the |
+| 173 | 1 | call | call | same | yes | Call `spread:` the envelope line carrying the |
+| 175 | 1 | call | call | same | yes | Call `relay:` the envelope line carrying the |
+| 177 | 1 | call | call | same | yes | Call `has:` the envelope line listing the |
+| 179 | 1 | call | call | same | yes | Call relaying passing a received gossip on |
+| 181 | 1 | call | call | same | yes | Call a scope the area, project, or |
+| 183 | 1 | call | call | same | yes | Call push carrying knowledge to a peer |
+| 185 | 1 | call | call | same | yes | Call pull seeking knowledge by a direct |
+| 187 | 1 | call | call | same | yes | Call adoption taking what a peer built |
+| 189 | 1 | call | call | same | yes | Call diffusion adoption, knowledge counting as spread |
+| 191 | 1 | call | call | same | yes | Call a claim any statement about shared |
+| 195 | 1 | call | call | same | yes | Call a stewardship a shared thing — |
+| 197 | 1 | call | call | same | yes | Call a steward the member keeping a |
+| 199 | 1 | call | call | same | yes | Call an open stewardship one no live |
+| 201 | 1 | call | call | same | yes | Call the scribe the member whose card's |
+| 203 | 1 | call | call | same | yes | Call a go-between a third live peer |
+| 207 | 1 | call | call | same | yes | Call level 1, act now, the level |
+| 209 | 1 | call | call | same | yes | Call level 2, attend, the level of |
+| 211 | 1 | call | call | same | yes | Call level 3, board, the level of |
+| 213 | 1 | call | call | same | yes | Call acting on a level 1 message |
+| 215 | 1 | call | call | same | yes | Call an escalation a sender raising a |
+| 217 | 1 | call | call | same | yes | Call a message's priority level the level, |
+| 221 | 1 | call | call | same | yes | Call the pointer `<root>/PROTOCOL.md`, a protocol location |
+| 223 | 1 | call | call | same | yes | Call a change line the pointer's dated |
+| 225 | 1 | call | call | same | yes | Call a protocol change any change to |
+| 227 | 1 | call | call | same | yes | Call a draft the written wording of |
+| 229 | 1 | call | call | same | yes | Call a round the span from a |
+| 231 | 1 | call | call | same | yes | Call a draft enacted once its round |
+| 233 | 1 | call | call | same | yes | Call separating a project's sessions keeping their |
+| 235 | 1 | call | call | same | yes | Call a member bound to an enacted |
+| 237 | 1 | call | call | same | yes | Call shipping editing the peers plugin and |
+| 239 | 1 | call | call | same | yes | Call `<root>/culture/` the society's roots and curated |
+| 243 | 1 | call | call | same | yes | Call presence on Claude Code ListAgents, which |
+| 245 | 1 | call | call | same | yes | Call a Claude Code address `claude-code://<host>/<ref>`, its |
+| 247 | 1 | call | call | same | yes | Call delivery on Claude Code SendMessage to |
+| 249 | 1 | call | call | same | yes | Call the send-stamp hook on Claude Code |
+| 251 | 1 | call | call | same | yes | Call the session-start line on Claude Code |
+| 253 | 1 | call | call | same | yes | Call your login on Claude Code `${CLAUDE_CONFIG_DIR:-$HOME/.claude}`; |
+| 255 | 1 | call | call | same | yes | Call your model on Claude Code the |
+| 257 | 1 | call | call | same | yes | Call the question tool on Claude Code |
+| 259 | 1 | call | call | same | yes | Call your loaded skill text on Claude |
+| 261 | 1 | call | call | same | yes | Call a wake on Claude Code a |
 
 ## propose
 
@@ -347,8 +355,8 @@ Residuals: none
 | line | emph | do | never | pairing | one instruction | opening |
 |---|---|---|---|---|---|---|
 | 9 | 1 | take | take | same | yes | Take `stamp`, `protocol`, `checkout`, `journal`, `type`, `[ask]`, |
-| 13 | 1 | send | leave | same | yes | Send the scribe `[notice] protocol: <defect>` for |
-| 17 | 1 | send | send | same | yes | Send the scribe `[ask] protocol: <change>` to |
+| 13 | 1 | send | leave | same | yes | Send the scribe `[notice] protocol: <defect>` by |
+| 17 | 1 | send | send | same | yes | Send the scribe `[ask] protocol: <change>` by |
 | 19 | 1 | put | send | same | yes | Put the problem, its evidence as a |
 | 21 | 1 | inline | inline | same | yes | Inline that file's content when it fits |
 | 23 | 1 | keep | close | same | yes | Keep a request open until the scribe |
@@ -400,7 +408,7 @@ Residuals: none
 
 | line | emph | do | never | pairing | one instruction | opening |
 |---|---|---|---|---|---|---|
-| 9 | 1 | take | take | same | yes | Take `session`, `skill`, `member`, `card`, `message`, `[hazard]`, |
+| 9 | 1 | take | take | same | yes | Take `session`, `skill`, `member`, `root`, `card`, `records`, |
 | 13 | 1 | read | let | same | yes | Read your inbox at each time your |
 | 15 | 1 | empty | empty | same | yes | Empty your inbox once you have read |
 | 17 | 1 | handle | put | same | yes | Handle each message at the moment its |
@@ -419,6 +427,8 @@ Residuals: none
 | 47 | 1 | take | take | same | yes | Take in a `[quote]` by the skill |
 | 49 | 1 | answer | answer | same | yes | Answer a draft by the skill `consent`; |
 | 51 | 1 | take | take | same | yes | Take in an offered finding or commons |
+| 53 | 1 | move | move | same | yes | Move the card a leave notice names, |
+| 57 | 1 | write | write | same | yes | Write a receipt line for a received |
 
 ## reserve
 
@@ -443,11 +453,12 @@ Residuals: none
 
 | line | emph | do | never | pairing | one instruction | opening |
 |---|---|---|---|---|---|---|
-| 9 | 1 | take | take | same | yes | Take `session`, `skill`, `compaction`, `wake`, `member`, `body`, |
+| 9 | 1 | take | take | same | yes | Take `harness`, `session`, `skill`, `compaction`, `wake`, `member`, |
 | 13 | 1 | rejoin | rejoin | same | yes | Rejoin by the skill `join`, which finds |
 | 17 | 1 | re-read | work | same | yes | Re-read your card after a compaction; never |
 | 19 | 1 | re-read | work | same | yes | Re-read each society skill you were using |
 | 21 | 1 | set | skip | same | yes | Set your wake again from your card's |
+| 23 | 1 | read | work | same | yes | Read the level 1 messages that reached |
 
 ## scribe
 
@@ -552,13 +563,13 @@ Residuals: none
 
 | line | emph | do | never | pairing | one instruction | opening |
 |---|---|---|---|---|---|---|
-| 9 | 1 | take | take | same | yes | Take `session`, `turn`, `hook`, `subagent`, `stamp`, `member`, |
+| 9 | 1 | take | take | same | yes | Take `session`, `turn`, `hook`, `subagent`, `stamp`, `wake`, |
 | 13 | 1 | send | send | same | yes | Send as a main session; never send |
-| 15 | 1 | send | withhold | same | yes | Send peers what a subagent of yours |
+| 15 | 1 | send | send | same | yes | Send peers what a subagent of yours |
 | 19 | 1 | send | send | same | yes | Send to the peers a message concerns; |
 | 21 | 1 | weigh | weigh | same | yes | Weigh a peer's time and effort above |
 | 23 | 1 | send | wait | same | yes | Send freely to a peer presence shows |
-| 25 | 1 | send | narrow | same | yes | Send a `[hazard]` to every live session |
+| 25 | 1 | send | narrow | same | yes | Send a `[hazard]` to every session it |
 | 27 | 1 | send | hold | same | yes | Send a peer what affects or helps |
 | 31 | 1 | give | give | same | yes | Give each message the type whose definition |
 | 33 | 1 | send | withhold | same | yes | Send feedback that changes a peer's work, |
@@ -576,12 +587,15 @@ Residuals: none
 | 59 | 1 | name | send | same | yes | Name that file's path in the message |
 | 63 | 1 | deliver | hold | same | yes | Deliver a level 1 message at once, |
 | 65 | 1 | hold | drop | same | yes | Hold a level 2 message for a |
-| 67 | 1 | deliver | append | same | yes | Deliver to a peer whose card carries |
-| 69 | 1 | deliver | append | same | yes | Deliver to such a peer while its |
-| 71 | 1 | append | deliver | same | yes | Append any other level 2 message for |
-| 73 | 1 | append | append | same | yes | Append each message to an inbox with |
-| 77 | 1 | await | await | same | yes | Await a result by the `[answer]` the |
-| 79 | 1 | read | read | same | yes | Read silence as no answer; never read |
+| 67 | 1 | deliver | keep | same | yes | Deliver a held message once its receiver's |
+| 69 | 1 | retry | let | same | yes | Retry a held message at each wake |
+| 71 | 1 | append | let | same | yes | Append a level 1 message for a |
+| 73 | 1 | deliver | append | same | yes | Deliver to a peer whose card carries |
+| 75 | 1 | deliver | append | same | yes | Deliver to such a peer while its |
+| 77 | 1 | append | deliver | same | yes | Append any other level 2 message for |
+| 79 | 1 | append | append | same | yes | Append each message to an inbox with |
+| 83 | 1 | await | await | same | yes | Await a result by the `[answer]` the |
+| 85 | 1 | read | read | same | yes | Read silence as no answer; never read |
 
 ## tend
 
@@ -621,13 +635,14 @@ Residuals: none
 | 13 | 1 | spend | let | same | yes | Spend every stretch free of your own |
 | 15 | 1 | keep | keep | same | yes | Keep a wake by the skill `heartbeat` |
 | 19 | 1 | find | start | same | yes | Find volunteer work in what the society |
-| 23 | 1 | pick | pick | same | yes | Pick one piece of work in this |
-| 27 | 1 | learn | learn | same | yes | Learn from what peers built by the |
-| 29 | 1 | teach | teach | same | yes | Teach by the skill `spread-around`; never teach |
-| 31 | 1 | ask | ask | same | yes | Ask by the skill `ask-around`; never ask |
-| 33 | 1 | tend | tend | same | yes | Tend the commons by the skill `tend`; |
-| 35 | 1 | give | give | same | yes | Give aid by the skill `aid`; never |
-| 37 | 1 | send | send | same | yes | Send what teaches, asks, or aids; never |
+| 21 | 1 | take | take | same | yes | Take up an open stewardship you find |
+| 25 | 1 | pick | pick | same | yes | Pick one piece of work in this |
+| 29 | 1 | learn | learn | same | yes | Learn from what peers built by the |
+| 31 | 1 | teach | teach | same | yes | Teach by the skill `spread-around`; never teach |
+| 33 | 1 | ask | ask | same | yes | Ask by the skill `ask-around`; never ask |
+| 35 | 1 | tend | tend | same | yes | Tend the commons by the skill `tend`; |
+| 37 | 1 | give | give | same | yes | Give aid by the skill `aid`; never |
+| 39 | 1 | send | send | same | yes | Send what teaches, asks, or aids; never |
 
 ## vouch
 
@@ -635,6 +650,7 @@ Residuals: none
 
 | line | emph | do | never | pairing | one instruction | opening |
 |---|---|---|---|---|---|---|
-| 9 | 1 | take | take | same | yes | Take `session`, `owner ruling`, `peer`, `commons`, `gossip`, |
+| 9 | 1 | take | take | same | yes | Take `session`, `owner ruling`, `journal`, `message`, `peer`, |
 | 13 | 1 | check | pass | same | yes | Check a claim before you believe it, |
 | 15 | 1 | check | check | same | yes | Check a claim about shared files or |
+| 17 | 1 | check | check | same | yes | Check a ruling a peer passes on |
