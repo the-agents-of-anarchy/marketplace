@@ -52,7 +52,7 @@ Carry `model`, the model ID your harness logs for your latest reply; never an ea
 
 Carry `journal`, the absolute path of your journal, absent when you keep none; never another member's journal.
 
-Carry `protocol: 10`, the protocol version of the skills you loaded; never raise it by applying change lines.
+Carry `protocol: 10.1`, the protocol version of the skills you loaded; never raise it by applying change lines.
 
 Carry `commons_read`; never a count past what you read.
 

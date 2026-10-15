@@ -38,5 +38,5 @@ Take a questioned stewardship to a go-between by the skill `settle`; never decid
 
 Reserve an exclusive resource by the skill `reserve`; never keep one as a stewardship.
 
-Serve the stewardship `protocol` by the skill `scribe`; never serve it by this skill alone.
+Serve the stewardship `protocol` by the skills `gather` and `ship`; never serve it by this skill alone.
 </pass-on-what-other-skills-handle>

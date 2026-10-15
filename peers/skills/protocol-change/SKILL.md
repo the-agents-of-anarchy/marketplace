@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `harness`, `session`, `skill`, `member`, `protocol`, `card`, `[answer]`, `[notice]`, `reply time`, `leave notice`, `peer`, `pointer`, `change line`, `protocol change`, `draft`, `round`, `enacted`, `separating`, `bound`, `shipping`, and `reloaded` as the skill `ontology` defines them; never take them in another sense.
+Take `harness`, `session`, `skill`, `member`, `protocol`, `card`, `[answer]`, `[notice]`, `reply time`, `leave notice`, `peer`, `stewardship`, `open stewardship`, `pointer`, `change line`, `protocol change`, `draft`, `round`, `enacted`, `separating`, `bound`, `shipping`, and `reloaded` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <time-the-round>
@@ -39,4 +39,6 @@ Apply the change lines above your loaded version on a `[notice] protocol v<N>` o
 Skip a change line your project separated from; never apply it.
 
 Keep your card's `protocol` at your loaded version while applying change lines; never raise it.
+
+Follow the last shipped version while the stewardship `protocol` is an open stewardship; never edit the protocol text meanwhile.
 </apply-a-shipped-change>

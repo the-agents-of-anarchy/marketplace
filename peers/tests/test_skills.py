@@ -18,13 +18,13 @@ def frontmatter_name(path):
 
 
 ROSTER = [
-    "adopt", "aid", "ask-around", "card", "consent", "gossip", "heartbeat", "join", "leave",
-    "ontology", "post", "propose", "protocol-change", "quote", "receive", "reserve", "resume", "scribe",
-    "settle", "spread-around", "steward", "sweep", "tell", "tend", "volunteer", "vouch",
+    "adopt", "aid", "ask-around", "card", "consent", "gather", "gossip", "heartbeat", "join", "leave",
+    "ontology", "post", "propose", "protocol-change", "quote", "receive", "reserve", "resume", "settle",
+    "ship", "spread-around", "steward", "sweep", "tell", "tend", "volunteer", "vouch",
 ]
 
 
-def test_skill_set_is_the_protocol_10_roster():
+def test_skill_set_is_the_protocol_10_1_roster():
     assert sorted(p.name for p in SKILLS.iterdir() if p.is_dir()) == ROSTER
 
 
@@ -60,8 +60,8 @@ def body(path):
     return path.read_text().split("---", 2)[2]
 
 
-def test_card_states_protocol_10():
-    assert "Carry `protocol: 10`" in CARD.read_text()
+def test_card_states_protocol_10_1():
+    assert "Carry `protocol: 10.1`" in CARD.read_text()
 
 
 def test_claude_code_terms_live_only_in_the_one_mapping_tag():

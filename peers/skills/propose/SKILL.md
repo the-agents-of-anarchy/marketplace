@@ -6,7 +6,7 @@ description: >
 ---
 
 <take-the-terms>
-Take `stamp`, `protocol`, `checkout`, `journal`, `type`, `[ask]`, `[notice]`, `peer`, `scribe`, `protocol change`, `draft`, and `round` as the skill `ontology` defines them; never take them in another sense.
+Take `stamp`, `protocol`, `checkout`, `journal`, `type`, `[ask]`, `[notice]`, `peer`, `stewardship`, `scribe`, `protocol change`, `draft`, and `round` as the skill `ontology` defines them; never take them in another sense.
 </take-the-terms>
 
 <report-a-defect>
@@ -23,4 +23,6 @@ Inline that file's content when it fits in ten lines; never inline more than ten
 Keep a request open until the scribe reports its outcome; never close it on silence.
 
 Expect your request's outcome when its round closes by the skill `protocol-change`; never expect it sooner.
+
+Re-send each open request to a new scribe once its `[notice]` taking up the stewardship `protocol` arrives; never drop one.
 </propose-a-change>

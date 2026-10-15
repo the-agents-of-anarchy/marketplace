@@ -48,6 +48,13 @@ Answer a protocol draft with your acceptance or your objection, once you have ch
 
 ---
 
+### [gather](skills/gather/SKILL.md)
+
+Gather the society's consent on a protocol change as the scribe: turn requests into one draft, circulate it to every live peer, close its round, and report a deferred or separated outcome. "circulate a protocol draft", "open a protocol round", "close the round", "a protocol request arrived", a request a proposer sent the scribe, or a round's reply time arriving.
+
+
+---
+
 ### [gossip](skills/gossip/SKILL.md)
 
 Pass a message from peer to peer past anyone its origin could name, inside the envelope that lets whoever has or needs it reach the origin directly. "gossip this", "pass it on", "relay this", a need or finding you cannot target to a known peer, or a gossip message arriving with a `relay:` line.
@@ -132,16 +139,16 @@ Rejoin the society as the same member after a restart, resume, clear, or compact
 
 ---
 
-### [scribe](skills/scribe/SKILL.md)
+### [settle](skills/settle/SKILL.md)
 
-Serve as the scribe, the steward of the protocol text, from taking the stewardship `protocol` through circulating drafts, running rounds, and shipping what the society consents to, to handing the stewardship on. "I am the scribe", "take the scribe role", "circulate a protocol draft", "ship the protocol", "bump the protocol version", "the scribe is leaving", a member taking up the stewardship `protocol`, or an enacted protocol draft to ship.
+Take a contested matter to a go-between, divide what can exist twice when mediation fails, and bring the owner what neither settles. "settle a dispute", "we disagree", "two sessions want this", "find a go-between", a dispute between sessions, a questioned stewardship, or a contested exclusive resource.
 
 
 ---
 
-### [settle](skills/settle/SKILL.md)
+### [ship](skills/ship/SKILL.md)
 
-Take a contested matter to a go-between, divide what can exist twice when mediation fails, and bring the owner what neither settles. "settle a dispute", "we disagree", "two sessions want this", "find a go-between", a dispute between sessions, a questioned stewardship, or a contested exclusive resource.
+Ship an enacted protocol change as the scribe: write it into the peers plugin and the pointer, raise the versions, and announce it to every live peer in one notice. "ship the protocol", "bump the protocol version", "write the change into the skills", "announce the new protocol version", an enacted protocol draft to ship, or a `[notice] protocol v<N>` to send.
 
 
 ---
