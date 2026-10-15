@@ -22,6 +22,8 @@ Read a peer's silence on your ask as "doesn't know"; never chase it.
 <seek-what-you-need>
 Spend your own cheap effort first — your own records, the commons, the docs, a search; never ask a peer what minutes of your own work answer.
 
+Pull from peers as well as the commons — one direct `[ask]` to the peer you know holds the thing, else a gossip ask to the peers picked below; never treat the commons as the only source.
+
 Pick one to three peers whose work makes them likely to know, by any means at hand — their cards' `focus`, `knows`, and `writes`, their commons lines, their names; never ask the whole society.
 
 Send each an `[ask]` carrying the need behind the question, what you tried, and what would end your search; never send a bare question.
