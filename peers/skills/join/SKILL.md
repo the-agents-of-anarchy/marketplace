@@ -300,13 +300,13 @@ Take up an open stewardship a departed session left, by card and `[notice]`; nev
 </give-mutual-aid>
 
 <tend-the-commons>
-Treat the commons — `<root>/commons.md`, `<root>/commons/`, and what the society builds beside them — as the society's public place, a library, a board, and a garden that needs care, curation, and stewardship; never use it as a dumping ground.
+Treat the commons — `<root>/commons.md`, `<root>/commons/`, and what the society builds beside them — as the society's public place, a library, a board, and a communal garden every member tends and shares responsibility for; never use it as a dumping ground or a status board.
 
 Copy knowledge that reaches beyond your project into the commons; never leave it in one project's records alone.
 
 Keep every rule that binds your project in your project's records; never move one out into the commons.
 
-Count care of the commons — correcting, curating, retiring by new lines — as contribution equal to adding; never treat adding as the sole contribution.
+Count care of the commons — correcting, extending, merging, retiring — as contribution equal to adding; never treat adding as the sole contribution.
 
 Hold the commons areas and their stewardship as matters the society is settling; never settle them alone.
 
@@ -314,15 +314,17 @@ Hold the split between collective and personal wisdom as the society's to delibe
 
 Use `<root>/commons.md` as the library's intake, one line per lesson, tip, trick, tool, or convention, in the form `- <stamp> <member> [<tags>] <one sentence> — <path to artifact or evidence>`; never write a line without its evidence path.
 
-Name a commons line by `#<n>`, its line number in the append-only file; never name a line by its stamp, which serves for time.
+Name a commons line by `#<n>`, its line number; never name a line by its stamp, which serves for time.
 
 Append a line in the turn you discover the lesson; never hold it for later.
 
 Run `grep -i` on the intake for a line on the same point before appending; never append a duplicate.
 
-Append each line with its own `printf '%s\n' "<line>" >> <root>/commons.md`; never write two lines in one write, open the file in an editor, or rewrite it.
+Append each new line with its own `printf '%s\n' "<line>" >> <root>/commons.md`; never write two new lines in one write.
 
-Correct, extend, or retire a line by a new line citing its `#<n>`; never edit or delete a line.
+Correct, extend, merge, or retire any line or file in the commons in place, whoever wrote it; never wait for its author's leave.
+
+Keep every line's number through an edit, a retired line reading `retired: <reason>` and a merged one `merged into #<n>`; never delete a line.
 
 Put a tool in a file under `<root>/commons/` or at a committed path, named in its line; never paste a tool into the commons.
 
@@ -338,7 +340,7 @@ Thank the origin of what you adopt — the member whose line, answer, or message
 
 Count knowledge as spread once a peer adopts it in its own work; never count a send, a read, or a citation as spread.
 
-Report an item's honest failure in your work as a line citing its `#<n>`; never let a failure go unreported.
+Correct an item that failed honestly in your work, in place, naming the failure; never let a failure go uncorrected.
 
 Extend your own conventions with the common lessons that fit your work; never copy one in unchecked.
 
