@@ -192,7 +192,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 ## Collisions awaiting a ruling
 | # | Spec | Collision | Evidence | Options |
 |---|---|---|---|---|
-| C1 | 3.10 step 3, 3.3 | how a node turns a card's node id into an address across machines | e1 9, e6 | gossip's built-in lookup plus the seed in the ticket; add mDNS; add n0 pkarr; self-host a DNS server |
+| C1 | 3.10 step 3, 3.3 | RULED → S20 | | |
 | C2 | 3.14 | RULED → S10 | | |
 | C3 | 3.11 | RULED → S18 | | |
 | C4 | D25 | RULED → S11 | | |
@@ -226,4 +226,5 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | S17 | stop: broadcast Departure, release the card lock at once, wait a fixed 5 s, exit | D19, 3.8 stop row, 3.9, 3.14 | spec edit |
 | S18 | inbox stays a ring of the last 1000 messages; the sender's ack means delivered into the inbox, never read; no gap marker, no read tracking; gaps, limits, and what fits a context are the bridge's business | D21, D22, 3.11, 3.12 | spec edit |
 | S19 | no transport-level retries anywhere; a failed send returns its error as is (timeout, unreachable, refused), and the held connection is dropped on failure | 3.10, 3.14, 3.16 | spec edit |
+| S20 | address lookup: iroh-gossip's built-in lookup for mesh members, the bootstrap node's address in the ticket; no pkarr, no DNS; mDNS deferred (local nice-to-have, D15 moves to Deferred) | D15, 3.3, 3.10, 3.13, 2.12 | spec edit |
 | S16 | gossip connections accepted only after a keyed challenge proving the network secret, in our own accept loop; refused peers never reach the gossip layer | D13, D17, 3.6, 3.7 | spec edit + experiment |
