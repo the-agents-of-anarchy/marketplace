@@ -109,3 +109,11 @@ Reading settles which proven designs exist, not whether they hold for estafette.
 
 Progress is tracked in research/stack/ledger.md: the surface map by range, then the assumption table, then OPEN.
 - state/m1-roster.md says "estafette today: no timestamp or sequence field on Presence"; spec 3.7 has `ts` on Presence and in the Claim. It also maps habilis's ghost rule onto estafette's inbox replay; the inbox replays to the local bridge only and never feeds the peer table, so that hazard does not transfer.
+
+## Experiments, round 2 (owner: all four approved, "2 at a time, not all 4")
+| Pair | Experiment | Agent | Worktree, branch | Output | Status |
+|---|---|---|---|---|---|
+| 1 | presence flow end to end, with S2, S12, S13 applied | e4-presence (sonnet) | estafette-e4-presence, spike/e4-presence | experiments/e4-presence.md | running |
+| 1 | same-key restart, lock, duplicate holder | e5-restart (sonnet) | estafette-e5-restart, spike/e5-restart | experiments/e5-restart.md | running |
+| 2 | address lookup by id: n0 pkarr, mDNS, several relays | — | — | experiments/e6-lookup.md | waits for pair 1 |
+| 2 | gossip admission: an outsider with topic id and bootstrap address | — | — | experiments/e7-admission.md | waits for pair 1 |
