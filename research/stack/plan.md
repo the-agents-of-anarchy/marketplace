@@ -113,7 +113,7 @@ Progress is tracked in research/stack/ledger.md: the surface map by range, then 
 ## Experiments, round 2 (owner: all four approved, "2 at a time, not all 4")
 | Pair | Experiment | Agent | Worktree, branch | Output | Status |
 |---|---|---|---|---|---|
-| 1 | presence flow end to end, with S2, S12, S13 applied | e4-presence (sonnet) | estafette-e4-presence, spike/e4-presence | experiments/e4-presence.md | running |
+| 1 | presence flow end to end, with S2, S12, S13 applied | e4-presence (sonnet) | estafette-e4-presence, spike/e4-presence | experiments/e4-presence.md | done 19:45 after a stall and resume |
 | 1 | same-key restart, lock, duplicate holder | e5-restart (sonnet) | estafette-e5-restart, spike/e5-restart | experiments/e5-restart.md | done 18:47 |
 | 2 | address lookup by id: n0 pkarr, mDNS, address in presence, several relays, self-hosted DNS | e6-lookup (sonnet) | estafette-e6-lookup, spike/e6-lookup | experiments/e6-lookup.md | running |
-| 2 | gossip admission: an outsider with topic id and bootstrap address | — | — | experiments/e7-admission.md | waits for pair 1 |
+| 2 | gossip admission: an outsider with topic id and bootstrap address | e7-admission (sonnet) | estafette-e7-admission, spike/e7-admission | experiments/e7-admission.md | running |
