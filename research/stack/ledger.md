@@ -163,11 +163,11 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | # | Spec | Collision | Evidence | Options |
 |---|---|---|---|---|
 | C1 | 3.10 step 3, 3.3 | how a node turns a card's node id into an address across machines | e1 9 | n0 pkarr lookup (third party); self-hosted lookup; addresses carried in Presence; one shared relay URL |
-| C2 | 3.14 | no server-side read timeout | v3 | add a read timeout value; reuse the ack timeout |
+| C2 | 3.14 | RULED → S10 | | |
 | C3 | 3.11 | slow client, full inbox, flood fairness unspecified | state/m3 | per rule: close-and-resume vs block; drop-oldest vs refuse; oldest-first vs per-sender share |
-| C4 | D25 | dedup key is the id alone | state/m3 | key on (card, id) |
-| C5 | 3.4, 3.8 | ordering of announcements | state/m1, e2 | per-card seq = max(now_ms, last+1), max age, tombstone on Gone |
-| C6 | 3.8 | which signal means "network changed" | e1 6 | relay status only; relay status plus address watcher |
+| C4 | D25 | RULED → S11 | | |
+| C5 | 3.4, 3.8 | RULED → S12 | | |
+| C6 | 3.8 | RULED → S13 | | |
 | C7 | D14 | relay TLS and n0 relay compatibility | e1 7 | plain HTTP; ACME; manual cert; list including n0 relays |
 | C8 | D3-D7 | node as identity: final ruling | node-as-identity analysis, state/m4 | adopt with the sidecar lock; keep fresh keys |
 
@@ -183,3 +183,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | S7 | iroh-gossip pinned to 0.101.0, upgrade when the churn fixes ship | D11 | stack D-record |
 | S8 | direct protocol written by hand; irpc rejected | 3.6 | stack D-record |
 | S9 | sender checks gossip payload size before broadcast | 3.7, 3.16 | spec edit (follows from E1/E2; confirm with S1) |
+| S10 | one stream per request on a cached connection; server read timeout 10 s resets only the stalled stream | 3.6, 3.10, 3.14 | spec edit |
+| S11 | drop duplicate suppression: D25 and the 10,000-id set removed; the binary never retries a send | D25, 3.6 step 7, 3.14, test 17 | spec edit |
+| S12 | per-member announcement seq = max(now_ms, last+1); keep the highest; ignore older than a max age; tombstone a departed member's last seq | 3.4, 3.7, 3.8, test 20 | spec edit |
+| S13 | re-announce presence on relay status change and on address change | 3.8 | spec edit |
