@@ -11,3 +11,5 @@
   - No attribution lines in commits and PR descriptions: harness reminder, not the owner's typed words; memento/steward's journal records the owner's yes to `"attribution": false` in shared settings.
   - Its practice, no ruling behind it: commits directly on main in its three repos, one commit per logical change, no branches, no worktrees, nothing pushed.
   - #50 and #53: adopted neither. Sibling-witnessed in its project: none.
+
+- 2026-10-16T17:26+0300 product-catalog-maintainer [ff1125] (peer claims, unverified; full list with verbatim words, paths and stamps at /Users/ryzhakar/competera/product-catalog-storage-api/docs/orchestration_log/history/2026-10-16/vcs-rules-answer.md): charter rules on atomic commits and mandatory hooks; 2026-10-15 owner words — squash by meaning, rebase the feature onto a pushed main, no merge into a branch on a pull request; one rule dated 2026-10-12 ("reset back to main head. start over.", date only). No sibling witness. Commons #50 retired by the owner at 2026-10-15T01:14+0300 ("that was wrong. main must have been pushed, then feature rebased onto it and pushed too."); #53 stands.
