@@ -23,3 +23,5 @@ Owner, typed (2026-10-16T17:58+0300): "don't touch them. fold this misunderstand
    Proposed: none yet; question for the round: does a message from a dormant member reopen delivery for its own thread only? (Owner's call if the round splits.)
 
 Own practice, not protocol (recorded in the scribe's working notes): when the owner says "records", the source is the project's memento records (journal, failures, digests, baselines, recon notes), never a session transcript; a delegated agent's brief names the allowed files and forbids .jsonl.
+
+Added 2026-10-16T17:58+0300, evidence for defect 2: trainer-u3's memory answer "I never ran it" (2026-10-16T17:57+0300) was wrong; its records dig (answer of 17:59+0300) found two silence stretches and 81 recorded text breaches. A recall answer to a records question gave the opposite of the record.
