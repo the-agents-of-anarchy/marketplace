@@ -17,7 +17,8 @@ estafette: a Rust binary that lets AI agent sessions message each other across m
 3. Report evidence. No adopt/reject verdicts; that belongs to the synthesis. You may say what a project does that estafette could take: a crate to depend on, a pattern to copy, or nothing.
 4. Where a project's design argues against a spec decision, name the decision (D-number or section) and the evidence. Do not argue for or against; record it.
 5. Keep your context small: read the files that answer your scope, not whole repos. Note what you did not read.
-6. Clean up /tmp/ra-src/<name> when done.
+6. Shallow clones already exist under /tmp/ra-src/ (ls it): reuse one when it is there; clone into /tmp/ra-src/<name> with --depth 1 when not. Never delete anything under /tmp/ra-src; the orchestrator cleans up at the end.
+7. You run on a small model with a small context: read only the files that answer your scope, grep before you read, read files in parts. Write your report incrementally so a cut-off run still leaves a usable file.
 
 ## Report format (projects and foundation surveys)
 # {Scope}

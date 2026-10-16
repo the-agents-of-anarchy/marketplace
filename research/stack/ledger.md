@@ -1,0 +1,185 @@
+# Ledger: the spec against technological reality
+
+Author: claude-fable-5-1 (orchestrator), 2026-10-16. Replaces the dropped stack synthesis. Every row cites a report I read in full: experiments/e1-api.md, e2-size.md, e3-kill.md, verify/v3-irpc.md, v1a-iroh-fixes.md, v1b-gossip-fixes.md. Everything else in research/stack/ is a lead.
+Goal (owner): "test our theoretical spec against technological reality and revise anything that needs it."
+Classes: RUN = observed by running code (one host, macOS arm64, loopback or LAN, small n). RECORD = primary record (source at a release, git ancestry, PR state). RULED = owner ruling. OPEN = untested.
+
+## Surface map (the original surface, by range)
+Marks: ■ settled by a run or a record · ▣ ruled by the owner · ◆ solid lead (a worker's claim later confirmed by our run or the orchestrator's check, or a sonnet source read whose project tests were run) · ◇ unconfirmed lead · ○ open · ▶ in flight. Update this map whenever a row changes.
+
+```
+ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we write
+│
+├─ TRANSPORT ─────────────── iroh 1.3.0 ────────────────────────────── mostly settled
+│   ├─ ■ direct, relay-only, relay→LAN upgrade, remote id = dialer key   e1 2,4,9e,9f
+│   ├─ ■ one key type for card and node, strict verify                   e1 1
+│   ├─ ■ one router, our ALPN + gossip ALPN                              e1 3
+│   ├─ ■ dial needs an address: mDNS or relay URL in the address         e1 9
+│   ├─ ◆ mDNS is a separate crate (iroh-mdns-address-lookup)             f1b ← e1 5
+│   ├─ ◇ N0 preset = pkarr publish + DNS lookup                          f1a
+│   ├─ ◇ endpoint tickets carry no name or secret                        f1b
+│   └─ ○ dial by id via pkarr / self-hosted lookup; several relays; NAT; two hosts
+│
+├─ GOSSIP ────────────────── iroh-gossip 0.101.0 ───────────────────── partly settled
+│   ├─ ■ worst Presence 4368 B, overhead 38, minimum 4407, default 4096 e2
+│   ├─ ■ oversize: Ok returned, message lost, link dead                  e1 8b, e2
+│   ├─ ■ crash → NeighborDown 33 s default, 13 s at 10 s idle            e3
+│   ├─ ■ clean stop → NeighborDown 3 ms                                  e3
+│   ├─ ■ churn-leak fixes merged, unreleased                             v1b
+│   ├─ ▣ lower the public cap · idle timeout 10 s · pin 0.101.0
+│   ├─ ◆ max_message_size has a builder setter                           f2 ← e1 8
+│   ├─ ◇ author hidden (delivered_from = previous hop); dedup 90 s       f2
+│   ├─ ◇ no admission check: topic id alone joins                        v2 (trace)
+│   └─ ○ join, Introduce, Departure in 1000 ms, probe, rumor; admission run
+│
+├─ DIRECT PROTOCOL ───────── hand-written on iroh streams ──────────── settled
+│   ├─ ■ read_to_end(1,114,112) caps, resets only the stream             v3
+│   ├─ ■ irpc rejected: fixed 16 MiB, pre-allocates, +4 crates           v3
+│   ├─ ◆ echo example = smallest accept-read-respond                     d2 ← v3
+│   └─ ■ gap: no server read timeout in 3.14                             v3
+│
+├─ INFRASTRUCTURE ────────── iroh-relay `server` ───────────────────── half settled
+│   ├─ ■ in-process relay over plain HTTP; http_url needs test-utils     e1 7
+│   ├─ ◆ test-utils leaks insecure TLS if not dev-only                   f3, r1 ← e1 7
+│   ├─ ▣ relay behind a cargo feature
+│   └─ ○ bootstrap member; relay TLS ruling; n0 relay compatibility
+│
+├─ CRYPTO ────────────────── iroh keys, blake3 (in tree) ───────────── mostly settled
+│   ├─ ■ sign / verify                                                   e1 1
+│   ├─ ▣ hex everywhere · no presence encryption
+│   └─ ○ derive_key, keyed MAC, constant-time compare (trivial)
+│
+├─ WIRE ENCODING ─────────── postcard (in tree) ────────────────────── settled
+│   └─ ■ sizes of every structure                                        e2
+│
+├─ IDENTITY ─────────────────────────────────────────────────────────── reopened
+│   ├─ ■ address cache never evicts → fresh keys leak                    v1a
+│   ├─ ▣ node-as-identity propagated; sidecar lock for one holder
+│   ├─ ◇ no surveyed project detects a second live holder at runtime     so4
+│   ├─ ■ flock freed at once on SIGKILL (macOS; Linux open)              state/m4 script
+│   ├─ ◆ precedent for N: mcpmesh key file + exclusive lock in one root,  state/m4
+│   │      order lock → key → bind (hooks unarmed) → arm → serve
+│   ├─ ◆ never unlink the lock file; kernel is the only releaser          state/m4
+│   ├─ ◆ key mint: 0600 temp, fsync, hard_link (no overwrite, race-safe)  state/m4
+│   ├─ ◇ same-key return: gossip swaps to the new connection, no          state/m4
+│   │      NeighborDown/Up (source + one test; event stream unobserved)
+│   ├─ ◇ relay: newest same-id client wins, old told SameEndpointIdConnected  state/m4
+│   └─ ○ direct path during the restart window; SIGKILL leaving a stale
+│          accepted connection (experiment)
+│
+├─ FILES AND LOCAL ───────── small pieces ──────────────────────────── mostly leads
+│   ├─ ■ serde YAML crates rest on unsafe-libyaml (RUSTSEC-2024-0449)    orchestrator check
+│   ├─ ▣ yaml-rust2 + own converter
+│   ├─ ◆ swarm-discovery fix in 0.6.4, resolved by a fresh lock          v1b ← e1 10
+│   ├─ ◇ base32/hex in data-encoding; uuid v7 a feature; libc in tree    s1
+│   ├─ ◇ dirs breaks spec 3.3 on macOS → hand XDG                        s1
+│   └─ ◇ tokio stdin read uncancellable; `signal` adds two crates        s1
+│
+├─ MCP ───────────────────── rmcp 3.5.1 (ruled) ────────────────────── unverified
+│   └─ ○ static six tools over stdio; stdin close; shutdown
+│
+├─ CLI ───────────────────── clap (ruled) ──────────────────────────── nothing to test
+│
+├─ STATE ─────────────────── mechanics mostly settled; structs and algorithms ours
+│   ├─ ◆ roster ordering: per-origin seq = max(now_ms, last+1); accept   state/m1
+│   │      only if signed, within max age, above held and above tombstone;
+│   │      tombstone on gone (habilis link vectors, 9 tests run)
+│   ├─ ◆ every side map bounded to live + returnable set; FIFO caps on    state/m1
+│   │      anything a stranger can grow (habilis, flap-churn test run)
+│   ├─ ◆ transport truth overrides gossip presence in status (Tunnet)     state/m1
+│   ├─ ◇ periodic keepalive 30 s / timeout 90 s in habilis and Tunnet;    state/m1
+│   │      estafette relies on the QUIC idle timeout instead (e3)
+│   ├─ ◆ names: receiver-local name per key, first-come `-2` suffix      state/m2
+│   │      (alink, test run) = D5 as written; persisted there, ours not
+│   ├─ ◆ names never authorize; resolve to the key and keep it (mcpmesh  state/m2
+│   │      #38 grant desync; agent-gossip's name-keyed roster gap)
+│   ├─ ◇ validate inbound handles on the wire, not only local input      state/m2
+│   ├─ ◆ dedup: bounded FIFO set sized to the retry horizon; key bound   state/m3
+│   │      to the sender, checked after verification (agent-gossip)
+│   ├─ ◆ inbox: ring with monotonic seq; leading gap marker when a       state/m3
+│   │      reader's position was evicted (agent-gossip)
+│   ├─ ◆ per-client `since` is the stateless side-read model; no         state/m3
+│   │      server cursor needed (agent-gossip, iroh-gossip)
+│   └─ ◇ open in spec: slow-client lag, inbox-full refuse vs drop,       state/m3
+│          flood fairness in eviction
+│
+├─ TREE COST ───────────────────────────────────────────────────────── partial
+│   └─ ■ 314 unique deps without rmcp and clap                           e1 10
+│
+├─ PRIOR ART (the deep row) ──────────────────────────────────────── leads only
+│   ├─ ◇ every agent-messaging project keeps a mailbox                   a1, a3, sp2
+│   ├─ ◇ habilis: push delivery tried 2 weeks, removed; 6 → 19 tools     sp3
+│   └─ ◇ lineage of the habilis family                                   specimen (unread)
+│
+└─ TEST HARNESS ──────────────────────────────────────────────────── deferred (ruled)
+    └─ ◇ n0's patchbay simulates networks; gossip simulator has no sockets   s2
+```
+
+## Spec assumptions, by status
+
+| # | Spec | Assumption | Status | Evidence |
+|---|---|---|---|---|
+| 1 | D2, 3.1 | One Ed25519 key type serves card and node; sign and verify available | RUN holds; verify is strict | e1 check 1 |
+| 2 | 3.6 step 4 | The remote id of an accepted connection is the dialer's key | RUN holds (ids compared; forgery not attempted) | e1 check 4 |
+| 3 | D11 | iroh connects two keys directly and via a relay | RUN holds on one host: direct (e1 2a), relay-only (e1 2b, 9f), relay then upgrade to LAN (e1 9e). NAT and two machines OPEN | e1 |
+| 4 | D14, D43, 3.14 | A relay can run inside our process | RUN holds over plain HTTP; `http_url()` needs `test-utils`, build the URL by hand | e1 7a, 7b |
+| 5 | D15 | Local discovery finds peers with no configuration | RUN holds, via the separate crate iroh-mdns-address-lookup; needs a multicast-capable LAN interface | e1 5a-5c, 9c, 9d |
+| 6 | D12, 3.6 | One router serves the gossip protocol and ours | RUN holds | e1 3 |
+| 7 | 3.10 step 3 | A node can dial a peer from its node id | RUN: fails with no address lookup configured (e1 9a, 9b, Minimal preset by choice); works with mDNS (9c, 9d) or with the relay URL in the address (9e, 9f). Dial by id through n0's or a self-hosted lookup OPEN | e1 9 |
+| 8 | 3.7, 3.14 | A Presence fits a gossip frame | CONTRADICTED. Worst-case Presence 4368 bytes; gossip adds 38; minimum `max_message_size` 4407; default 4096 | e2 |
+| 9 | 3.7 | An oversize gossip send fails visibly | CONTRADICTED. `broadcast` returns Ok, message lost, and the link then carries nothing more | e1 8b, 8c; e2 follow-up probe |
+| 10 | — | Fix for 8 and 9 | RULED: lower the `public` cap so the default frame carries the largest Presence; exact cap after the Presence shape settles | owner 13:02 |
+| 11 | D18, D20, 3.8 | A crashed peer is noticed without heartbeats | RUN holds, at a cost: NeighborDown 33 s after SIGKILL by default (QUIC idle timeout 30 s + ~3 s unexplained), 13 s with a 10 s idle timeout | e3 |
+| 12 | — | Idle timeout value | RULED: 10 s | owner 12:40 |
+| 13 | D19 | A clean stop is seen at once | RUN holds for gossip's own disconnect: NeighborDown 3 ms. Our Departure payload and the 1000 ms wait OPEN | e3 |
+| 14 | 3.8 | The endpoint reports relay reconnects and network changes | RUN partly: `home_relay_status` reports relay loss and reconnect (6.3 s after restart); `watch_addr` stays silent on relay loss. A "network change" output event: none found (lead) | e1 6 |
+| 15 | 3.6, 3.14 | A direct request can be capped at 1,114,112 bytes, bad requests closing only their stream | RUN holds by hand: `read_to_end(limit)` rejects 2 MB, largest allocation 40,960 B, stream reset, connection alive | v3 |
+| 16 | — | irpc as the direct protocol | RUN rejected: fixed 16 MiB cap, allocates the declared size before the body, closes the connection on a bad frame, hides the remote id, +4 crates; 47 vs 39 lines | v3 |
+| 17 | 3.14 | The limits table covers every wait | CONTRADICTED: no server-side read timeout; a stalled stream holds a task until the connection dies | v3 |
+| 18 | 3.14 | 5 s connect timeout bounds a dial to a dead peer | RUN: a dial to a dead peer fails only at the idle timeout (30 s default, 10 s tuned); the spec's 5 s wrapper is what bounds it | e3 |
+| 19 | D3 | A fresh node key per session costs nothing | CONTRADICTED by RECORD: iroh 1.3.0's address cache never evicts (fix PR closed unmerged); every session is a new remote | v1a |
+| 20 | D3 | Churn of ids is safe in iroh-gossip 0.101.0 | RECORD: churn-leak fixes merged after 0.101.0, unreleased; per #178 a 0.101.0 node may lose joins from newer nodes | v1b |
+| 21 | — | D3 itself | RULED: reopened; node-as-identity propagated (docs/orchestration_log/history/2026-10-16-node-as-identity.md), sidecar lock replaces D6 tie-break, untested | owner 12:50 |
+| 22 | — | swarm-discovery retry-loop fix | RECORD: in 0.6.4; e1's fresh lock resolved 0.6.4 | v1b, e1 10 |
+| 23 | 3.1 | Text forms | RULED: hex everywhere | owner 12:45 |
+| 24 | 3.5 | YAML card parsing | RULED: yaml-rust2 plus our own converter (serde YAML crates rest on unsafe-libyaml, RUSTSEC-2024-0449; checked by me) | owner 12:45 |
+| 25 | D14 | Relay ships in every build | RULED: behind a cargo feature | owner 12:40 |
+| 26 | — | Presence encryption | RULED: none | owner 12:50 |
+| 27 | — | iroh-gossip pin | RULED: release 0.101.0, upgrade later | owner 12:45 |
+| 28 | — | Tree cost | RUN: e1's package (iroh, iroh-gossip, iroh-relay server, mDNS, tokio) 314 unique dependencies; rmcp and clap not included | e1 10 |
+
+## OPEN, ordered by how much of the spec rests on it
+1. Node as identity: sidecar lock released on crash (macOS, Linux); a restarted node reusing its id while peers hold a stale connection; which instance answers a dial in that window. Gates D2-D7, D10, D30, 3.4, 3.6, 3.8, 3.9.
+2. Address lookup: dial by id with n0's preset (pkarr), with a self-hosted lookup, and with addresses carried in Presence; several relays in one map and how a peer homed elsewhere is reached. Gates 3.3 config, 3.10 step 3, D14, relay TLS.
+3. Presence flow: join, Introduce to a late joiner, Departure delivery within 1000 ms, probe after NeighborDown, Unreachable rumor and self-correction (D18-D20, 3.8, tests 4, 5, 8, 19, 20).
+4. Gossip admission: does an outsider holding only the topic id and a bootstrap address receive Presence (lead: verify/v2-gossip-gate.md, a source trace).
+5. rmcp: a static six-tool server over stdio; stdin close detection; shutdown with a pending stdin read (D28, 3.9, 3.10).
+6. Two machines: NAT, relay-only across hosts (test 3).
+
+## Leads (hypotheses, not findings)
+surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.md, index/index.md. Known errors in them are listed in plan.md under "Orchestrator corrections". Use them to choose experiments; never cite them as findings.
+
+## Collisions awaiting a ruling
+| # | Spec | Collision | Evidence | Options |
+|---|---|---|---|---|
+| C1 | 3.10 step 3, 3.3 | how a node turns a card's node id into an address across machines | e1 9 | n0 pkarr lookup (third party); self-hosted lookup; addresses carried in Presence; one shared relay URL |
+| C2 | 3.14 | no server-side read timeout | v3 | add a read timeout value; reuse the ack timeout |
+| C3 | 3.11 | slow client, full inbox, flood fairness unspecified | state/m3 | per rule: close-and-resume vs block; drop-oldest vs refuse; oldest-first vs per-sender share |
+| C4 | D25 | dedup key is the id alone | state/m3 | key on (card, id) |
+| C5 | 3.4, 3.8 | ordering of announcements | state/m1, e2 | per-card seq = max(now_ms, last+1), max age, tombstone on Gone |
+| C6 | 3.8 | which signal means "network changed" | e1 6 | relay status only; relay status plus address watcher |
+| C7 | D14 | relay TLS and n0 relay compatibility | e1 7 | plain HTTP; ACME; manual cert; list including n0 relays |
+| C8 | D3-D7 | node as identity: final ruling | node-as-identity analysis, state/m4 | adopt with the sidecar lock; keep fresh keys |
+
+## Staged revisions (ruled, not applied)
+| # | Ruling | Spec sections | Kind |
+|---|---|---|---|
+| S1 | lower the `public` cap so the default gossip frame carries the largest Presence; exact cap after C5 and C8 | 3.5, 3.7, 3.14 | spec edit |
+| S2 | QUIC idle timeout 10 s | 3.14, D18-D20 | spec edit |
+| S3 | relay behind a cargo feature | D14, D35, 3.2 | spec edit + stack D-record |
+| S4 | cards parsed with yaml-rust2 plus our own converter | 3.5 | stack D-record |
+| S5 | hex for every text form | 3.1, 3.3, 3.13 | spec edit |
+| S6 | no presence encryption | 1.6, D13 | spec edit (record the reason) |
+| S7 | iroh-gossip pinned to 0.101.0, upgrade when the churn fixes ship | D11 | stack D-record |
+| S8 | direct protocol written by hand; irpc rejected | 3.6 | stack D-record |
+| S9 | sender checks gossip payload size before broadcast | 3.7, 3.16 | spec edit (follows from E1/E2; confirm with S1) |
