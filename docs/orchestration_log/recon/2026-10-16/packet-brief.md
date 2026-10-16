@@ -1,0 +1,19 @@
+# Brief: build two packets by copying (mechanical, no judgment)
+
+Role: file collector. Copy listed files, extract listed lines, write an index. No reading for meaning, no summary, no edits to any source file.
+Base: /Users/ryzhakar/pp/agents-of-anarchy-marketplace/docs/orchestration_log/recon/2026-10-16 (written B below). Journal J=/Users/ryzhakar/pp/agents-of-anarchy-marketplace/docs/orchestration_log/history/2026-10-16/events.md. Commons C=/Users/ryzhakar/.local/share/agents-of-anarchy/commons.md.
+Packet 1: B/packet-silence/ . Steps:
+1. mkdir -p B/packet-silence/own B/packet-silence/peers B/packet-silence/extracts
+2. cp into own/: B/silence-ask.md B/silence-answers.md B/silence-report.md B/silence-records-findings.md B/silence-records-brief.md B/silence-self-measure.md B/silence-self-brief.md B/silence-dig-deeper.md B/ambiguity-feedback.md B/bash-true-ask.md B/bash-true-answers.md B/bash-true-self.md
+3. cp into peers/ (rename to <project>-<basename>), skip any that does not exist and list it as MISSING in the index:
+ /Users/ryzhakar/pp/offline-kit/docs/society/silence-report-2026-10-16.md ; /Users/ryzhakar/pp/offline-kit/docs/society/padding-records-2026-10-16.md ; /Users/ryzhakar/LLM_MANIFESTOS/research/2026-10-12-discovery/silence-report.md ; /Users/ryzhakar/LLM_MANIFESTOS/research/2026-10-12-discovery/bash-true-report.md ; /Users/ryzhakar/pp/gym/docs/orchestration_log/recon/2026-10-16/cf/silence-report.md ; /Users/ryzhakar/competera/product-catalog-storage-api/docs/orchestration_log/history/2026-10-16/silence-report.md ; /Users/ryzhakar/competera/product-catalog-storage-api/docs/orchestration_log/history/2026-10-16/padding-report.md ; /Users/ryzhakar/pp/memento/docs/orchestration_log/recon/2026-10-16/silence-report.md ; /Users/ryzhakar/pp/memento/docs/orchestration_log/recon/2026-10-16/padding-report.md ; /Users/ryzhakar/pp/memento/docs/orchestration_log/recon/2026-10-16/bash-true-report.md ; /Users/ryzhakar/competera/embedding_finetuning_for_ecommerce/docs/orchestration_log/recon/2026-10-16/peers/silence-answer.md ; /Users/ryzhakar/competera/embedding_finetuning_for_ecommerce/docs/orchestration_log/recon/2026-10-16/peers/quiet-records-answer.md ; /Users/ryzhakar/competera/embedding_finetuning_for_ecommerce/docs/orchestration_log/recon/2026-10-16/peers/bash-true-answer.md
+4. extracts/: grep -n -i -E 'silen|padding|no-op|Bash\(true\)|work-silently|nothing new|no visible output' J > extracts/journal-lines.txt ; grep -n -i -E 'silen|padding|wake|heartbeat|nothing new' C > extracts/commons-lines.txt
+5. Write B/packet-silence/INDEX.md: a table of every copied file (path in packet, source path, byte size, line count via wc) plus every MISSING source. No descriptions beyond the file name.
+Packet 2: B/packet-vcs/ . Steps:
+1. mkdir -p B/packet-vcs/own B/packet-vcs/peers B/packet-vcs/extracts
+2. cp into own/: B/vcs-rules-ask.md B/vcs-rules-answers.md B/vcs-rules-synthesis.md B/vcs-rules-synthesis-brief.md B/branch-model.md
+3. cp into peers/ the same way, MISSING listed: /Users/ryzhakar/competera/product-catalog-storage-api/docs/orchestration_log/history/2026-10-16/vcs-rules-answer.md ; /Users/ryzhakar/pp/memento/docs/orchestration_log/recon/2026-10-16/vcs-rules-answer.md ; /Users/ryzhakar/competera/embedding_finetuning_for_ecommerce/docs/orchestration_log/recon/2026-10-16/peers/vcs-rules-answer.md
+4. extracts/: grep -n -i -E 'branch|rebase|worktree|force|squash|integration|main|commit' J > extracts/journal-lines.txt ; grep -n -i -E 'git|rebase|worktree|commit|push|branch' C > extracts/commons-lines.txt
+5. Write B/packet-vcs/INDEX.md the same way.
+Output: both packets, then write B/packet-report.md with the two index tables' row counts and the MISSING list. End with a 3-sentence summary.
+Scope: copy and list only; no recommendations; no edits outside B/packet-*. Tools: Bash (mkdir, cp, grep, wc, ls), Write.
