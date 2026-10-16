@@ -190,7 +190,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | C7 | D14 | relay TLS and n0 relay compatibility | e1 7 | plain HTTP; ACME; manual cert; list including n0 relays |
 | C8 | D3-D7 | RULED → S14 | | |
 | C9 | 3.8 init row, D18 | RULED → S15 | | |
-| C10 | D19, 3.8 stop row | "wait at most 1000 ms" does not flush a Departure | e4 | sleep a fixed 1000 ms after broadcasting; wait until each neighbor acks via direct stream; accept loss (peers mark Unreachable at ~18 s) |
+| C10 | D19, 3.8 stop row | RULED → S17 | | |
 | C11 | 3.10, 3.14 | a request on a held connection to a killed node hangs 10 s | e5 | ack timeout below the idle timeout; probe before reuse |
 | C12 | D13, D17, 3.7 | RULED → S16 (needs an experiment: the proof exchange is untested) | | |
 
@@ -212,4 +212,5 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | S13 | re-announce presence on relay status change and on address change | 3.8 | spec edit |
 | S14 | node as identity: the card key is the iroh endpoint key; one live holder per card by an exclusive lock on the card's key file, taken before the endpoint is built; Claim struct, tie-break, Displaced state retired; gossip payloads keep a signature by the card key | D2-D7, D10, D17, D30, D32, 3.4, 3.6, 3.7, 3.8, 3.9, 3.10, 3.15 tests 6, 18, 20, 3.16 | spec edit (largest) |
 | S15 | first Presence only after iroh-gossip reports the topic joined | 3.8 init row, D18 | spec edit |
+| S17 | stop: broadcast Departure, release the card lock at once, wait a fixed 5 s, exit | D19, 3.8 stop row, 3.9, 3.14 | spec edit |
 | S16 | gossip connections accepted only after a keyed challenge proving the network secret, in our own accept loop; refused peers never reach the gossip layer | D13, D17, 3.6, 3.7 | spec edit + experiment |
