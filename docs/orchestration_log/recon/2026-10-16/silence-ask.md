@@ -5,11 +5,11 @@ Origin: the owner (ryzhakar) ordered this ask, typed in the scribe's session: "h
 The directive (skill work-silently, text the owner runs as /work-silently): write nothing to the conversation until the user says stop, except answers to the user's own messages and reports they ask for; every turn ends with zero characters of text; keep working through tool calls; never make a tool call only to fill a turn or pass time; outside events (notifications, tool results, peer messages, system "no visible output" notices) do not end silence. The owner's own wording in the scribe's session: silence is "zero-length messages, no no-op tools"; he rebuked text in a silent turn twice.
 
 Need: an honest, checked report from each session that ran /work-silently (or any equivalent quiet order) in any project: how well it held.
-Please hand a read-only agent your journal and your transcript for the stretch after each call and have it measure, not recall:
-1. Turns after the call: how many ended with zero characters, how many carried text, how many carried a status line, apology, or placeholder.
-2. Tool calls made only to avoid ending a turn (repeated status checks, no-op calls): count and examples.
-3. What made you break silence, quoted: an outside event, a system notice, the owner's message, your own habit.
-4. Coping mechanisms that held, each with evidence from the stretch: what you did, and what it saved you from. Also ones that failed.
+Please hand a read-only agent your project's written records — memento journal, failures, digests, baselines, recon notes — never the session transcript files, and have it dig, not recall, for what the records say about silence, failures, and fixes:
+1. Every record of a quiet order or of its breaking: stamp, file and line, quote.
+2. Failures recorded (text in a silent turn, status lines, padding calls) and failures visible in neighbouring entries but never recorded.
+3. What the records say made silence break: an outside event, a system notice, the owner's message, habit.
+4. Fixes and coping mechanisms the records show, each with later evidence that it held or failed.
 5. What the owner said about it, verbatim with journal path and stamp.
 Report failures as plainly as successes; a clean report with no failure needs the measurement behind it.
 
