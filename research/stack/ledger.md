@@ -188,11 +188,11 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | C5 | 3.4, 3.8 | RULED → S12 | | |
 | C6 | 3.8 | RULED → S13 | | |
 | C7 | D14 | relay TLS and n0 relay compatibility | e1 7 | plain HTTP; ACME; manual cert; list including n0 relays |
-| C8 | D3-D7 | node as identity: final ruling | node-as-identity analysis, state/m4, e5 | adopt with the sidecar lock; keep fresh keys |
-| C9 | 3.8 init row, D18 | Presence at init is lost before gossip neighbors form | e4 | announce once the topic reports joined (iroh-gossip joined()); announce on first NeighborUp; keep the fixed 3 s wait |
+| C8 | D3-D7 | RULED → S14 | | |
+| C9 | 3.8 init row, D18 | RULED → S15 | | |
 | C10 | D19, 3.8 stop row | "wait at most 1000 ms" does not flush a Departure | e4 | sleep a fixed 1000 ms after broadcasting; wait until each neighbor acks via direct stream; accept loss (peers mark Unreachable at ~18 s) |
 | C11 | 3.10, 3.14 | a request on a held connection to a killed node hangs 10 s | e5 | ack timeout below the idle timeout; probe before reuse |
-| C12 | D13, D17, 3.7 | membership is not enforced at join: an outsider with the topic id reads all Presence and makes members forward forgeries | e7 | accept as is (topic id travels only inside members' encrypted connections); gate the gossip ALPN with a secret-proof exchange in our own accept loop |
+| C12 | D13, D17, 3.7 | RULED → S16 (needs an experiment: the proof exchange is untested) | | |
 
 ## Staged revisions (ruled, not applied)
 | # | Ruling | Spec sections | Kind |
@@ -210,3 +210,6 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | S11 | drop duplicate suppression: D25 and the 10,000-id set removed; the binary never retries a send | D25, 3.6 step 7, 3.14, test 17 | spec edit |
 | S12 | per-member announcement seq = max(now_ms, last+1); keep the highest; ignore older than a max age; tombstone a departed member's last seq | 3.4, 3.7, 3.8, test 20 | spec edit |
 | S13 | re-announce presence on relay status change and on address change | 3.8 | spec edit |
+| S14 | node as identity: the card key is the iroh endpoint key; one live holder per card by an exclusive lock on the card's key file, taken before the endpoint is built; Claim struct, tie-break, Displaced state retired; gossip payloads keep a signature by the card key | D2-D7, D10, D17, D30, D32, 3.4, 3.6, 3.7, 3.8, 3.9, 3.10, 3.15 tests 6, 18, 20, 3.16 | spec edit (largest) |
+| S15 | first Presence only after iroh-gossip reports the topic joined | 3.8 init row, D18 | spec edit |
+| S16 | gossip connections accepted only after a keyed challenge proving the network secret, in our own accept loop; refused peers never reach the gossip layer | D13, D17, 3.6, 3.7 | spec edit + experiment |
