@@ -30,7 +30,17 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   ├─ ◆ max_message_size has a builder setter                           f2 ← e1 8
 │   ├─ ◇ author hidden (delivered_from = previous hop); dedup 90 s       f2
 │   ├─ ◇ no admission check: topic id alone joins                        v2 (trace)
-│   └─ ○ join, Introduce, Departure in 1000 ms, probe, rumor; admission run
+│   ├─ ■ Presence sent before gossip neighbors exist is lost; tables      e4
+│   │      never fill (3/3); sent after the topic forms: all five in ~3 s
+│   ├─ ■ Departure: broadcast only enqueues; exit at once reached 0-2 of  e4
+│   │      4 peers; 1000 ms sleep before exit reached 4/4 (3/3)
+│   ├─ ■ crash: NeighborDown ~15 s + probe 3 s → every peer Unreachable  e4
+│   │      at ~18 s; no live member falsely marked (D20 holds)
+│   ├─ ■ false rumor corrected within ~5 ms of reaching its subject       e4
+│   ├─ ■ S12 holds: replay never revives a departed member; tombstone and e4
+│   │      max age both needed (each covers one case)
+│   ├─ ■ Introduce costs about N² requests per full join                 e4
+│   └─ ○ admission run; S13 address-change trigger unexercised
 │
 ├─ DIRECT PROTOCOL ───────── hand-written on iroh streams ──────────── settled
 │   ├─ ■ read_to_end(1,114,112) caps, resets only the stream             v3
@@ -175,7 +185,10 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | C5 | 3.4, 3.8 | RULED → S12 | | |
 | C6 | 3.8 | RULED → S13 | | |
 | C7 | D14 | relay TLS and n0 relay compatibility | e1 7 | plain HTTP; ACME; manual cert; list including n0 relays |
-| C8 | D3-D7 | node as identity: final ruling | node-as-identity analysis, state/m4 | adopt with the sidecar lock; keep fresh keys |
+| C8 | D3-D7 | node as identity: final ruling | node-as-identity analysis, state/m4, e5 | adopt with the sidecar lock; keep fresh keys |
+| C9 | 3.8 init row, D18 | Presence at init is lost before gossip neighbors form | e4 | announce once the topic reports joined (iroh-gossip joined()); announce on first NeighborUp; keep the fixed 3 s wait |
+| C10 | D19, 3.8 stop row | "wait at most 1000 ms" does not flush a Departure | e4 | sleep a fixed 1000 ms after broadcasting; wait until each neighbor acks via direct stream; accept loss (peers mark Unreachable at ~18 s) |
+| C11 | 3.10, 3.14 | a request on a held connection to a killed node hangs 10 s | e5 | ack timeout below the idle timeout; probe before reuse |
 
 ## Staged revisions (ruled, not applied)
 | # | Ruling | Spec sections | Kind |
