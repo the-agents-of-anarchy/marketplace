@@ -29,7 +29,10 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   ├─ ▣ lower the public cap · idle timeout 10 s · pin 0.101.0
 │   ├─ ◆ max_message_size has a builder setter                           f2 ← e1 8
 │   ├─ ◇ author hidden (delivered_from = previous hop); dedup 90 s       f2
-│   ├─ ◇ no admission check: topic id alone joins                        v2 (trace)
+│   ├─ ■ topic id alone admits an outsider: joins in ~6 ms, reads every  e7
+│   │      Presence; forged payloads are dropped on MAC but forwarded first
+│   ├─ ■ an accept hook can refuse a peer by id on the gossip ALPN (works) e7
+│   │      but sees only id + ALPN: a secret proof needs our own exchange
 │   ├─ ■ Presence sent before gossip neighbors exist is lost; tables      e4
 │   │      never fill (3/3); sent after the topic forms: all five in ~3 s
 │   ├─ ■ Departure: broadcast only enqueues; exit at once reached 0-2 of  e4
@@ -40,7 +43,7 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   ├─ ■ S12 holds: replay never revives a departed member; tombstone and e4
 │   │      max age both needed (each covers one case)
 │   ├─ ■ Introduce costs about N² requests per full join                 e4
-│   └─ ○ admission run; S13 address-change trigger unexercised
+│   └─ ○ S13 address-change trigger unexercised
 │
 ├─ DIRECT PROTOCOL ───────── hand-written on iroh streams ──────────── settled
 │   ├─ ■ read_to_end(1,114,112) caps, resets only the stream             v3
@@ -189,6 +192,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | C9 | 3.8 init row, D18 | Presence at init is lost before gossip neighbors form | e4 | announce once the topic reports joined (iroh-gossip joined()); announce on first NeighborUp; keep the fixed 3 s wait |
 | C10 | D19, 3.8 stop row | "wait at most 1000 ms" does not flush a Departure | e4 | sleep a fixed 1000 ms after broadcasting; wait until each neighbor acks via direct stream; accept loss (peers mark Unreachable at ~18 s) |
 | C11 | 3.10, 3.14 | a request on a held connection to a killed node hangs 10 s | e5 | ack timeout below the idle timeout; probe before reuse |
+| C12 | D13, D17, 3.7 | membership is not enforced at join: an outsider with the topic id reads all Presence and makes members forward forgeries | e7 | accept as is (topic id travels only inside members' encrypted connections); gate the gossip ALPN with a secret-proof exchange in our own accept loop |
 
 ## Staged revisions (ruled, not applied)
 | # | Ruling | Spec sections | Kind |
