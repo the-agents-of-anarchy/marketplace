@@ -56,16 +56,22 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   ├─ ■ address cache never evicts → fresh keys leak                    v1a
 │   ├─ ▣ node-as-identity propagated; sidecar lock for one holder
 │   ├─ ◇ no surveyed project detects a second live holder at runtime     so4
-│   ├─ ■ flock freed at once on SIGKILL (macOS; Linux open)              state/m4 script
+│   ├─ ■ flock freed on SIGKILL in 6.5-10.4 ms; restarted node takes it   e5
+│   │      first try 15/15; second holder gets WouldBlock; std try_lock,
+│   │      no crate (macOS; Linux open)
+│   ├─ ■ same-key restart, same address: gossip seamless, 0 NeighborDown/ e5
+│   │      Up at peers in 30 runs; new instance heard in 0.2-1.0 s
+│   ├─ ■ held connection to a killed node hangs silently until the idle   e5
+│   │      timeout (10 s), then connection_lost: app timeouts must be < 10 s
+│   ├─ ■ restart on a NEW address: dial by id with the old address fails   e5
+│   │      85/85 for 22 s though gossip meshes: addresses must be refreshed
+│   ├─ ■ two live holders: silent starvation of one (direct); relay's     e5
+│   │      newest wins, the old loses gossip for good: the lock is essential
 │   ├─ ◆ precedent for N: mcpmesh key file + exclusive lock in one root,  state/m4
 │   │      order lock → key → bind (hooks unarmed) → arm → serve
 │   ├─ ◆ never unlink the lock file; kernel is the only releaser          state/m4
 │   ├─ ◆ key mint: 0600 temp, fsync, hard_link (no overwrite, race-safe)  state/m4
-│   ├─ ◇ same-key return: gossip swaps to the new connection, no          state/m4
-│   │      NeighborDown/Up (source + one test; event stream unobserved)
-│   ├─ ◇ relay: newest same-id client wins, old told SameEndpointIdConnected  state/m4
-│   └─ ○ direct path during the restart window; SIGKILL leaving a stale
-│          accepted connection (experiment)
+│   └─ ○ Linux lock semantics; power loss (no FIN to the relay)
 │
 ├─ FILES AND LOCAL ───────── small pieces ──────────────────────────── mostly leads
 │   ├─ ■ serde YAML crates rest on unsafe-libyaml (RUSTSEC-2024-0449)    orchestrator check
