@@ -183,7 +183,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 |---|---|---|---|---|
 | C1 | 3.10 step 3, 3.3 | how a node turns a card's node id into an address across machines | e1 9 | n0 pkarr lookup (third party); self-hosted lookup; addresses carried in Presence; one shared relay URL |
 | C2 | 3.14 | RULED → S10 | | |
-| C3 | 3.11 | slow client, full inbox, flood fairness unspecified | state/m3 | per rule: close-and-resume vs block; drop-oldest vs refuse; oldest-first vs per-sender share |
+| C3 | 3.11 | RULED → S18 | | |
 | C4 | D25 | RULED → S11 | | |
 | C5 | 3.4, 3.8 | RULED → S12 | | |
 | C6 | 3.8 | RULED → S13 | | |
@@ -191,7 +191,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | C8 | D3-D7 | RULED → S14 | | |
 | C9 | 3.8 init row, D18 | RULED → S15 | | |
 | C10 | D19, 3.8 stop row | RULED → S17 | | |
-| C11 | 3.10, 3.14 | a request on a held connection to a killed node hangs 10 s | e5 | ack timeout below the idle timeout; probe before reuse |
+| C11 | 3.10, 3.14 | RULED → S19 | | |
 | C12 | D13, D17, 3.7 | RULED → S16 (needs an experiment: the proof exchange is untested) | | |
 
 ## Staged revisions (ruled, not applied)
@@ -213,4 +213,6 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | S14 | node as identity: the card key is the iroh endpoint key; one live holder per card by an exclusive lock on the card's key file, taken before the endpoint is built; Claim struct, tie-break, Displaced state retired; gossip payloads keep a signature by the card key | D2-D7, D10, D17, D30, D32, 3.4, 3.6, 3.7, 3.8, 3.9, 3.10, 3.15 tests 6, 18, 20, 3.16 | spec edit (largest) |
 | S15 | first Presence only after iroh-gossip reports the topic joined | 3.8 init row, D18 | spec edit |
 | S17 | stop: broadcast Departure, release the card lock at once, wait a fixed 5 s, exit | D19, 3.8 stop row, 3.9, 3.14 | spec edit |
+| S18 | inbox stays a ring of the last 1000 messages; the sender's ack means delivered into the inbox, never read; no gap marker, no read tracking; gaps, limits, and what fits a context are the bridge's business | D21, D22, 3.11, 3.12 | spec edit |
+| S19 | no transport-level retries anywhere; a failed send returns its error as is (timeout, unreachable, refused), and the held connection is dropped on failure | 3.10, 3.14, 3.16 | spec edit |
 | S16 | gossip connections accepted only after a keyed challenge proving the network secret, in our own accept loop; refused peers never reach the gossip layer | D13, D17, 3.6, 3.7 | spec edit + experiment |
