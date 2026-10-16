@@ -18,7 +18,18 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   ├─ ◆ mDNS is a separate crate (iroh-mdns-address-lookup)             f1b ← e1 5
 │   ├─ ◇ N0 preset = pkarr publish + DNS lookup                          f1a
 │   ├─ ◇ endpoint tickets carry no name or secret                        f1b
-│   └─ ○ dial by id via pkarr / self-hosted lookup; several relays; NAT; two hosts
+│   ├─ ■ iroh-gossip installs its own address lookup: any mesh member is  e6
+│   │      dialable by id in ~14 ms, no code, no crate, no third party;
+│   │      only a seed address is needed out of band
+│   ├─ ■ restart on a new port: ~1 s via gossip lookup or mDNS            e6
+│   ├─ ■ n0 preset (pkarr): first dial ~3.7 s; records public; relay-off  e6
+│   │      variant publishes nothing dialable by default
+│   ├─ ■ relays never forward across relays: a dialer needs the peer's    e6
+│   │      own home relay URL; home relay is not chosen by map order
+│   ├─ ■ mDNS: ~0.8 s first, ~1 s restart, +10 crates                     e6
+│   ├─ ■ self-hosted iroh-dns-server works: 289-crate binary, domain +    e6
+│   │      NS delegation + DB; DNS-only lookups stale ~26 s
+│   └─ ○ NAT; two hosts
 │
 ├─ GOSSIP ────────────────── iroh-gossip 0.101.0 ───────────────────── partly settled
 │   ├─ ■ worst Presence 4368 B, overhead 38, minimum 4407, default 4096 e2
@@ -181,7 +192,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 ## Collisions awaiting a ruling
 | # | Spec | Collision | Evidence | Options |
 |---|---|---|---|---|
-| C1 | 3.10 step 3, 3.3 | how a node turns a card's node id into an address across machines | e1 9 | n0 pkarr lookup (third party); self-hosted lookup; addresses carried in Presence; one shared relay URL |
+| C1 | 3.10 step 3, 3.3 | how a node turns a card's node id into an address across machines | e1 9, e6 | gossip's built-in lookup plus the seed in the ticket; add mDNS; add n0 pkarr; self-host a DNS server |
 | C2 | 3.14 | RULED → S10 | | |
 | C3 | 3.11 | RULED → S18 | | |
 | C4 | D25 | RULED → S11 | | |
