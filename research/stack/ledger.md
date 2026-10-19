@@ -18,9 +18,10 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   ├─ ◆ mDNS is a separate crate (iroh-mdns-address-lookup)             f1b ← e1 5
 │   ├─ ◇ N0 preset = pkarr publish + DNS lookup                          f1a
 │   ├─ ◇ endpoint tickets carry no name or secret                        f1b
-│   ├─ ■ iroh-gossip installs its own address lookup: any mesh member is  e6
-│   │      dialable by id in ~14 ms, no code, no crate, no third party;
-│   │      only a seed address is needed out of band
+│   ├─ ■ iroh-gossip installs its own address lookup, but it learns only  e6, e8
+│   │      gossip NEIGHBORS: 3 adjacent nodes dial by id in ~14 ms (e6); in a
+│   │      5-node mesh members were undialable by id (e8) until Presence
+│   │      carried the address and receivers added it to their lookup
 │   ├─ ■ restart on a new port: ~1 s via gossip lookup or mDNS            e6
 │   ├─ ■ n0 preset (pkarr): first dial ~3.7 s; records public; relay-off  e6
 │   │      variant publishes nothing dialable by default
@@ -29,7 +30,14 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   ├─ ■ mDNS: ~0.8 s first, ~1 s restart, +10 crates                     e6
 │   ├─ ■ self-hosted iroh-dns-server works: 289-crate binary, domain +    e6
 │   │      NS delegation + DB; DNS-only lookups stale ~26 s
-│   └─ ○ NAT; two hosts
+│   ├─ ■ relay death: home status false in 2 ms; re-home to the live     e8
+│   │      relay takes ~40 s; peers keep the dead relay URL; dials to the
+│   │      member recover only if the relay returns
+│   ├─ ■ relay + bootstrap death stalled gossip mesh-wide in 0.101.0:    e8
+│   │      heartbeats never resumed in 88 s, also between members on the
+│   │      live relay (3/3 with probers, 1/3 without); cause untested
+│   ├─ ■ bootstrap failover cheap: one of two dead, join in 8-18 ms        e8
+│   └─ ○ NAT; two hosts; the e8 stall against unreleased iroh-gossip main
 │
 ├─ GOSSIP ────────────────── iroh-gossip 0.101.0 ───────────────────── partly settled
 │   ├─ ■ worst Presence 4368 B, overhead 38, minimum 4407, default 4096 e2
@@ -195,7 +203,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 ## Collisions awaiting a ruling
 | # | Spec | Collision | Evidence | Options |
 |---|---|---|---|---|
-| C1 | 3.10 step 3, 3.3 | RULED → S20 | | |
+| C1 | 3.10 step 3, 3.3 | REOPENED: S20's basis (gossip's lookup alone) fails past direct neighbors (e8) | e6, e8 | carry the full endpoint address in Presence and Introduce; receivers replace it in their lookup (measured working in e8) |
 | C2 | 3.14 | RULED → S10 | | |
 | C3 | 3.11 | RULED → S18 | | |
 | C4 | D25 | RULED → S11 | | |
@@ -206,7 +214,8 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | C9 | 3.8 init row, D18 | RULED → S15 | | |
 | C10 | D19, 3.8 stop row | RULED → S17 | | |
 | C11 | 3.10, 3.14 | RULED → S19 | | |
-| C12 | D13, D17, 3.7 | RULED → S16 (needs an experiment: the proof exchange is untested) | | |
+| C12 | D13, D17, 3.7 | RULED → S16 (mechanism measured in e9; confirmation pending) | | |
+| C13 | D11, D14, S7 | a relay and bootstrap host dying stalled gossip mesh-wide for 88 s in iroh-gossip 0.101.0, members on the live relay included | e8 | rerun e8 scenario 1 against iroh-gossip main (unreleased connection-lifecycle fixes) before ruling; then keep the release pin, pin main by revision, or wait |
 
 ## Staged revisions (ruled, not applied)
 | # | Ruling | Spec sections | Kind |
