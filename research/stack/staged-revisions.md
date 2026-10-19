@@ -93,7 +93,8 @@ Ruling: per-member seq = max(now_ms, last+1); keep the highest; ignore older tha
 
 ## S16: gossip admission (needs the experiment)
 
-- D13, 3.6: "A node accepts a gossip connection only after the peer proves the network secret by a keyed challenge on connect, in the node's own accept loop; a refused connection never reaches the gossip layer." Mechanism and its cost are untested; e7-admission.md shows the hook point.
+- D13, 3.6: "On every gossip connection, in both directions, each side proves the network secret: the verifier sends a 32-byte random nonce on a new bi-stream; the prover answers keyed_hash(gate key, nonce || verifier id || prover id), gate key = derive_key("messaging gate v1", secret); timeout 3 s; failure closes the connection. The gate runs in the endpoint's after_handshake hook, so neither accepted nor gossip-dialed connections reach the gossip layer unproven." Evidence: e9-gate.md (outsider gets nothing in both directions; ~1-2 ms per connection; about 60 lines, no new crate). An accept-loop-only wrapper, the shape in the ruling's wording, cannot verify an acceptor that gossip dials, and a lying acceptor read Presence: the owner confirms the hook mechanism at application.
+- 3.14: add `gate timeout 3000 milliseconds`. 3.4: add the gate key derivation. Note: the secret must be high-entropy (a captured nonce and proof allow an offline guess).
 
 ## Stack D-records (Part 2) and the manifest (Part 3)
 

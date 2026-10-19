@@ -42,8 +42,11 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   ├─ ◇ author hidden (delivered_from = previous hop); dedup 90 s       f2
 │   ├─ ■ topic id alone admits an outsider: joins in ~6 ms, reads every  e7
 │   │      Presence; forged payloads are dropped on MAC but forwarded first
-│   ├─ ■ an accept hook can refuse a peer by id on the gossip ALPN (works) e7
-│   │      but sees only id + ALPN: a secret proof needs our own exchange
+│   ├─ ■ secret-proof gate works: keyed challenge both ways in iroh's     e9
+│   │      after_handshake hook; outsider gets 0 neighbors, 0 payloads,
+│   │      0 forgeries forwarded; ~1-2 ms per connection; ~60 lines, no crate
+│   ├─ ■ an accept-loop-only gate cannot prove gossip's own outgoing      e9
+│   │      dials (gossip dials internally); a lying acceptor read Presence
 │   ├─ ■ Presence sent before gossip neighbors exist is lost; tables      e4
 │   │      never fill (3/3); sent after the topic forms: all five in ~3 s
 │   ├─ ■ Departure: broadcast only enqueues; exit at once reached 0-2 of  e4
@@ -227,4 +230,4 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | S18 | inbox stays a ring of the last 1000 messages; the sender's ack means delivered into the inbox, never read; no gap marker, no read tracking; gaps, limits, and what fits a context are the bridge's business | D21, D22, 3.11, 3.12 | spec edit |
 | S19 | no transport-level retries anywhere; a failed send returns its error as is (timeout, unreachable, refused), and the held connection is dropped on failure | 3.10, 3.14, 3.16 | spec edit |
 | S20 | address lookup: iroh-gossip's built-in lookup for mesh members, the bootstrap node's address in the ticket; no pkarr, no DNS; mDNS deferred (local nice-to-have, D15 moves to Deferred) | D15, 3.3, 3.10, 3.13, 2.12 | spec edit |
-| S16 | gossip connections accepted only after a keyed challenge proving the network secret, in our own accept loop; refused peers never reach the gossip layer | D13, D17, 3.6, 3.7 | spec edit + experiment |
+| S16 | gossip connections accepted only after a keyed challenge proving the network secret; refused peers never reach the gossip layer. Measured (e9): the mechanism must be iroh's after_handshake hook with the challenge in both directions, not an accept-loop wrapper, because gossip dials out internally; owner to confirm the mechanism | D13, D17, 3.6, 3.7 | spec edit; mechanism confirmation pending |
