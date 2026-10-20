@@ -116,8 +116,11 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   ├─ ◇ dirs breaks spec 3.3 on macOS → hand XDG                        s1
 │   └─ ◇ tokio stdin read uncancellable; `signal` adds two crates        s1
 │
-├─ MCP ───────────────────── rmcp 3.5.1 (ruled) ────────────────────── unverified
-│   └─ ○ static six tools over stdio; stdin close; shutdown
+├─ MCP ───────────────────── rmcp 3.5.1 (ruled), hand-written handler ─────── run
+│   ├─ ■ static six tools, envelope with `you`, bad_request, 3.10 text   e11
+│   ├─ ■ SIGTERM hangs on a pending stdin read; shutdown_background      e11
+│   │      exits in 1 ms idle
+│   └─ ○ Departure late by rmcp's drain: 5 s after stdin closes          C14
 │
 ├─ CLI ───────────────────── clap (ruled) ──────────────────────────── nothing to test
 │
@@ -145,7 +148,8 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │          flood fairness in eviction
 │
 ├─ TREE COST ───────────────────────────────────────────────────────── partial
-│   └─ ■ 314 unique deps without rmcp and clap                           e1 10
+│   ├─ ■ 314 unique deps without rmcp and clap                           e1 10
+│   └─ ■ draft manifest 280 unique deps; 321 with the relay server       e11
 │
 ├─ PRIOR ART (the deep row) ──────────────────────────────────────── leads only
 │   ├─ ◇ every agent-messaging project keeps a mailbox                   a1, a3, sp2
@@ -187,14 +191,14 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 | 25 | D14 | Relay ships in every build | RULED: behind a cargo feature | owner 12:40 |
 | 26 | — | Presence encryption | RULED: none | owner 12:50 |
 | 27 | — | iroh-gossip pin | RULED: release 0.101.0, upgrade later | owner 12:45 |
-| 28 | — | Tree cost | RUN: e1's package (iroh, iroh-gossip, iroh-relay server, mDNS, tokio) 314 unique dependencies; rmcp and clap not included | e1 10 |
+| 28 | — | Tree cost | RUN: e1's package (iroh, iroh-gossip, iroh-relay server, mDNS, tokio) 314 unique dependencies; rmcp and clap not included. RUN (resolution only): the full draft manifest, rmcp with default features off, 280 unique name+version; 321 with the iroh-relay server | e1 10, e11 |
 
 ## OPEN, ordered by how much of the spec rests on it
 1. Node as identity: sidecar lock released on crash (macOS, Linux); a restarted node reusing its id while peers hold a stale connection; which instance answers a dial in that window. Gates D2-D7, D10, D30, 3.4, 3.6, 3.8, 3.9.
 2. Address lookup: dial by id with n0's preset (pkarr), with a self-hosted lookup, and with addresses carried in Presence; several relays in one map and how a peer homed elsewhere is reached. Gates 3.3 config, 3.10 step 3, D14, relay TLS.
 3. Presence flow: join, Introduce to a late joiner, Departure delivery within 1000 ms, probe after NeighborDown, Unreachable rumor and self-correction (D18-D20, 3.8, tests 4, 5, 8, 19, 20).
 4. Gossip admission: does an outsider holding only the topic id and a bootstrap address receive Presence (lead: verify/v2-gossip-gate.md, a source trace).
-5. rmcp: a static six-tool server over stdio; stdin close detection; shutdown with a pending stdin read (D28, 3.9, 3.10).
+5. rmcp: answered by e11 (static list, envelope, stdin close in 1 ms when idle, the SIGTERM hang and its fix); open: the Departure delay under rmcp's drain (C14).
 6. Two machines: NAT, relay-only across hosts (test 3).
 
 ## Leads (hypotheses, not findings)
@@ -216,6 +220,8 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | C11 | 3.10, 3.14 | RULED → S19 | | |
 | C12 | D13, D17, 3.7 | RULED → S16 (mechanism measured in e9; confirmation pending) | | |
 | C13 | D11, D14, S7 | a relay and bootstrap host dying stalled gossip mesh-wide for 88 s in iroh-gossip 0.101.0, members on the live relay included | e8 | rerun e8 scenario 1 against iroh-gossip main (unreleased connection-lifecycle fixes) before ruling; then keep the release pin, pin main by revision, or wait |
+| C14 | 3.9, S17, test 4 | rmcp holds the service up to 5 s after stdin closes while a call is in flight, and only then does the application learn of the stop; a Departure sent after that is late by up to 5 s (a real send runs up to 15 s). A signal reaches the application at once, so only the end of stdin is affected | e11 rows 4, 4b; rmcp-3.5.1 src/service.rs:1762-1766 (5 s closed, 2 s cancelled; checked) | (a) wrap stdin in a reader that notes the end of input and starts Stopping at once (unbuilt; measure first); (b) accept the delay: late only when a call is in flight as stdin closes |
+| C15 | 3.10, D30 | the spec is silent on seven MCP-surface values the run had to choose | e11 Against the spec | drafted as G5 in parameters.md, for approval as drafted (as S22) |
 
 ## Staged revisions (ruled, not applied)
 | # | Ruling | Spec sections | Kind |

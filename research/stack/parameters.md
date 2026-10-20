@@ -50,6 +50,17 @@ Owner ruling (2026-10-20): settle "agreement ones only": every parameter two ind
 | 21 | invitation string | `estafette-invite-1:` + lowercase hex of the postcard encoding of {v, network name, secret, one or more host addresses (id + relay URL)} | travels between machines; hex per S5 |
 | 22 | host address line (printed by run infrastructure, accepted by join) | `estafette-host-1:` + lowercase hex of the postcard encoding of the host's endpoint address | the same shape as the invitation |
 
+## G5 MCP surface (proposed 2026-10-20 from e11; not ruled)
+| # | Parameter | Proposed value | Reason |
+|---|---|---|---|
+| 23 | tool result form | `content[0].text` is the envelope as JSON text; `structuredContent` is the envelope; `isError` is the negation of `ok` | e11 row 2: both carry the same envelope; how a harness renders them is untested |
+| 24 | which error first, before init | the input is checked first: invalid input returns `bad_request`, valid input `not_claimed` | the schema check needs no state (e11, D28 row) |
+| 25 | `since` | integer with minimum 0 in the advertised schema; a negative value is `bad_request` | e11 Surprises 9 |
+| 26 | unknown tool name | `bad_request` envelope with `you` | keeps the closed list and D30 (e11, closed-list row) |
+| 27 | key order in JSON | carries no meaning; no `preserve_order` | e11 Surprises 7; saves a crate |
+| 28 | `arguments` not an object | the MCP library's own JSON-RPC error (-32601), with no envelope; D30 covers tool results only | e11 row 3b: overriding it needs untested code |
+| 29 | rmcp build | default features off; `server` and `transport-io`; no macros; a hand-written handler and server info | e11 row 3, Surprises 1, 2, 12: the macro path breaks the envelope, the server name, and the tool order |
+
 ## The implementer's call (named in the spec as such)
 - the source of probe nonces (any cryptographically secure generator)
 - how the stale-socket check finds out whether a process exists, including PID reuse
