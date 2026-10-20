@@ -50,7 +50,7 @@ Owner ruling (2026-10-20): settle "agreement ones only": every parameter two ind
 | 21 | invitation string | `estafette-invite-1:` + lowercase hex of the postcard encoding of {v, network name, secret, one or more host addresses (id + relay URL)} | travels between machines; hex per S5 |
 | 22 | host address line (printed by run infrastructure, accepted by join) | `estafette-host-1:` + lowercase hex of the postcard encoding of the host's endpoint address | the same shape as the invitation |
 
-## G5 MCP surface (proposed 2026-10-20 from e11; not ruled)
+## G5 MCP surface (from e11; approved as drafted by the owner 2026-10-20, staged as S23)
 | # | Parameter | Proposed value | Reason |
 |---|---|---|---|
 | 23 | tool result form | `content[0].text` is the envelope as JSON text; `structuredContent` is the envelope; `isError` is the negation of `ok` | e11 row 2: both carry the same envelope; how a harness renders them is untested |
