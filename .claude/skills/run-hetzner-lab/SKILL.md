@@ -67,6 +67,12 @@ Take the setup as finished when `cloud-init status --long` reads `done` with no 
 Check the tools after the setup with `uv --version` and `just --version`, and as `lab` with `rustc --version`, `cargo clippy --version`, `rust-analyzer --version`, `cargo binstall -V`, `claude --version`, and `claude plugin list`; never report a tool installed without its printed version.
 </bound-each-waiting-step>
 
+<hold-the-message-link>
+Hold the peer-messaging link with `just remote::forward`, which forwards the sibling session's socket to `/tmp/ra-lab/remote.sock` on this Mac and this session's socket to `/home/lab/ra-home.sock` on the server; never post to the sibling another way.
+
+Take the sibling's socket as `/tmp/lab.sock` when its session started with `--messaging-socket-path /tmp/lab.sock`, a flag that `claude --help` omits though the binary takes it; pass the socket's actual path to `just remote::forward` otherwise, and never guess it.
+</hold-the-message-link>
+
 <extend-a-deadline-while-work-runs>
 Extend a deadline on the owner's word, or while lab work on that lab resource is running, with `python3 -I lab-control.py extend <kind> <id> <hours>`; never extend one for an idle lab resource.
 </extend-a-deadline-while-work-runs>
