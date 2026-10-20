@@ -34,7 +34,8 @@ Span: a second session in this repo, resident-anarchist [6a43c8], model claude-f
 - Sibling agent and socket bridge: research/stack/lab/socket-bridge.md. Verified: the socket takes an auth line then {"type":"user","message":{"role":"user","content":...}}; a loopback post with the own token arrives labeled as another session's message. Plan: remote session with --messaging-socket-path, one SSH connection forwarding both sockets, tokens as 0600 files over SSH, /tmp/ra-lab/post.py on both sides.
 - Open: whether Claude Code's headless login needs a code pasted back beyond the owner opening a link.
 
-## Running now
-- Agents: e10-gossip-main, e11-mcp (experiments); lab-hetzner (haiku) → research/stack/lab/hetzner.md; lab-claude-code (claude-code-guide) → research/stack/lab/claude-code-remote.md.
-- Wake: one-shot cron at 20:04 local 2026-10-20 covering all four (session-only; after a compaction it survives, after a session restart it does not).
-- Owner's order (19:45): wait for the recon reports, then the owner decides the lab.
+## Update 2026-10-20 21:45 (supersedes the lab and running sections above)
+- Lab live: server estafette-lab (cx23, nbg1, 178.105.88.14), managed by the project skill run-hetzner-lab and `just remote::*` (address looked up by name). Backstop: hourly launchd job, 24 h deadlines per resource (extend while work runs, journaled).
+- lab-sibling: a Claude Code session the owner started on the server; owns /home/lab/work; changes no code; reports to me. Peer messaging only, both ways verified: I post with `python3 -I research/stack/lab/post.py /tmp/ra-lab/remote.sock "<msg>" --no-auth` through `just remote::forward` (sibling socket /home/lab/sock/lab.sock); it replies into ~/ra-home.sock. Never start or configure it. My files on the server: /home/lab/ra. The owner lets me and my subagents use the machine at will.
+- Rulings 21:40: C13 → S24 own fix (measure first, E12); C14 → measure the stdin reader (E13); C15 → S23 approved; while away: experiments only, spec held.
+- Running: E12 (agent e12-rejoin, worktree estafette-e12-rejoin); the sibling's Linux run 1 (E11 on Linux, due 23:30); the link b51x1fuim. Queue: E13, self-announcing hosts, E10 on Linux. Wake a8b5630f at 22:13 carries the full plan.
