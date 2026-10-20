@@ -9,18 +9,86 @@ Tags:
 - `[log]`: docs.hetzner.cloud/changelog via WebFetch. Summary.
 - `[sdk]`: hcloud-go source, GitHub main, via WebFetch. Summary.
 - `[3p]`: third party, search snippet. Not authoritative.
+- `[news]`: docs.hetzner.cloud/whats-new. Raw HTML, text extracted and checked.
+- `[price]`: docs.hetzner.com price-adjustment page. Raw HTML, figures checked.
 - `[inferred]`: my inference. No source.
 
 ## Bottom line
 
-- Cheapest x86 shared: CX23. 2 vCPU, 4 GB, 40 GB NVMe, €5.99/mo excl. VAT. `[raw]`
-- Cheapest Arm: CAX11. 2 vCPU, 4 GB, 40 GB NVMe, Ampere®, €6.49/mo excl. VAT. `[raw]`
+- Cheapest x86 shared: CX23. 2 vCPU, 4 GB, 40 GB NVMe. €5.99/mo excl. VAT with IPv4 (€5.49 without). `[raw][price]`
+- Cheapest Arm: CAX11. 2 vCPU, 4 GB, 40 GB NVMe, Ampere®. €6.49/mo excl. VAT with IPv4 (€5.99 without). `[raw][price]`
+- Prices rose 2026-06-15. CX23 without IPv4: €3.99 → €5.49. See "Recent changes that matter". `[price]`
 - Both read "This product is currently unavailable." `[raw]`
-- Arm costs more than x86 at each matched size. `[raw]`
+- Arm costs more than x86 at each matched size. The gap widened at three of four sizes on 2026-06-15. `[raw][price]`
+- Newest plans: CPX12 (EU, 2026-07-07) and CPX02 (EU and SIN, 2026-10-06). The price page marks both unavailable. `[news][raw]`
 - No API or CLI route to create a project found. `[docs][help][sdk]`
 - Hourly billing, capped at monthly. Stopped servers billed. Deleting a server stops server billing. Unassigned Primary IPs keep billing. `[docs]`
 - Firewalls: stateful, free. `[docs]`
 - iroh's FAQ names one relay UDP port, 7842. All-UDP opens more. `[docs]`
+
+---
+
+## Recent changes that matter
+
+Newest first. Quotes verbatim. `[news]` = whats-new page. `[price]` = price-adjustment page. `[press]` = press release, WebFetch summary.
+
+- **2026-10-20. New network stack beta (hcnet).** `[news]`
+  - "The new Hetzner Cloud network stack "hcnet" is now available in public beta. You can trigger a switch for each server individually."
+  - "Limit increase for connection tracking from 80,000 parallel connections for both IPv4 and IPv6 combined, to 120,000 each."
+  - "If a firewall is active, existing connections may be dropped."
+  - Switch per server: Networking tab, "Try new network stack". Default for new servers: not on page.
+
+- **2026-10-06. CPX02 added (EU and SIN).** `[news]`
+  - "...we have now introduced the "Regular Performance" server CPX02, featuring 1 vCPU, 1 GB RAM and 20 GB storage, at our European locations (FSN1, HEL1 and NBG1) and in Singapore (SIN)."
+  - Vendor fit: "particularly suitable for applications with very low resource usage and minimal system requirements, such as static websites, blogs or simple single-service web applications."
+  - Card: €6.49/mo excl. VAT with IPv4 `[raw]`. Card reads "currently unavailable" `[raw]`. Unresolved.
+
+- **2026-07-07. CPX12 added (EU).** `[news]`
+  - "...the "Regular Performance" cloud server CPX12 with 1 vCPU, 2 GB RAM, and 40 GB disk space is now also available in our European locations (FSN1, HEL1, and NBG1)."
+  - Vendor fit: "ideal for single-purpose workloads with low resource requirements, such as small websites and personal blogs, private VPN/proxy services, chat servers, and bots."
+  - Card: €11.99/mo excl. VAT with IPv4 `[raw]`. Card reads "currently unavailable" `[raw]`. Unresolved.
+
+- **2026-06-15. Price adjustment for new orders and rescales.** `[news][price][press]`
+  - `[news]`, dated 2026-05-28: "Starting on 15 June 2026, updated pricing for cloud servers will apply to new orders and rescales." "Existing servers are not affected by the price adjustment, as long as no rescaling is performed."
+  - `[price]`: "The price adjustment took effect for new orders and cloud instance rescales starting on the 15 June 2026; 8 AM CEST." "All prices are excluding VAT."
+  - `[price]`: "Please note that certain changes to servers with legacy pricing may trigger a switch to the current pricing." "For orders placed before 15 June 2026, but delivered after 15 June 2026, the previous prices will apply."
+  - `[press]`: "adjust our prices for certain product lines for new orders effective today, 15 June 2026, 8:00 am (CEST)." Reason: "This is due to the ongoing challenges in the hardware procurement market."
+  - Monthly, excl. IPv4, € (old → new) `[price]`:
+
+    | tier | x86 (CX) | Arm (CAX) | Arm minus x86, old → new `[inferred]` |
+    |---|---|---|---|
+    | 2 vCPU / 4 GB | CX23 3.99 → 5.49 | CAX11 4.49 → 5.99 | 0.50 → 0.50 |
+    | 4 vCPU / 8 GB | CX33 6.49 → 8.49 | CAX21 7.99 → 10.49 | 1.50 → 2.00 |
+    | 8 vCPU / 16 GB | CX43 11.99 → 15.99 | CAX31 15.99 → 20.99 | 4.00 → 5.00 |
+    | 16 vCPU / 32 GB | CX53 22.49 → 29.49 | CAX41 31.49 → 40.99 | 9.00 → 11.50 |
+
+  - Other plans, same table: CPX22 (EU) 7.99 → 19.49. CCX13 (EU) 15.99 → 42.99.
+  - IPv4 costs €0.50/mo excl. VAT `[docs]` primary-ips page. Card price = new excl. IPv4 + €0.50 `[raw]`.
+
+- **2025-10-16. New server lines in EU and SIN.** `[news]`
+  - "In the locations EU and SIN, server plans are no longer distinguished by hardware type, but by hardware generation."
+  - "CAX plans run on an Arm-based platform using Ampere® CPUs."
+  - CX Gen3: "They can run on either Intel® or AMD, depending on availability."
+  - "Existing servers are not affected by the deprecation of CX Gen2 and CPX Gen1 plans. They will continue to work."
+  - Lines: CPX Gen2 (x86 AMD, "Regular Performance"). CX Gen3 (x86, or CAX Arm64, "Cost-Optimized"). CCX (x86, dedicated, "General Purpose").
+
+- **2025-10-07. DNS moved into Hetzner Console.** `[news]` "Integration into the Cloud API: Manage DNS zones via the Hetzner Cloud API." Relevant only if the relay needs a DNS name.
+
+- **2025-06-25. Cloud Console renamed Hetzner Console.** `[news]` "The Cloud Console is now the Hetzner Console , reflecting our goal to unify all Hetzner products under one roof. Now live at: https://console.hetzner.com" Projects live in this Console. See section 5.
+
+- Not relevant to setup: 2026-08-10 experimental platform, "Free during the experimental phase" `[news]`. 2025-08-26 feedback tool `[news]`.
+- No image or app entry on the whats-new page after 2023-08-07 `[news]`. Image changes are in the changelog, section 3.
+
+### Older entries still in force
+
+- **2023-08-07. "Deploy to Hetzner Cloud" link.** `[news]` "If you would like to link to one of our Apps, you can do it now using this new URL: https://console.hetzner.cloud/deploy/{app-name}." Opens the create page with the app preselected. Current domain and path: not verified.
+- **2023-03-10. Apps.** `[news]` Owncast, PhotoPrism, RustDesk added. "the RustDesk App turns your server into a ready-to-go remote desktop server."
+- **2023-04-12. Arm plans introduced.** `[news]` "you can now also create servers with Arm-based architecture (Ampere)." Vendor claim: "the Arm64 architecture makes it possible to get way more compute cores." No benchmark read.
+- **2023-09-19. CAX in three locations.** `[news]` "Up until now, server plans with Arm64 architecture were only available in Falkenstein." Nuremberg and Helsinki added. FSN1 status now: see Open.
+- **2024-08-06. Singapore.** `[news]` "Singapore is available for all cloud servers with AMD processors, and all cloud features." Singapore: AMD (CPX) only per this entry.
+- **2022-06-08. Networking options and Primary IPs.** `[news]` "Because of the new options, servers and IPs are now billed separately." Options: server with IPv4 and IPv6; server with one public IP (IPv4 or IPv6); server without public IP. "To keep your Primary IP even if you delete the server it is assigned to, you can simply disable the "Auto Delete" option." Auto Delete implied on by default `[inferred]`. IPv6-only server: `--without-ipv4` `[help]`. Price effect: not verified.
+- **2024-06-06. CX22 to CX52 introduced.** `[news]` Older CX11 to CX51 closed for order via API from 2024-09-06. CX22 is not on the current page `[raw]`.
+- **2020-08-11 and 2021-09-17. Firewalls.** `[news]` 2020-08-11: "Our firewalls are "stateful" and thus allow easy configuration." 2021-09-17 general availability: "restricting certain TCP, UDP ICMP, ESP and GRE traffic." Matches section 1b.
 
 ---
 
@@ -105,12 +173,13 @@ hcloud image list -t backup                                                     
   - Clients: "Nothing listens for inbound connections, no ports are forwarded."
 - Conflict `[3p]`, search summary, not fetched: iroh-relay README dev example puts QUIC on 7824. FAQ says 7842. Unresolved.
 - Self-hosting guide `[3p]`: TLS relay on 80, 443, 7842.
+- hcnet (beta, 2026-10-20) `[raw]` hcnet page: "Cloud Firewalls are stateful and hcnet implements them using eBPF." Connection tracking "may also differ in some details." When the table fills, "traffic that relies on connection tracking will be disrupted." "No fragment tracking is done for IPv6."
 
 ---
 
 ## 2. Server types, prices, locations
 
-Page text `[raw]`, hetzner.com/cloud/cost-optimized/, 2026-10-20. Prices excl. VAT. Label "Price incl. IPv4". Card Details: "eu-central NBG1 HEL1".
+Page text `[raw]`, hetzner.com/cloud/cost-optimized/, 2026-10-20. Card prices, excl. VAT, include IPv4 (label "Price incl. IPv4"). Card Details: "eu-central NBG1 HEL1".
 
 | plan | CPU label | vCPU | RAM | disk | €/mo | €/h |
 |---|---|---|---|---|---|---|
@@ -128,8 +197,8 @@ Page text `[raw]`, hetzner.com/cloud/cost-optimized/, 2026-10-20. Prices excl. V
 - Codes ASH1, HIL1, SIN1: absent from the page `[raw]`. Ashburn, Hillsboro, Singapore: general text, not cards `[raw]`.
 - API gives `net` and `gross`. `.net` matches the page label `[sdk]`.
 - Hourly price times hours, capped at monthly `[docs]` billing FAQ.
-- Calculator, Oct 2026 `[3p]`: CX23 €5.49 + €0.50 IPv4 = €5.99. Fits the label. CAX11 split (€5.99 + €0.50) `[inferred]`.
-- 2026 price increases, April and mid-June `[3p]`. Not verified on a Hetzner page.
+- Excl. IPv4 `[price]`: CX23 €5.49, CAX11 €5.99. IPv4 €0.50/mo excl. VAT `[docs]`. Sums equal the card prices `[raw]`.
+- Price adjustment effective 2026-06-15 `[price]`. Old and new table: see "Recent changes that matter".
 
 ### Regular Performance (x86 shared, AMD)
 
@@ -211,7 +280,7 @@ Source `[docs]` billing FAQ. Page footer: "Last change on 2020-07-07". Current t
 - Firewalls: free `[docs]`.
 - Primary IP `auto_delete`:
   - Flag `hcloud primary-ip create --auto-delete`: "Delete Primary IP if assigned resource is deleted" `[help]`.
-  - Default: not on pages read.
+  - Default: implied on. 2022-06-08 entry: "you can simply disable the "Auto Delete" option" to keep the IP `[news][inferred]`.
   - Changelog 2026-05-01 `[log]`: assigned Primary IP must be unassigned before deletion.
   - Server deletion leaves its Primary IPv4 behind: not verified.
 - `server create --without-ipv4` exists `[help]`. Plan-price effect: not on pages read.
@@ -226,6 +295,7 @@ Source `[docs]` billing FAQ. Page footer: "Last change on 2020-07-07". Current t
 - `[help]`: `hcloud --help` lists no project resource. `hcloud api <path>` is a raw call, GET by default.
 - `[sdk]`: hcloud-go Client has 22 service fields. None is Project.
 - Search snippet `[3p]`: a token works only inside its project. Not verified on a Hetzner page.
+- Supporting `[news]`: "The Cloud Console is now the Hetzner Console" (2025-06-25). "When you open a project, the new dashboard provides an overview of all resources" (2024-09-04).
 - Result: no documented API or CLI route to create a project. Docs describe projects only in the Console.
 - Check after token exists, read-only: `hcloud api /projects`. Result decides. `[inferred]`
 
@@ -257,6 +327,11 @@ Facts only. No recommendation.
 - Both 2-vCPU plans have 4 GB RAM, equal to the Claude Code minimum `[raw]` `[docs]`.
 - Ubuntu 26.04 has x86 and arm image IDs `[log]`.
 - Rust build time and memory benchmarks: none read.
+- Arm premium over matched x86, excl. IPv4 `[price]`: €0.50, €1.50, €4.00, €9.00 before 2026-06-15; €0.50, €2.00, €5.00, €11.50 after. `[inferred]` by subtraction.
+- CX Gen3 runs on "either Intel® or AMD, depending on availability" `[news]`. CAX: Ampere® CPUs `[news]`.
+- CAX first in Falkenstein (2023), then Nuremberg and Helsinki (2023-09-19) `[news]`. Card Details today: NBG1, HEL1 `[raw]`.
+- Singapore: AMD (CPX) only `[news 2024-08-06]`.
+- Smallest RAM: CPX02, 1 GB, EU and SIN `[news]`. 2-vCPU cost-optimized plans, CX23 and CAX11, both 4 GB `[raw]`. CPX11 (2 vCPU, 2 GB) is US-only in the summary `[docs]`.
 
 ---
 
@@ -264,17 +339,22 @@ Facts only. No recommendation.
 
 - Prices and availability: raw text for CX/CAX and CPX02/CPX22; model summary for other CPX rows. Live values need `hcloud server-type list -o json` after token.
 - Availability: live or static text not verified. Live order path not verified.
-- Price split (€5.49 + €0.50 IPv4) from third party only. Hetzner not checked.
+- Resolved: €5.49 excl. IPv4 `[price]` + €0.50 IPv4 `[docs]` = €5.99 card price `[raw]`.
 - Lowercase API type names and `ubuntu-22.04`/`ubuntu-24.04` names: `[inferred]`.
 - `--port 1-65535` for all UDP: `[inferred]`. Verify with `hcloud firewall describe aoa-relay-fw -o json`.
 - Firewall delete while attached: not verified. Detach-first order: `[inferred]`.
-- Primary IPv4 after server delete: default not found. Check `auto_delete` first.
+- Primary IPv4 after server delete: Auto Delete implied on `[inferred]`. Check `auto_delete` first.
 - `server ip -6` vs `public_net.ipv6.ip`: not verified.
 - Billing FAQ dated 2020-07-07. Current terms: not verified.
 - Projects: no creation route found. "Console only" inferred from absence.
 - Changelog summary read 100,000 of 107,248 characters.
 - One iroh workflow read. Others unread.
 - Changelog 2026-09-08 `[log]`: Images field `deprecated` will be removed. CLI column `deprecated` breaks after removal `[inferred]`. Not tested (no token).
+- CPX02 (2026-10-06) and CPX12 (2026-07-07) announced as available `[news]`. Price page marks both unavailable `[raw]`. Unresolved.
+- CAX11 in FSN1: create link targets fsn1 `[raw]`. Card Details omit fsn1 `[raw]`. 2023 entry says CAX launched in FSN1 `[news]`. Unresolved.
+- Default network stack for new servers: not on hcnet page `[raw]`.
+- IPv6-only server (`--without-ipv4`): price effect not verified. Card labels say "Price incl. IPv4" `[raw]`.
+- Price table: raw page `[price]`. Press release: WebFetch summary `[press]` only.
 - One WebFetch result carried a system-reminder-style block naming a different user email. Ignored. No effect on this work.
 
 ## Sources
@@ -305,6 +385,14 @@ SDK (GitHub main, WebFetch summary):
 
 CI:
 - https://github.com/n0-computer/iroh/blob/main/.github/workflows/ci.yml
+
+News, prices, hcnet (raw HTML, 2026-10-20):
+- https://docs.hetzner.cloud/whats-new
+- https://docs.hetzner.com/general/infrastructure-and-availability/price-adjustment/
+- https://docs.hetzner.com/cloud/technical-details/hcnet/
+
+Press release (WebFetch summary):
+- https://www.hetzner.com/pressroom/standardization-and-price-adjustment-of-our-server-products/
 
 Third party, not authoritative `[3p]` (search snippets only):
 - https://costgoat.com/pricing/hetzner
