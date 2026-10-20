@@ -19,6 +19,7 @@ packages:
   - git
   - tmux
   - jq
+  - mosh
   - curl
   - python3
 write_files:

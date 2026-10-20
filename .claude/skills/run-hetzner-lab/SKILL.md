@@ -50,7 +50,7 @@ Create the firewall from this skill's `firewall-rules.json` with `hcloud firewal
 
 Write the server's setup file with `python3 -I fill-setup.py <output path>`, which fills the public half of `~/.ssh/estafette_lab` into this skill's `cloud-init.template.yaml`; never edit the template for one server.
 
-Keep in the template, for every server, the user `lab` without sudo, root by key only, Unix-socket forwarding in sshd, uv and just in `/usr/local/bin`, and for `lab` the Rust stable toolchain with the default profile plus `rust-src` and `rust-analyzer`, the Rust version estafette pins in its `rust-toolchain.toml`, cargo-binstall, and Claude Code; never drop one of them.
+Keep in the template, for every server, the user `lab` without sudo, root by key only, Unix-socket forwarding in sshd, mosh for the owner's terminal, uv and just in `/usr/local/bin`, and for `lab` the Rust stable toolchain with the default profile plus `rust-src` and `rust-analyzer`, the Rust version estafette pins in its `rust-toolchain.toml`, cargo-binstall, and Claude Code; never drop one of them.
 
 Create the server with `hcloud server create --name <name> --type <type> --image <image> --location <location> --ssh-key estafette-lab --firewall <firewall> --user-data-from-file <setup file>` and its deadline labels; never create it without the setup file.
 
