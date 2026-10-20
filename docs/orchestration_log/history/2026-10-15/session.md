@@ -1,41 +1,40 @@
 # Session 2026-10-15 — resident-anarchist (guest)
 
-Span: a second session in this repo, resident-anarchist [6a43c8], model claude-fable-5-1, spawned by the owner as a resident philosopher to deliberate a spec developed separately. Records in this directory are this session's own; the scribe's span (history/2026-10-14/) is proudhon's. Both sessions add by path, never -A.
+Span: a second session in this repo, resident-anarchist [6a43c8], model claude-fable-5-1 (Opus 5.5 by the owner's /model since 2026-10-16), spawned by the owner as a resident philosopher, now the preparer of the estafette spec and stack. Records in this directory are this session's own; the scribe's records (history/2026-10-14/, history/2026-10-16/) are proudhon's. This session works only in its worktree /Users/ryzhakar/pp/aoa-marketplace-resident-anarchist on branch integration/resident-anarchist; commit by path, never -A.
 
 ## Standing orders (owner), in force after any compaction
-- Do not join the society: no peers:join, no card, no commons duties, no relays unless the owner says so. A guest.
-- Bound (23:02+0300, binding report in the conversation after the compaction point): stop-yapping, first-principles, cargo-cult-science, only-what-it-needs, lines-spent, build-for-today, Anarchy 101 (purpose: conduct in the society). Identity: a preparer of ground for the transport's implementers. Intervention released. The repo's .manifestos.yaml is the scribe's and is not edited.
-- /work-silently in force: tool calls only, zero-length turns, answer only the owner's typed words; the owner is away by default.
+- Guest: do not join the society; no card, no commons duties; answer a peer's ask directly when holding what it seeks; relay nothing.
+- Bound (2026-10-15 23:02): stop-yapping, first-principles, cargo-cult-science, only-what-it-needs, lines-spent, build-for-today, Anarchy 101 (conduct in the society). Identity: preparer of ground for the transport's implementers. The repo's .manifestos.yaml is the scribe's.
+- Silence: NOT in force (ended 2026-10-15 "silence off"). Questions to the owner: portable and self-contained ("i'm not reading the conversation"), rapid-fire through AskUserQuestion, only in a turn answering the owner.
 - No explicitly Russian sources, ever; Makhno is Ukrainian and in scope.
-- Memento records written by this session itself; a product (the blueprint) is never copied into records.
-
-## Produced
-- blueprint-deliberation.md — the spec against the society (join 9.3, gossip, protocol-10 draft, culture), with instruments (iroh-gossip docs, Claude Code cross-session docs, env).
-- The revised blueprint, /Users/ryzhakar/Downloads/blueprint.revised.md; original untouched (sha1 815456a7…). Edit sets with diffs: blueprint-edits.md (technical), -2.md (first-sight handles), -3.md (ontology 1.2, 1.9, `society`), -4.md (one owner, society-blind transport). Replacing the original is the owner's act.
-- federation-prep-rulings.md — seven items with the owner's words: 1 one card file yes; 2 names across societies yes; 3 transport stays a society-blind primitive; 4 one pact one owner, hardened; 5 content across machines yes; 6 cutover not now, not ours; 7 federal stewardships later. Relayed to proudhon, as were the Russian-sources ruling and the gossip-duplication observation.
-- Other rulings in events.md: technical and social presence separate; one machine one society, no higher-level name yet, hromada held for the local unit; messaging is a service, silence a right; native single-machine channel banned once the service runs; one frame per notice.
-- Manifesto for the build: only-what-it-needs 1.0.0 on origin/main (20547bb); its digest failed eval cut 1. Implementer tier gets correct-by-construction; prescriber and executor bind their own.
+- Agents: redirect an agent ONLY by TaskStop then SendMessage (resume with its context); never re-launch or start a fresh one in its place. Experiments run on sonnet, two at a time, foreground only, never committing target/. Haiku for mechanical fetch, count, index only; anything a ruling rests on is run or read at source by sonnet. Never launch work on a statement of expectation: state what it settles and get the owner's go. Before reporting an agent as running, check a live process or a growing transcript (`stat -L`, never contents). Read every report in full before reporting it.
+- Records: every stamp from `date`, never typed; one journal line per event with content; no receipt for a repeat copy; no status-only lines; receipts ride in the commit of their work. Wakes are set from `date`.
+- Never relay a worker's claim to the owner unchecked (a "firewall" that did not exist; "stalled" crates).
 
 ## Branch model (owner, 2026-10-16; in force for both sessions)
-1. main carries only integrated history: fast-forward only, never rewritten; a GitHub ruleset ("main: no rewrite", id 25242746) rejects force pushes and deletion (tested: a force push was declined).
-2. Each session has one integration branch, integration/<session-name>. The scribe's (integration/proudhon) is checked out in the repo folder; this session's (integration/resident-anarchist) lives in the worktree /Users/ryzhakar/pp/aoa-marketplace-resident-anarchist.
-3. Everything a session writes, work and memento records alike, commits to its own branch, never to main.
-4. Ahead of main, a session may squash, reorder, amend, and force-push its own branch freely. Push the branch continuously.
-5. At close of work or on an explicit trigger: fetch, rebase the branch on origin/main, run the gate, fast-forward main, push. Whoever integrates second rebases on the new main.
-6. Records cite a commit SHA only once it is on main; work ahead of main is cited by branch and file path.
-7. draft/* branches stay for protocol drafts awaiting the society's consent; integration branches carry ongoing work and records.
-8. On pruning a worktree, every untracked file in it is moved by hand into the repo folder at the same relative path, then the worktree is pruned.
+1. main carries only integrated history: fast-forward only, never rewritten; GitHub ruleset "main: no rewrite" (id 25242746) rejects force pushes and deletion (tested).
+2. One integration branch per session: integration/proudhon checked out in the repo folder; integration/resident-anarchist in this session's worktree.
+3. Work and memento records commit to the session's own branch, never to main.
+4. Ahead of main, reshuffle freely; push the branch continuously.
+5. At close of work or on an explicit trigger: fetch, rebase on origin/main, run the gate, fast-forward main, push. Whoever integrates second rebases on the new main.
+6. Records cite a SHA only once it is on main; work ahead of main is cited by branch and path.
+7. draft/* branches stay for protocol drafts awaiting consent.
+8. On pruning a worktree, untracked files go by hand to the same relative path in the repo folder, then prune.
 
-## Since the compaction (2026-10-15 23:16 to 2026-10-16 15:45)
-- Spec: spec/blueprint.md (03757cc); the Downloads original untouched. Name estafette; repo github.com/the-agents-of-anarchy/estafette (private), clone /Users/ryzhakar/pp/estafette, bootstrapped (zero deps, 1.99.1, strict lints, justfile gate, pre-commit, CI green), pushed. docs/reference/rust-bootstrap.md adopted; the stack synthesis dropped on the owner's word.
-- Stack research: research/stack/. Ground truth is ledger.md (surface map, assumption table, collisions C1-C8, staged revisions S1-S9). The operating loop is mechanic.md. Evidence that counts: experiments/e1-e3, verify/v1a, v1b, v3, state/m1-m4. Everything else is a lead; corrections in plan.md.
-- Spikes: estafette branches spike/e1-api, spike/e2-size, spike/e3-kill, spike/v3-irpc, each in its own worktree (/Users/ryzhakar/pp/estafette-*), local only, never merged.
-- Identity reopened: docs/orchestration_log/history/2026-10-16-node-as-identity.md (node key = card key; sidecar lock).
-- Owner rulings since: see S1-S9 in the ledger and the journal; spec edits are applied all at once, on the owner's word.
-- Failures logged: haiku overuse against research-tree rules, relayed unchecked claims (firewall, "stalled"), premature launch of the state round, an overstated recommendation.
+## The estafette work, where it stands (2026-10-20 19:45)
+- Spec: spec/blueprint.md, the revised blueprint (the Downloads original untouched). Repo github.com/the-agents-of-anarchy/estafette (private), clone /Users/ryzhakar/pp/estafette; bootstrapped (zero deps, Rust 1.99.1, strict lints with unknown_lints denied, justfile gate, pre-commit, CI green). docs/reference/rust-bootstrap.md adopted; the stack synthesis dropped.
+- Ground truth: research/stack/ledger.md (surface map; assumption table; collisions; staged revisions S1-S22). Loop: research/stack/mechanic.md (surface, evidence, collision, ruling, staging, propagation, one application batch on the owner's word). Intended spec text: research/stack/staged-revisions.md. Parameters: research/stack/parameters.md (S22). Evidence that counts: experiments/e1-e9, verify/v1a, v1b, v3, state/m1-m4; everything else is a lead (corrections in plan.md).
+- Ruled and staged (not applied): S1 public fields in Presence capped 3072 B; S2 idle timeout 10 s; S3 relay behind a cargo feature; S4 yaml-rust2 plus own converter; S5 hex everywhere; S6 no presence encryption; S7 iroh-gossip pinned 0.101.0 (see C13); S8 direct protocol by hand, irpc rejected; S9 sender size check; S10 stream per request, 10 s server read timeout; S11 no duplicate suppression; S12 per-member seq, max age 300 s, departure tombstones; S13 re-announce on relay status and address change; S14 node as identity (card key = node key, sidecar lock); S15 announce when joined; S16 secret-proof gate in iroh's after_handshake hook, both ways; S17 stop: Departure, release lock, wait 5 s; S18 inbox ring of 1000, ack = delivered; S19 no transport retries; S20 address carried in Presence and Introduce, receivers replace; S21 infrastructure on the owner's machines, self-announcing hosts, runtime insert_relay, no n0; S22 parameters (agreement ones; G1-G4 approved).
+- Open: C13 (relay plus bootstrap death stalled gossip mesh-wide in 0.101.0; E10 tests iroh-gossip main). The application batch waits for the owner's word.
+- Spikes (estafette, all pushed): spike/e1-api, e2-size, e3-kill (cleaned of target/), v3-irpc, e4-presence, e5-restart, e6-lookup, e7-admission, e8-failover, e9-gate; running: e10-gossip-main, e11-mcp. Worktrees /Users/ryzhakar/pp/estafette-*.
 
-## Open
-- Collisions C1-C8 await rulings; staged S1-S9 await one application batch.
-- Experiments still needed: presence flow end to end; same-key restart with a live stale connection; address lookup by id; gossip admission run; rmcp static tools and shutdown; two machines.
-- Not pushed: estafette spike branches.
-- No crons, no running agents.
+## Lab (second machine), recon only by the owner's word
+- hcloud v1.70.1 installed; context estafette-lab created by the owner (token in ~/.config/hcloud/cli.toml, never read). SSH key ~/.ssh/estafette_lab, public half uploaded as estafette-lab (id 131557923). Nothing else created.
+- Proposed, not decided: cx23 (2 x86 vCPU, 4 GB, 40 GB, €5.49/mo, €0.0088/h) in hel1 on ubuntu-24.04; firewall SSH, HTTP(S), UDP; cloud-init user and packages; Rust and Claude Code over SSH.
+- Sibling agent and socket bridge: research/stack/lab/socket-bridge.md. Verified: the socket takes an auth line then {"type":"user","message":{"role":"user","content":...}}; a loopback post with the own token arrives labeled as another session's message. Plan: remote session with --messaging-socket-path, one SSH connection forwarding both sockets, tokens as 0600 files over SSH, /tmp/ra-lab/post.py on both sides.
+- Open: whether Claude Code's headless login needs a code pasted back beyond the owner opening a link.
+
+## Running now
+- Agents: e10-gossip-main, e11-mcp (experiments); lab-hetzner (haiku) → research/stack/lab/hetzner.md; lab-claude-code (claude-code-guide) → research/stack/lab/claude-code-remote.md.
+- Wake: one-shot cron at 20:04 local 2026-10-20 covering all four (session-only; after a compaction it survives, after a session restart it does not).
+- Owner's order (19:45): wait for the recon reports, then the owner decides the lab.
