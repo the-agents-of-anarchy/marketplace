@@ -1,6 +1,6 @@
 #cloud-config
-# estafette lab server setup (owner's standing order 2026-10-20: uv, just, and the
-# full Rust toolchain on every server this session initializes).
+# estafette lab server setup (owner's standing order 2026-10-20: uv, just, cargo-binstall,
+# and the full Rust toolchain on every server this session initializes).
 # One non-root user "lab" for the sibling Claude Code session; it gets no sudo.
 # Root keeps key-only SSH for administration.
 # fill-setup.py puts the public half of ~/.ssh/estafette_lab in place of the key placeholder below.
@@ -33,5 +33,6 @@ runcmd:
   - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin
   - su - lab -c 'curl --proto =https --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile default --component rust-src --component rust-analyzer'
   - su - lab -c 'rustup toolchain install 1.99.1 --profile default --component rust-src --component rust-analyzer'
+  - su - lab -c 'curl -L --proto =https --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash'
   - su - lab -c 'curl -fsSL https://claude.ai/install.sh | bash'
   - touch /var/lib/lab-setup-done

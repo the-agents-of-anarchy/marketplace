@@ -12,7 +12,7 @@ Owner rulings, 2026-10-20: server CX23 in Nuremberg, prompts off, non-root; full
 | ssh-key | 131557923 | estafette-lab (~/.ssh/estafette_lab) | 2026-10-21 16:40 |
 
 ## On the server (verified 2026-10-20)
-User `lab` without sudo; root by key only. uv 0.13.4 and just 1.59.0 in /usr/local/bin. Rust for `lab`: stable 1.99.1 with the default profile plus rust-src and rust-analyzer, and the estafette pin 1.99.1. Claude Code 2.1.304. sshd allows Unix-socket forwarding with StreamLocalBindUnlink. Not yet done: login, the sibling session, the socket forward.
+User `lab` without sudo; root by key only. uv 0.13.4 and just 1.59.0 in /usr/local/bin. Rust for `lab`: stable 1.99.1 with the default profile plus rust-src and rust-analyzer, and the estafette pin 1.99.1. cargo-binstall 1.26.0 for `lab`. Claude Code 2.1.304. sshd allows Unix-socket forwarding with StreamLocalBindUnlink. Not yet done: login, the sibling session, the socket forward.
 
 ## Files
 The procedure and its files live in the project skill `run-hetzner-lab` (.claude/skills/run-hetzner-lab/): SKILL.md, cloud-init.template.yaml (the setup for every new server), fill-setup.py (fills the key into it), firewall-rules.json (the four inbound rules), lab-control.py (the backstop: `check` hourly, `label` after a creation, `extend`), and the launchd plist. Installed copies: ~/Library/LaunchAgents/com.ryzhakar.estafette-lab-control.plist, running ~/.local/share/estafette-lab/lab-control.py, logging to ~/.local/state/estafette-lab/control.log.
