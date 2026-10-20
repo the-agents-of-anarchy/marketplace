@@ -220,7 +220,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 ## Staged revisions (ruled, not applied)
 | # | Ruling | Spec sections | Kind |
 |---|---|---|---|
-| S1 | lower the `public` cap so the default gossip frame carries the largest Presence; exact cap after C5 and C8 | 3.5, 3.7, 3.14 | spec edit |
+| S1 | public card fields stay in Presence (and in Introduce), capped at 3072 bytes so the largest Presence fits the default 4096-byte gossip frame with headroom (owner ruling) | 3.5, 3.7, 3.14 | spec edit |
 | S2 | QUIC idle timeout 10 s | 3.14, D18-D20 | spec edit |
 | S3 | relay behind a cargo feature | D14, D35, 3.2 | spec edit + stack D-record |
 | S4 | cards parsed with yaml-rust2 plus our own converter | 3.5 | stack D-record |

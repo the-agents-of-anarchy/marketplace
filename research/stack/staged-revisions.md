@@ -80,7 +80,7 @@ Ruling: per-member seq = max(now_ms, last+1); keep the highest; ignore older tha
 
 ## S1, S9: gossip frame
 
-- Open parameter: the `public` cap. With S14 the Claim's 172 bytes leave Presence; the cap must make the largest Presence fit 4096 bytes including gossip's 38-byte overhead (e2-size.md). Compute at application time from the final Presence shape; the result goes into 3.5 and 3.14.
+- 3.5, 3.14: the serialized `public` mapping is capped at 3072 bytes (owner ruling), so the largest Presence, address included, fits the default 4096-byte gossip frame with about 0.5 KB headroom (gossip adds 38 bytes; e2-size.md). Verify the worst case with a size test at application.
 - 3.7: add "A node checks every payload's encoded size against the gossip frame limit before broadcasting and never sends a larger one (an oversize broadcast returns Ok, is lost, and leaves the link dead: measured)."
 - 3.16: add "Do not broadcast a payload larger than the gossip frame limit."
 
