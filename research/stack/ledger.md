@@ -35,7 +35,8 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   │      member recover only if the relay returns
 │   ├─ ■ relay death (not bootstrap death) stalls gossip mesh-wide, in    e8, e10
 │   │      0.101.0 and main alike (control 0/6); 0.101.0 never heals in
-│   │      180 s; main rejoins alone and heals at 62-145 s (#191)
+│   │      180 s; main rejoins alone and heals at 62-145 s (#191);
+│   │      stall and ~41 s re-home reproduced on Linux       linux-e10
 │   ├─ ■ re-home ~40 s is two periodic re-stun intervals; removing the     e10
 │   │      dead relay forces a full report (code read, unrun)
 │   ├─ ■ bootstrap failover cheap: one of two dead, join in 8-18 ms        e8
@@ -221,7 +222,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | C10 | D19, 3.8 stop row | RULED → S17 | | |
 | C11 | 3.10, 3.14 | RULED → S19 | | |
 | C12 | D13, D17, 3.7 | RULED → S16 (mechanism measured in e9; confirmation pending) | | |
-| C13 | D11, D14, S7 | RULED → S24 (own fix on the 0.101.0 pin; measure first) | e8, e10 | |
+| C13 | D11, D14, S7 | RULED → S24 (own fix on the 0.101.0 pin; measure first); the stall and re-home hold on Linux | e8, e10, lab/linux/linux-e10 | |
 | C14 | 3.9, S17, test 4 | RULED → measure the own stdin reader (experiment E13), then stage; the 5 s drain holds on Linux too (5003 ms) | e11, lab/linux/linux-e11 | |
 | C15 | 3.10, D30 | RULED → S23 | e11 | |
 
