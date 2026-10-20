@@ -33,7 +33,7 @@ Ruling: per-member seq = max(now_ms, last+1); keep the highest; ignore older tha
 
 - 3.7: Presence and Departure carry `seq: u64` (replaces `ts` and the claim's `ts`). Unreachable keeps `ts` (it reports an observation, not a member's own state).
 - 3.8: "A node accepts a Presence or Departure only if its signature verifies, its seq is above the seq held for that card, above any tombstone for that card, and not older than the max age by the receiver's clock. A Departure leaves a tombstone of its seq, kept for the max age." A member's own seq generator: `seq = max(now_ms, last_seq + 1)`.
-- 3.14: add `announcement max age`. Value open: e4 used 300 s; habilis uses 45 s. The ruling did not fix it.
+- 3.14: add `announcement max age 300 seconds` (owner ruling; tolerates drifted clocks; a shorter value silently hides a machine whose clock is off).
 
 ## S15: announce when joined
 
@@ -69,7 +69,8 @@ Ruling: per-member seq = max(now_ms, last+1); keep the highest; ignore older tha
 
 ## S20: address lookup
 
-- 3.10 send step 3: "Dial the peer's card id; the address comes from iroh-gossip's own address lookup, which learns every mesh member's addresses." Evidence: e6-lookup.md (~14 ms first dial, ~1 s after a restart on a new port).
+- 3.7, 3.8: Presence and IntroduceAck carry `addr`: the sender's full current endpoint address (relay URL and direct addresses; the id is the card). On receipt a node replaces that card's entry in its address lookup (replace, never merge: merging piled up stale addresses in e6). Re-announce (S13) carries the new address.
+- 3.10 send step 3: "Dial the peer's card id; the address comes from the lookup fed by Presence and Introduce." Evidence: e8-failover.md (gossip's built-in lookup learns only direct neighbors; a 5-node mesh was undialable by id until announcements carried addresses), e6-lookup.md (~14 ms first dial among adjacent nodes, ~1 s after a restart on a new port).
 - 3.3, 3.13: the invitation carries each bootstrap node's full endpoint address (id plus relay URL), since the bootstrap must be dialable before the mesh exists.
 - D15: moves to 2.12 Deferred ("local network discovery (mDNS)").
 
@@ -93,6 +94,7 @@ Ruling: per-member seq = max(now_ms, last+1); keep the highest; ignore older tha
 
 ## S16: gossip admission (needs the experiment)
 
+- Owner confirmed the mechanism: the after_handshake hook, both ways.
 - D13, 3.6: "On every gossip connection, in both directions, each side proves the network secret: the verifier sends a 32-byte random nonce on a new bi-stream; the prover answers keyed_hash(gate key, nonce || verifier id || prover id), gate key = derive_key("messaging gate v1", secret); timeout 3 s; failure closes the connection. The gate runs in the endpoint's after_handshake hook, so neither accepted nor gossip-dialed connections reach the gossip layer unproven." Evidence: e9-gate.md (outsider gets nothing in both directions; ~1-2 ms per connection; about 60 lines, no new crate). An accept-loop-only wrapper, the shape in the ruling's wording, cannot verify an acceptor that gossip dials, and a lying acceptor read Presence: the owner confirms the hook mechanism at application.
 - 3.14: add `gate timeout 3000 milliseconds`. 3.4: add the gate key derivation. Note: the secret must be high-entropy (a captured nonce and proof allow an offline guess).
 

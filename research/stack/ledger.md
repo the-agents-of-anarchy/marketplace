@@ -203,7 +203,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 ## Collisions awaiting a ruling
 | # | Spec | Collision | Evidence | Options |
 |---|---|---|---|---|
-| C1 | 3.10 step 3, 3.3 | REOPENED: S20's basis (gossip's lookup alone) fails past direct neighbors (e8) | e6, e8 | carry the full endpoint address in Presence and Introduce; receivers replace it in their lookup (measured working in e8) |
+| C1 | 3.10 step 3, 3.3 | RULED again → S20 revised | | |
 | C2 | 3.14 | RULED → S10 | | |
 | C3 | 3.11 | RULED → S18 | | |
 | C4 | D25 | RULED → S11 | | |
@@ -231,12 +231,12 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | S9 | sender checks gossip payload size before broadcast | 3.7, 3.16 | spec edit (follows from E1/E2; confirm with S1) |
 | S10 | one stream per request on a cached connection; server read timeout 10 s resets only the stalled stream | 3.6, 3.10, 3.14 | spec edit |
 | S11 | drop duplicate suppression: D25 and the 10,000-id set removed; the binary never retries a send | D25, 3.6 step 7, 3.14, test 17 | spec edit |
-| S12 | per-member announcement seq = max(now_ms, last+1); keep the highest; ignore older than a max age; tombstone a departed member's last seq | 3.4, 3.7, 3.8, test 20 | spec edit |
+| S12 | per-member announcement seq = max(now_ms, last+1); keep the highest; ignore older than a max age of 300 s (owner ruling); tombstone a departed member's last seq for the max age | 3.4, 3.7, 3.8, 3.14, test 20 | spec edit |
 | S13 | re-announce presence on relay status change and on address change | 3.8 | spec edit |
 | S14 | node as identity: the card key is the iroh endpoint key; one live holder per card by an exclusive lock on the card's key file, taken before the endpoint is built; Claim struct, tie-break, Displaced state retired; gossip payloads keep a signature by the card key | D2-D7, D10, D17, D30, D32, 3.4, 3.6, 3.7, 3.8, 3.9, 3.10, 3.15 tests 6, 18, 20, 3.16 | spec edit (largest) |
 | S15 | first Presence only after iroh-gossip reports the topic joined | 3.8 init row, D18 | spec edit |
 | S17 | stop: broadcast Departure, release the card lock at once, wait a fixed 5 s, exit | D19, 3.8 stop row, 3.9, 3.14 | spec edit |
 | S18 | inbox stays a ring of the last 1000 messages; the sender's ack means delivered into the inbox, never read; no gap marker, no read tracking; gaps, limits, and what fits a context are the bridge's business | D21, D22, 3.11, 3.12 | spec edit |
 | S19 | no transport-level retries anywhere; a failed send returns its error as is (timeout, unreachable, refused), and the held connection is dropped on failure | 3.10, 3.14, 3.16 | spec edit |
-| S20 | address lookup: iroh-gossip's built-in lookup for mesh members, the bootstrap node's address in the ticket; no pkarr, no DNS; mDNS deferred (local nice-to-have, D15 moves to Deferred) | D15, 3.3, 3.10, 3.13, 2.12 | spec edit |
-| S16 | gossip connections accepted only after a keyed challenge proving the network secret; refused peers never reach the gossip layer. Measured (e9): the mechanism must be iroh's after_handshake hook with the challenge in both directions, not an accept-loop wrapper, because gossip dials out internally; owner to confirm the mechanism | D13, D17, 3.6, 3.7 | spec edit; mechanism confirmation pending |
+| S20 | address lookup: every Presence and Introduce carries the sender's full current endpoint address (id, relay URL, direct addresses); a receiver replaces that member's entry in its lookup (replace, never merge); gossip's built-in lookup alone is not relied on (it learns only direct neighbors, e8); bootstrap addresses ride in the invitation; no pkarr, no DNS; mDNS deferred (D15 moves to Deferred) | D15, 3.3, 3.7, 3.8, 3.10, 3.13, 2.12 | spec edit |
+| S16 | every gossip connection, incoming and outgoing, passes a keyed challenge in both directions inside iroh's after_handshake hook before the gossip layer sees it (owner confirmed: hook, both ways); gate key derived from the secret; 3 s timeout | D13, D17, 3.4, 3.6, 3.7, 3.14 | spec edit |
