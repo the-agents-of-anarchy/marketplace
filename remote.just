@@ -7,7 +7,7 @@ server := env("LAB_SERVER", "estafette-lab")
 key := env("LAB_KEY", home_directory() / ".ssh" / "estafette_lab")
 known_hosts := home_directory() / ".ssh" / "known_hosts_estafette_lab"
 ssh_opts := "-i " + key + " -o IdentitiesOnly=yes -o UserKnownHostsFile=" + known_hosts + " -o StrictHostKeyChecking=accept-new"
-sibling_socket := "/tmp/lab.sock"  # the sibling's socket when its session starts with the unlisted flag --messaging-socket-path /tmp/lab.sock
+sibling_socket := "/home/lab/sock/lab.sock"  # the sibling's socket when its session starts with the unlisted flag --messaging-socket-path /home/lab/sock/lab.sock; Claude Code requires its directory at mode 0700
 local_socket := "/tmp/ra-lab/remote.sock"
 remote_home_socket := "/home/lab/ra-home.sock"
 

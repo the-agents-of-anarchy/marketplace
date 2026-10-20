@@ -7,7 +7,7 @@ Source: Claude Code 2.1.303's own debug help text, read from the binary (`string
 ```
 { echo '{"type":"auth","token":"'"$CLAUDE_CODE_MESSAGING_TOKEN"'"}'; echo '{"type":"user","message":{"role":"user","content":"hello"}}'; } | socat - UNIX-CONNECT:<socket>
 ```
-The flag `--messaging-socket-path <path>` is unlisted: Claude Code 2.1.304 on the lab server (Linux) omits it from `claude --help`, while its binary carries it with the usage `--messaging-socket-path <path>` and the errors "must be an absolute path" and "was given an empty value" (read with `strings`, 2026-10-20).
+The flag `--messaging-socket-path <path>` is unlisted: Claude Code 2.1.304 on the lab server (Linux) omits it from `claude --help`, while its binary carries it with the usage `--messaging-socket-path <path>` and the errors "must be an absolute path" and "was given an empty value" (read with `strings`, 2026-10-20). It also refuses a socket directory not at mode 0700, naming the directory and its mode ("/home/lab is not private (mode 750); the socket directory must be mode 0700"), so `/tmp` fails too; the lab uses `/home/lab/sock/lab.sock`.
 
 The same text says "Connect when the data is ready" (the socket closes an idle connection after a short time) and names the flag `--messaging-socket-path` (choose the socket path at launch).
 

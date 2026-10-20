@@ -54,6 +54,7 @@ runcmd:
   - su - lab -c 'curl -L --proto =https --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash'
   - su - lab -c 'curl -fsSL https://claude.ai/install.sh | bash'
   - chown -R lab:lab /home/lab/work
+  - su - lab -c 'mkdir -p -m 700 ~/sock'
   - su - lab -c 'bash ~/plugins.sh'
   - su - lab -c 'cd ~/work && git init -q && git config user.name lab-sibling && git config user.email lab-sibling@estafette-lab.invalid'
   - touch /var/lib/lab-setup-done

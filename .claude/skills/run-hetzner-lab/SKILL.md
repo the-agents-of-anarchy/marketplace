@@ -70,7 +70,7 @@ Check the tools after the setup with `uv --version` and `just --version`, and as
 <hold-the-message-link>
 Hold the peer-messaging link with `just remote::forward`, which forwards the sibling session's socket to `/tmp/ra-lab/remote.sock` on this Mac and this session's socket to `/home/lab/ra-home.sock` on the server; never post to the sibling another way.
 
-Take the sibling's socket as `/tmp/lab.sock` when its session started with `--messaging-socket-path /tmp/lab.sock`, a flag that `claude --help` omits though the binary takes it; pass the socket's actual path to `just remote::forward` otherwise, and never guess it.
+Take the sibling's socket as `/home/lab/sock/lab.sock` when its session started with `--messaging-socket-path /home/lab/sock/lab.sock`, a flag that `claude --help` omits though the binary takes it, and which refuses any directory not at mode 0700; pass the socket's actual path to `just remote::forward` otherwise, and never guess it.
 </hold-the-message-link>
 
 <extend-a-deadline-while-work-runs>
