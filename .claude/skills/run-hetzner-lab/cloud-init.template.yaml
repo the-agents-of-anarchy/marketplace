@@ -3,7 +3,8 @@
 # and the full Rust toolchain on every server this session initializes).
 # One non-root user "lab" for the sibling Claude Code session; it gets no sudo.
 # Root keeps key-only SSH for administration.
-# fill-setup.py puts the public half of ~/.ssh/estafette_lab in place of the key placeholder below.
+# fill-setup.py puts the public half of ~/.ssh/estafette_lab in place of the key placeholder
+# below, and the content of this skill's file in place of each FILE: line.
 users:
   - default
   - name: lab
@@ -28,6 +29,22 @@ write_files:
       StreamLocalBindUnlink yes
       AllowStreamLocalForwarding yes
       PasswordAuthentication no
+  - path: /home/lab/plugins.sh
+    owner: lab:lab
+    permissions: '0755'
+    defer: true
+    content: |
+      FILE:plugins.sh
+  - path: /home/lab/work/CLAUDE.md
+    owner: lab:lab
+    defer: true
+    content: |
+      FILE:lab-charter.md
+  - path: /home/lab/work/.manifestos.yaml
+    owner: lab:lab
+    defer: true
+    content: |
+      FILE:lab-manifestos.yaml
 runcmd:
   - systemctl restart ssh
   - curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=/usr/local/bin UV_NO_MODIFY_PATH=1 sh
@@ -36,4 +53,7 @@ runcmd:
   - su - lab -c 'rustup toolchain install 1.99.1 --profile default --component rust-src --component rust-analyzer'
   - su - lab -c 'curl -L --proto =https --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash'
   - su - lab -c 'curl -fsSL https://claude.ai/install.sh | bash'
+  - chown -R lab:lab /home/lab/work
+  - su - lab -c 'bash ~/plugins.sh'
+  - su - lab -c 'cd ~/work && git init -q && git config user.name lab-sibling && git config user.email lab-sibling@estafette-lab.invalid'
   - touch /var/lib/lab-setup-done

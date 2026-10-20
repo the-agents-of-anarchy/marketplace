@@ -1,0 +1,10 @@
+you:
+  - name: cargo-cult-science
+    purpose: research integrity
+    source: https://raw.githubusercontent.com/ryzhakar/LLM_MANIFESTOS/refs/heads/main/manifestos/cargo-cult-science.md
+  - name: first-principles
+    purpose: reasoning methodology
+    source: https://raw.githubusercontent.com/ryzhakar/LLM_MANIFESTOS/refs/heads/main/manifestos/first-principles.md
+  - name: stop-yapping
+    purpose: communication protocol
+    source: https://raw.githubusercontent.com/ryzhakar/LLM_MANIFESTOS/refs/heads/main/manifestos/stop-yapping.md

@@ -27,6 +27,10 @@ mosh user="lab" *command:
 ssh user="root" *command:
     ssh {{ ssh_opts }} {{ user }}@$(hcloud server ip {{ server }}) {{ command }}
 
+# Install the sibling session's marketplaces and plugins on the server, from the skill's plugins.sh
+plugins:
+    ssh {{ ssh_opts }} lab@$(hcloud server ip {{ server }}) 'bash -l -s' < .claude/skills/run-hetzner-lab/plugins.sh
+
 # Hold one SSH connection carrying both message sockets until it drops
 forward home_socket=env("CLAUDE_CODE_MESSAGING_SOCKET", ""):
     test -n "{{ home_socket }}" || { echo "no home socket: run from a Claude Code session, or pass the socket path"; exit 1; }
