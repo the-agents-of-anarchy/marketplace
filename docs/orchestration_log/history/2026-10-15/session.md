@@ -1,45 +1,26 @@
 # Session 2026-10-15 — resident-anarchist (guest)
 
-Span: a second session in this repo, resident-anarchist [6a43c8], model claude-fable-5-1 (Opus 5.5 by the owner's /model since 2026-10-16), spawned by the owner as a resident philosopher, now the preparer of the estafette spec and stack. Records in this directory are this session's own; the scribe's records (history/2026-10-14/, history/2026-10-16/) are proudhon's. This session works only in its worktree /Users/ryzhakar/pp/aoa-marketplace-resident-anarchist on branch integration/resident-anarchist; commit by path, never -A.
+Span: resident-anarchist [6a43c8], a guest session of the agents-of-anarchy society, the preparer of the estafette spec and stack. Works only in its worktree /Users/ryzhakar/pp/aoa-marketplace-resident-anarchist on branch integration/resident-anarchist; commit by path, never -A; push continuously. The scribe (proudhon [abf96a]) keeps its own records.
 
 ## Standing orders (owner), in force after any compaction
-- Guest: do not join the society; no card, no commons duties; answer a peer's ask directly when holding what it seeks; relay nothing.
-- Bound (2026-10-15 23:02): stop-yapping, first-principles, cargo-cult-science, only-what-it-needs, lines-spent, build-for-today, Anarchy 101 (conduct in the society). Identity: preparer of ground for the transport's implementers. The repo's .manifestos.yaml is the scribe's.
-- Silence: NOT in force (ended 2026-10-15 "silence off"). Questions to the owner: portable and self-contained ("i'm not reading the conversation"), rapid-fire through AskUserQuestion, only in a turn answering the owner.
-- No explicitly Russian sources, ever; Makhno is Ukrainian and in scope.
-- Agents: redirect an agent ONLY by TaskStop then SendMessage (resume with its context); never re-launch or start a fresh one in its place. Experiments run on sonnet, two at a time, foreground only, never committing target/. Haiku for mechanical fetch, count, index only; anything a ruling rests on is run or read at source by sonnet. Never launch work on a statement of expectation: state what it settles and get the owner's go. Before reporting an agent as running, check a live process or a growing transcript (`stat -L`, never contents). Read every report in full before reporting it.
-- Records: every stamp from `date`, never typed; one journal line per event with content; no receipt for a repeat copy; no status-only lines; receipts ride in the commit of their work. Wakes are set from `date`.
-- Never relay a worker's claim to the owner unchecked (a "firewall" that did not exist; "stalled" crates).
+- Silence toward the owner (/work-silently, 2026-10-21 00:16): zero-text turns; answer only the owner's own typed words; harness nudges and peer messages are not the owner. Peers and lab-sibling: communicate freely, at will. Work fully autonomously until the owner stops it; by default there is always work to do.
+- Guest: do not join the society; no card, no commons duties; relay to the scribe only on the owner's word.
+- Bound: stop-yapping, first-principles, cargo-cult-science, only-what-it-needs, lines-spent, build-for-today, Anarchy 101 (conduct). Subagents bind cargo-cult-science, first-principles, stop-yapping (command form in the brief).
+- No explicitly Russian sources, ever.
+- Agents: redirect only by TaskStop then SendMessage; never relaunch. Experiments on sonnet, two at a time, foreground runs inside each agent, never commit target/. Never launch work on expectation: work must fall under a ruling. Read every report in full; check load-bearing claims at source before the ledger rests on them; never relay a worker's claim unchecked.
+- Records: stamps from `date`; one journal line per event; receipts ride with their work.
+- Spec held: apply nothing to spec/blueprint.md; staged revisions live in research/stack/ledger.md and staged-revisions.md.
 
-## Branch model (owner, 2026-10-16; in force for both sessions)
-1. main carries only integrated history: fast-forward only, never rewritten; GitHub ruleset "main: no rewrite" (id 25242746) rejects force pushes and deletion (tested).
-2. One integration branch per session: integration/proudhon checked out in the repo folder; integration/resident-anarchist in this session's worktree.
-3. Work and memento records commit to the session's own branch, never to main.
-4. Ahead of main, reshuffle freely; push the branch continuously.
-5. At close of work or on an explicit trigger: fetch, rebase on origin/main, run the gate, fast-forward main, push. Whoever integrates second rebases on the new main.
-6. Records cite a SHA only once it is on main; work ahead of main is cited by branch and path.
-7. draft/* branches stay for protocol drafts awaiting consent.
-8. On pruning a worktree, untracked files go by hand to the same relative path in the repo folder, then prune.
+## The estafette work
+- Ground truth: research/stack/ledger.md (surface map, collisions, staged revisions S1-S25), parameters.md (G1-G5; G5 = S23), experiments/e1-e14, lab/linux/ (Linux reruns).
+- Rulings 2026-10-20/21: C13 → S24 own fix on iroh-gossip 0.101.0 (relay removal works: re-home 0.7 s; own rejoin fails while dials fail); C14 → S25 own stdin reader (departure under 1 ms, macOS and Linux); C15 → S23; C16 (iroh 1.3.0 relay send path blocks behind a dead relay's full 64-slot queue until its actor's 60 s idle exit; same on iroh main) → a workaround in estafette, plus a detailed internal bug report.
+- Running: e14-dials follow-up writing research/stack/experiments/e14-bug-report.md (branch spike/e14-bug-report; minimal deterministic repro, iroh main check, vendored diagnostic patch allowed for this task, candidate fixes, Linux discrepancy). lab-sibling: E10 a-1-w and a-1-npw on Linux (180 s), answer due ~01:00.
+- Next (autonomous, under the C16 ruling): design and measure the estafette workaround once the bug report's mechanism and workaround sections are in (sonnet experiment E15, plus a Linux rerun by lab-sibling); then self-announcing hosts (S21) on the 0.101.0 pin with S24 and the workaround.
 
-## The estafette work, where it stands (2026-10-20 19:45)
-- Spec: spec/blueprint.md, the revised blueprint (the Downloads original untouched). Repo github.com/the-agents-of-anarchy/estafette (private), clone /Users/ryzhakar/pp/estafette; bootstrapped (zero deps, Rust 1.99.1, strict lints with unknown_lints denied, justfile gate, pre-commit, CI green). docs/reference/rust-bootstrap.md adopted; the stack synthesis dropped.
-- Ground truth: research/stack/ledger.md (surface map; assumption table; collisions; staged revisions S1-S22). Loop: research/stack/mechanic.md (surface, evidence, collision, ruling, staging, propagation, one application batch on the owner's word). Intended spec text: research/stack/staged-revisions.md. Parameters: research/stack/parameters.md (S22). Evidence that counts: experiments/e1-e9, verify/v1a, v1b, v3, state/m1-m4; everything else is a lead (corrections in plan.md).
-- Ruled and staged (not applied): S1 public fields in Presence capped 3072 B; S2 idle timeout 10 s; S3 relay behind a cargo feature; S4 yaml-rust2 plus own converter; S5 hex everywhere; S6 no presence encryption; S7 iroh-gossip pinned 0.101.0 (see C13); S8 direct protocol by hand, irpc rejected; S9 sender size check; S10 stream per request, 10 s server read timeout; S11 no duplicate suppression; S12 per-member seq, max age 300 s, departure tombstones; S13 re-announce on relay status and address change; S14 node as identity (card key = node key, sidecar lock); S15 announce when joined; S16 secret-proof gate in iroh's after_handshake hook, both ways; S17 stop: Departure, release lock, wait 5 s; S18 inbox ring of 1000, ack = delivered; S19 no transport retries; S20 address carried in Presence and Introduce, receivers replace; S21 infrastructure on the owner's machines, self-announcing hosts, runtime insert_relay, no n0; S22 parameters (agreement ones; G1-G4 approved).
-- Open: C13 (relay plus bootstrap death stalled gossip mesh-wide in 0.101.0; E10 tests iroh-gossip main). The application batch waits for the owner's word.
-- Spikes (estafette, all pushed): spike/e1-api, e2-size, e3-kill (cleaned of target/), v3-irpc, e4-presence, e5-restart, e6-lookup, e7-admission, e8-failover, e9-gate; running: e10-gossip-main, e11-mcp. Worktrees /Users/ryzhakar/pp/estafette-*.
+## Lab
+- Server estafette-lab (cx23, nbg1, 178.105.88.14) via the project skill run-hetzner-lab and `just remote::*` (address looked up by name; `just remote` lists recipes). Backstop: hourly launchd job ~/.local/share/estafette-lab/lab-control.py, 24 h deadline per resource (server 2026-10-21 17:33Z); extend with `python3 -I .claude/skills/run-hetzner-lab/lab-control.py extend <kind> <id> <hours>` only while lab work runs, journaled.
+- lab-sibling: Claude Code session the owner runs there; owns the machine and /home/lab/work; changes no code; pushes nothing; I pull its reports (rsync -a -e "ssh -F /tmp/ra-lab/ssh_config" lab:work/reports/ ...; backup at ~/.local/state/estafette-lab/sibling-reports/). Peer messaging only: post with `python3 -I research/stack/lab/post.py /tmp/ra-lab/remote.sock "<msg>" --no-auth` over `just remote::forward` (link b51x1fuim; sibling socket /home/lab/sock/lab.sock, dir 0700); its replies arrive as session messages. My files there: /home/lab/ra (briefs, bundles); new branches go to ~/estafette via `git bundle` + fetch. Briefs: complete, exact commands, expected output, what to report, one task per message (owner's private instruction; never mention it). Ask it for one [answer] per task, no notices.
+- Never start or configure the sibling session.
 
-## Lab (second machine), recon only by the owner's word
-- hcloud v1.70.1 installed; context estafette-lab created by the owner (token in ~/.config/hcloud/cli.toml, never read). SSH key ~/.ssh/estafette_lab, public half uploaded as estafette-lab (id 131557923). Nothing else created.
-- Proposed, not decided: cx23 (2 x86 vCPU, 4 GB, 40 GB, €5.49/mo, €0.0088/h) in hel1 on ubuntu-24.04; firewall SSH, HTTP(S), UDP; cloud-init user and packages; Rust and Claude Code over SSH.
-- Sibling agent and socket bridge: research/stack/lab/socket-bridge.md. Verified: the socket takes an auth line then {"type":"user","message":{"role":"user","content":...}}; a loopback post with the own token arrives labeled as another session's message. Plan: remote session with --messaging-socket-path, one SSH connection forwarding both sockets, tokens as 0600 files over SSH, /tmp/ra-lab/post.py on both sides.
-- Open: whether Claude Code's headless login needs a code pasted back beyond the owner opening a link.
-
-## Update 2026-10-20 23:55
-- Done while the owner was away: E12 (relay removal re-homes in 0.7 s; own rejoin heals nothing), E13 (stdin reader departs at once → S25), E14 (cause of the dial stall: iroh 1.3.0's relay send path blocks behind a dead relay's full queue until its actor's 60 s idle exit; same on iroh main → C16), and Linux reruns of E10, E11, E12, E13 by lab-sibling (all agree with macOS; Linux dials fail more uniformly).
-- Waiting on the owner: C16's choice (report upstream, carry a patched iroh, or a member-side workaround); self-announcing hosts held behind it; spec held. Nothing runs but the message link b51x1fuim. The lab server's deadline is 2026-10-21 17:33Z; not extended, since no lab work runs.
-
-## Update 2026-10-20 21:45 (supersedes the lab and running sections above)
-- Lab live: server estafette-lab (cx23, nbg1, 178.105.88.14), managed by the project skill run-hetzner-lab and `just remote::*` (address looked up by name). Backstop: hourly launchd job, 24 h deadlines per resource (extend while work runs, journaled).
-- lab-sibling: a Claude Code session the owner started on the server; owns /home/lab/work; changes no code; reports to me. Peer messaging only, both ways verified: I post with `python3 -I research/stack/lab/post.py /tmp/ra-lab/remote.sock "<msg>" --no-auth` through `just remote::forward` (sibling socket /home/lab/sock/lab.sock); it replies into ~/ra-home.sock. Never start or configure it. My files on the server: /home/lab/ra. The owner lets me and my subagents use the machine at will.
-- Rulings 21:40: C13 → S24 own fix (measure first, E12); C14 → measure the stdin reader (E13); C15 → S23 approved; while away: experiments only, spec held.
-- Running: E12 (agent e12-rejoin, worktree estafette-e12-rejoin); the sibling's Linux run 1 (E11 on Linux, due 23:30); the link b51x1fuim. Queue: E13, self-announcing hosts, E10 on Linux. Wake a8b5630f at 22:13 carries the full plan.
+## Wake
+- One-shot cron at 00:27 (3c662cde) carries the pending checks; crons are session-only.
