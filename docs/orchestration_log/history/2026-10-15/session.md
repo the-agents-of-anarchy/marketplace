@@ -34,6 +34,10 @@ Span: a second session in this repo, resident-anarchist [6a43c8], model claude-f
 - Sibling agent and socket bridge: research/stack/lab/socket-bridge.md. Verified: the socket takes an auth line then {"type":"user","message":{"role":"user","content":...}}; a loopback post with the own token arrives labeled as another session's message. Plan: remote session with --messaging-socket-path, one SSH connection forwarding both sockets, tokens as 0600 files over SSH, /tmp/ra-lab/post.py on both sides.
 - Open: whether Claude Code's headless login needs a code pasted back beyond the owner opening a link.
 
+## Update 2026-10-20 23:55
+- Done while the owner was away: E12 (relay removal re-homes in 0.7 s; own rejoin heals nothing), E13 (stdin reader departs at once → S25), E14 (cause of the dial stall: iroh 1.3.0's relay send path blocks behind a dead relay's full queue until its actor's 60 s idle exit; same on iroh main → C16), and Linux reruns of E10, E11, E12, E13 by lab-sibling (all agree with macOS; Linux dials fail more uniformly).
+- Waiting on the owner: C16's choice (report upstream, carry a patched iroh, or a member-side workaround); self-announcing hosts held behind it; spec held. Nothing runs but the message link b51x1fuim. The lab server's deadline is 2026-10-21 17:33Z; not extended, since no lab work runs.
+
 ## Update 2026-10-20 21:45 (supersedes the lab and running sections above)
 - Lab live: server estafette-lab (cx23, nbg1, 178.105.88.14), managed by the project skill run-hetzner-lab and `just remote::*` (address looked up by name). Backstop: hourly launchd job, 24 h deadlines per resource (extend while work runs, journaled).
 - lab-sibling: a Claude Code session the owner started on the server; owns /home/lab/work; changes no code; reports to me. Peer messaging only, both ways verified: I post with `python3 -I research/stack/lab/post.py /tmp/ra-lab/remote.sock "<msg>" --no-auth` through `just remote::forward` (sibling socket /home/lab/sock/lab.sock); it replies into ~/ra-home.sock. Never start or configure it. My files on the server: /home/lab/ra. The owner lets me and my subagents use the machine at will.
