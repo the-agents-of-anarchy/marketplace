@@ -3,7 +3,7 @@
 # full Rust toolchain on every server this session initializes).
 # One non-root user "lab" for the sibling Claude Code session; it gets no sudo.
 # Root keeps key-only SSH for administration.
-# Fill SSH_PUBLIC_KEY_PLACEHOLDER with the public half of ~/.ssh/estafette_lab.
+# fill-setup.py puts the public half of ~/.ssh/estafette_lab in place of the key placeholder below.
 users:
   - default
   - name: lab

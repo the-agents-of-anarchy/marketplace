@@ -15,13 +15,10 @@ Owner rulings, 2026-10-20: server CX23 in Nuremberg, prompts off, non-root; full
 User `lab` without sudo; root by key only. uv 0.13.4 and just 1.59.0 in /usr/local/bin. Rust for `lab`: stable 1.99.1 with the default profile plus rust-src and rust-analyzer, and the estafette pin 1.99.1. Claude Code 2.1.304. sshd allows Unix-socket forwarding with StreamLocalBindUnlink. Not yet done: login, the sibling session, the socket forward.
 
 ## Files
-- server/cloud-init.template.yaml: the setup for every new server; fill the key placeholder.
-- server/firewall-rules.json: the four inbound rules.
-- server/lab-control.py: the backstop. `check` runs hourly; `label <kind> <ref>` right after creating a resource; `extend <kind> <ref> <hours>`.
-- server/com.ryzhakar.estafette-lab-control.plist: the launchd job; installed at ~/Library/LaunchAgents/, running ~/.local/share/estafette-lab/lab-control.py, logging to ~/.local/state/estafette-lab/control.log.
+The procedure and its files live in the project skill `run-hetzner-lab` (.claude/skills/run-hetzner-lab/): SKILL.md, cloud-init.template.yaml (the setup for every new server), fill-setup.py (fills the key into it), firewall-rules.json (the four inbound rules), lab-control.py (the backstop: `check` hourly, `label` after a creation, `extend`), and the launchd plist. Installed copies: ~/Library/LaunchAgents/com.ryzhakar.estafette-lab-control.plist, running ~/.local/share/estafette-lab/lab-control.py, logging to ~/.local/state/estafette-lab/control.log.
 
 ## Backstop, verified
 Loaded with `launchctl bootstrap gui/501`; first run on load exited 0 and logged one line per resource. Deletion path: a free throwaway firewall labeled already expired was deleted by a real check, and nothing else was touched. To remove the job: `launchctl bootout gui/501/com.ryzhakar.estafette-lab-control`, then delete the plist.
 
 ## Creating a resource from now on
-Create it with `--label owner=resident-anarchist --label expires=<now + 86400>`, or run `label` at once after creation; set an in-session check-back for each step that waits (cloud-init, installs, login).
+By the skill `run-hetzner-lab`.
