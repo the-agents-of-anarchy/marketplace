@@ -13,7 +13,7 @@ An endpoint with a relay map of two or more relays stops sending anything throug
 - iroh =1.3.0, iroh-relay =1.3.0 (feature `server`), preset `Minimal`, `clear_ip_transports()` (relay-only), tokio 1, tracing-subscriber 0.3.23. Cargo.lock in `spikes/e14-repro/`.
 - macOS 15.3.1 (Darwin 24.3.0 arm64), Apple M2 Max, loopback, plain-HTTP relays in-process.
 - Also fails on iroh main: git rev `55908a5809b61c72ec8deeff024038f4a9d68ab7` (iroh 1.4.0), same source file built by `spikes/e14-repro-main` (git dependency, no source change). 20/20 FAIL, controls pass (section 3).
-- Linux: the E10/E12/E14 gossip harness reproduces the same mechanism on Ubuntu 24.04.4, Linux 6.8.0-138, 2 vCPU AMD EPYC-Rome, rustc 1.99.1 (lab notes, section 7). The single-file repro itself has not been run on Linux yet (command in section 9).
+- Linux: the E10/E12/E14 gossip harness reproduces the same mechanism on Ubuntu 24.04.4, Linux 6.8.0-138, 2 vCPU AMD EPYC-Rome, rustc 1.99.1 (lab notes, section 7). The single-file repro on Linux (lab sibling, `research/stack/lab/linux/linux-e14-repro.md`, same commit, debug): stock b200 19/20 FAIL, main 55908a5 18/20 FAIL, b100 3/5 FAIL, b64 5/5 PASS, no-kill 10/10 PASS, b0 10/10 PASS, drain 20/20 PASS, drop 20/20 PASS, patched without a fix 5/5 FAIL. The 6 passing runs out of 48 burst runs had 0 failed dials (the stall never started; the queue did not fill), not a recovery. `--rebind-on-fail`: recovered 5.4 s after the burst in 2 runs (labelled FAIL by the pass rule, which needs zero failed dials), 1 run never stalled. The macOS rebind runs' output was not kept as a log file.
 - Found with iroh-gossip 0.101.0 (E8 scenario 1, E10, E12); the repro below has no gossip.
 
 ## 3. Minimal reproduction
