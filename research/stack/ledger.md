@@ -209,7 +209,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | C4 | D25 | RULED → S11 | | |
 | C5 | 3.4, 3.8 | RULED → S12 | | |
 | C6 | 3.8 | RULED → S13 | | |
-| C7 | D14 | relay TLS and n0 relay compatibility | e1 7 | plain HTTP; ACME; manual cert; list including n0 relays |
+| C7 | D14 | RULED → S21 (n0 fallback not chosen; confirm) | e6, e8 | |
 | C8 | D3-D7 | RULED → S14 | | |
 | C9 | 3.8 init row, D18 | RULED → S15 | | |
 | C10 | D19, 3.8 stop row | RULED → S17 | | |
@@ -239,4 +239,5 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | S18 | inbox stays a ring of the last 1000 messages; the sender's ack means delivered into the inbox, never read; no gap marker, no read tracking; gaps, limits, and what fits a context are the bridge's business | D21, D22, 3.11, 3.12 | spec edit |
 | S19 | no transport-level retries anywhere; a failed send returns its error as is (timeout, unreachable, refused), and the held connection is dropped on failure | 3.10, 3.14, 3.16 | spec edit |
 | S20 | address lookup: every Presence and Introduce carries the sender's full current endpoint address (id, relay URL, direct addresses); a receiver replaces that member's entry in its lookup (replace, never merge); gossip's built-in lookup alone is not relied on (it learns only direct neighbors, e8); bootstrap addresses ride in the invitation; no pkarr, no DNS; mDNS deferred (D15 moves to Deferred) | D15, 3.3, 3.7, 3.8, 3.10, 3.13, 2.12 | spec edit |
+| S21 | infrastructure: several machines the owner runs, each one relay plus one bootstrap node; each joins the topic through the secret gate and broadcasts a signed infrastructure record (relay URL, bootstrap address); members add the relay at runtime (iroh 1.3 Endpoint::insert_relay) and save the learned hosts into the machine's network config for later sessions; an invitation needs one reachable host; no restart or config edit on members when a host is added | D14, D43, 3.3, 3.7, 3.13, 3.14 | spec edit + experiment (self-announcing hosts) |
 | S16 | every gossip connection, incoming and outgoing, passes a keyed challenge in both directions inside iroh's after_handshake hook before the gossip layer sees it (owner confirmed: hook, both ways); gate key derived from the secret; 3 s timeout | D13, D17, 3.4, 3.6, 3.7, 3.14 | spec edit |
