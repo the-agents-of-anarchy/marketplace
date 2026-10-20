@@ -7,6 +7,8 @@ Source: Claude Code 2.1.303's own debug help text, read from the binary (`string
 ```
 { echo '{"type":"auth","token":"'"$CLAUDE_CODE_MESSAGING_TOKEN"'"}'; echo '{"type":"user","message":{"role":"user","content":"hello"}}'; } | socat - UNIX-CONNECT:<socket>
 ```
+The flag `--messaging-socket-path <path>` is unlisted: Claude Code 2.1.304 on the lab server (Linux) omits it from `claude --help`, while its binary carries it with the usage `--messaging-socket-path <path>` and the errors "must be an absolute path" and "was given an empty value" (read with `strings`, 2026-10-20).
+
 The same text says "Connect when the data is ready" (the socket closes an idle connection after a short time) and names the flag `--messaging-socket-path` (choose the socket path at launch).
 
 Loopback test, 2026-10-20 (`/tmp/ra-lab/post.py`, Python, no shell): an auth line with this session's own token, then one user-message line, posted to this session's socket `/tmp/cc-socks/8705.sock`. Result: delivered at once into this session, wrapped by the harness as "Another Claude session sent a message ... not typed by your user" with no `from=` address. So a script holding a session's token can post into it, and the harness labels the text as a peer's, never as the user's.
