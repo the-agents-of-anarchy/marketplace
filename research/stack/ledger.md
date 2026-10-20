@@ -120,8 +120,8 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │
 ├─ MCP ───────────────────── rmcp 3.5.1 (ruled), hand-written handler ─────── run
 │   ├─ ■ static six tools, envelope with `you`, bad_request, 3.10 text   e11
-│   ├─ ■ SIGTERM hangs on a pending stdin read; shutdown_background      e11
-│   │      exits in 1 ms idle
+│   ├─ ■ SIGTERM hangs on a pending stdin read; shutdown_background      e11,
+│   │      exits in 1 ms idle; same on Linux, every check and timing    linux-e11
 │   └─ ○ Departure late by rmcp's drain: 5 s after stdin closes          C14
 │
 ├─ CLI ───────────────────── clap (ruled) ──────────────────────────── nothing to test
@@ -222,7 +222,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | C11 | 3.10, 3.14 | RULED → S19 | | |
 | C12 | D13, D17, 3.7 | RULED → S16 (mechanism measured in e9; confirmation pending) | | |
 | C13 | D11, D14, S7 | RULED → S24 (own fix on the 0.101.0 pin; measure first) | e8, e10 | |
-| C14 | 3.9, S17, test 4 | RULED → measure the own stdin reader (experiment E13), then stage | e11 | |
+| C14 | 3.9, S17, test 4 | RULED → measure the own stdin reader (experiment E13), then stage; the 5 s drain holds on Linux too (5003 ms) | e11, lab/linux/linux-e11 | |
 | C15 | 3.10, D30 | RULED → S23 | e11 | |
 
 ## Staged revisions (ruled, not applied)
