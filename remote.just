@@ -31,11 +31,11 @@ ssh user="root" *command:
 plugins:
     ssh {{ ssh_opts }} lab@$(hcloud server ip {{ server }}) 'bash -l -s' < .claude/skills/run-hetzner-lab/plugins.sh
 
-# Hold one SSH connection carrying both message sockets until it drops
-forward home_socket=env("CLAUDE_CODE_MESSAGING_SOCKET", ""):
+# Hold one SSH connection carrying both message sockets until it drops; pass the sibling's socket path when it differs
+forward sibling=sibling_socket home_socket=env("CLAUDE_CODE_MESSAGING_SOCKET", ""):
     test -n "{{ home_socket }}" || { echo "no home socket: run from a Claude Code session, or pass the socket path"; exit 1; }
     mkdir -p "$(dirname {{ local_socket }})"
-    ssh {{ ssh_opts }} -N -o ExitOnForwardFailure=yes -o StreamLocalBindUnlink=yes -o ServerAliveInterval=30 -L {{ local_socket }}:{{ sibling_socket }} -R {{ remote_home_socket }}:{{ home_socket }} lab@$(hcloud server ip {{ server }})
+    ssh {{ ssh_opts }} -N -o ExitOnForwardFailure=yes -o StreamLocalBindUnlink=yes -o ServerAliveInterval=30 -L {{ local_socket }}:{{ sibling }} -R {{ remote_home_socket }}:{{ home_socket }} lab@$(hcloud server ip {{ server }})
 
 # Forget the host key held for the server's current address, once a new server takes the address over
 forget-host:
