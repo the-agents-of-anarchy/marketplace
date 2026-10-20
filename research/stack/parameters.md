@@ -1,6 +1,6 @@
 # Unfixed spec parameters: classification and proposed values
 
-Owner ruling (2026-10-20): settle "agreement ones only": every parameter two independently written pieces must agree on; name the rest as the implementer's call. Source list: research/stack/ground/capabilities.md "Ambiguities" (28 items), each checked against spec/blueprint.md and the rulings since (S1-S21). Drafted by claude-fable-5-1. Status: proposed, awaiting the owner's ruling by group.
+Owner ruling (2026-10-20): settle "agreement ones only": every parameter two independently written pieces must agree on; name the rest as the implementer's call. Source list: research/stack/ground/capabilities.md "Ambiguities" (28 items), each checked against spec/blueprint.md and the rulings since (S1-S21). Drafted by claude-fable-5-1. Status: all four groups approved as drafted by the owner (2026-10-20); staged as S22.
 
 ## Already settled by a ruling (no new decision)
 | Item | Settled by |
