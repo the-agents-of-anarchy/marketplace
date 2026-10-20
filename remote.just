@@ -11,6 +11,10 @@ sibling_socket := "/tmp/lab.sock"
 local_socket := "/tmp/ra-lab/remote.sock"
 remote_home_socket := "/home/lab/ra-home.sock"
 
+# List this module's recipes (what bare `just remote` runs)
+help:
+    @just --list remote
+
 # Print the server's current IPv4 address, from the live API
 ip:
     @hcloud server ip {{ server }}
