@@ -33,11 +33,13 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   ├─ ■ relay death: home status false in 2 ms; re-home to the live     e8
 │   │      relay takes ~40 s; peers keep the dead relay URL; dials to the
 │   │      member recover only if the relay returns
-│   ├─ ■ relay + bootstrap death stalled gossip mesh-wide in 0.101.0:    e8
-│   │      heartbeats never resumed in 88 s, also between members on the
-│   │      live relay (3/3 with probers, 1/3 without); cause untested
+│   ├─ ■ relay death (not bootstrap death) stalls gossip mesh-wide, in    e8, e10
+│   │      0.101.0 and main alike (control 0/6); 0.101.0 never heals in
+│   │      180 s; main rejoins alone and heals at 62-145 s (#191)
+│   ├─ ■ re-home ~40 s is two periodic re-stun intervals; removing the     e10
+│   │      dead relay forces a full report (code read, unrun)
 │   ├─ ■ bootstrap failover cheap: one of two dead, join in 8-18 ms        e8
-│   └─ ○ NAT; two hosts; the e8 stall against unreleased iroh-gossip main
+│   └─ ○ NAT; two hosts; own rejoin plus remove_relay on 0.101.0 (C13)
 │
 ├─ GOSSIP ────────────────── iroh-gossip 0.101.0 ───────────────────── partly settled
 │   ├─ ■ worst Presence 4368 B, overhead 38, minimum 4407, default 4096 e2
@@ -219,7 +221,7 @@ surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.
 | C10 | D19, 3.8 stop row | RULED → S17 | | |
 | C11 | 3.10, 3.14 | RULED → S19 | | |
 | C12 | D13, D17, 3.7 | RULED → S16 (mechanism measured in e9; confirmation pending) | | |
-| C13 | D11, D14, S7 | a relay and bootstrap host dying stalled gossip mesh-wide for 88 s in iroh-gossip 0.101.0, members on the live relay included | e8 | rerun e8 scenario 1 against iroh-gossip main (unreleased connection-lifecycle fixes) before ruling; then keep the release pin, pin main by revision, or wait |
+| C13 | D11, D14, S7 | a relay dying stalls gossip mesh-wide, members on the live relay included, in 0.101.0 and in main c5f44db alike (bootstrap death alone: 0 of 6); 0.101.0 never heals (10 stalled runs, up to 180 s); main heals by itself at 62-145 s through rejoin-when-alone (#191, unreleased); fresh dials fail too and recover near 80 s or 156 s; the slow-peer send block (#185) is open | e8, e10; iroh-gossip c5f44db src/proto/hyparview.rs:31-37 (checked); iroh-1.3.0 endpoint.rs:1014, socket.rs:1245-1251 and 725-727: remove_relay forces a full report (checked, unrun) | (a) keep the 0.101.0 pin, add our own rejoin through the known hosts when Presence stops, and remove a dead home relay from the map (measure first); (b) pin main by revision; (c) wait for a release with #191 and #185 |
 | C14 | 3.9, S17, test 4 | rmcp holds the service up to 5 s after stdin closes while a call is in flight, and only then does the application learn of the stop; a Departure sent after that is late by up to 5 s (a real send runs up to 15 s). A signal reaches the application at once, so only the end of stdin is affected | e11 rows 4, 4b; rmcp-3.5.1 src/service.rs:1762-1766 (5 s closed, 2 s cancelled; checked) | (a) wrap stdin in a reader that notes the end of input and starts Stopping at once (unbuilt; measure first); (b) accept the delay: late only when a call is in flight as stdin closes |
 | C15 | 3.10, D30 | the spec is silent on seven MCP-surface values the run had to choose | e11 Against the spec | drafted as G5 in parameters.md, for approval as drafted (as S22) |
 
