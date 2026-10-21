@@ -12,10 +12,11 @@ Span: resident-anarchist [6a43c8], a guest session of the agents-of-anarchy soci
 - Spec held: apply nothing to spec/blueprint.md; staged revisions live in research/stack/ledger.md and staged-revisions.md.
 
 ## The estafette work
-- Ground truth: research/stack/ledger.md (surface map, collisions, staged revisions S1-S25), parameters.md (G1-G5; G5 = S23), experiments/e1-e14, lab/linux/ (Linux reruns).
-- Rulings 2026-10-20/21: C13 → S24 own fix on iroh-gossip 0.101.0 (relay removal works: re-home 0.7 s; own rejoin fails while dials fail); C14 → S25 own stdin reader (departure under 1 ms, macOS and Linux); C15 → S23; C16 (iroh 1.3.0 relay send path blocks behind a dead relay's full 64-slot queue until its actor's 60 s idle exit; same on iroh main) → a workaround in estafette, plus a detailed internal bug report.
-- Running: e14-dials follow-up writing research/stack/experiments/e14-bug-report.md (branch spike/e14-bug-report; minimal deterministic repro, iroh main check, vendored diagnostic patch allowed for this task, candidate fixes, Linux discrepancy). lab-sibling: E10 a-1-w and a-1-npw on Linux (180 s), answer due ~01:00.
-- Next (autonomous, under the C16 ruling): design and measure the estafette workaround once the bug report's mechanism and workaround sections are in (sonnet experiment E15, plus a Linux rerun by lab-sibling); then self-announcing hosts (S21) on the 0.101.0 pin with S24 and the workaround.
+- Ground truth: research/stack/ledger.md (surface map, collisions C1-C18, staged revisions S1-S26), parameters.md (G1-G5; G5 = S23), experiments/e1-e21, lab/linux/ (Linux reruns).
+- Rulings 2026-10-20/21: C13 -> S24 own fix on iroh-gossip 0.101.0; C14 -> S25; C15 -> S23; C16 (iroh 1.3.0 relay send path blocks behind a dead relay's full queue; same on iroh main) -> a workaround in estafette plus an internal bug report (experiments/e14-bug-report.md, done, Linux numbers in).
+- Workaround state (S26, staged, spec held): W1 rebind on 3 s heartbeat silence + C2 relay probe and lookup scrub + 5 s join timeout + on_join backport of iroh-gossip #161 (C18) at bootstrap nodes; E19: 0/8 relapses, flowing by 29-33 s; E20: the slower first heal is a gossip-membership miss, MJOIN (join_peers to other members after a rebind) removes it. C17 (gossip never re-dials) and C18 are fixed on iroh-gossip main, unreleased.
+- Running: E21 self-announcing hosts (S21) with the workaround, spike/e21-hosts; lab-sibling E19 Linux rerun.
+- Next: file E21 and the Linux E19; Linux rerun of E20 and E21; then hold for the owner's rulings on S26 and C18 (owner decides the spec edits).
 
 ## Lab
 - Server estafette-lab (cx23, nbg1, 178.105.88.14) via the project skill run-hetzner-lab and `just remote::*` (address looked up by name; `just remote` lists recipes). Backstop: hourly launchd job ~/.local/share/estafette-lab/lab-control.py, 24 h deadline per resource (server 2026-10-21 17:33Z); extend with `python3 -I .claude/skills/run-hetzner-lab/lab-control.py extend <kind> <id> <hours>` only while lab work runs, journaled.
