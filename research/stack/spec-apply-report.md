@@ -98,7 +98,7 @@ All 27 S ids applied; none skipped as not applicable.
  2 files changed, 321 insertions(+), 179 deletions(-)
 ```
 
-The events.md line was modified before this work began (present in the starting git status); not mine. spec/blueprint.md at first delivery: 320 insertions, 179 deletions. After the deaf-trigger ruling and the team-lead decisions: 377 insertions, 185 deletions (git diff --numstat), final, after option (i), follow-ups a-c, both reviews, E22, E23, and the host deaf window. This report file is new and untracked.
+The events.md line was modified before this work began (present in the starting git status); not mine. spec/blueprint.md at first delivery: 320 insertions, 179 deletions. After the deaf-trigger ruling and the team-lead decisions: 377 insertions, 185 deletions before team-lead committed; the E24 change on top of that commit: 5 insertions, 6 deletions. This report file is new and untracked.
 
 ## Accounting
 
@@ -212,3 +212,19 @@ Source: research/stack/experiments/e23-lock.md, Answer section.
 - D6 and 3.5: a sidecar is written and synced (`sync_all` on the file and its directory) before any lock is taken on it; create card does this before writing the card.
 - "Treat a missing sidecar as a new identity only when no lock file exists": the lock file is the sidecar itself (D2), so the two conditions coincide. Applied as: init never mints a key; a missing sidecar gives `sidecar_invalid`; only create card mints one, and never over an existing card or sidecar. Contradiction noted for team-lead: if a separate lock file was meant, that reverses D7.
 - S13 debounce: re-announce only when the announced address set changed since the last Presence, at most once per 2 s (new limit "re-announce interval 2000 milliseconds"); a change inside the interval is announced when it ends if it still differs. 3.8, 3.14. E23 measured S13 as written at about 20 announcements in 12 s while a relay was down, all with the same address.
+
+## Overturned by E24
+
+Source: research/stack/experiments/e24-cross.md, Answer; decision by team-lead 2026-10-21. Overturns decision 6 (hosts apply the deaf rule), follow-up (a) for hosts, review fix H1, and review-2 finding 1's 60 s host deaf window. The recorded alternative is taken: a bootstrap node never rebinds on silence.
+
+Evidence (cross-machine: Mac behind home NAT, two Hetzner hosts): hosts that applied the deaf rule and the join timeout, with their only other host dead, rebound about every 8 s and members rebound in step; relay-only, 7 of 8 runs had stalled pairs at 120 s (rebinds per member 7.09 against 1.50 for the control, p = 0.001); with IP transports on, an outage in 4 of 4 runs that the control never had. Hosts without the rule (n=4): every member rebound once, 26.9-27.2 s after the kill, all pairs flowing from 32.6-33.1 s, 0 relapses, 0 join failures.
+
+| Change | Spec |
+|---|---|
+| A bootstrap node never rebinds on silence and has no join timeout | D46, 3.8 deaf row (now members only), 3.14 |
+| The 60 s host deaf window removed | D46, 3.8, 3.14, limits table |
+| Rejoin through every other known host and every peer whose address it holds kept, for a host's start or restart | D46, 3.14 |
+| E24 evidence in one line | D46 Reason |
+| Member 15 s rule marked measured across machines (first rebind about 27 s, recovery 32.6-33.1 s, n=4), confirmed only with hosts not rebinding | D46, 3.14 deaf timeout |
+
+Open, from E24's Answer: one pilot (n=1) of hosts without the rule took 74 s, because the surviving host was itself blocked by the relay bug (the E21 "C16 on a host" case); E24 states "H2-without-W1 is not safe either". The spec gives such a host no recovery. Also: blocked members kept hearing the surviving host's records for about 12 s after their own sends stopped, which moved the first rebind from 15 s to about 27 s (the "could not check" risk, measured in a mild form).
