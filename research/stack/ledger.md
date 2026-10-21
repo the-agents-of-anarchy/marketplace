@@ -4,6 +4,7 @@ Author: claude-fable-5-1 (orchestrator), 2026-10-16. Replaces the dropped stack 
 Goal (owner): "test our theoretical spec against technological reality and revise anything that needs it."
 Classes: RUN = observed by running code (one host per run: macOS arm64, or from 2026-10-20 the Linux lab VM, reports in lab/linux/; loopback or LAN, small n). RECORD = primary record (source at a release, git ancestry, PR state). RULED = owner ruling. OPEN = untested.
 Tidied 2026-10-21: collision and staged-revision rows cut to claim, status and pointers; their run-by-run notes moved, unchanged in substance, to "Evidence by item" at the end. Ruling times are from docs/orchestration_log/history/2026-10-15/events.md (times +0300).
+Final pass 2026-10-21, after the owner closed the spec work (23:10): E22-E25 and the two owner-assisted tests added to the surface map, OPEN, and "Evidence by item"; "Known limitations (accepted)" added. The index of the whole research is research/stack/README.md.
 
 ## Status at a glance
 Spec edits are the owner's act, applied in one batch ("we'll apply everything at once", 2026-10-16 12:50); applied to spec/blueprint.md on 2026-10-21 at the owner's word "apply current changes, carefully", with the decisions and review fixes in research/stack/spec-apply-report.md, spec-review.md, spec-review-2.md.
@@ -41,20 +42,20 @@ Spec edits are the owner's act, applied in one batch ("we'll apply everything at
 | S10 | one stream per request; 10 s server read timeout | RULED 2026-10-16 18:12 | applied to spec 2026-10-21 |
 | S11 | drop duplicate suppression | RULED 2026-10-16 18:12 | applied to spec 2026-10-21 |
 | S12 | per-member seq, max age 300 s, tombstone | RULED 2026-10-16 18:12; max age 2026-10-20 19:06 | applied to spec 2026-10-21 |
-| S13 | re-announce on relay status and address change | RULED 2026-10-16 18:09 | applied to spec 2026-10-21 |
-| S14 | node as identity, sidecar lock | RULED 2026-10-16 20:07 | applied to spec 2026-10-21 |
+| S13 | re-announce on relay status and address change | RULED 2026-10-16 18:09; measured E23 (debounce added) | applied to spec 2026-10-21 |
+| S14 | node as identity, sidecar lock | RULED 2026-10-16 20:07; measured Linux and power cut E23 (fsync added) | applied to spec 2026-10-21 |
 | S15 | first Presence after topic joined | RULED 2026-10-16 20:07 | applied to spec 2026-10-21 |
 | S16 | keyed challenge in after_handshake, both ways | RULED 2026-10-16 20:07; 2026-10-20 19:06 | applied to spec 2026-10-21 |
 | S17 | stop: Departure, release lock, wait 5 s | RULED 2026-10-16 20:21 | applied to spec 2026-10-21 |
 | S18 | inbox ring of 1000; ack = delivered | RULED 2026-10-16 20:27 | applied to spec 2026-10-21 |
 | S19 | no transport-level retries | RULED 2026-10-16 20:27 | applied to spec 2026-10-21 |
 | S20 | address in every Presence and Introduce | RULED 2026-10-20 19:06 | applied to spec 2026-10-21 |
-| S21 | self-announcing infrastructure hosts | RULED 2026-10-20 19:10; measured E21 (macOS, Linux) | applied to spec 2026-10-21 |
+| S21 | self-announcing infrastructure hosts | RULED 2026-10-20 19:10; measured E21 (macOS, Linux), E24 (across machines) | applied to spec 2026-10-21 |
 | S22 | agreement parameters G1-G4 | RULED 2026-10-20 19:32 | applied to spec 2026-10-21 |
 | S23 | MCP surface values G5 | RULED 2026-10-20 21:40 | applied to spec 2026-10-21 |
 | S24 | relay death: rejoin + remove_relay on the pin | RULED 2026-10-20 21:40; rejoin lever replaced by S26 | applied to spec 2026-10-21 |
 | S25 | stop on end of stdin, own reader | RULED 2026-10-20 21:40; measured macOS, Linux | applied to spec 2026-10-21 |
-| S26 | relay-death workaround, full fix | RULED 2026-10-21 12:30 "Full fix" | applied to spec 2026-10-21 |
+| S26 | relay-death workaround, full fix | RULED 2026-10-21 12:30 "Full fix"; trigger 15 s ruled 15:15; measured across machines E24, E25; hosts never rebind (E24) | applied to spec 2026-10-21; two relay-only gaps accepted as known limitations |
 | S27 | server records accepted only from ids the owner's key certified (C19) | RULED 2026-10-21 12:34 "Guard it with your key" | applied to spec 2026-10-21 |
 
 ## Surface map (the original surface, by range)
@@ -100,7 +101,14 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   ├─ ▣ relay-death workaround: full fix (S26)              owner 2026-10-21
 │   ├─ ■ bootstrap failover cheap: one of two dead, join in 8-18 ms        e8
 │   ├─ ■ insert_relay at runtime forces a full net report; can re-home    e21
-│   └─ ○ NAT; two hosts (every lab run is one host, loopback)
+│   ├─ ■ two machines through a home NAT: 20/20 both ways, direct path    e22
+│   │      ~200 ms after the dial; gossip 120/120 (NAT port-preserving)
+│   ├─ ■ relay death across machines: IP transports on, 0/16 runs stall  e24, e25
+│   │      after a host's death; relay-only, the surviving host is
+│   │      blocked 62.6-87.3 s in 10/21 runs (known limitation 1)
+│   ├─ ■ sleep 247.5 s and wake: all pairs flowing within 3.7 s         owner test
+│   ├─ ■ Wi-Fi to hotspot: no rebind, pairs resume within 0.9 s         owner test
+│   └─ ○ symmetric NAT, CGNAT, UDP-blocked: never met (known limitation 3)
 │
 ├─ GOSSIP ────────────────── iroh-gossip 0.101.0 ───────────────────── partly settled
 │   ├─ ■ worst Presence 4368 B, overhead 38, minimum 4407, default 4096 e2
@@ -131,7 +139,10 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   ├─ ■ no re-dial after a failed dial (C17); fixed on main, unreleased  e15, e16
 │   ├─ ■ Join unanswered after a rebind (C18); fixed on main #161         e18, linux-e18
 │   ├─ ▣ carry the on_join fix by [patch.crates-io] (C18)    owner 2026-10-21
-│   └─ ○ S13 address-change trigger unexercised
+│   ├─ ■ S13 as staged re-announces ~20 times in 12 s while a relay is   e23
+│   │      down; debounce applied (changed address set, at most once per 2 s)
+│   └─ ○ S13 on a real interface change: not produced in E23 (no sudo);  e23, owner test
+│          the owner's Wi-Fi switch: pairs resumed in 0.9 s, no rebind
 │
 ├─ DIRECT PROTOCOL ───────── hand-written on iroh streams ──────────── settled
 │   ├─ ■ read_to_end(1,114,112) caps, resets only the stream             v3
@@ -139,13 +150,21 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   ├─ ◆ echo example = smallest accept-read-respond                     d2 ← v3
 │   └─ ■ gap: no server read timeout in 3.14                             v3
 │
-├─ INFRASTRUCTURE ────────── iroh-relay `server` ───────────────────── half settled
+├─ INFRASTRUCTURE ────────── iroh-relay `server` ───────────────────── mostly settled
 │   ├─ ■ in-process relay over plain HTTP; http_url needs test-utils     e1 7
 │   ├─ ◆ test-utils leaks insecure TLS if not dev-only                   f3, r1 ← e1 7
 │   ├─ ▣ relay behind a cargo feature
 │   ├─ ▣ hosts announce themselves (S21); records guarded by the owner's key (C19)
 │   ├─ ■ host added at runtime reaches every member in 24-114 ms         e21 (macOS)
-│   └─ ○ bootstrap member; relay TLS ruling; E21 on Linux (not filed)
+│   ├─ ■ the same on Linux in 136-163 ms; across machines 319-379 ms    linux-e21, e24
+│   ├─ ▣ relay TLS: HTTPS if low-effort (owner 2026-10-21 14:35) → D51
+│   ├─ ■ Let's Encrypt certificate 9.15 s after first start, 10-line     e22
+│   │      config; HTTPS +87 ms to come online, nothing else measurable
+│   ├─ ■ relay without QUIC address discovery: 3.1 s online, 0.49 s with e22
+│   ├─ ■ hosts applying the deaf rule loop when their fellow host dies;  e24
+│   │      hosts never rebind on silence (spec, 2026-10-21 18:54)
+│   ├─ ○ QUIC address discovery in the embedded library (known limitation 4)
+│   └─ ○ bootstrap member
 │
 ├─ CRYPTO ────────────────── iroh keys, blake3 (in tree) ───────────── mostly settled
 │   ├─ ■ sign / verify                                                   e1 1
@@ -155,13 +174,13 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 ├─ WIRE ENCODING ─────────── postcard (in tree) ────────────────────── settled
 │   └─ ■ sizes of every structure                                        e2
 │
-├─ IDENTITY ─────────────────────────────────────────────────────────── reopened
+├─ IDENTITY ─────────────────────────────────────────────────────────── mostly settled
 │   ├─ ■ address cache never evicts → fresh keys leak                    v1a
 │   ├─ ▣ node-as-identity propagated; sidecar lock for one holder
 │   ├─ ◇ no surveyed project detects a second live holder at runtime     so4
 │   ├─ ■ flock freed on SIGKILL in 6.5-10.4 ms; restarted node takes it   e5
 │   │      first try 15/15; second holder gets WouldBlock; std try_lock,
-│   │      no crate (macOS; Linux open)
+│   │      no crate (macOS; Linux in e23)
 │   ├─ ■ same-key restart, same address: gossip seamless, 0 NeighborDown/ e5
 │   │      Up at peers in 30 runs; new instance heard in 0.2-1.0 s
 │   ├─ ■ held connection to a killed node hangs silently until the idle   e5
@@ -174,7 +193,12 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 │   │      order lock → key → bind (hooks unarmed) → arm → serve
 │   ├─ ◆ never unlink the lock file; kernel is the only releaser          state/m4
 │   ├─ ◆ key mint: 0600 temp, fsync, hard_link (no overwrite, race-safe)  state/m4
-│   └─ ○ Linux lock semantics; power loss (no FIN to the relay)
+│   ├─ ■ Linux lock: refused 5/5, free 154-232 us after SIGKILL, free    e23
+│   │      with a live forked child 5/5
+│   └─ ■ power cut (hard reset, 20): lock free on every boot; unsynced   e23
+│          key file lost 5/5 when cut 1-2 s after writing, intact 5/5
+│          with fsync of file and directory; fsync rule added to S14;
+│          a power loss sends no FIN to the relay: its effect untested
 │
 ├─ FILES AND LOCAL ───────── small pieces ──────────────────────────── mostly leads
 │   ├─ ■ serde YAML crates rest on unsafe-libyaml (RUSTSEC-2024-0449)    orchestrator check
@@ -235,7 +259,7 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 |---|---|---|---|---|
 | 1 | D2, 3.1 | One Ed25519 key type serves card and node; sign and verify available | RUN holds; verify is strict | e1 check 1 |
 | 2 | 3.6 step 4 | The remote id of an accepted connection is the dialer's key | RUN holds (ids compared; forgery not attempted) | e1 check 4 |
-| 3 | D11 | iroh connects two keys directly and via a relay | RUN holds on one host: direct (e1 2a), relay-only (e1 2b, 9f), relay then upgrade to LAN (e1 9e). NAT and two machines OPEN | e1 |
+| 3 | D11 | iroh connects two keys directly and via a relay | RUN holds on one host: direct (e1 2a), relay-only (e1 2b, 9f), relay then upgrade to LAN (e1 9e). NAT and two machines OPEN. Two machines through one home NAT: RUN holds, relay-only and direct, 20/20 each way (e22); stricter NATs untested | e1, e22 |
 | 4 | D14, D43, 3.14 | A relay can run inside our process | RUN holds over plain HTTP; `http_url()` needs `test-utils`, build the URL by hand | e1 7a, 7b |
 | 5 | D15 | Local discovery finds peers with no configuration | RUN holds, via the separate crate iroh-mdns-address-lookup; needs a multicast-capable LAN interface | e1 5a-5c, 9c, 9d |
 | 6 | D12, 3.6 | One router serves the gossip protocol and ours | RUN holds | e1 3 |
@@ -265,17 +289,24 @@ ORIGINAL SURFACE: which ranges are solved, at what cost, what we copy, what we w
 ## OPEN, ordered by how much of the spec rests on it
 Each item keeps its original text; the line under it says what has since settled it.
 1. Node as identity: sidecar lock released on crash (macOS, Linux); a restarted node reusing its id while peers hold a stale connection; which instance answers a dial in that window. Gates D2-D7, D10, D30, 3.4, 3.6, 3.8, 3.9.
-   Settled on macOS by e5 (RUN) and ruled as S14 (2026-10-16 20:07). Still OPEN: Linux lock semantics; power loss.
+   Settled on macOS by e5 (RUN) and ruled as S14 (2026-10-16 20:07). Linux lock semantics and power loss settled by e23 (RUN): the lock holds and frees on Linux, and the key file survives a power cut only with fsync, a rule added to S14.
 2. Address lookup: dial by id with n0's preset (pkarr), with a self-hosted lookup, and with addresses carried in Presence; several relays in one map and how a peer homed elsewhere is reached. Gates 3.3 config, 3.10 step 3, D14, relay TLS.
-   Settled by e6, e8 (RUN) and the rulings S20 (2026-10-20 19:06), "No n0 at all" (2026-10-20 19:24), S21 (2026-10-20 19:10, measured in e21). Still OPEN: relay TLS.
+   Settled by e6, e8 (RUN) and the rulings S20 (2026-10-20 19:06), "No n0 at all" (2026-10-20 19:24), S21 (2026-10-20 19:10, measured in e21). Relay TLS settled: ruled 2026-10-21 14:35 (HTTPS if low-effort), measured in e22, written as D51. Known limitation 4: QUIC address discovery in the embedded library.
 3. Presence flow: join, Introduce to a late joiner, Departure delivery within 1000 ms, probe after NeighborDown, Unreachable rumor and self-correction (D18-D20, 3.8, tests 4, 5, 8, 19, 20).
-   Settled by e4 (RUN); ruled as S15, S17. Still OPEN: S13's address-change trigger.
+   Settled by e4 (RUN); ruled as S15, S17. S13's trigger measured in e23 on the relay-status path, debounce added; a real interface change was not produced there. The owner's Wi-Fi switch (2026-10-21) changed the public address and every pair resumed within 0.9 s with no rebind.
 4. Gossip admission: does an outsider holding only the topic id and a bootstrap address receive Presence (lead: verify/v2-gossip-gate.md, a source trace).
    Settled: yes, e7 (RUN); the gate measured in e9 and ruled as S16 (2026-10-20 19:06).
 5. rmcp: answered by e11 (static list, envelope, stdin close in 1 ms when idle, the SIGTERM hang and its fix); open: the Departure delay under rmcp's drain (C14).
    Settled: C14 measured, e13 and lab/linux/linux-e13 (S25).
 6. Two machines: NAT, relay-only across hosts (test 3).
-   Still OPEN. Every lab run, Linux included, is one host on loopback. E21 ran on Linux too (lab/linux/linux-e21), still one host.
+   Through E21 every lab run, Linux included, was one host on loopback (E21 too, lab/linux/linux-e21). Settled by e22, e24, e25 (RUN, three machines: the Mac behind a home NAT, the lab in Nuremberg, a throwaway server in Helsinki) and the two owner-assisted tests. Known limitations 1-3 remain: the host on relay-only paths, partial deafness, strict networks never met.
+
+## Known limitations (accepted)
+The owner closed the spec work on 2026-10-21 at 23:10 ("this is as far as i'm willing to go in spec itself"), accepting the two relay-only gaps (1, 2) as known limitations; 3 and 4 are gaps in what was tested.
+1. On relay-only paths a surviving host can be blocked by the iroh relay bug (C16) for 62.6-87.3 s, and the spec gives a host no recovery rule (hosts never rebind on silence, D46). Seen in 10 of 21 relay-only runs, 0 of 17 with IP transports on. Evidence: experiments/e25-hosts-norule.md test 2; experiments/e24-cross.md (pilot2).
+2. The deaf rule cannot fire for a member that keeps hearing host records while it cannot reach its peers: in one run of 8 (`e25r-sp-3`) 8 of 12 pairs stalled 71 s while every member received a host record every 5 s. Evidence: experiments/e25-hosts-norule.md; the risk was named in research/stack/spec-review.md.
+3. A strict network, with no direct path between members, was simulated by turning off IP transports and never met: no symmetric NAT, CGNAT or UDP-blocked network was tested, and E22's home NAT preserved ports. Evidence: experiments/e22-two-machines.md, e24-cross.md, e25-hosts-norule.md ("What could make this wrong").
+4. QUIC address discovery in the embedded relay library is unconfirmed: E22 and E24 ran the iroh-relay binary, and the spec embeds the library, assuming it behaves as the binary's `enable_quic_addr_discovery = true`. Evidence: research/stack/spec-apply-report.md (E22 notes); experiments/e22-two-machines.md.
 
 ## Leads (hypotheses, not findings)
 surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.md, index/index.md. Known errors in them are listed in plan.md under "Orchestrator corrections". Use them to choose experiments; never cite them as findings.
@@ -305,8 +336,8 @@ All nineteen are ruled or under a ruling. Run-by-run evidence for C13, C14, C16-
 | C18 | D14, 3.8, S21, S26 | after a rebind (S26) a member's Join to a bootstrap node can go unanswered: the node holds a stale pending Neighbor request to that id | RULED 2026-10-21 (12:30): carry the one-line on_join fix through Cargo's [patch.crates-io] (the owner: if there is a robust idiomatic cargo-supported way, yes); drop it when an iroh-gossip release carries #161 | e18, lab/linux/linux-e18 |
 | C19 | D16, S21 | the spec cannot tell an infrastructure host from a member: any secret holder could broadcast an infrastructure record | RULED 2026-10-21 (12:34): guard with the owner's signing key: its public half in the network config, one certificate per server id; members accept infrastructure records only from certified ids | e21 |
 
-## Staged revisions (ruled, not applied)
-Run-by-run evidence for S21, S24, S25, S26: "Evidence by item".
+## Staged revisions (ruled; applied to the spec 2026-10-21)
+Run-by-run evidence for S13, S14, S21, S24, S25, S26, S27: "Evidence by item".
 
 | # | Ruling | Spec sections | Kind |
 |---|---|---|---|
@@ -340,6 +371,22 @@ Run-by-run evidence for S21, S24, S25, S26: "Evidence by item".
 
 ## Evidence by item
 Bullets in date order. [macOS] = the Apple M2 Max host; [Linux] = the lab VM (Ubuntu 24.04.4, 2 vCPU AMD EPYC-Rome), run by lab-sibling. Every run is one host on loopback. Paths are under research/stack/.
+
+### S13
+- [macOS] E23 part 2 (experiments/e23-lock, spike/e23-lock 006cbfe): no change gives no watch_addr item and no announcement (0 in 100 s); network_change() gives none (0 in 15 calls); a stopped home relay gives a home_relay_status item in 0.3-1.3 ms, but watch_addr stays silent for 36.7-43.0 s (4 of 5 runs), then peers see the new address 1.2-1.6 ms after it fires. S13 as staged announced about 20 times in 12 s while a relay was down, the address unchanged; applied with a debounce (announce only on a changed address set, at most once per 2 s; journal 2026-10-21 16:27). A real interface change was not produced (no sudo).
+- [owner-assisted] The Wi-Fi switch to a phone hotspot changed the public address; pairs resumed within 0.9 s, no rebind (S26 below).
+
+### S14
+- [Linux] E23 part 1 (experiments/e23-lock, spike/e23-lock 006cbfe; Hetzner cpx22, ext4, kernel 6.8.0-138): second instance refused 5/5; lock free 154-232 us after SIGKILL 5/5; restart 5/5; free with a live forked child 5/5. A Docker Desktop Linux VM agrees (free 64-404 us).
+- [Linux] E23 power cut (hard reset, n=5 per variant, 20 cuts): the lock was free on every boot; a key file written without fsync and cut 1.1-1.7 s later was missing 5/5 (the identity would be lost); with fsync of file and directory, intact 5/5; without fsync, intact 5/5 at about 11 s and 5/5 at about 46 s; never empty, never half-written. Applied: the sidecar is written with sync_all on the file and its directory before the lock is taken (journal 2026-10-21 16:27, 16:31).
+
+### Relay TLS (D51)
+- RULED 2026-10-21 14:35: "if low-effort high-benefit, we commit to https."
+- [cross-machine] E22 (experiments/e22-two-machines, spike/e22-two-machines 966d653; the Mac behind a home NAT and the lab VM): iroh-relay 1.3.0 with a 10-line TOML obtained a trusted Let's Encrypt certificate 9.15 s after first start, ports 80 and 443 TCP only; a restart loads the cached certificate in 2 ms. HTTPS adds 87 ms to coming online (501 against 414 ms) and nothing measurable to connect, echo, upgrade, or gossip. A relay without QUIC address discovery costs 3.1 s to come online when IP transports are on; with it (UDP 7842), 0.49 s. On the wire HTTPS shows only the hostname (SNI). Dials both ways through the NAT 20/20, relay-only and direct; gossip 120/120 each way over 120 s.
+- Written into the spec as D51 (journal 2026-10-21 14:44). The library takes Let's Encrypt as CertConfig::LetsEncrypt (iroh-relay-1.3.0 server.rs:529-531, checked); QUIC address discovery in the library is unconfirmed (known limitation 4).
+
+### S27
+- E22-E25 did not exercise the host certificate: E24's hosts broadcast signed infrastructure records with no certificate check. The evidence stays E21's unit tests (C19 below).
 
 ### C13 and S24
 - [macOS] e8, e10: relay death (not bootstrap death) stalls gossip mesh-wide; re-home ~40 s (surface map, TRANSPORT).
@@ -383,6 +430,7 @@ Bullets in date order. [macOS] = the Apple M2 Max host; [Linux] = the lab VM (Ub
 ### S21
 - [macOS] E21 (experiments/e21-hosts, spike/e21-hosts bb66277, n=5 per arm): a host added at runtime reaches every member in 24-114 ms with no restart; insert_relay forces a full net report with no home hysteresis (socket.rs:1232-1243, 1759-1762; net_report.rs:304, 321, 811-815, checked), so the new relay became home in 11/15 members; after the first host's death all 15 members re-home on the learned relay, rejoin through its bootstrap in 9-14 ms, flowing at 5.9-7.0 s, no second rebind (learned vs static not separable: confounded); a member knowing only the new host joins in 9-11 ms, heartbeats in 105-216 ms; a saved hosts file (ids and relay URLs only) lets a restarted member join (n=1); false records rejected at unit level, which needs a host authority the spec lacks (C19).
 - [Linux] lab/linux/linux-e21 (n=5 per arm, table checked): H1 learned in 136-163 ms, home moved to the new relay in 6/15 members, 0 rebinds before the kill; H2 15/15 rebound once, all flowing from 6.8-6.9 s, 0/5 second rebinds; controls z0w 13.2-89.2 s (median 75.2, 4/5 second rebinds), z6w 13.1-81.5 s (1/5), z5w never stalled; H3 joined in 58-65 ms, heartbeats from all in 113-147 ms (3 runs) or about 1.04 s (2); saved hosts: rejoin with the file, none without; 5 unit tests pass. Joins slower than macOS (58-144 ms vs 9-14 ms) on this VM before the kill as well.
+- [cross-machine] E24 (experiments/e24-cross, spike/e24-cross 3f68e41; the Mac behind a home NAT, the lab in Nuremberg, a throwaway server in Helsinki; HTTPS relays): a host started at runtime was known to all four members 319-379 ms after its process start (n=5, clock offsets about +-50 ms); failover after the first host's death did not work cleanly while hosts applied the deaf rule (6-12 pairs stalled per run, one run unrecovered at 90 s). A fresh member knowing only the second host joined in 290-304 ms and heard its first heartbeat 948-1034 ms after start (n=5). Quiet network, 604 s: 0 rebinds of members or hosts (n=1).
 
 ### S26
 - Base W1, measured (gossip harness, scenario 1): heals every stalled pair by 180 s, [macOS] 76/76 (E15) and 30/30 (E16 F3), [Linux] 48/48 (linux-e15); heartbeat a median 4.1-4.2 s after the rebind; relapse needing a second rebind in 5/13 [macOS] and 1/8 [Linux] runs, cause open at the time; 0 false rebinds in 6 no-kill runs.
@@ -394,3 +442,8 @@ Bullets in date order. [macOS] = the Apple M2 Max host; [Linux] = the lab VM (Ub
 - [macOS] Slower first heal explained (E20, experiments/e20-delay, spike/e20-delay 9abb991): not relay homing (home relay connected 401-404 ms after bind in 42/42 endpoints); a rebound member with no member neighbor hears heartbeats only through the bootstrap node's lazy push, 11-16 s late (21/21 association in E19, 21/21 in the rerun); no member neighbor because the join walk ends at the bootstrap node, which holds the member active and only renews (hyparview.rs:403-409, 428-434, checked), or because member dials fail on emptied address entries (co-occurrence only). Change MJOIN (13 lines: 1.5 s after JOINED, with no member neighbor, join_peers(other members) every 3 s): late endpoints 0/24 vs 5/21 (p=0.017), 0/8 second rebinds; run-level heal not shown faster (p=0.34). Needs a member list in the product.
 - [Linux] lab/linux/linux-e20 (n=8 per arm interleaved, stats checked): late endpoints rarer (1/22 in B1, no member neighbor), MJOIN 0/21; with MJOIN all flowing from median 15.9 s (14.1-19.0) against 20.1 s (17.2-40.4), p=0.008; 0 second rebinds either arm; home relay 402-410 ms.
 - Variance: the same B1 arm gave macOS medians 31.2 s (E19) and 18.0 s (E20): run-set variance on one host is that wide.
+- Trigger: the spec-apply found that a 3 s Presence trigger would rebind a quiet healthy network every 20 s (Presence has no timer); the owner ruled (2026-10-21 15:15) deaf = no gossip payload from anyone for 15 s, the hosts' 5 s records as the floor.
+- [cross-machine] E24 (experiments/e24-cross, spike/e24-cross 3f68e41), relay-only, kill one host, n=8 per arm: hosts applying the deaf rule and the 5 s join timeout, with their only fellow host dead, rebound about every 8 s and pulled members along: the 15 s trigger healed 1 of 8 runs within 120 s, against 8 of 8 for the 3 s heartbeat control (12.8-27.7 s); rebinds per member 7.09 against 1.50 (p = 0.001). With IP transports on, the control never stalled (0/4) and the spec arm stalled 4/4, an outage the rule made. Hosts without the rule (n=4): one rebind per member, 26.9-27.2 s after the kill, all pairs flowing from 32.6-33.1 s, 0 relapses; blocked members heard 2 more host records, about 12 s, before going deaf. Spec changed: hosts never rebind on silence and have no join timeout (2026-10-21 18:54).
+- [cross-machine] E25 (experiments/e25-hosts-norule, spike/e24-cross 2c81e82 per the journal receipt), hosts without the rule, n=8 per arm: IP transports on, 0 of 16 runs stalled in either arm. Relay-only, the 15 s trigger and the 3 s control did not differ (heal p = 0.50), both dominated by a blocked surviving host: 10 of 21 relay-only runs, each 62.6-87.3 s (known limitation 1). Without the blocked host the 15 s trigger healed at 32.4-33.1 s in 4 of 5 runs; the fifth (`e25r-sp-3`) stalled 8 of 12 pairs for 71 s while records kept arriving (known limitation 2).
+- [owner-assisted] Sleep and wake (journal receipt 2026-10-21 22:55; logs/e24/owner-sleep-1021-2246 in the e24 worktree): the Mac slept 247.5 s; on wake each Mac member rebound at once and re-homed on the relay; all 10 pairs flowing within 3.7 s; 0 join failures.
+- [owner-assisted] Wi-Fi to a phone hotspot (journal receipt 2026-10-21 23:02; logs/e24/owner-wifi-1021-2256): public address changed, down about 4.8 s; no member rebound; peers heard the Mac members 0.3-0.4 s after the new address; all 10 pairs resumed within 0.9 s. At the window's end the remote side was not hearing the Mac, most likely the owner's switch back to home Wi-Fi (not confirmed).

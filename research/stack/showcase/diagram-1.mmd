@@ -1,7 +1,8 @@
 flowchart LR
-    F1["Server dies: relay queue jams, all relay traffic stops"] --> W1["W1: rebind after 3 s of silence"]
+    F1["Server dies: relay queue jams, all relay traffic stops"] --> W1["W1: rebind after silence (3 s in tests, 15 s in the spec)"]
     F2["Relapse 1: fresh connection re-jams on the old dead route"] --> C2["C2: test relays at rebind, erase dead ones"]
     F3["Relapse 2: bootstrap node ignores the re-join"] --> JT["5 s join timeout, then rebind again"]
     F3 --> OJ["One-line gossip fix at the bootstrap node"]
     F4["Rebound member hears others 11-16 s late"] --> MJ["MJOIN: contact the other members directly"]
     F5["Gossip never retries a failed contact"] --> W1
+    F6["Servers that rebind loop when their fellow server dies"] --> HN["Servers never rebind on silence"]

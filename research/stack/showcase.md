@@ -2,11 +2,11 @@
 
 Diagrams are rendered to PNG with merman-cli 0.9.1 (commons tip; `merman-cli render -f png -b white -s 2`); the Mermaid sources sit beside them in showcase/.
 
-For the owner, read cold. Every figure here comes from a report under research/stack/; the ledger (research/stack/ledger.md) holds the full record, item by item.
+For the owner, read cold. Every figure here comes from a report under research/stack/; the ledger (research/stack/ledger.md) holds the full record, item by item, and research/stack/README.md indexes the whole research.
 
 ## In one paragraph
 
-When one of our servers dies, estafette's members stop hearing each other for minutes, even members that never used that server. The cause is a bug in iroh, the networking library we build on. We found it, proved it, and wrote a bug report you can post upstream. We also built a workaround that our own code can carry today: on the Mac and on a Linux server, with the full workaround, every member was hearing every other member again within 28 seconds of a server's death in every run (8 runs on each machine). Finally, a new server can now announce itself to a running network, with no restart and no configuration edit on members.
+When one of our servers dies, estafette's members stop hearing each other for minutes, even members that never used that server. The cause is a bug in iroh, the networking library we build on. We found it, proved it, and wrote a bug report you can post upstream. We also built a workaround that our own code can carry today: on the Mac and on a Linux server, with the full workaround, every member was hearing every other member again within 28 seconds of a server's death in every run (8 runs on each machine). A new server can now announce itself to a running network, with no restart and no configuration edit on members. Last, the tests left one machine: across a home router and two rented servers, over HTTPS relays, no run stalled after a server's death while members could reach each other directly; two gaps remain where every path runs through a relay, and you accepted them.
 
 ## Words used below
 
@@ -24,7 +24,7 @@ When one of our servers dies, estafette's members stop hearing each other for mi
 - **The Mac**: an Apple M2 Max running macOS 15.3.1. All E14-E21 experiments ran here first.
 - **A Linux server**: a rented Hetzner machine (Ubuntu 24.04.4, 2 virtual CPUs, 3819 MiB memory), set up for this work and run by a sibling agent session (lab-sibling). Every result from E14 to E20 was rerun there; E21 was rerun there too (lab/linux/linux-e21: same outcome, the self-announcing arm flowing from 6.8-6.9 s).
 - **The test network**: three members and two servers, all on one machine, talking over its internal network. The test kills one server outright (both its relay and its bootstrap node) and watches heartbeats for 180 seconds. Most comparisons run 8 times per variant; "n" below is the number of runs.
-- Not yet tested: two real machines, a home router in the way (NAT), or real internet distances.
+- From E22 on: real machines. The Mac behind your home router (NAT), the Linux lab server in Nuremberg, and a throwaway server in Helsinki, with relays over HTTPS. Not tested: a stricter router than yours, or a network that blocks direct paths.
 
 ## Finding 1: the relay bug in iroh (E14 and the bug report)
 
@@ -56,25 +56,26 @@ The base rule (W1, E15): a member that hears no heartbeat from anyone for 3 seco
 
 ```mermaid
 flowchart LR
-    F1["Server dies: relay queue jams, all relay traffic stops"] --> W1["W1: rebind after 3 s of silence"]
+    F1["Server dies: relay queue jams, all relay traffic stops"] --> W1["W1: rebind after silence (3 s in tests, 15 s in the spec)"]
     F2["Relapse 1: fresh connection re-jams on the old dead route"] --> C2["C2: test relays at rebind, erase dead ones"]
     F3["Relapse 2: bootstrap node ignores the re-join"] --> JT["5 s join timeout, then rebind again"]
     F3 --> OJ["One-line gossip fix at the bootstrap node"]
     F4["Rebound member hears others 11-16 s late"] --> MJ["MJOIN: contact the other members directly"]
     F5["Gossip never retries a failed contact"] --> W1
+    F6["Servers that rebind loop when their fellow server dies"] --> HN["Servers never rebind on silence"]
 ```
 
 </details>
 
 ### (b) Timeline of the experiments
 
-![Timeline of experiments E14 to E21](showcase/diagram-2.png)
+![Timeline of experiments E14 to E25 and the owner's tests](showcase/diagram-2.png)
 
 <details><summary>Mermaid source (showcase/diagram-2.mmd)</summary>
 
 ```mermaid
 timeline
-    title Experiments E14 to E21
+    title Experiments E14 to E25 and the owner's tests
     2026-10-20 : E14 one dead relay jams every relay send in iroh
     2026-10-21 : Bug report with single-file reproduction, fails 20 of 20
                : E15 W1 rebind heals every stalled pair, relapses in 5 of 13
@@ -84,6 +85,11 @@ timeline
                : E19 all parts together, 0 of 8 relapse on both machines
                : E20 MJOIN removes the late hearing
                : E21 servers announce themselves at runtime
+               : E22 two machines through a home router, HTTPS relay in 9 s
+               : E23 lock holds on Linux, key file needs fsync
+               : E24 servers that rebind loop, so servers never rebind
+               : E25 nothing stalls over direct paths, relay-only gaps remain
+               : Owner tests, sleep and wake 3.7 s, Wi-Fi switch 0.9 s
 ```
 
 </details>
@@ -114,6 +120,33 @@ What was measured (n=5 per variant, full workaround on).
 - Surprise: adding a relay makes iroh re-pick its preferred relay, and it switched 11 of 15 members to the new one.
 - Gap: nothing in the spec tells a real server from any member holding the network secret, so any member could pose as a server. The experiment added a key of yours that certifies each server, which you then ruled on.
 
+## Finding 4: two real machines and an HTTPS relay (E22)
+
+What was measured, between the Mac behind your home router and the lab server.
+- HTTPS was low-effort: the stock relay with a 10-line configuration got a trusted Let's Encrypt certificate 9.15 seconds after its first start; a restart loads it from cache in 2 milliseconds. HTTPS costs 87 milliseconds more to come online and nothing measurable after that. On the wire, an observer sees only the server's name.
+- One setting matters: a relay without QUIC address discovery makes a member take 3.1 seconds to come online; with it, 0.49 seconds.
+- Through the router, each machine reached the other 20 of 20 times, by relay alone and with a direct path found about 200 milliseconds after the dial. Gossip carried 120 of 120 heartbeats each way.
+- Caveat: your router keeps port numbers, which makes it easy to cross. That proves this router, not routers in general.
+
+## Finding 5: the identity lock on Linux and a power cut (E23)
+
+The lock that keeps one live member per card behaves on Linux as on the Mac: a second instance was refused 5 of 5 times, and the lock was free 154-232 microseconds after the holder was killed. A throwaway server was hard-reset 20 times. The lock was free on every boot, but the card's key file, written without a flush to disk and cut 1-2 seconds later, was gone 5 of 5 times: the member would have lost its identity. With a flush of the file and its directory, it survived 5 of 5. The spec now requires that flush.
+
+The same experiment showed the re-announce rule (S13) would announce about 20 times in 12 seconds while a relay is down, with the address unchanged; the spec now announces only a changed address, at most once every 2 seconds.
+
+## Finding 6: the workaround across machines (E24, E25)
+
+The spec's trigger differs from the tests': a member counts as deaf after 15 seconds without any gossip from anyone (your ruling), with each server's record every 5 seconds as the floor.
+- E24 found a flaw in the spec as first written: servers that also rebound on silence, with their only fellow server dead, rebound about every 8 seconds and dragged members along. With every path through a relay, 7 of 8 runs had not recovered after 120 seconds. With direct paths allowed, the rule itself caused an outage in 4 of 4 runs. The spec now says servers never rebind on silence. With that, every member rebound once and all pairs flowed again 32.6-33.1 seconds after the death (4 runs).
+- Across machines, a new server reached all four members 319-379 milliseconds after it started, and a new member that knew only that server joined in 290-304 milliseconds.
+- E25, servers without the rule, 8 runs per variant: with direct paths allowed, as a product runs, no run stalled after a server's death (0 of 16). With every path through a relay, the surviving server was itself jammed by the iroh bug in 10 of 21 runs, for 62.6-87.3 seconds, before clearing by itself. In one further run, members kept hearing server records while 8 of 12 pairs stalled for 71 seconds, so the deaf rule could not fire.
+
+## Your own tests (2026-10-21)
+
+You ran two tests by hand, with the Mac's members talking to members on the servers.
+- Sleep and wake: the Mac slept 247.5 seconds. On waking, each Mac member rebound at once, and all 10 pairs were flowing again within 3.7 seconds, with no failed join.
+- Wi-Fi to your phone's hotspot: the public address changed and the network was down about 4.8 seconds. No member rebound; all 10 pairs resumed within 0.9 seconds. At the end the remote side no longer heard the Mac, most likely because you switched back to home Wi-Fi; that is not confirmed.
+
 ## What you ruled (2026-10-20 and 2026-10-21)
 
 - Every announcement carries the sender's full current address (19:06); the network admission check runs inside iroh's connection hook, both ways (19:06); old announcements expire after 300 s (19:06).
@@ -125,23 +158,32 @@ What was measured (n=5 per variant, full workaround on).
 - The workaround: "Full fix", MJOIN included, goes toward the spec (12:30).
 - The one-line gossip fix: carry it through Cargo's dependency patching, drop it when a release carries it (12:30).
 - Server trust: "Guard it with your key" (12:34): your public key in the network config, one certificate per server, members accept server records only from certified servers.
+- Relay encryption: "if low-effort high-benefit, we commit to https" (14:35); and "apply current changes, carefully" (14:35).
+- Power cut: a throwaway server, if simulating is harder than the real thing (14:40); its type: "cpx22, x86" (15:00).
+- The deaf trigger: "haven't heard anyone in 15s" (15:15).
+- Cross-machine tests: "All, with a 2nd server"; your hands-on part: "I ping you when ready" (16:26).
+- The close (23:10): "this is as far as i'm willing to go in spec itself."
 
-The spec itself is untouched: every staged change waits for your one batch edit.
+Every staged change, S1-S27, is now in spec/blueprint.md, applied on 2026-10-21 and checked by two reviews (research/stack/spec-apply-report.md, spec-review.md, spec-review-2.md).
 
 ## What remains open
 
-- **Your actions**: post the bug report; apply the staged spec changes (S1-S26 in the ledger) when you choose.
-- **Not yet staged**: your server-trust ruling has no staged spec row yet.
-- **Not yet run**: two real machines and NAT; relay encryption settings; whether the lock that keeps one live member per card behaves on Linux as on the Mac; power loss.
-- **Not explained**: why the bootstrap node's relayed heartbeats arrive 11-16 s late; why members already moved to the new server still stalled when the old one died (2 of 2 runs in E21); how much traffic a real member sends toward a dead relay (the tests sent one probe per second).
+- **Your action**: post the bug report.
+- **Known limitations, accepted at the close**:
+  1. With every path through a relay, a surviving server can be jammed by the iroh bug for 62-87 seconds, and the spec gives a server no recovery rule (E25).
+  2. The deaf rule cannot fire for a member that keeps hearing server records while it cannot reach its peers (one run, 71 seconds; E25).
+  3. A network with no direct paths was only simulated, by turning direct paths off; no such network was met (E22, E24, E25).
+  4. QUIC address discovery in the relay library the spec embeds is unconfirmed; the tests ran the stock relay program (spec-apply-report.md).
+- **Not explained**: why the bootstrap node's relayed heartbeats arrive 11-16 s late; why members already moved to the new server still stalled when the old one died (2 of 2 runs in E21); how much traffic a real member sends toward a dead relay (the tests sent one probe per second); why a jammed server clears after 62-87 seconds (E25 did not instrument it).
 - **Product needs**: MJOIN needs a list of the other members in the product; the 5 s join timeout costs a full rebind whenever a legitimate join is slower than 5 s.
 - **Upstream**: the gossip fixes we lean on (#161, #178) are unreleased; iroh's relay bug is unfixed in the newest code we checked (main 55908a5).
 
 ## Where everything lives
 
-- research/stack/ledger.md: status at a glance, every collision (C1-C19) and staged revision (S1-S26), and the evidence by item.
-- research/stack/experiments/e14-dials.md to e21-hosts.md: one report per experiment; e14-bug-report.md and the directory e14-bug-report/ are the upstream package.
-- research/stack/lab/linux/: the Linux reruns (linux-e14, linux-e14w, linux-e14-repro, linux-e15, linux-e17 to linux-e20).
-- research/stack/staged-revisions.md: the intended spec text; research/stack/parameters.md: the approved parameter values.
-- Code: the estafette repository, branches spike/e14-dials, spike/e14-bug-report, spike/e15-workaround to spike/e21-hosts (pushed).
+- research/stack/README.md: the index, with one table of every experiment, its report, rerun, code, and the items it settles.
+- research/stack/ledger.md: status at a glance, every collision (C1-C19) and revision (S1-S27), the known limitations, and the evidence by item.
+- research/stack/experiments/e14-dials.md to e25-hosts-norule.md: one report per experiment; e14-bug-report.md and the directory e14-bug-report/ are the upstream package.
+- research/stack/lab/linux/: the Linux reruns (linux-e14, linux-e14w, linux-e14-repro, linux-e15, linux-e17 to linux-e21).
+- spec/blueprint.md: the applied spec; research/stack/staged-revisions.md: the intended text it was applied from; research/stack/parameters.md: the approved parameter values.
+- Code: the estafette repository, branches spike/e14-dials, spike/e14-bug-report, spike/e15-workaround to spike/e21-hosts, spike/e22-two-machines, spike/e23-lock, spike/e24-cross (pushed).
 - docs/orchestration_log/history/2026-10-15/events.md: the journal, with every ruling quoted.
