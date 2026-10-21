@@ -1,5 +1,7 @@
 # Showcase: two days of stack research (2026-10-20 and 2026-10-21)
 
+Diagrams are rendered to PNG with merman-cli 0.9.1 (commons tip; `merman-cli render -f png -b white -s 2`); the Mermaid sources sit beside them in showcase/.
+
 For the owner, read cold. Every figure here comes from a report under research/stack/; the ledger (research/stack/ledger.md) holds the full record, item by item.
 
 ## In one paragraph
@@ -48,6 +50,10 @@ The base rule (W1, E15): a member that hears no heartbeat from anyone for 3 seco
 
 ### (a) The parts and the failure each answers
 
+![The workaround parts and the failure each answers](showcase/diagram-1.png)
+
+<details><summary>Mermaid source (showcase/diagram-1.mmd)</summary>
+
 ```mermaid
 flowchart LR
     F1["Server dies: relay queue jams, all relay traffic stops"] --> W1["W1: rebind after 3 s of silence"]
@@ -58,7 +64,13 @@ flowchart LR
     F5["Gossip never retries a failed contact"] --> W1
 ```
 
+</details>
+
 ### (b) Timeline of the experiments
+
+![Timeline of experiments E14 to E21](showcase/diagram-2.png)
+
+<details><summary>Mermaid source (showcase/diagram-2.mmd)</summary>
 
 ```mermaid
 timeline
@@ -73,6 +85,8 @@ timeline
                : E20 MJOIN removes the late hearing
                : E21 servers announce themselves at runtime
 ```
+
+</details>
 
 ### (c) Recovery time, W1 alone against the combined workaround
 
