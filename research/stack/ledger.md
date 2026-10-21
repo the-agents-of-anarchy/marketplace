@@ -36,8 +36,8 @@ Spec edits are the owner's act, applied in one batch ("we'll apply everything at
 | S5 | hex for every text form | RULED 2026-10-16 12:45 | spec edit (batch) |
 | S6 | no presence encryption | RULED 2026-10-16 12:50 | spec edit (batch) |
 | S7 | iroh-gossip pinned to 0.101.0 | RULED 2026-10-16 12:45 | stack D-record |
-| S8 | direct protocol by hand; irpc rejected | staged (v3 run) | stack D-record |
-| S9 | sender checks gossip payload size | staged; confirm with S1 | spec edit (batch) |
+| S8 | direct protocol by hand; irpc rejected | RULED 2026-10-21 14:20 "Keep the decision" (v3 run) | stack D-record |
+| S9 | sender checks gossip payload size | RULED 2026-10-21 14:24 "Keep the decision" | spec edit (batch) |
 | S10 | one stream per request; 10 s server read timeout | RULED 2026-10-16 18:12 | spec edit (batch) |
 | S11 | drop duplicate suppression | RULED 2026-10-16 18:12 | spec edit (batch) |
 | S12 | per-member seq, max age 300 s, tombstone | RULED 2026-10-16 18:12; max age 2026-10-20 19:06 | spec edit (batch) |
