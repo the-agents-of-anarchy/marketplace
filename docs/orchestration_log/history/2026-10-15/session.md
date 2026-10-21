@@ -15,8 +15,9 @@ Span: resident-anarchist [6a43c8], a guest session of the agents-of-anarchy soci
 - Ground truth: research/stack/ledger.md (surface map, collisions C1-C18, staged revisions S1-S26), parameters.md (G1-G5; G5 = S23), experiments/e1-e21, lab/linux/ (Linux reruns).
 - Rulings 2026-10-20/21: C13 -> S24 own fix on iroh-gossip 0.101.0; C14 -> S25; C15 -> S23; C16 (iroh 1.3.0 relay send path blocks behind a dead relay's full queue; same on iroh main) -> a workaround in estafette plus an internal bug report (experiments/e14-bug-report.md, done, Linux numbers in).
 - Workaround state (S26, staged, spec held): W1 rebind on 3 s heartbeat silence + C2 relay probe and lookup scrub + 5 s join timeout + on_join backport of iroh-gossip #161 (C18) at bootstrap nodes; E19: 0/8 relapses, flowing by 29-33 s; E20: the slower first heal is a gossip-membership miss, MJOIN (join_peers to other members after a rebind) removes it. C17 (gossip never re-dials) and C18 are fixed on iroh-gossip main, unreleased.
-- Running: E21 self-announcing hosts (S21) with the workaround, spike/e21-hosts; lab-sibling E19 Linux rerun.
-- Next: file E21 and the Linux E19; Linux rerun of E20 and E21; then hold for the owner's rulings on S26 and C18 (owner decides the spec edits).
+- Running: lab-sibling E21 Linux rerun (self-announcing hosts).
+- Waiting on the owner (spec held; nothing applied): S26 adoption (the combined workaround with MJOIN); C18 (carry the one-line on_join backport of iroh-gossip #161 at bootstrap nodes, under C13's ruling, or wait for a release); C19 (host authority for infrastructure records: operator key and certificate, operator-signed records, or trust on first use); S21 with E21's results. C17 and C18 go away with the next iroh-gossip release; C16 needs an iroh fix upstream (bug report written, not filed upstream: owner's call).
+- Next: file the Linux E21; then hold for those rulings.
 
 ## Lab
 - Server estafette-lab (cx23, nbg1, 178.105.88.14) via the project skill run-hetzner-lab and `just remote::*` (address looked up by name; `just remote` lists recipes). Backstop: hourly launchd job ~/.local/share/estafette-lab/lab-control.py, 24 h deadline per resource (server 2026-10-21 17:33Z); extend with `python3 -I .claude/skills/run-hetzner-lab/lab-control.py extend <kind> <id> <hours>` only while lab work runs, journaled.
