@@ -106,7 +106,3 @@ New D-records, each with Decision, Reason, Rejected, If you change this:
 - S7: iroh-gossip pinned to 0.101.0 exactly; upgrade when the churn fixes ship (#161, #178, #189), with a mixed-version join test.
 - S8: the direct protocol is written by hand on iroh streams. Rejected: irpc 0.17 (fixed 16 MiB cap, allocates before the body, closes the connection on a bad frame).
 - Manifest table in Part 3 (3.2): crates with exact versions and features, compiled at application time from the rulings: iroh 1.3.0, iroh-gossip 0.101.0, iroh-relay 1.3.0 `server` (feature-gated), rmcp 3.5.1 (`server`, `transport-io`), clap 4 (`derive`), serde, postcard, serde_json, blake3, data-encoding, uuid (`v7`), tokio (`signal` added), toml, yaml-rust2, libc. Exact counts by `cargo tree` at application time.
-</content>
-</invoke>
-<invoke name="Bash">
-<parameter name="command">git add research/stack/staged-revisions.md
