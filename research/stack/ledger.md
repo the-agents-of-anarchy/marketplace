@@ -28,7 +28,7 @@ Spec edits are the owner's act, applied in one batch ("we'll apply everything at
 | C16 | relay send path blocks behind a dead relay (iroh) | RULED 2026-10-21 00:00 workaround + bug report → S26; 12:25 the owner posts the report | post experiments/e14-bug-report.md upstream |
 | C17 | gossip never re-dials a peer after a failed dial | under C13's ruling; measured: do not carry the E16 fix; fixed upstream, unreleased | none |
 | C18 | Join unanswered after a rebind (stale pending Neighbor) | RULED 2026-10-21 12:30: on_join fix via Cargo [patch.crates-io] | none |
-| C19 | no host authority for infrastructure records | RULED 2026-10-21 12:34 "Guard it with your key"; no staged row yet | none |
+| C19 | no host authority for infrastructure records | RULED 2026-10-21 12:34 "Guard it with your key"; staged as S27 | none |
 | S1 | public card fields in Presence, cap 3072 B | RULED 2026-10-20 19:20 | spec edit (batch) |
 | S2 | QUIC idle timeout 10 s | RULED 2026-10-16 12:40 | spec edit (batch) |
 | S3 | relay behind a cargo feature | RULED 2026-10-16 12:40 | spec edit (batch) |
@@ -55,6 +55,7 @@ Spec edits are the owner's act, applied in one batch ("we'll apply everything at
 | S24 | relay death: rejoin + remove_relay on the pin | RULED 2026-10-20 21:40; rejoin lever replaced by S26 | spec edit (batch) |
 | S25 | stop on end of stdin, own reader | RULED 2026-10-20 21:40; measured macOS, Linux | spec edit (batch) |
 | S26 | relay-death workaround, full fix | RULED 2026-10-21 12:30 "Full fix" | spec edit (batch) |
+| S27 | server records accepted only from ids the owner's key certified (C19) | RULED 2026-10-21 12:34 "Guard it with your key" | spec edit (batch) |
 
 ## Surface map (the original surface, by range)
 Marks: ■ settled by a run or a record · ▣ ruled by the owner · ◆ solid lead (a worker's claim later confirmed by our run or the orchestrator's check, or a sonnet source read whose project tests were run) · ◇ unconfirmed lead · ○ open · ▶ in flight. Update this map whenever a row changes.
@@ -274,7 +275,7 @@ Each item keeps its original text; the line under it says what has since settled
 5. rmcp: answered by e11 (static list, envelope, stdin close in 1 ms when idle, the SIGTERM hang and its fix); open: the Departure delay under rmcp's drain (C14).
    Settled: C14 measured, e13 and lab/linux/linux-e13 (S25).
 6. Two machines: NAT, relay-only across hosts (test 3).
-   Still OPEN. Every lab run, Linux included, is one host on loopback. E21 on Linux was sent to lab-sibling 2026-10-21 12:15; no report filed.
+   Still OPEN. Every lab run, Linux included, is one host on loopback. E21 ran on Linux too (lab/linux/linux-e21), still one host.
 
 ## Leads (hypotheses, not findings)
 surveys/*.md, specimen/*.md, solutions/*.md, verify/v2-gossip-gate.md, ground/*.md, index/index.md. Known errors in them are listed in plan.md under "Orchestrator corrections". Use them to choose experiments; never cite them as findings.
@@ -335,6 +336,7 @@ Run-by-run evidence for S21, S24, S25, S26: "Evidence by item".
 | S24 | gossip stall on relay death: keep iroh-gossip 0.101.0; a member whose Presence flow stops rejoins the topic through the known hosts; a member whose home relay dies removes it from the relay map (iroh 1.3 Endpoint::remove_relay, a relay-map change forcing a full report) and adds it back when its host announces again | D14, D20, 3.8, S7, S21 | spec edit + experiment (E12): removal measured; the rejoin lever (L2) is replaced by S26 |
 | S25 | stop on end of stdin: the binary reads stdin through its own wrapper that notes end of input and starts Stopping at once (Departure handed to a task), before rmcp's 5 s drain; SIGTERM sends Departure first, then shuts the runtime down in the background | 3.8 stop row, 3.9, 3.14, S17 | spec edit; measured macOS and Linux |
 | S26 | relay-death workaround (C16): a member that hears no Presence from any peer for 3 s closes its endpoint, binds a fresh one with the same key, builds a new gossip instance, and rejoins the topic through the known hosts; at most one rebind per 20 s; connections drop at each rebind. Replaces S24's rejoin lever (L2). The full fix adds: at rebind, probe the configured relays and strip the dead ones from other members' lookup entries (C2); a 5 s join timeout; the on_join backport at the bootstrap node (C18); MJOIN (after a rebind, join the other members directly while none is a neighbor). RULED 2026-10-21 by the owner: the full fix (MJOIN included) goes toward the spec; spec edit is the owner's act | D14, D20, 3.8, S21, S24 | spec edit |
+| S27 | infrastructure records carry a certificate: the owner holds one signing key, its public half sits in the network config; the owner signs each server's endpoint id once; a member accepts an infrastructure record only if the certificate verifies and the record is signed by the certified id (E21's design, unit-tested: wrong signer and non-server member both rejected); replay of an old record is unchecked (`ts` carried, not compared) | D16, S21, C19 | spec edit |
 
 ## Evidence by item
 Bullets in date order. [macOS] = the Apple M2 Max host; [Linux] = the lab VM (Ubuntu 24.04.4, 2 vCPU AMD EPYC-Rome), run by lab-sibling. Every run is one host on loopback. Paths are under research/stack/.
