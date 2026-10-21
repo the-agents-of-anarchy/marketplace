@@ -15,7 +15,9 @@ kinds: server, primary-ip, firewall, ssh-key
 
 check prints one line per resource. It deletes managed resources past their deadline,
 servers first, then primary IPs, firewalls, and SSH keys. It deletes nothing that lacks
-the owner label or a deadline; it names those instead.
+the owner label or a deadline; it names those instead. Owner ruling, 2026-10-21: an
+expired server is kept while its type is not available in its location (scarce types are
+not given back); while one is kept, no IP, firewall or key is deleted either.
 """
 import datetime
 import json
@@ -52,8 +54,18 @@ def set_deadline(kind, ref, expires):
     print(f"{kind} {ref} expires {stamp(expires)}")
 
 
+def replaceable(server):
+    # Owner ruling 2026-10-21: return a server only if its type can be bought again in its location.
+    code, out, _ = hc("server-type", "describe", server["server_type"]["name"], "-o", "json")
+    if code != 0:
+        return False
+    loc = server["location"]["name"]
+    return any(l["name"] == loc and l.get("available") for l in json.loads(out).get("locations", []))
+
+
 def check(dry):
     now = int(time.time())
+    kept = []
     for kind in KINDS:
         code, out, err = hc(kind, "list", "-o", "json")
         if code != 0:
@@ -69,6 +81,11 @@ def check(dry):
                 print(f"{head} NO DEADLINE, left alone", flush=True)
             elif now < int(expires):
                 print(f"{head} ok, expires {stamp(int(expires))}, {(int(expires) - now) // 60} min left", flush=True)
+            elif kind == "server" and not replaceable(res):
+                kept.append(res["name"])
+                print(f"{head} EXPIRED {stamp(int(expires))}, KEPT: {res['server_type']['name']} not available in {res['location']['name']}", flush=True)
+            elif kind != "server" and kept:
+                print(f"{head} EXPIRED {stamp(int(expires))}, KEPT with server {', '.join(kept)}", flush=True)
             elif dry:
                 print(f"{head} EXPIRED {stamp(int(expires))}, would delete (dry run)", flush=True)
             else:
