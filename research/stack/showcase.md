@@ -22,7 +22,7 @@ When one of our servers dies, estafette's members stop hearing each other for mi
 ## What was tested, and on what
 
 - **The Mac**: an Apple M2 Max running macOS 15.3.1. All E14-E21 experiments ran here first.
-- **A Linux server**: a rented Hetzner machine (Ubuntu 24.04.4, 2 virtual CPUs, 3819 MiB memory), set up for this work and run by a sibling agent session (lab-sibling). Every result from E14 to E20 was rerun there; E21 was sent there on 2026-10-21 and has no report yet.
+- **A Linux server**: a rented Hetzner machine (Ubuntu 24.04.4, 2 virtual CPUs, 3819 MiB memory), set up for this work and run by a sibling agent session (lab-sibling). Every result from E14 to E20 was rerun there; E21 was rerun there too (lab/linux/linux-e21: same outcome, the self-announcing arm flowing from 6.8-6.9 s).
 - **The test network**: three members and two servers, all on one machine, talking over its internal network. The test kills one server outright (both its relay and its bootstrap node) and watches heartbeats for 180 seconds. Most comparisons run 8 times per variant; "n" below is the number of runs.
 - Not yet tested: two real machines, a home router in the way (NAT), or real internet distances.
 
@@ -103,7 +103,7 @@ Seconds from the server's death until every stalled pair flows again: median (fa
 
 Read with care: the same "combined without MJOIN" setup gave a Mac median of 31.2 s in E19 and 18.0 s in E20, so one set of 8 runs can move by that much. What holds across every run set: the combined workaround removed the long tail (no run past 35 s) and the relapses.
 
-## Finding 3: servers that announce themselves (E21, Mac)
+## Finding 3: servers that announce themselves (E21, Mac and Linux)
 
 What it does. Each server joins the network and broadcasts a signed record (its relay and bootstrap addresses) every 5 seconds. Members add it on the fly and save it to a file for their next start.
 
@@ -132,7 +132,7 @@ The spec itself is untouched: every staged change waits for your one batch edit.
 
 - **Your actions**: post the bug report; apply the staged spec changes (S1-S26 in the ledger) when you choose.
 - **Not yet staged**: your server-trust ruling has no staged spec row yet.
-- **Not yet run**: E21 on Linux (sent 2026-10-21 12:15, no report); two real machines and NAT; relay encryption settings; whether the lock that keeps one live member per card behaves on Linux as on the Mac; power loss.
+- **Not yet run**: two real machines and NAT; relay encryption settings; whether the lock that keeps one live member per card behaves on Linux as on the Mac; power loss.
 - **Not explained**: why the bootstrap node's relayed heartbeats arrive 11-16 s late; why members already moved to the new server still stalled when the old one died (2 of 2 runs in E21); how much traffic a real member sends toward a dead relay (the tests sent one probe per second).
 - **Product needs**: MJOIN needs a list of the other members in the product; the 5 s join timeout costs a full rebind whenever a legitimate join is slower than 5 s.
 - **Upstream**: the gossip fixes we lean on (#161, #178) are unreleased; iroh's relay bug is unfixed in the newest code we checked (main 55908a5).

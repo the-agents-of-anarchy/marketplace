@@ -49,7 +49,7 @@ Spec edits are the owner's act, applied in one batch ("we'll apply everything at
 | S18 | inbox ring of 1000; ack = delivered | RULED 2026-10-16 20:27 | spec edit (batch) |
 | S19 | no transport-level retries | RULED 2026-10-16 20:27 | spec edit (batch) |
 | S20 | address in every Presence and Introduce | RULED 2026-10-20 19:06 | spec edit (batch) |
-| S21 | self-announcing infrastructure hosts | RULED 2026-10-20 19:10; measured E21 (macOS) | spec edit (batch) |
+| S21 | self-announcing infrastructure hosts | RULED 2026-10-20 19:10; measured E21 (macOS, Linux) | spec edit (batch) |
 | S22 | agreement parameters G1-G4 | RULED 2026-10-20 19:32 | spec edit (batch) |
 | S23 | MCP surface values G5 | RULED 2026-10-20 21:40 | spec edit (batch) |
 | S24 | relay death: rejoin + remove_relay on the pin | RULED 2026-10-20 21:40; rejoin lever replaced by S26 | spec edit (batch) |
@@ -380,6 +380,7 @@ Bullets in date order. [macOS] = the Apple M2 Max host; [Linux] = the lab VM (Ub
 
 ### S21
 - [macOS] E21 (experiments/e21-hosts, spike/e21-hosts bb66277, n=5 per arm): a host added at runtime reaches every member in 24-114 ms with no restart; insert_relay forces a full net report with no home hysteresis (socket.rs:1232-1243, 1759-1762; net_report.rs:304, 321, 811-815, checked), so the new relay became home in 11/15 members; after the first host's death all 15 members re-home on the learned relay, rejoin through its bootstrap in 9-14 ms, flowing at 5.9-7.0 s, no second rebind (learned vs static not separable: confounded); a member knowing only the new host joins in 9-11 ms, heartbeats in 105-216 ms; a saved hosts file (ids and relay URLs only) lets a restarted member join (n=1); false records rejected at unit level, which needs a host authority the spec lacks (C19).
+- [Linux] lab/linux/linux-e21 (n=5 per arm, table checked): H1 learned in 136-163 ms, home moved to the new relay in 6/15 members, 0 rebinds before the kill; H2 15/15 rebound once, all flowing from 6.8-6.9 s, 0/5 second rebinds; controls z0w 13.2-89.2 s (median 75.2, 4/5 second rebinds), z6w 13.1-81.5 s (1/5), z5w never stalled; H3 joined in 58-65 ms, heartbeats from all in 113-147 ms (3 runs) or about 1.04 s (2); saved hosts: rejoin with the file, none without; 5 unit tests pass. Joins slower than macOS (58-144 ms vs 9-14 ms) on this VM before the kill as well.
 
 ### S26
 - Base W1, measured (gossip harness, scenario 1): heals every stalled pair by 180 s, [macOS] 76/76 (E15) and 30/30 (E16 F3), [Linux] 48/48 (linux-e15); heartbeat a median 4.1-4.2 s after the rebind; relapse needing a second rebind in 5/13 [macOS] and 1/8 [Linux] runs, cause open at the time; 0 false rebinds in 6 no-kill runs.
