@@ -6,7 +6,7 @@ Classes: RUN = observed by running code (one host per run: macOS arm64, or from 
 Tidied 2026-10-21: collision and staged-revision rows cut to claim, status and pointers; their run-by-run notes moved, unchanged in substance, to "Evidence by item" at the end. Ruling times are from docs/orchestration_log/history/2026-10-15/events.md (times +0300).
 
 ## Status at a glance
-Spec edits are the owner's act, applied in one batch ("we'll apply everything at once", 2026-10-16 12:50); nothing below is applied to spec/blueprint.md.
+Spec edits are the owner's act, applied in one batch ("we'll apply everything at once", 2026-10-16 12:50); applied to spec/blueprint.md on 2026-10-21 at the owner's word "apply current changes, carefully", with the decisions and review fixes in research/stack/spec-apply-report.md, spec-review.md, spec-review-2.md.
 
 | Id | Title | Status | Owner action |
 |---|---|---|---|
@@ -29,33 +29,33 @@ Spec edits are the owner's act, applied in one batch ("we'll apply everything at
 | C17 | gossip never re-dials a peer after a failed dial | under C13's ruling; measured: do not carry the E16 fix; fixed upstream, unreleased | none |
 | C18 | Join unanswered after a rebind (stale pending Neighbor) | RULED 2026-10-21 12:30: on_join fix via Cargo [patch.crates-io] | none |
 | C19 | no host authority for infrastructure records | RULED 2026-10-21 12:34 "Guard it with your key"; staged as S27 | none |
-| S1 | public card fields in Presence, cap 3072 B | RULED 2026-10-20 19:20 | spec edit (batch) |
-| S2 | QUIC idle timeout 10 s | RULED 2026-10-16 12:40 | spec edit (batch) |
-| S3 | relay behind a cargo feature | RULED 2026-10-16 12:40 | spec edit (batch) |
-| S4 | yaml-rust2 plus own converter | RULED 2026-10-16 12:45 | stack D-record |
-| S5 | hex for every text form | RULED 2026-10-16 12:45 | spec edit (batch) |
-| S6 | no presence encryption | RULED 2026-10-16 12:50 | spec edit (batch) |
-| S7 | iroh-gossip pinned to 0.101.0 | RULED 2026-10-16 12:45 | stack D-record |
-| S8 | direct protocol by hand; irpc rejected | RULED 2026-10-21 14:20 "Keep the decision" (v3 run) | stack D-record |
-| S9 | sender checks gossip payload size | RULED 2026-10-21 14:24 "Keep the decision" | spec edit (batch) |
-| S10 | one stream per request; 10 s server read timeout | RULED 2026-10-16 18:12 | spec edit (batch) |
-| S11 | drop duplicate suppression | RULED 2026-10-16 18:12 | spec edit (batch) |
-| S12 | per-member seq, max age 300 s, tombstone | RULED 2026-10-16 18:12; max age 2026-10-20 19:06 | spec edit (batch) |
-| S13 | re-announce on relay status and address change | RULED 2026-10-16 18:09 | spec edit (batch) |
-| S14 | node as identity, sidecar lock | RULED 2026-10-16 20:07 | spec edit (batch, largest) |
-| S15 | first Presence after topic joined | RULED 2026-10-16 20:07 | spec edit (batch) |
-| S16 | keyed challenge in after_handshake, both ways | RULED 2026-10-16 20:07; 2026-10-20 19:06 | spec edit (batch) |
-| S17 | stop: Departure, release lock, wait 5 s | RULED 2026-10-16 20:21 | spec edit (batch) |
-| S18 | inbox ring of 1000; ack = delivered | RULED 2026-10-16 20:27 | spec edit (batch) |
-| S19 | no transport-level retries | RULED 2026-10-16 20:27 | spec edit (batch) |
-| S20 | address in every Presence and Introduce | RULED 2026-10-20 19:06 | spec edit (batch) |
-| S21 | self-announcing infrastructure hosts | RULED 2026-10-20 19:10; measured E21 (macOS, Linux) | spec edit (batch) |
-| S22 | agreement parameters G1-G4 | RULED 2026-10-20 19:32 | spec edit (batch) |
-| S23 | MCP surface values G5 | RULED 2026-10-20 21:40 | spec edit (batch) |
-| S24 | relay death: rejoin + remove_relay on the pin | RULED 2026-10-20 21:40; rejoin lever replaced by S26 | spec edit (batch) |
-| S25 | stop on end of stdin, own reader | RULED 2026-10-20 21:40; measured macOS, Linux | spec edit (batch) |
-| S26 | relay-death workaround, full fix | RULED 2026-10-21 12:30 "Full fix" | spec edit (batch) |
-| S27 | server records accepted only from ids the owner's key certified (C19) | RULED 2026-10-21 12:34 "Guard it with your key" | spec edit (batch) |
+| S1 | public card fields in Presence, cap 3072 B | RULED 2026-10-20 19:20 | applied to spec 2026-10-21 |
+| S2 | QUIC idle timeout 10 s | RULED 2026-10-16 12:40 | applied to spec 2026-10-21 |
+| S3 | relay behind a cargo feature | RULED 2026-10-16 12:40 | applied to spec 2026-10-21 |
+| S4 | yaml-rust2 plus own converter | RULED 2026-10-16 12:45 | applied to spec 2026-10-21 (stack D-record) |
+| S5 | hex for every text form | RULED 2026-10-16 12:45 | applied to spec 2026-10-21 |
+| S6 | no presence encryption | RULED 2026-10-16 12:50 | applied to spec 2026-10-21 |
+| S7 | iroh-gossip pinned to 0.101.0 | RULED 2026-10-16 12:45 | applied to spec 2026-10-21 (stack D-record) |
+| S8 | direct protocol by hand; irpc rejected | RULED 2026-10-21 14:20 "Keep the decision" (v3 run) | applied to spec 2026-10-21 (stack D-record) |
+| S9 | sender checks gossip payload size | RULED 2026-10-21 14:24 "Keep the decision" | applied to spec 2026-10-21 |
+| S10 | one stream per request; 10 s server read timeout | RULED 2026-10-16 18:12 | applied to spec 2026-10-21 |
+| S11 | drop duplicate suppression | RULED 2026-10-16 18:12 | applied to spec 2026-10-21 |
+| S12 | per-member seq, max age 300 s, tombstone | RULED 2026-10-16 18:12; max age 2026-10-20 19:06 | applied to spec 2026-10-21 |
+| S13 | re-announce on relay status and address change | RULED 2026-10-16 18:09 | applied to spec 2026-10-21 |
+| S14 | node as identity, sidecar lock | RULED 2026-10-16 20:07 | applied to spec 2026-10-21 |
+| S15 | first Presence after topic joined | RULED 2026-10-16 20:07 | applied to spec 2026-10-21 |
+| S16 | keyed challenge in after_handshake, both ways | RULED 2026-10-16 20:07; 2026-10-20 19:06 | applied to spec 2026-10-21 |
+| S17 | stop: Departure, release lock, wait 5 s | RULED 2026-10-16 20:21 | applied to spec 2026-10-21 |
+| S18 | inbox ring of 1000; ack = delivered | RULED 2026-10-16 20:27 | applied to spec 2026-10-21 |
+| S19 | no transport-level retries | RULED 2026-10-16 20:27 | applied to spec 2026-10-21 |
+| S20 | address in every Presence and Introduce | RULED 2026-10-20 19:06 | applied to spec 2026-10-21 |
+| S21 | self-announcing infrastructure hosts | RULED 2026-10-20 19:10; measured E21 (macOS, Linux) | applied to spec 2026-10-21 |
+| S22 | agreement parameters G1-G4 | RULED 2026-10-20 19:32 | applied to spec 2026-10-21 |
+| S23 | MCP surface values G5 | RULED 2026-10-20 21:40 | applied to spec 2026-10-21 |
+| S24 | relay death: rejoin + remove_relay on the pin | RULED 2026-10-20 21:40; rejoin lever replaced by S26 | applied to spec 2026-10-21 |
+| S25 | stop on end of stdin, own reader | RULED 2026-10-20 21:40; measured macOS, Linux | applied to spec 2026-10-21 |
+| S26 | relay-death workaround, full fix | RULED 2026-10-21 12:30 "Full fix" | applied to spec 2026-10-21 |
+| S27 | server records accepted only from ids the owner's key certified (C19) | RULED 2026-10-21 12:34 "Guard it with your key" | applied to spec 2026-10-21 |
 
 ## Surface map (the original surface, by range)
 Marks: ■ settled by a run or a record · ▣ ruled by the owner · ◆ solid lead (a worker's claim later confirmed by our run or the orchestrator's check, or a sonnet source read whose project tests were run) · ◇ unconfirmed lead · ○ open · ▶ in flight. Update this map whenever a row changes.
